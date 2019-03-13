@@ -9,25 +9,22 @@ defmodule WiseHomex.ApiClientImpl do
 
   @behaviour WiseHomex.ApiClientBehaviour
 
-  # Dynamically get the http implementation to use on runtime.
-  defp client() do
-    Application.get_env(:wise_homex, :client, WiseHomex.HTTP)
-  end
+  alias WiseHomex.Request
 
   def ping(config, query) do
-    client().get(config, "/ping", query)
+    Request.get(config, "/ping", query)
   end
 
   def get_account_users(config, query) do
-    client().get(config, "/account-users", query)
+    Request.get(config, "/account-users", query)
   end
 
   def get_accounts(config, query \\ %{}) do
-    client().get(config, "/accounts", query)
+    Request.get(config, "/accounts", query)
   end
 
   def get_account(config, id, query \\ %{}) do
-    client().get(config, "/accounts/" <> id, query)
+    Request.get(config, "/accounts/" <> id, query)
   end
 
   def update_account(config, id, attrs) do
@@ -41,7 +38,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/accounts/" <> id, payload)
+    Request.patch(config, "/accounts/" <> id, payload)
   end
 
   def update_account_email_settings(config, account_id, id, attrs) do
@@ -55,7 +52,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
+    Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
   end
 
   def create_account_invitation(config, account_id, attrs) do
@@ -68,11 +65,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/accounts/" <> account_id <> "/invitations", payload)
+    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
   end
 
   def delete_account(config, id) do
-    client().delete(config, "/accounts/" <> id)
+    Request.delete(config, "/accounts/" <> id)
   end
 
   def create_account(config, attributes, rels) do
@@ -88,7 +85,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/accounts", params)
+    Request.post(config, "/accounts", params)
   end
 
   def get_gateways(config, query \\ %{}) do
@@ -96,11 +93,11 @@ defmodule WiseHomex.ApiClientImpl do
       %{"sort" => "-id"}
       |> Map.merge(query)
 
-    client().get(config, "/gateways", query)
+    Request.get(config, "/gateways", query)
   end
 
   def get_gateway(config, id, query \\ %{}) do
-    client().get(config, "/gateways/" <> id, query)
+    Request.get(config, "/gateways/" <> id, query)
   end
 
   def update_gateway(config, id, attrs, rels \\ %{}) do
@@ -115,7 +112,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/gateways/" <> id, payload)
+    Request.patch(config, "/gateways/" <> id, payload)
   end
 
   def unlock_gateway(config, id, seconds) do
@@ -130,7 +127,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/gateways/" <> id <> "/unlocks", payload)
+    Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
   end
 
   def lock_gateway(config, id) do
@@ -142,7 +139,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/gateways/" <> id <> "/locks", payload)
+    Request.post(config, "/gateways/" <> id <> "/locks", payload)
   end
 
   def restart_gateway(config, id) do
@@ -154,15 +151,15 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/gateways/" <> id <> "/restarts", payload)
+    Request.post(config, "/gateways/" <> id <> "/restarts", payload)
   end
 
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
-    client().get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
+    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
   end
 
   def refresh_wmbus_cache(config, gateway_id) do
-    client().post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
+    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
   end
 
   def get_devices(config, query \\ %{}) do
@@ -170,11 +167,11 @@ defmodule WiseHomex.ApiClientImpl do
       %{"sort" => "-id"}
       |> Map.merge(query)
 
-    client().get(config, "/devices", query)
+    Request.get(config, "/devices", query)
   end
 
   def get_device(config, id, query \\ %{}) do
-    client().get(config, "/devices/" <> id, query)
+    Request.get(config, "/devices/" <> id, query)
   end
 
   def update_device(config, id, attrs, rels) do
@@ -189,7 +186,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/devices/" <> id, params)
+    Request.patch(config, "/devices/" <> id, params)
   end
 
   def set_device_location(config, device_id, room_id) do
@@ -204,7 +201,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload()
 
-    client().post(config, "/devices/" <> device_id <> "/location", payload)
+    Request.post(config, "/devices/" <> device_id <> "/location", payload)
   end
 
   def add_device(config, gateway_id, protocol, serial) do
@@ -223,11 +220,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload()
 
-    client().post(config, "/devices", payload)
+    Request.post(config, "/devices", payload)
   end
 
   def delete_device(config, id) do
-    client().delete(config, "/devices/" <> id)
+    Request.delete(config, "/devices/" <> id)
   end
 
   def fast_ping_device(config, id) do
@@ -239,11 +236,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/devices/" <> id <> "/fast-pings", params)
+    Request.post(config, "/devices/" <> id <> "/fast-pings", params)
   end
 
   def get_device_reports(config, id) do
-    client().get(config, "/devices/" <> id <> "/reports")
+    Request.get(config, "/devices/" <> id <> "/reports")
   end
 
   def get_households(config, query \\ %{}) do
@@ -251,11 +248,11 @@ defmodule WiseHomex.ApiClientImpl do
       %{"sort" => "-id"}
       |> Map.merge(query)
 
-    client().get(config, "/households", query)
+    Request.get(config, "/households", query)
   end
 
   def get_household(config, id, query \\ %{}) do
-    client().get(config, "/households/" <> id, query)
+    Request.get(config, "/households/" <> id, query)
   end
 
   def create_household(config, attrs, rels) do
@@ -269,7 +266,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/households", params)
+    Request.post(config, "/households", params)
   end
 
   def update_household(config, id, attrs, rels) do
@@ -284,19 +281,19 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/households/" <> id, params)
+    Request.patch(config, "/households/" <> id, params)
   end
 
   def delete_household(config, id) do
-    client().delete(config, "/households/" <> id)
+    Request.delete(config, "/households/" <> id)
   end
 
   def authorize_device(config, device_id) do
-    client().post(config, "/devices/" <> device_id <> "/authorizations")
+    Request.post(config, "/devices/" <> device_id <> "/authorizations")
   end
 
   def deauthorize_device(config, device_id) do
-    client().delete(config, "/devices/" <> device_id <> "/authorizations")
+    Request.delete(config, "/devices/" <> device_id <> "/authorizations")
   end
 
   def get_users(config, filters \\ []) do
@@ -308,11 +305,11 @@ defmodule WiseHomex.ApiClientImpl do
       |> Enum.join("&")
 
     query = if query == "", do: query, else: "?#{query}"
-    client().get(config, "/users#{query}")
+    Request.get(config, "/users#{query}")
   end
 
   def get_firmwares(config) do
-    client().get(config, "/firmwares", %{"page[size]" => 500})
+    Request.get(config, "/firmwares", %{"page[size]" => 500})
   end
 
   def create_firmware(config, file_content) do
@@ -325,11 +322,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
     }
 
-    client().post(config, "/firmwares", payload)
+    Request.post(config, "/firmwares", payload)
   end
 
   def delete_firmware(config, id) do
-    client().delete(config, "/firmwares/" <> id)
+    Request.delete(config, "/firmwares/" <> id)
   end
 
   def create_latest_report(config, device_id, query \\ %{}) do
@@ -342,15 +339,15 @@ defmodule WiseHomex.ApiClientImpl do
       }
     }
 
-    client().post(config, "/reports/latest", query, payload)
+    Request.post(config, "/reports/latest", query, payload)
   end
 
   def get_rooms(config, query) do
-    client().get(config, "/rooms", query)
+    Request.get(config, "/rooms", query)
   end
 
   def get_room(config, id, query \\ %{}) do
-    client().get(config, "/rooms/" <> id, query)
+    Request.get(config, "/rooms/" <> id, query)
   end
 
   def create_room(config, attrs, rels) do
@@ -362,7 +359,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
     }
 
-    client().post(config, "/rooms", params)
+    Request.post(config, "/rooms", params)
   end
 
   def update_room(config, id, attrs, rels) do
@@ -377,19 +374,19 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/rooms/" <> id, payload)
+    Request.patch(config, "/rooms/" <> id, payload)
   end
 
   def delete_room(config, id) do
-    client().delete(config, "/rooms/" <> id)
+    Request.delete(config, "/rooms/" <> id)
   end
 
   def get_properties(config, query \\ %{}) do
-    client().get(config, "/properties", query)
+    Request.get(config, "/properties", query)
   end
 
   def get_property(config, id, query \\ %{}) do
-    client().get(config, "/properties/" <> id, query)
+    Request.get(config, "/properties/" <> id, query)
   end
 
   def create_property(config, attrs, rels) do
@@ -403,7 +400,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/properties", params)
+    Request.post(config, "/properties", params)
   end
 
   def update_property(config, id, attrs, rels) do
@@ -418,15 +415,15 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/properties/" <> id, params)
+    Request.patch(config, "/properties/" <> id, params)
   end
 
   def delete_property(config, id) do
-    client().delete(config, "/properties/" <> id)
+    Request.delete(config, "/properties/" <> id)
   end
 
   def get_address(config, id, query \\ %{}) do
-    client().get(config, "/addresses/" <> id, query)
+    Request.get(config, "/addresses/" <> id, query)
   end
 
   def create_address(config, attrs, rels) do
@@ -440,11 +437,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/addresses", params)
+    Request.post(config, "/addresses", params)
   end
 
   def get_tenancy(config, id, query \\ %{}) do
-    client().get(config, "/tenancies/" <> id, query)
+    Request.get(config, "/tenancies/" <> id, query)
   end
 
   def create_tenancy(config, attrs, rels) do
@@ -458,7 +455,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/tenancies", params)
+    Request.post(config, "/tenancies", params)
   end
 
   def update_tenancy(config, id, attrs) do
@@ -472,21 +469,21 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/tenancies/" <> id, payload)
+    Request.patch(config, "/tenancies/" <> id, payload)
   end
 
   def delete_tenancy(config, id) do
-    client().delete(config, "/tenancies/" <> id)
+    Request.delete(config, "/tenancies/" <> id)
   end
 
   def get_sims(config, query \\ %{}) do
     default_query = %{"page[size]" => 500}
     query = Map.merge(default_query, query)
-    client().get(config, "/sims", query)
+    Request.get(config, "/sims", query)
   end
 
   def get_sim(config, id, query \\ %{}) do
-    client().get(config, "/sims/" <> id, query)
+    Request.get(config, "/sims/" <> id, query)
   end
 
   def create_sim(config, attrs) do
@@ -499,7 +496,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/sims", payload)
+    Request.post(config, "/sims", payload)
   end
 
   def update_sim(config, id, attrs) do
@@ -513,11 +510,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().patch(config, "/sims/" <> id, payload)
+    Request.patch(config, "/sims/" <> id, payload)
   end
 
   def delete_sim(config, id) do
-    client().delete(config, "/sims/" <> id)
+    Request.delete(config, "/sims/" <> id)
   end
 
   def upload_kem(config, file_base64: file_base64, key: key) do
@@ -536,7 +533,7 @@ defmodule WiseHomex.ApiClientImpl do
     # Use a longer timeout for the request since it may take a long time
     config
     |> Map.update!(:timeout, fn _ -> 60_000 end)
-    |> client().post("/kamstrup/kems", payload)
+    |> Request.post("/kamstrup/kems", payload)
   end
 
   def upload_bmeters_keys(config, file_base64: file_base64) do
@@ -551,7 +548,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    client().post(config, "/bmeters/keys", payload)
+    Request.post(config, "/bmeters/keys", payload)
   end
 
   defp normalize_payload(%{} = payload) do

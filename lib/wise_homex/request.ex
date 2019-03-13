@@ -1,6 +1,6 @@
-defmodule WiseHomex.HTTP do
+defmodule WiseHomex.Request do
   @moduledoc """
-  An HTTP implementation of the Wise Home API client.
+  Helper to make requests from the ApiClient including settings headers and generating paths.
   """
 
   alias WiseHomex.Config
