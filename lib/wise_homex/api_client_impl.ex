@@ -1,4 +1,4 @@
-defmodule WiseHomex.ApiClient do
+defmodule WiseHomex.ApiClientImpl do
   @moduledoc """
   The Wise Home Api Client.
 
@@ -6,23 +6,6 @@ defmodule WiseHomex.ApiClient do
   to WiseHomex.Http. Any implementation must implement WiseHomex.ApiClient.Behaviour.
   An alternative is WiseHomex.Test.Mock which can be used to test the client.
   """
-
-  alias WiseHomex.Config
-
-  @type response ::
-          WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :closed
-
-  defmodule Behaviour do
-    @moduledoc """
-    Defines the Behaviour for any implementation that is used for
-    this ApiClient module.
-    """
-
-    @callback get(Config.t(), String.t(), any) :: any
-    @callback post(Config.t(), String.t(), any) :: any
-    @callback patch(Config.t(), String.t(), any) :: any
-    @callback delete(Config.t(), String.t()) :: any
-  end
 
   # Dynamically get the http implementation to use on runtime.
   defp client() do

@@ -3,8 +3,6 @@ defmodule WiseHomex.HTTP do
   An HTTP implementation of the Wise Home API client.
   """
 
-  @behaviour WiseHomex.ApiClient.Behaviour
-
   alias WiseHomex.Config
   alias WiseHomex.ResponseParser
 
