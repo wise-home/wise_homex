@@ -7,6 +7,8 @@ defmodule WiseHomex.ApiClientImpl do
   An alternative is WiseHomex.Test.Mock which can be used to test the client.
   """
 
+  @behaviour WiseHomex.ApiClientBehaviour
+
   # Dynamically get the http implementation to use on runtime.
   defp client() do
     Application.get_env(:wise_homex, :client, WiseHomex.HTTP)

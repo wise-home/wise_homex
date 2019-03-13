@@ -74,6 +74,8 @@ defmodule WiseHomex do
   ```
   """
 
+  @behaviour WiseHomex.ApiClientBehaviour
+
   @doc """
   Get a new configuration for the API Client
   """
