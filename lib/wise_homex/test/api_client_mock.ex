@@ -88,14 +88,14 @@ defmodule WiseHomex.Test.ApiClientMock do
 
     {value, state} =
       get_and_update_in(state, [:mocks, key], fn
-        nil -> {nil, nil}
-        [] -> {nil, nil}
+        nil -> {:no_mock_set, nil}
+        [] -> {:no_mock_set, nil}
         [value | rest] -> {value, rest}
       end)
 
     return_value =
       case value do
-        nil -> {:error, "No mock set on #{api_function} with options #{inspect(opts)}"}
+        :no_mock_set -> {:error, "No mock set on #{api_function} with options #{inspect(opts)}"}
         value -> value
       end
 
@@ -125,8 +125,8 @@ defmodule WiseHomex.Test.ApiClientMock do
   def handle_call({:called?, api_function}, _from, state) do
     {opts, state} =
       get_and_update_in(state, [:calls, api_function], fn
-        nil -> {nil, nil}
-        [] -> {nil, nil}
+        nil -> {false, nil}
+        [] -> {false, nil}
         [opts | rest] -> {opts, rest}
       end)
 
