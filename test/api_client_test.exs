@@ -1,10 +1,10 @@
 defmodule WiseHomex.ApiClientTest do
   use ExUnit.Case, async: true
 
-  alias WiseHomex.Test.Mock
+  alias WiseHomex.Test.ApiClientMock
 
   setup do
-    Mock.start_link()
+    ApiClientMock.start_link()
 
     :ok
   end
@@ -14,7 +14,7 @@ defmodule WiseHomex.ApiClientTest do
       config = WiseHomex.new_config(:api_key, "somekey")
       config |> WiseHomex.ping(%{"include" => "user,account"})
 
-      assert Mock.called?(:get, "/ping") == %{"include" => "user,account"}
+      assert ApiClientMock.called?(:ping) == %{query: %{"include" => "user,account"}}
     end
   end
 
@@ -23,9 +23,12 @@ defmodule WiseHomex.ApiClientTest do
       config = WiseHomex.new_config(:api_key, "somekey")
       config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
 
-      assert Mock.called?(:get, "/account-users") == %{
-               "filter[role]" => "tenant",
-               "include" => "user"
+      assert ApiClientMock.called?(:get_account_users) == %{
+               query: %{"filter[role]" => "tenant", "include" => "user"}
+             }
+
+      assert ApiClientMock.called?(:get_account_users) == %{
+               query: %{"filter[role]" => "tenant", "include" => "user"}
              }
     end
   end

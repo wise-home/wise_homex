@@ -39,9 +39,21 @@ defmodule WiseHomex.Test.ApiClientMock do
     GenServer.call(@name, {:called?, api_function})
   end
 
+  def get_account_users(_config, query) do
+    call_and_get_mock_value(:get_account_users, %{query: query})
+  end
+
   def get_gateways(_config, query) do
-    GenServer.call(@name, {:called!, :get_gateways, %{query: query}})
-    GenServer.call(@name, {:pop_mock_value, :get_gateways, %{query: query}})
+    call_and_get_mock_value(:get_gateways, %{query: query})
+  end
+
+  def ping(_config, query) do
+    call_and_get_mock_value(:ping, %{query: query})
+  end
+
+  def call_and_get_mock_value(api_function, opts) do
+    GenServer.call(@name, {:called!, api_function, opts})
+    GenServer.call(@name, {:pop_mock_value, api_function, opts})
   end
 
   @doc """
