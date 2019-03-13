@@ -74,7 +74,8 @@ defmodule WiseHomex.Test.ApiClientMock do
   Push a new mock value to the stack of calls
 
   - api_function is the key of the function called, e.g. :get_gateways
-  - opts is a map with the request attributes, which can include :body, :query, :id
+  - opts is a map with the request attributes, which can include :id, :query, :attrs and :rels,
+    but also attributes specific to the api functions, e.g. :gateway_id.
   - value is the value to be returned from the mock
 
   Note that the calls map will be populated with keys that are tuples of an atom and a map.
