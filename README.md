@@ -2,6 +2,11 @@
 
 **This api client is currently under development, and is currently only for internal use in [Wise Home](https://wisehome.dk).**
 
+Jump to:
+
+- [Usage](#usage)
+- [Testing](#testing)
+
 
 ## Usage:
 
