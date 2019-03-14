@@ -1,6 +1,6 @@
 # Wise Home API Client for Elixir
 
-### This api client is currently under development, and is currently **only for internal use in [Wise Home](https://wisehome.dk)**
+**This api client is currently under development, and is currently only for internal use in [Wise Home](https://wisehome.dk).**
 
 
 ## Usage:
