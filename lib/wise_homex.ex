@@ -124,7 +124,7 @@ defmodule WiseHomex do
   config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
   ```
   """
-  def get_account_users(config, query), do: api_client().get_account_users(config, query)
+  def get_account_users(config, query \\ %{}), do: api_client().get_account_users(config, query)
 
   @doc """
   Create an address
