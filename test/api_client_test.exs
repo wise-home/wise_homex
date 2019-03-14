@@ -11,10 +11,10 @@ defmodule WiseHomex.ApiClientTest do
 
   describe "ping" do
     test "it calls ping with the expected includes" do
-      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, %WiseHomex.Device{}})
+      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, 1234})
 
       config = WiseHomex.new_config(:api_key, "somekey")
-      {:ok, _response} = config |> WiseHomex.ping(%{"include" => "user,account"})
+      {:ok, 1234} = config |> WiseHomex.ping(%{"include" => "user,account"})
       assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
     end
   end
