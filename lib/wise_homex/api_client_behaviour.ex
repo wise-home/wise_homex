@@ -8,7 +8,7 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   @type response :: WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :closed
 
-  @type id :: binary
+  @type id :: String.t()
   @type query :: map
   @type attributes :: map
   @type relationships :: map
@@ -22,7 +22,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback create_address(Config.t(), attributes, relationships) :: response
   @callback get_address(Config.t(), id, query) :: response
   @callback upload_bmeters_keys(Config.t(), list) :: response
-  @callback add_device(Config.t(), id, binary, binary) :: response
+  @callback add_device(Config.t(), id, String.t(), String.t()) :: response
   @callback authorize_device(Config.t(), id) :: response
   @callback deauthorize_device(Config.t(), id) :: response
   @callback delete_device(Config.t(), id) :: response
@@ -32,7 +32,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback set_device_location(Config.t(), id, id) :: response
   @callback update_device(Config.t(), id, attributes, relationships) :: response
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
-  @callback create_firmware(Config.t(), binary) :: response
+  @callback create_firmware(Config.t(), String.t()) :: response
   @callback delete_firmware(Config.t(), id) :: response
   @callback get_firmwares(Config.t()) :: response
   @callback get_gateway(Config.t(), id, query) :: response
