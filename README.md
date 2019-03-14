@@ -73,3 +73,36 @@ If unsuccessful, the response will be one of
 :connect_timeout
 :closed
 ```
+
+
+## Testing
+
+The WiseHomex Api Client can be mocked during tests. By default the client uses the http implementation, but it can be overridden by setting in your `config/test.exs` file:
+
+```
+# Use the WiseHomex ApiMock
+config :wise_homex, :api_client_impl, WiseHomex.Test.ApiClientMock
+```
+
+This will make all api calls reach the WiseHomex mock instead. Since the mock is a genserver, it needs to be started before all tests, and the tests cannot be async at this time.
+
+A sample test:
+
+```elixir
+defmodule MyModule.SampleTest do
+  use ExUnit.Case
+
+  alias WiseHomex.Test.ApiClientMockServer, as: MockServer
+
+  describe "ping" do
+    test "it calls ping with the expected includes" do
+      MockServer.start_link()
+      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, :put_mock_response_here})
+
+      config = WiseHomex.new_config(:api_key, "test")
+      {:ok, _response} = config |> WiseHomex.ping(%{"include" => "user,account"})
+      assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
+    end
+  end
+end
+```
