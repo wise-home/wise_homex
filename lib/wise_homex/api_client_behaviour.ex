@@ -6,8 +6,7 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   alias WiseHomex.Config
 
-  @type response ::
-          WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :closed
+  @type response :: WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :closed
 
   @type id :: binary
   @type query :: map

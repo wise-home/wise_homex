@@ -29,8 +29,7 @@ defmodule WiseHomex.ApiClientTest do
 
       config = WiseHomex.new_config(:api_key, "somekey")
 
-      {:ok, _account_users} =
-        config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
+      {:ok, _account_users} = config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
 
       assert MockServer.called?(:get_account_users) == %{
                query: %{"filter[role]" => "tenant", "include" => "user"}

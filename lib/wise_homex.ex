@@ -181,14 +181,12 @@ defmodule WiseHomex do
   @doc """
   Set device location
   """
-  def set_device_location(config, device_id, room_id),
-    do: api_client().set_device_location(config, device_id, room_id)
+  def set_device_location(config, device_id, room_id), do: api_client().set_device_location(config, device_id, room_id)
 
   @doc """
   Update a device
   """
-  def update_device(config, id, attrs, rels),
-    do: api_client().update_device(config, id, attrs, rels)
+  def update_device(config, id, attrs, rels), do: api_client().update_device(config, id, attrs, rels)
 
   @doc """
   Update EmailSettings for a device
@@ -199,8 +197,7 @@ defmodule WiseHomex do
   @doc """
   Create firmware
   """
-  def create_firmware(config, file_content),
-    do: api_client().create_firmware(config, file_content)
+  def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
 
   @doc """
   Delete firmware
@@ -240,14 +237,12 @@ defmodule WiseHomex do
   @doc """
   Update a gateway
   """
-  def update_gateway(config, id, attrs, rels \\ %{}),
-    do: api_client().update_gateway(config, id, attrs, rels)
+  def update_gateway(config, id, attrs, rels \\ %{}), do: api_client().update_gateway(config, id, attrs, rels)
 
   @doc """
   Create a household
   """
-  def create_household(config, attrs, rels),
-    do: api_client().create_household(config, attrs, rels)
+  def create_household(config, attrs, rels), do: api_client().create_household(config, attrs, rels)
 
   @doc """
   Delete a household
@@ -267,8 +262,7 @@ defmodule WiseHomex do
   @doc """
   Update a household
   """
-  def update_household(config, id, attrs, rels),
-    do: api_client().update_household(config, id, attrs, rels)
+  def update_household(config, id, attrs, rels), do: api_client().update_household(config, id, attrs, rels)
 
   @doc """
   Create an account invitation
@@ -317,8 +311,7 @@ defmodule WiseHomex do
   @doc """
   Update a property
   """
-  def update_property(config, id, attrs, rels),
-    do: api_client().update_property(config, id, attrs, rels)
+  def update_property(config, id, attrs, rels), do: api_client().update_property(config, id, attrs, rels)
 
   @doc """
   Get reports for a device
@@ -409,12 +402,10 @@ defmodule WiseHomex do
   @doc """
   Get wmbus cache
   """
-  def get_wmbus_cache(config, gateway_id, query \\ %{}),
-    do: api_client().get_wmbus_cache(config, gateway_id, query)
+  def get_wmbus_cache(config, gateway_id, query \\ %{}), do: api_client().get_wmbus_cache(config, gateway_id, query)
 
   @doc """
   Refresh wmbus cache
   """
-  def refresh_wmbus_cache(config, gateway_id),
-    do: api_client().refresh_wmbus_cache(config, gateway_id)
+  def refresh_wmbus_cache(config, gateway_id), do: api_client().refresh_wmbus_cache(config, gateway_id)
 end
