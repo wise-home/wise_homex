@@ -1,3 +1,3 @@
 use Mix.Config
 
-config :wise_homex, :client, WiseHomex.Test.Mock
+config :wise_homex, :api_client_impl, WiseHomex.Test.ApiClientMock

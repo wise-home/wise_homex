@@ -1,31 +1,38 @@
 defmodule WiseHomex.ApiClientTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case
 
-  alias WiseHomex.Test.Mock
+  alias WiseHomex.Test.ApiClientMockServer, as: MockServer
 
   setup do
-    Mock.start_link()
+    MockServer.start_link()
 
     :ok
   end
 
   describe "ping" do
     test "it calls ping with the expected includes" do
-      config = WiseHomex.new_config(:api_key, "somekey")
-      config |> WiseHomex.ping(%{"include" => "user,account"})
+      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, 1234})
 
-      assert Mock.called?(:get, "/ping") == %{"include" => "user,account"}
+      config = WiseHomex.new_config(:api_key, "somekey")
+      {:ok, 1234} = config |> WiseHomex.ping(%{"include" => "user,account"})
+      assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
     end
   end
 
   describe "get_account_users" do
     test "it calls get_account_users with the expected includes and filters" do
-      config = WiseHomex.new_config(:api_key, "somekey")
-      config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
+      MockServer.set(
+        :get_account_users,
+        %{query: %{"include" => "user", "filter[role]" => "tenant"}},
+        {:ok, %WiseHomex.Device{}}
+      )
 
-      assert Mock.called?(:get, "/account-users") == %{
-               "filter[role]" => "tenant",
-               "include" => "user"
+      config = WiseHomex.new_config(:api_key, "somekey")
+
+      {:ok, _account_users} = config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
+
+      assert MockServer.called?(:get_account_users) == %{
+               query: %{"filter[role]" => "tenant", "include" => "user"}
              }
     end
   end

@@ -74,35 +74,43 @@ defmodule WiseHomex do
   ```
   """
 
+  @behaviour WiseHomex.ApiClientBehaviour
+
   @doc """
   Get a new configuration for the API Client
   """
   defdelegate new_config(auth_type, credentials, opts \\ []), to: WiseHomex.Config
 
+  # Get the ApiClient implementation to use
+  defp api_client() do
+    Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
+  end
+
   @doc """
   Create an account
   """
-  defdelegate create_account(config, attributes, rels), to: WiseHomex.ApiClient
+  def create_account(config, attributes, rels),
+    do: api_client().create_account(config, attributes, rels)
 
   @doc """
   Delete an account
   """
-  defdelegate delete_account(config, id), to: WiseHomex.ApiClient
+  def delete_account(config, id), do: api_client().delete_account(config, id)
 
   @doc """
   Get an account
   """
-  defdelegate get_account(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_account(config, id, query \\ %{}), do: api_client().get_account(config, id, query)
 
   @doc """
   Get multiple accounts
   """
-  defdelegate get_accounts(config, query \\ %{}), to: WiseHomex.ApiClient
+  def get_accounts(config, query \\ %{}), do: api_client().get_accounts(config, query)
 
   @doc """
   Update an account
   """
-  defdelegate update_account(config, id, attrs), to: WiseHomex.ApiClient
+  def update_account(config, id, attrs), do: api_client().update_account(config, id, attrs)
 
   @doc """
   Gets the account users for the current user.
@@ -116,153 +124,156 @@ defmodule WiseHomex do
   config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
   ```
   """
-  defdelegate get_account_users(config, query), to: WiseHomex.ApiClient
+  def get_account_users(config, query \\ %{}), do: api_client().get_account_users(config, query)
 
   @doc """
   Create an address
   """
-  defdelegate create_address(config, attrs, rels), to: WiseHomex.ApiClient
+  def create_address(config, attrs, rels), do: api_client().create_address(config, attrs, rels)
 
   @doc """
   Get an address
   """
-  defdelegate get_address(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_address(config, id, query \\ %{}), do: api_client().get_address(config, id, query)
 
   @doc """
   Upload a bmeters key file
   """
-  defdelegate upload_bmeters_keys(config, opts), to: WiseHomex.ApiClient
+  def upload_bmeters_keys(config, opts), do: api_client().upload_bmeters_keys(config, opts)
 
   @doc """
   Add a device
   """
-  defdelegate add_device(config, gateway_id, protocol, serial), to: WiseHomex.ApiClient
+  def add_device(config, gateway_id, protocol, serial),
+    do: api_client().add_device(config, gateway_id, protocol, serial)
 
   @doc """
   Authorize a device
   """
-  defdelegate authorize_device(config, device_id), to: WiseHomex.ApiClient
+  def authorize_device(config, device_id), do: api_client().authorize_device(config, device_id)
 
   @doc """
   Deauthorize a device
   """
-  defdelegate deauthorize_device(config, device_id), to: WiseHomex.ApiClient
+  def deauthorize_device(config, device_id),
+    do: api_client().deauthorize_device(config, device_id)
 
   @doc """
   Delete a device
   """
-  defdelegate delete_device(config, id), to: WiseHomex.ApiClient
+  def delete_device(config, id), do: api_client().delete_device(config, id)
 
   @doc """
   Fast ping a device
   """
-  defdelegate fast_ping_device(config, id), to: WiseHomex.ApiClient
+  def fast_ping_device(config, id), do: api_client().fast_ping_device(config, id)
 
   @doc """
   Get a device
   """
-  defdelegate get_device(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_device(config, id, query \\ %{}), do: api_client().get_device(config, id, query)
 
   @doc """
   Get multiple devices
   """
-  defdelegate get_devices(config, query \\ %{}), to: WiseHomex.ApiClient
+  def get_devices(config, query \\ %{}), do: api_client().get_devices(config, query)
 
   @doc """
   Set device location
   """
-  defdelegate set_device_location(config, device_id, room_id), to: WiseHomex.ApiClient
+  def set_device_location(config, device_id, room_id), do: api_client().set_device_location(config, device_id, room_id)
 
   @doc """
   Update a device
   """
-  defdelegate update_device(config, id, attrs, rels), to: WiseHomex.ApiClient
+  def update_device(config, id, attrs, rels), do: api_client().update_device(config, id, attrs, rels)
 
   @doc """
   Update EmailSettings for a device
   """
-  defdelegate update_account_email_settings(config, account_id, id, attrs),
-    to: WiseHomex.ApiClient
+  def update_account_email_settings(config, account_id, id, attrs),
+    do: api_client().update_account_email_settings(config, account_id, id, attrs)
 
   @doc """
   Create firmware
   """
-  defdelegate create_firmware(config, file_content), to: WiseHomex.ApiClient
+  def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
 
   @doc """
   Delete firmware
   """
-  defdelegate delete_firmware(config, id), to: WiseHomex.ApiClient
+  def delete_firmware(config, id), do: api_client().delete_firmware(config, id)
 
   @doc """
   Get firmwares
   """
-  defdelegate get_firmwares(config), to: WiseHomex.ApiClient
+  def get_firmwares(config), do: api_client().get_firmwares(config)
 
   @doc """
   Get a gateway
   """
-  defdelegate get_gateway(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_gateway(config, id, query \\ %{}), do: api_client().get_gateway(config, id, query)
 
   @doc """
   Get multiple gateways
   """
-  defdelegate get_gateways(config, query \\ %{}), to: WiseHomex.ApiClient
+  def get_gateways(config, query \\ %{}), do: api_client().get_gateways(config, query)
 
   @doc """
   Lock a gateway
   """
-  defdelegate lock_gateway(config, id), to: WiseHomex.ApiClient
+  def lock_gateway(config, id), do: api_client().lock_gateway(config, id)
 
   @doc """
   Restart a gateway
   """
-  defdelegate restart_gateway(config, id), to: WiseHomex.ApiClient
+  def restart_gateway(config, id), do: api_client().restart_gateway(config, id)
 
   @doc """
   Unlock a gateway
   """
-  defdelegate unlock_gateway(config, id, seconds), to: WiseHomex.ApiClient
+  def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
 
   @doc """
   Update a gateway
   """
-  defdelegate update_gateway(config, id, attrs, rels \\ %{}), to: WiseHomex.ApiClient
+  def update_gateway(config, id, attrs, rels \\ %{}), do: api_client().update_gateway(config, id, attrs, rels)
 
   @doc """
   Create a household
   """
-  defdelegate create_household(config, attrs, rels), to: WiseHomex.ApiClient
+  def create_household(config, attrs, rels), do: api_client().create_household(config, attrs, rels)
 
   @doc """
   Delete a household
   """
-  defdelegate delete_household(config, id), to: WiseHomex.ApiClient
+  def delete_household(config, id), do: api_client().delete_household(config, id)
 
   @doc """
   Get a household
   """
-  defdelegate get_household(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_household(config, id, query \\ %{}), do: api_client().get_household(config, id, query)
 
   @doc """
   Get multiple households
   """
-  defdelegate get_households(config, query \\ %{}), to: WiseHomex.ApiClient
+  def get_households(config, query \\ %{}), do: api_client().get_households(config, query)
 
   @doc """
   Update a household
   """
-  defdelegate update_household(config, id, attrs, rels), to: WiseHomex.ApiClient
+  def update_household(config, id, attrs, rels), do: api_client().update_household(config, id, attrs, rels)
 
   @doc """
   Create an account invitation
   """
-  defdelegate create_account_invitation(config, account_id, attrs), to: WiseHomex.ApiClient
+  def create_account_invitation(config, account_id, attrs),
+    do: api_client().create_account_invitation(config, account_id, attrs)
 
   @doc """
   Upload a KEM file
   """
-  defdelegate upload_kem(config, opts), to: WiseHomex.ApiClient
+  def upload_kem(config, opts), do: api_client().upload_kem(config, opts)
 
   @doc """
   Ping the Wise Home API to check availability and get authentication status.
@@ -275,125 +286,126 @@ defmodule WiseHomex do
   config |> WiseHomex.ping(%{"include" => "user,accont"})
   ```
   """
-  defdelegate ping(config, query), to: WiseHomex.ApiClient
+  def ping(config, query), do: api_client().ping(config, query)
 
   @doc """
   Create a property
   """
-  defdelegate create_property(config, attrs, rels), to: WiseHomex.ApiClient
+  def create_property(config, attrs, rels), do: api_client().create_property(config, attrs, rels)
 
   @doc """
   Delete a property
   """
-  defdelegate delete_property(config, id), to: WiseHomex.ApiClient
+  def delete_property(config, id), do: api_client().delete_property(config, id)
 
   @doc """
   Get multiple properties
   """
-  defdelegate get_properties(config, query \\ %{}), to: WiseHomex.ApiClient
+  def get_properties(config, query \\ %{}), do: api_client().get_properties(config, query)
 
   @doc """
   Get a property
   """
-  defdelegate get_property(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_property(config, id, query \\ %{}), do: api_client().get_property(config, id, query)
 
   @doc """
   Update a property
   """
-  defdelegate update_property(config, id, attrs, rels), to: WiseHomex.ApiClient
+  def update_property(config, id, attrs, rels), do: api_client().update_property(config, id, attrs, rels)
 
   @doc """
   Get reports for a device
   """
-  defdelegate get_device_reports(config, id), to: WiseHomex.ApiClient
+  def get_device_reports(config, id), do: api_client().get_device_reports(config, id)
 
   @doc """
   Create latest report for a device
   """
-  defdelegate create_latest_report(config, device_id, query \\ %{}), to: WiseHomex.ApiClient
+  def create_latest_report(config, device_id, query \\ %{}),
+    do: api_client().create_latest_report(config, device_id, query)
 
   @doc """
   Create a room
   """
-  defdelegate create_room(config, attrs, rels), to: WiseHomex.ApiClient
+  def create_room(config, attrs, rels), do: api_client().create_room(config, attrs, rels)
 
   @doc """
   Delete a room
   """
-  defdelegate delete_room(config, id), to: WiseHomex.ApiClient
+  def delete_room(config, id), do: api_client().delete_room(config, id)
 
   @doc """
   Get a room
   """
-  defdelegate get_room(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_room(config, id, query \\ %{}), do: api_client().get_room(config, id, query)
 
   @doc """
   Get multiple rooms
   """
-  defdelegate get_rooms(config, query), to: WiseHomex.ApiClient
+  def get_rooms(config, query), do: api_client().get_rooms(config, query)
 
   @doc """
   Update a room
   """
-  defdelegate update_room(config, id, attrs, rels), to: WiseHomex.ApiClient
+  def update_room(config, id, attrs, rels), do: api_client().update_room(config, id, attrs, rels)
 
   @doc """
   Create a tenancy
   """
-  defdelegate create_tenancy(config, attrs, rels), to: WiseHomex.ApiClient
+  def create_tenancy(config, attrs, rels), do: api_client().create_tenancy(config, attrs, rels)
 
   @doc """
   Delete a tenancy
   """
-  defdelegate delete_tenancy(config, id), to: WiseHomex.ApiClient
+  def delete_tenancy(config, id), do: api_client().delete_tenancy(config, id)
 
   @doc """
   Get a tenancy
   """
-  defdelegate get_tenancy(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_tenancy(config, id, query \\ %{}), do: api_client().get_tenancy(config, id, query)
 
   @doc """
   Update a tenancy
   """
-  defdelegate update_tenancy(config, id, attrs), to: WiseHomex.ApiClient
+  def update_tenancy(config, id, attrs), do: api_client().update_tenancy(config, id, attrs)
 
   @doc """
   Create a sim card
   """
-  defdelegate create_sim(config, attrs), to: WiseHomex.ApiClient
+  def create_sim(config, attrs), do: api_client().create_sim(config, attrs)
 
   @doc """
   Delete a sim card
   """
-  defdelegate delete_sim(config, id), to: WiseHomex.ApiClient
+  def delete_sim(config, id), do: api_client().delete_sim(config, id)
 
   @doc """
   Get a sim card
   """
-  defdelegate get_sim(config, id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_sim(config, id, query \\ %{}), do: api_client().get_sim(config, id, query)
 
   @doc """
   Get multiple sim cards
   """
-  defdelegate get_sims(config, query \\ %{}), to: WiseHomex.ApiClient
+  def get_sims(config, query \\ %{}), do: api_client().get_sims(config, query)
 
   @doc """
   Update a sim card
   """
-  defdelegate update_sim(config, id, attrs), to: WiseHomex.ApiClient
+  def update_sim(config, id, attrs), do: api_client().update_sim(config, id, attrs)
 
   @doc """
   Get multiple users
   """
-  defdelegate get_users(config, filters \\ []), to: WiseHomex.ApiClient
+  def get_users(config, filters \\ []), do: api_client().get_users(config, filters)
 
   @doc """
   Get wmbus cache
   """
-  defdelegate get_wmbus_cache(config, gateway_id, query \\ %{}), to: WiseHomex.ApiClient
+  def get_wmbus_cache(config, gateway_id, query \\ %{}), do: api_client().get_wmbus_cache(config, gateway_id, query)
 
   @doc """
   Refresh wmbus cache
   """
-  defdelegate refresh_wmbus_cache(config, gateway_id), to: WiseHomex.ApiClient
+  def refresh_wmbus_cache(config, gateway_id), do: api_client().refresh_wmbus_cache(config, gateway_id)
 end
