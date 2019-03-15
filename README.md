@@ -10,6 +10,19 @@ Jump to:
 
 ## Usage:
 
+### Adding the dependency
+
+Since the package is only available on GitHub at the moment, it can be added to `mix.exs` using:
+
+```elixir
+def deps do
+  [
+    # Add WiseHomex from GitHub
+    {:wise_homex, git: "https://github.com/wise-home/wise_homex.git", tag: "0.6.1"}
+  ]
+end
+```
+
 ### Getting a configuration
 
 First, get a configuration struct by invoking `new_config/2` or `new_config/3` with either `:api_key`, `:plain` or `:auth_header` as first argument.
