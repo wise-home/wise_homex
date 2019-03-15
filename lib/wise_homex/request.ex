@@ -76,6 +76,7 @@ defmodule WiseHomex.Request do
     |> add_authorization_header(authorization_header)
   end
 
+  # Conditionally add the authorization header to a map of headers
   defp add_authorization_header(headers, nil), do: headers
   defp add_authorization_header(headers, auth_header), do: headers |> Map.put(:authorization, auth_header)
 
