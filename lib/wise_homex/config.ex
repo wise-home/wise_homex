@@ -20,7 +20,7 @@ defmodule WiseHomex.Config do
   @doc """
   Helper for making an anonymous config.
 
-  iex> new_anonymous_config()
+  iex> anonymous_config()
   %WiseHomex.Config{
               api_version: "v6",
               authorization_header: nil,
