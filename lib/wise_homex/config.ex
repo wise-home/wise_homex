@@ -18,6 +18,21 @@ defmodule WiseHomex.Config do
             base_url: "https://api.wisehome.dk"
 
   @doc """
+  Helper for making an anonymous config.
+
+  iex> anonymous_config()
+  %WiseHomex.Config{
+              api_version: "v6",
+              authorization_header: nil,
+              base_url: "https://api.wisehome.dk",
+              timeout: 5000
+            }
+  """
+  def anonymous_config(opts \\ []) do
+    new_config(:auth_header, nil, opts)
+  end
+
+  @doc """
   Return a WiseHomex.Config from an authentication method.
 
   :plain uses authentication with email and password
@@ -69,7 +84,7 @@ defmodule WiseHomex.Config do
     new_config(:auth_header, auth_header, opts)
   end
 
-  def new_config(:auth_header, auth_header, opts) when is_binary(auth_header) do
+  def new_config(:auth_header, auth_header, opts) when is_binary(auth_header) or is_nil(auth_header) do
     default_configuration = %__MODULE__{authorization_header: auth_header}
 
     opts

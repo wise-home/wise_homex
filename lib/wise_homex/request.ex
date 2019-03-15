@@ -72,11 +72,13 @@ defmodule WiseHomex.Request do
 
   # Build HTTP request headers from an ApiClient.Config
   defp build_headers(%Config{authorization_header: authorization_header}) do
-    %{
-      "authorization" => authorization_header,
-      "content-type" => "application/vnd.api+json"
-    }
+    %{"content-type" => "application/vnd.api+json"}
+    |> add_authorization_header(authorization_header)
   end
+
+  # Conditionally add the authorization header to a map of headers
+  defp add_authorization_header(headers, nil), do: headers
+  defp add_authorization_header(headers, auth_header), do: headers |> Map.put(:authorization, auth_header)
 
   # Build options for HTTPoison from an ApiClient.Config
   defp build_options(%Config{timeout: timeout}) do
