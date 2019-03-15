@@ -82,15 +82,12 @@ defmodule WiseHomex do
   defdelegate new_config(auth_type, credentials, opts \\ []), to: WiseHomex.Config
 
   # Get the ApiClient implementation to use
-  defp api_client() do
-    Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
-  end
+  defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
   @doc """
   Create an account
   """
-  def create_account(config, attributes, rels),
-    do: api_client().create_account(config, attributes, rels)
+  def create_account(config, attributes, rels), do: api_client().create_account(config, attributes, rels)
 
   @doc """
   Delete an account
@@ -155,8 +152,7 @@ defmodule WiseHomex do
   @doc """
   Deauthorize a device
   """
-  def deauthorize_device(config, device_id),
-    do: api_client().deauthorize_device(config, device_id)
+  def deauthorize_device(config, device_id), do: api_client().deauthorize_device(config, device_id)
 
   @doc """
   Delete a device
