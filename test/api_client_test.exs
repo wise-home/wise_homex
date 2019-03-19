@@ -9,16 +9,6 @@ defmodule WiseHomex.ApiClientTest do
     :ok
   end
 
-  describe "ping" do
-    test "it calls ping with the expected includes" do
-      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, 1234})
-
-      config = WiseHomex.new_config(:api_key, "somekey")
-      {:ok, 1234} = config |> WiseHomex.ping(%{"include" => "user,account"})
-      assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
-    end
-  end
-
   describe "get_account_users" do
     test "it calls get_account_users with the expected includes and filters" do
       MockServer.set(
@@ -34,6 +24,16 @@ defmodule WiseHomex.ApiClientTest do
       assert MockServer.called?(:get_account_users) == %{
                query: %{"filter[role]" => "tenant", "include" => "user"}
              }
+    end
+  end
+
+  describe "ping" do
+    test "it calls ping with the expected includes" do
+      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, 1234})
+
+      config = WiseHomex.new_config(:api_key, "somekey")
+      {:ok, 1234} = config |> WiseHomex.ping(%{"include" => "user,account"})
+      assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
     end
   end
 end
