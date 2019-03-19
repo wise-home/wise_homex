@@ -18,7 +18,7 @@ Since the package is only available on GitHub at the moment, it can be added to 
 def deps do
   [
     # Add WiseHomex from GitHub
-    {:wise_homex, git: "https://github.com/wise-home/wise_homex.git", tag: "0.6.1"}
+    {:wise_homex, git: "https://github.com/wise-home/wise_homex.git", tag: "0.6.2"}
   ]
 end
 ```
