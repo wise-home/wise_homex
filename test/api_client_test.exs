@@ -38,6 +38,49 @@ defmodule WiseHomex.ApiClientTest do
 
       assert MockServer.called?(:get_angel_note) == %{target_type: "devices", target_id: "100"}
     end
+
+    test "it creates an angel note", %{config: config} do
+      MockServer.set(
+        :create_angel_note,
+        %{attrs: %{target_type: "devices", target_id: "100", content: "Hello"}},
+        {:ok, %WiseHomex.AngelNote{}}
+      )
+
+      {:ok, _angel_note} =
+        config |> WiseHomex.create_angel_note(%{target_type: "devices", target_id: "100", content: "Hello"})
+
+      assert MockServer.called?(:create_angel_note) == %{
+               attrs: %{target_type: "devices", target_id: "100", content: "Hello"}
+             }
+    end
+
+    test "it updates an angel note", %{config: config} do
+      MockServer.set(
+        :update_angel_note,
+        %{id: "0a482be2-25c0-4449-9e1b-80f8256c94f9", attrs: %{content: "Something else"}},
+        {:ok, %WiseHomex.AngelNote{}}
+      )
+
+      {:ok, _angel_note} =
+        config |> WiseHomex.update_angel_note("0a482be2-25c0-4449-9e1b-80f8256c94f9", %{content: "Something else"})
+
+      assert MockServer.called?(:update_angel_note) == %{
+               id: "0a482be2-25c0-4449-9e1b-80f8256c94f9",
+               attrs: %{content: "Something else"}
+             }
+    end
+
+    test "it deletes an angel note", %{config: config} do
+      MockServer.set(
+        :delete_angel_note,
+        %{id: "0a482be2-25c0-4449-9e1b-80f8256c94f9"},
+        {:ok, %WiseHomex.AngelNote{}}
+      )
+
+      {:ok, _angel_note} = config |> WiseHomex.delete_angel_note("0a482be2-25c0-4449-9e1b-80f8256c94f9")
+
+      assert MockServer.called?(:delete_angel_note) == %{id: "0a482be2-25c0-4449-9e1b-80f8256c94f9"}
+    end
   end
 
   describe "ping" do
