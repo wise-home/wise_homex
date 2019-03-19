@@ -40,6 +40,22 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_address, %{id: id, query: query})
   end
 
+  def get_angel_note(_config, target_type, target_id) do
+    call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
+  end
+
+  def create_angel_note(_config, attrs) do
+    call_and_get_mock_value(:create_angel_note, %{attrs: attrs})
+  end
+
+  def update_angel_note(_config, id, attrs) do
+    call_and_get_mock_value(:update_angel_note, %{id: id, attrs: attrs})
+  end
+
+  def delete_angel_note(_config, id) do
+    call_and_get_mock_value(:delete_angel_note, %{id: id})
+  end
+
   def upload_bmeters_keys(_config, opts) do
     call_and_get_mock_value(:upload_bmeters_keys, %{opts: opts})
   end

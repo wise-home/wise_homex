@@ -8,6 +8,7 @@ defmodule WiseHomex.JSONParser do
     "account-users" => WiseHomex.AccountUser,
     "accounts" => WiseHomex.Account,
     "addresses" => WiseHomex.Address,
+    "angel-notes" => WiseHomex.AngelNote,
     "configurable-meter-id" => WiseHomex.ConfigurableMeterID,
     "configurable-meters" => WiseHomex.ConfigurableMeters,
     "device-authorizations" => WiseHomex.DeviceAuthorization,
