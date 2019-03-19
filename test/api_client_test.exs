@@ -27,6 +27,22 @@ defmodule WiseHomex.ApiClientTest do
     end
   end
 
+  describe "angel notes" do
+    test "it gets angel note" do
+      MockServer.set(
+        :get_angel_note,
+        %{target_type: "devices", target_id: "100"},
+        {:ok, %WiseHomex.AngelNote{}}
+      )
+
+      config = WiseHomex.new_config(:api_key, "somekey")
+
+      {:ok, _angel_note} = config |> WiseHomex.get_angel_note("devices", "100")
+
+      assert MockServer.called?(:get_angel_note) == %{target_type: "devices", target_id: "100"}
+    end
+  end
+
   describe "ping" do
     test "it calls ping with the expected includes" do
       MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, 1234})
