@@ -134,6 +134,30 @@ defmodule WiseHomex do
   def get_address(config, id, query \\ %{}), do: api_client().get_address(config, id, query)
 
   @doc """
+  Get an angel note by a `target_type` and a `target_id`
+  """
+  def get_angel_note(config, target_type, target_id), do: api_client().get_angel_note(config, target_type, target_id)
+
+  @doc """
+  Create an angel note
+
+  * Required attributes: `target_type`, `target_id`, `content`
+  """
+  def create_angel_note(config, attrs), do: api_client().create_angel_note(config, attrs)
+
+  @doc """
+  Update an angel note
+
+  * Only the `content` attribute can be changed
+  """
+  def update_angel_note(config, id, attrs), do: api_client().update_angel_note(config, id, attrs)
+
+  @doc """
+  Delete an angel note by its id
+  """
+  def delete_angel_note(config, id), do: api_client().delete_angel_note(config, id)
+
+  @doc """
   Upload a bmeters key file
   """
   def upload_bmeters_keys(config, opts), do: api_client().upload_bmeters_keys(config, opts)
