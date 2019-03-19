@@ -21,6 +21,12 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_account_users(Config.t(), query) :: response
   @callback create_address(Config.t(), attributes, relationships) :: response
   @callback get_address(Config.t(), id, query) :: response
+
+  @callback get_angel_note(Config.t(), id, id) :: response
+  @callback create_angel_note(Config.t(), attributes) :: response
+  @callback update_angel_note(Config.t(), id, attributes) :: response
+  @callback delete_angel_note(Config.t(), id) :: response
+
   @callback upload_bmeters_keys(Config.t(), list) :: response
   @callback add_device(Config.t(), id, String.t(), String.t()) :: response
   @callback authorize_device(Config.t(), id) :: response
