@@ -39,9 +39,21 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     GenServer.call(@name, {:called?, api_function})
   end
 
+  @doc """
+  Do a mock api call and receive the set up mock value.
+  This will fail if no mock matches the api_function and opts.
+  """
   def call_and_get_mock_value(api_function, opts) do
     GenServer.call(@name, {:called!, api_function, opts})
     GenServer.call(@name, {:pop_mock_value, api_function, opts})
+  end
+
+  @doc """
+  Receive remaining mock calls on the Mock Server.
+  Useful for asserting that all calls were made.
+  """
+  def remaining_calls() do
+    GenServer.call(@name, :get_all_mocks)
   end
 
   @doc """
@@ -94,6 +106,14 @@ defmodule WiseHomex.Test.ApiClientMockServer do
         [value | rest] -> {value, rest}
       end)
 
+    # Clear out mock keys that refer to an empty list, which means they have been used.
+    state =
+      Map.update!(state, :mocks, fn
+        mocks ->
+          Enum.reject(mocks, fn {_k, v} -> v == [] end)
+          |> Enum.into(%{})
+      end)
+
     return_value =
       case value do
         :no_mock_set -> {:error, "No mock set on #{api_function} with options #{inspect(opts)}"}
@@ -101,6 +121,13 @@ defmodule WiseHomex.Test.ApiClientMockServer do
       end
 
     {:reply, return_value, state}
+  end
+
+  @doc """
+  Get remaining mock calls
+  """
+  def handle_call(:get_all_mocks, _from, state) do
+    {:reply, Map.fetch!(state, :mocks), state}
   end
 
   @doc """

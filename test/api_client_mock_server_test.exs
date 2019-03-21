@@ -22,6 +22,28 @@ defmodule ApiClientMockServerTest do
     assert MockServer.called?(:some_function) == opts
   end
 
+  test "it sets and receives two mock values" do
+    opts = %{params: [1, 2, 3, 4], query: %{"hej" => "med_dig"}}
+
+    MockServer.set(
+      :some_function,
+      opts,
+      {:ok, 1234}
+    )
+
+    MockServer.set(
+      :other_function,
+      %{},
+      {:ok, 1234}
+    )
+
+    MockServer.call_and_get_mock_value(:some_function, opts)
+    MockServer.call_and_get_mock_value(:other_function, %{})
+
+    assert MockServer.called?(:some_function) == opts
+    assert MockServer.called?(:other_function) == %{}
+  end
+
   test "it returns false if a call was not made" do
     MockServer.set(
       :other_function,
@@ -52,5 +74,21 @@ defmodule ApiClientMockServerTest do
 
     assert MockServer.call_and_get_mock_value(:other_function, %{}) ==
              {:error, "No mock set on other_function with options %{}"}
+  end
+
+  test "it returns remaining calls when available" do
+    MockServer.set(:some_function, %{}, {:ok, 1234})
+    MockServer.set(:other_function, %{"which" => "is not called"}, {:ok, 5678})
+
+    {:ok, 1234} = MockServer.call_and_get_mock_value(:some_function, %{})
+
+    assert MockServer.remaining_calls() == %{{:other_function, %{"which" => "is not called"}} => [ok: 5678]}
+  end
+
+  test "if no remaining calls are available it returns an empty list" do
+    MockServer.set(:some_function, %{}, {:ok, 1234})
+    {:ok, 1234} = MockServer.call_and_get_mock_value(:some_function, %{})
+
+    assert MockServer.remaining_calls() == %{}
   end
 end

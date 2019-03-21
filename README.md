@@ -112,15 +112,20 @@ defmodule MyModule.SampleTest do
 
   alias WiseHomex.Test.ApiClientMockServer, as: MockServer
 
-  describe "ping" do
-    test "it calls ping with the expected includes" do
-      MockServer.start_link()
-      MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, :put_mock_response_here})
+  test "it calls ping with the expected includes" do
+    config = WiseHomex.new_config(:api_key, "test")
 
-      config = WiseHomex.new_config(:api_key, "test")
-      {:ok, _response} = config |> WiseHomex.ping(%{"include" => "user,account"})
-      assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
-    end
+    MockServer.start_link()
+    MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, :put_mock_response_here})
+
+    {:ok, _response} = config |> WiseHomex.ping(%{"include" => "user,account"})
+
+    # Assert on the calls that have been made
+    assert MockServer.called?(:ping) == %{query: %{"include" => "user,account"}}
+
+    # Assert that all set up mocks have been called
+    # Useful for seeing what was not called
+    assert MockServer.remaining_calls() == %{}
   end
 end
 ```
