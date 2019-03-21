@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.3
+
+- Add remaning_calls function helper for testing, https://github.com/wise-home/wise_homex/pull/11
+
 ## 0.6.2
 
 - Add notes endpoint, https://github.com/wise-home/wise_homex/issues/9
