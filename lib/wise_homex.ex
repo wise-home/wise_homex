@@ -215,6 +215,21 @@ defmodule WiseHomex do
     do: api_client().update_account_email_settings(config, account_id, id, attrs)
 
   @doc """
+  Create ExternalInfo
+  """
+  def create_external_info(config, attrs, rels), do: api_client().create_external_info(config, attrs, rels)
+
+  @doc """
+  Update ExternalInfo
+  """
+  def update_external_info(config, id, attrs), do: api_client().update_external_info(config, id, attrs)
+
+  @doc """
+  Delete ExternalInfo
+  """
+  def delete_external_info(config, id), do: api_client().delete_external_info(config, id)
+
+  @doc """
   Create firmware
   """
   def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
