@@ -116,7 +116,7 @@ defmodule WiseHomex.Test.ApiClientMockServer do
 
     return_value =
       case value do
-        :no_mock_set -> {:error, "No mock set on #{api_function} with options #{inspect(opts)}"}
+        :no_mock_set -> {:error, "No mock set for call", api_function, opts}
         value -> value
       end
 
