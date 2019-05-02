@@ -195,10 +195,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_devices(config, query \\ %{}) do
-    query =
-      %{"sort" => "-id"}
-      |> Map.merge(query)
-
     Request.get(config, "/devices", query)
   end
 
@@ -276,10 +272,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_households(config, query \\ %{}) do
-    query =
-      %{"sort" => "-id"}
-      |> Map.merge(query)
-
     Request.get(config, "/households", query)
   end
 
