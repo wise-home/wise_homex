@@ -501,8 +501,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_sims(config, query \\ %{}) do
-    default_query = %{"page[size]" => 500}
-    query = Map.merge(default_query, query)
     Request.get(config, "/sims", query)
   end
 
