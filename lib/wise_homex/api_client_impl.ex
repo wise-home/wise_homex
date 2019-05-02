@@ -125,10 +125,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_gateways(config, query \\ %{}) do
-    query =
-      %{"sort" => "-id"}
-      |> Map.merge(query)
-
     Request.get(config, "/gateways", query)
   end
 
