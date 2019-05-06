@@ -125,10 +125,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_gateways(config, query \\ %{}) do
-    query =
-      %{"sort" => "-id"}
-      |> Map.merge(query)
-
     Request.get(config, "/gateways", query)
   end
 
@@ -199,10 +195,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_devices(config, query \\ %{}) do
-    query =
-      %{"sort" => "-id"}
-      |> Map.merge(query)
-
     Request.get(config, "/devices", query)
   end
 
@@ -280,10 +272,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_households(config, query \\ %{}) do
-    query =
-      %{"sort" => "-id"}
-      |> Map.merge(query)
-
     Request.get(config, "/households", query)
   end
 
@@ -513,8 +501,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def get_sims(config, query \\ %{}) do
-    default_query = %{"page[size]" => 500}
-    query = Map.merge(default_query, query)
     Request.get(config, "/sims", query)
   end
 
