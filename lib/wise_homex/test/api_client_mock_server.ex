@@ -110,7 +110,8 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     state =
       Map.update!(state, :mocks, fn
         mocks ->
-          Enum.reject(mocks, fn {_k, v} -> v == [] end)
+          mocks
+          |> Enum.reject(fn {_k, v} -> v == [] end)
           |> Enum.into(%{})
       end)
 
