@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.4
+
+- Include TenancyModelTest in WiseHomex (https://github.com/wise-home/wise_homex/issues/18)
+- Better error responses for missing mocks (https://github.com/wise-home/wise_homex/issues/16)
+- Remove defaults for 4 api calls (https://github.com/wise-home/wise_homex/issues/14)
+- Fix three test issues (https://github.com/wise-home/wise_homex/issues/20)
+
 ## 0.6.3
 
 - Add remaning_calls function helper for testing, https://github.com/wise-home/wise_homex/pull/11
