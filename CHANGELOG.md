@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.5
+
+- Add number to Device model (https://github.com/wise-home/wise_homex/issues/22)
+
 ## 0.6.4
 
 - Include TenancyModelTest in WiseHomex (https://github.com/wise-home/wise_homex/issues/18)
