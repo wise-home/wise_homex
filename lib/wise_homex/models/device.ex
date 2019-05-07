@@ -8,6 +8,7 @@ defmodule WiseHomex.Device do
     belongs_to(:gateway, WiseHomex.Gateway)
     belongs_to(:device_type, WiseHomex.DeviceType)
     field(:serial, :string)
+    field(:number, :string)
     field(:authorized_at, :utc_datetime)
     field(:online, :string)
     field(:installation_year, :integer)
