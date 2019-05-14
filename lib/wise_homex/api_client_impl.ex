@@ -585,7 +585,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    Request.post(config, "/external-info", payload)
+    Request.post(config, "/external-infos", payload)
   end
 
   def update_external_info(config, id, attributes) do
@@ -599,11 +599,11 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    Request.patch(config, "/external-info/" <> id, payload)
+    Request.patch(config, "/external-infos/" <> id, payload)
   end
 
   def delete_external_info(config, id) do
-    Request.delete(config, "/external-info/" <> id)
+    Request.delete(config, "/external-infos/" <> id)
   end
 
   defp normalize_payload(%{} = payload) do
