@@ -15,6 +15,7 @@ defmodule WiseHomex.JSONParser do
     "devices" => WiseHomex.Device,
     "device-types" => WiseHomex.DeviceType,
     "encryption-keys" => WiseHomex.EncKey,
+    "external-infos" => WiseHomex.ExternalInfo,
     "firmwares" => WiseHomex.Firmware,
     "gateways" => WiseHomex.Gateway,
     "households" => WiseHomex.Household,

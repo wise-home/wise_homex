@@ -108,6 +108,19 @@ defmodule WiseHomex.Test.ApiClientMock do
     })
   end
 
+  # External Info
+  def create_external_info(_config, attrs, rels) do
+    call_and_get_mock_value(:create_external_info, %{attrs: attrs, rels: rels})
+  end
+
+  def update_external_info(_config, id, attrs) do
+    call_and_get_mock_value(:update_external_info, %{id: id, attrs: attrs})
+  end
+
+  def delete_external_info(_config, id) do
+    call_and_get_mock_value(:delete_external_info, %{id: id})
+  end
+
   def create_firmware(_config, _file_content) do
     call_and_get_mock_value(:create_firmware, %{})
   end

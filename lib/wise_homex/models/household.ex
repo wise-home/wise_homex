@@ -6,6 +6,7 @@ defmodule WiseHomex.Household do
   embedded_schema do
     belongs_to(:tenant, WiseHomex.Account)
     belongs_to(:address, WiseHomex.Address, type: :binary_id)
+    belongs_to(:external_info, WiseHomex.ExternalInfo)
     has_many(:tenancies, WiseHomex.Tenancy)
 
     field(:apartment, :string)

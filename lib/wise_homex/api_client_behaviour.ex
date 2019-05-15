@@ -50,6 +50,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Email Settings
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
 
+  # External Info
+  @callback create_external_info(Config.t(), attributes, relationships) :: response
+  @callback update_external_info(Config.t(), id, attributes) :: response
+  @callback delete_external_info(Config.t(), id) :: response
+
   # Firmware
   @callback create_firmware(Config.t(), String.t()) :: response
   @callback delete_firmware(Config.t(), id) :: response

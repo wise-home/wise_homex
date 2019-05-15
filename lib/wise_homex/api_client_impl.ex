@@ -573,6 +573,39 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/bmeters/keys", payload)
   end
 
+  # External Info
+  def create_external_info(config, attributes, relationships) do
+    payload =
+      %{
+        data: %{
+          type: "external-infos",
+          attributes: attributes,
+          relationships: relationships
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/external-infos", payload)
+  end
+
+  def update_external_info(config, id, attributes) do
+    payload =
+      %{
+        data: %{
+          type: "external-infos",
+          id: id,
+          attributes: attributes
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/external-infos/" <> id, payload)
+  end
+
+  def delete_external_info(config, id) do
+    Request.delete(config, "/external-infos/" <> id)
+  end
+
   defp normalize_payload(%{} = payload) do
     payload
     |> Enum.into(%{}, fn {key, value} -> {transform_key(key), normalize_payload(value)} end)
