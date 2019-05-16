@@ -134,6 +134,33 @@ defmodule WiseHomex do
   def get_address(config, id, query \\ %{}), do: api_client().get_address(config, id, query)
 
   @doc """
+  Get admin integrations
+  """
+  def get_admin_integrations(config, query \\ %{}), do: api_client().get_admin_integrations(config, query)
+
+  @doc """
+  Get admin integration
+  """
+  def get_admin_integration(config, id, query \\ %{}), do: api_client().get_admin_integration(config, id, query)
+
+  @doc """
+  Delete an admin integration
+  """
+  def delete_admin_integration(config, id), do: api_client().delete_admin_integration(config, id)
+
+  @doc """
+  Create a UNIK admin integration
+  """
+  def create_admin_integration_unik(config, attrs, rels),
+    do: api_client().create_admin_integration(config, attrs, rels)
+
+  @doc """
+  Update a UNIK admin integration
+  """
+  def update_admin_integration_unik(config, id, attrs),
+    do: api_client().update_admin_integration(config, id, attrs)
+
+  @doc """
   Get an angel note by a `target_type` and a `target_id`
   """
   def get_angel_note(config, target_type, target_id), do: api_client().get_angel_note(config, target_type, target_id)

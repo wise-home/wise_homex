@@ -606,6 +606,49 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/external-infos/" <> id)
   end
 
+  @doc """
+  Get admin integrations
+  """
+  def get_admin_integrations(config, query \\ %{}) do
+    Request.get(config, "/admin-integrations", query)
+  end
+
+  def get_admin_integration(config, id, query \\ %{}) do
+    Request.get(config, "/admin-integrations/" <> id, query)
+  end
+
+  def delete_admin_integration(config, id) do
+    Request.delete(config, "/admin-integrations/" <> id)
+  end
+
+  def create_admin_integration_unik(config, attrs, rels) do
+    params =
+      %{
+        data: %{
+          type: "admin-integrations",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/admin-integrations", params)
+  end
+
+  def update_admin_integration_unik(config, id, attrs) do
+    params =
+      %{
+        data: %{
+          type: "admin-integrations",
+          id: id,
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/admin-integrations/" <> id, params)
+  end
+
   defp normalize_payload(%{} = payload) do
     payload
     |> Enum.into(%{}, fn {key, value} -> {transform_key(key), normalize_payload(value)} end)

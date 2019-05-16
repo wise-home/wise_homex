@@ -23,6 +23,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Account User
   @callback get_account_users(Config.t(), query) :: response
 
+  # Admin Integration
+  @callback get_admin_integrations(Config.t(), query) :: response
+  @callback get_admin_integration(Config.t(), id, query) :: response
+  @callback delete_admin_integration(Config.t(), id) :: response
+  @callback create_admin_integration_unik(Config.t(), attributes, relationships) :: response
+  @callback update_admin_integration_unik(Config.t(), id, attributes) :: response
+
   # Address
   @callback create_address(Config.t(), attributes, relationships) :: response
   @callback get_address(Config.t(), id, query) :: response
