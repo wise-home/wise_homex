@@ -65,6 +65,19 @@ defmodule ApiClientMockServerTest do
              {:error, "No mock set for call", :non_existing, %{hej: true}}
   end
 
+  test "it leaves state untouched when getting a value for a non existing mock" do
+    MockServer.set(
+      :other_function,
+      %{},
+      {:ok, 1234}
+    )
+
+    assert MockServer.call_and_get_mock_value(:non_existing, %{hej: true}) ==
+             {:error, "No mock set for call", :non_existing, %{hej: true}}
+
+    assert MockServer.remaining_calls() == %{{:other_function, %{}} => [ok: 1234]}
+  end
+
   test "it returns an error getting a value for a non existing mock where only opts differ" do
     MockServer.set(
       :other_function,
