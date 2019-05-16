@@ -99,20 +99,14 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   def handle_call({:pop_mock_value, api_function, opts}, _from, state) do
     key = {api_function, opts}
 
+    # Pop the mock value from the state
     {value, state} =
-      get_and_update_in(state, [:mocks, key], fn
-        nil -> {:no_mock_set, nil}
-        [] -> {:no_mock_set, nil}
-        [value | rest] -> {value, rest}
-      end)
-
-    # Clear out mock keys that refer to an empty list, which means they have been used.
-    state =
-      Map.update!(state, :mocks, fn
-        mocks ->
-          mocks
-          |> Enum.reject(fn {_k, v} -> v == [] end)
-          |> Enum.into(%{})
+      get_and_update_in(state, [:mocks], fn mocks ->
+        case Map.fetch(mocks, key) do
+          {:ok, [value]} -> {value, mocks |> Map.delete(key)}
+          {:ok, [value | rest]} -> {value, mocks |> Map.update!(key, fn _ -> rest end)}
+          :error -> {:no_mock_set, mocks}
+        end
       end)
 
     return_value =
