@@ -632,7 +632,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    Request.post(config, "/admin-integrations", params)
+    Request.post(config, "/admin-integrations/unik", params)
   end
 
   def update_admin_integration_unik(config, id, attrs) do
@@ -646,7 +646,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
       |> normalize_payload
 
-    Request.patch(config, "/admin-integrations/" <> id, params)
+    Request.patch(config, "/admin-integrations/unik/" <> id, params)
   end
 
   defp normalize_payload(%{} = payload) do

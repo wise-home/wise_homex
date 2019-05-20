@@ -152,13 +152,13 @@ defmodule WiseHomex do
   Create a UNIK admin integration
   """
   def create_admin_integration_unik(config, attrs, rels),
-    do: api_client().create_admin_integration(config, attrs, rels)
+    do: api_client().create_admin_integration_unik(config, attrs, rels)
 
   @doc """
   Update a UNIK admin integration
   """
   def update_admin_integration_unik(config, id, attrs),
-    do: api_client().update_admin_integration(config, id, attrs)
+    do: api_client().update_admin_integration_unik(config, id, attrs)
 
   @doc """
   Get an angel note by a `target_type` and a `target_id`
