@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.8
+
+- Add support for AdminIntegrations (https://github.com/wise-home/wise_homex/issues/25)
+
 ## 0.6.7
 
 - Bugfix: ApiMockServer adds missing mocks to mock state bug (https://github.com/wise-home/wise_homex/issues/26)
