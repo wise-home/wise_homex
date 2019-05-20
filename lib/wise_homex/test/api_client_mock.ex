@@ -40,6 +40,26 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_address, %{id: id, query: query})
   end
 
+  def get_admin_integrations(_config, query \\ %{}) do
+    call_and_get_mock_value(:get_admin_integrations, %{query: query})
+  end
+
+  def get_admin_integration(_config, id, query \\ %{}) do
+    call_and_get_mock_value(:get_admin_integration, %{id: id, query: query})
+  end
+
+  def delete_admin_integration(_config, id) do
+    call_and_get_mock_value(:delete_admin_integration, %{id: id})
+  end
+
+  def create_admin_integration_unik(_config, attrs, rels) do
+    call_and_get_mock_value(:create_admin_integration_unik, %{attrs: attrs, rels: rels})
+  end
+
+  def update_admin_integration_unik(_config, id, attrs) do
+    call_and_get_mock_value(:update_admin_integration_unik, %{id: id, attrs: attrs})
+  end
+
   def get_angel_note(_config, target_type, target_id) do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
   end
