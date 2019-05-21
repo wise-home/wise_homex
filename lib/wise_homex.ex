@@ -376,6 +376,17 @@ defmodule WiseHomex do
   def update_property(config, id, attrs, rels), do: api_client().update_property(config, id, attrs, rels)
 
   @doc """
+  Trigger sync of an existing property
+  """
+  def sync_property(config, property_id), do: api_client().sync_property(config, property_id)
+
+  @doc """
+  Create a synced property from unik
+  """
+  def create_synced_property_unik(config, unik_property_number, admin_id),
+    do: api_client().create_synced_property_unik(config, unik_property_number, admin_id)
+
+  @doc """
   Get reports for a device
   """
   def get_device_reports(config, id), do: api_client().get_device_reports(config, id)

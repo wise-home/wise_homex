@@ -229,6 +229,17 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_property, %{id: id, attrs: attrs, rels: rels})
   end
 
+  def sync_property(_config, property_id) do
+    call_and_get_mock_value(:sync_property, %{property_id: property_id})
+  end
+
+  def create_synced_property_unik(_config, unik_property_number, admin_id) do
+    call_and_get_mock_value(:create_synced_property_unik, %{
+      unik_property_number: unik_property_number,
+      admin_id: admin_id
+    })
+  end
+
   def get_device_reports(_config, id) do
     call_and_get_mock_value(:get_device_reports, %{id: id})
   end

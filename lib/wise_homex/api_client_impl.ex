@@ -649,6 +649,49 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/admin-integrations/unik/" <> id, params)
   end
 
+  @doc """
+  Trigger sync of an existing property
+  """
+  def sync_property(config, property_id) do
+    params =
+      %{
+        data: %{
+          type: "property-syncs",
+          relationships: %{
+            property: %{data: %{type: "properties", id: property_id}}
+          }
+        }
+      }
+      |> normalize_payload
+
+    config
+    |> Map.update!(:timeout, fn _ -> 30_000 end)
+    |> Request.post("/property-syncs", params)
+  end
+
+  @doc """
+  Create a synced property from an external system
+  """
+  def create_synced_property_unik(config, unik_property_number, admin_id) do
+    params =
+      %{
+        data: %{
+          type: "property-syncs",
+          attributes: %{
+            number: unik_property_number
+          },
+          relationships: %{
+            admin: %{data: %{type: "accounts", id: admin_id}}
+          }
+        }
+      }
+      |> normalize_payload
+
+    config
+    |> Map.update!(:timeout, fn _ -> 30_000 end)
+    |> Request.post("/property-syncs/unik", params)
+  end
+
   defp normalize_payload(%{} = payload) do
     payload
     |> Enum.into(%{}, fn {key, value} -> {transform_key(key), normalize_payload(value)} end)
