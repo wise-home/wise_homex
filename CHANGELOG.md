@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.9
+
+- Add support for UNIK property synchronization (https://github.com/wise-home/wise_homex/issues/29)
+
 ## 0.6.8
 
 - Add support for AdminIntegrations (https://github.com/wise-home/wise_homex/issues/25)
