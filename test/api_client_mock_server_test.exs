@@ -22,7 +22,7 @@ defmodule ApiClientMockServerTest do
     assert MockServer.called?(:some_function) == opts
   end
 
-  test "it sets and receives two mock values" do
+  test "it sets and receives two different mock values" do
     opts = %{params: [1, 2, 3, 4], query: %{"hej" => "med_dig"}}
 
     MockServer.set(
@@ -42,6 +42,27 @@ defmodule ApiClientMockServerTest do
 
     assert MockServer.called?(:some_function) == opts
     assert MockServer.called?(:other_function) == %{}
+  end
+
+  test "it sets and receives three similar mock values" do
+    opts = %{params: [1, 2, 3, 4], query: %{"hej" => "med_dig"}}
+
+    MockServer.set(
+      :some_function,
+      opts,
+      {:ok, 1234},
+      3
+    )
+
+    MockServer.call_and_get_mock_value(:some_function, opts)
+    MockServer.call_and_get_mock_value(:some_function, opts)
+    MockServer.call_and_get_mock_value(:some_function, opts)
+
+    assert MockServer.called?(:some_function) == opts
+    assert MockServer.called?(:some_function) == opts
+    assert MockServer.called?(:some_function) == opts
+
+    assert MockServer.remaining_calls() == %{}
   end
 
   test "it returns false if a call was not made" do
