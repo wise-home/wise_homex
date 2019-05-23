@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.10
+
+- Set up multiple mocks in a single call (https://github.com/wise-home/wise_homex/issues/31)
+
 ## 0.6.9
 
 - Add support for UNIK property synchronization (https://github.com/wise-home/wise_homex/issues/29)
