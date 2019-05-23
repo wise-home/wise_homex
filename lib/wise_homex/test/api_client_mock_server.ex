@@ -13,15 +13,21 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   @doc """
   Set a mock value on the ApiClientMock
 
-  Example call for setting up a mock response for :get_gateways
+  Example call for setting up a mock response for `:get_gateways`:
 
   ```
   ApiClientMock.set(:get_gateways, %{"include" => "devices"}, {:ok, %WiseHomex.Device{}})
   ```
   """
-  def set(api_function, opts, value) do
-    GenServer.call(@name, {:push_mock_value, api_function, opts, value})
+  def set(api_function, opts, value, times \\ 1)
+
+  def set(api_function, opts, value, times) when times > 0 do
+    with :ok <- GenServer.call(@name, {:push_mock_value, api_function, opts, value}) do
+      set(api_function, opts, value, times - 1)
+    end
   end
+
+  def set(_, _, _, 0), do: :ok
 
   @doc """
   Asserts that a given call was made to the mock
@@ -78,7 +84,7 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     but also attributes specific to the api functions, e.g. :gateway_id.
   - value is the value to be returned from the mock
 
-  Note that the calls map will be populated with keys that are tuples of an atom and a map.
+  Note that the mocks map will be populated with keys that are tuples of an atom and a map.
   As key order doesn't mapper when comparing maps, this will enable us to set precise mocks.
   """
   def handle_call({:push_mock_value, api_function, opts, value}, _from, state) do
