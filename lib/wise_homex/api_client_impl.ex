@@ -121,10 +121,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Angel Note
-  def get_angel_note(config, target_type, target_id) do
-    Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
-  end
-
   def create_angel_note(config, attrs) do
     payload =
       %{
@@ -136,6 +132,14 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/angel-notes", payload)
+  end
+
+  def delete_angel_note(config, id) do
+    Request.delete(config, "/angel-notes/" <> id)
+  end
+
+  def get_angel_note(config, target_type, target_id) do
+    Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
   end
 
   def update_angel_note(config, id, attrs) do
@@ -150,10 +154,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.patch(config, "/angel-notes/" <> id, payload)
-  end
-
-  def delete_angel_note(config, id) do
-    Request.delete(config, "/angel-notes/" <> id)
   end
 
   # Bmeters Keys
