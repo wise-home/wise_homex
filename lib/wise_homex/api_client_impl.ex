@@ -716,6 +716,8 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/users#{query}")
   end
 
+  # Wmbus Cache
+
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
   end
