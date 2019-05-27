@@ -628,10 +628,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Tenancy
 
-  def get_tenancy(config, id, query \\ %{}) do
-    Request.get(config, "/tenancies/" <> id, query)
-  end
-
   def create_tenancy(config, attrs, rels) do
     params =
       %{
@@ -646,6 +642,14 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/tenancies", params)
   end
 
+  def delete_tenancy(config, id) do
+    Request.delete(config, "/tenancies/" <> id)
+  end
+
+  def get_tenancy(config, id, query \\ %{}) do
+    Request.get(config, "/tenancies/" <> id, query)
+  end
+
   def update_tenancy(config, id, attrs) do
     payload =
       %{
@@ -658,10 +662,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.patch(config, "/tenancies/" <> id, payload)
-  end
-
-  def delete_tenancy(config, id) do
-    Request.delete(config, "/tenancies/" <> id)
   end
 
   # SIM
