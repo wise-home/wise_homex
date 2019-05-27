@@ -103,6 +103,8 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   # Property Syncs
   @callback create_synced_property_unik(Config.t(), unik_number, id) :: response
+
+  # Property Syncs UNIK
   @callback sync_property(Config.t(), id) :: response
 
   # Reports
