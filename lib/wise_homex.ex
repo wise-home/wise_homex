@@ -84,6 +84,8 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
+  # Account
+
   @doc """
   Create an account
   """
@@ -109,6 +111,8 @@ defmodule WiseHomex do
   """
   def update_account(config, id, attrs), do: api_client().update_account(config, id, attrs)
 
+  # Account User
+
   @doc """
   Gets the account users for the current user.
 
@@ -123,6 +127,8 @@ defmodule WiseHomex do
   """
   def get_account_users(config, query \\ %{}), do: api_client().get_account_users(config, query)
 
+  # Address
+
   @doc """
   Create an address
   """
@@ -132,6 +138,8 @@ defmodule WiseHomex do
   Get an address
   """
   def get_address(config, id, query \\ %{}), do: api_client().get_address(config, id, query)
+
+  # Admin Integration
 
   @doc """
   Get admin integrations
@@ -148,6 +156,8 @@ defmodule WiseHomex do
   """
   def delete_admin_integration(config, id), do: api_client().delete_admin_integration(config, id)
 
+  # Admin Integration UNIK
+
   @doc """
   Create a UNIK admin integration
   """
@@ -159,6 +169,8 @@ defmodule WiseHomex do
   """
   def update_admin_integration_unik(config, id, attrs),
     do: api_client().update_admin_integration_unik(config, id, attrs)
+
+  # Angel Note
 
   @doc """
   Get an angel note by a `target_type` and a `target_id`
@@ -184,10 +196,14 @@ defmodule WiseHomex do
   """
   def delete_angel_note(config, id), do: api_client().delete_angel_note(config, id)
 
+  # Bmeters Keys
+
   @doc """
   Upload a bmeters key file
   """
   def upload_bmeters_keys(config, opts), do: api_client().upload_bmeters_keys(config, opts)
+
+  # Device
 
   @doc """
   Add a device
@@ -235,11 +251,15 @@ defmodule WiseHomex do
   """
   def update_device(config, id, attrs, rels), do: api_client().update_device(config, id, attrs, rels)
 
+  # Email Settings
+
   @doc """
   Update EmailSettings for a device
   """
   def update_account_email_settings(config, account_id, id, attrs),
     do: api_client().update_account_email_settings(config, account_id, id, attrs)
+
+  # External Info
 
   @doc """
   Create ExternalInfo
@@ -256,6 +276,8 @@ defmodule WiseHomex do
   """
   def delete_external_info(config, id), do: api_client().delete_external_info(config, id)
 
+  # Firmware
+
   @doc """
   Create firmware
   """
@@ -270,6 +292,8 @@ defmodule WiseHomex do
   Get firmwares
   """
   def get_firmwares(config), do: api_client().get_firmwares(config)
+
+  # Gateway
 
   @doc """
   Get a gateway
@@ -301,6 +325,8 @@ defmodule WiseHomex do
   """
   def update_gateway(config, id, attrs, rels \\ %{}), do: api_client().update_gateway(config, id, attrs, rels)
 
+  # Household
+
   @doc """
   Create a household
   """
@@ -326,16 +352,22 @@ defmodule WiseHomex do
   """
   def update_household(config, id, attrs, rels), do: api_client().update_household(config, id, attrs, rels)
 
+  # Account invitation
+
   @doc """
   Create an account invitation
   """
   def create_account_invitation(config, account_id, attrs),
     do: api_client().create_account_invitation(config, account_id, attrs)
 
+  # KEM uploads
+
   @doc """
   Upload a KEM file
   """
   def upload_kem(config, opts), do: api_client().upload_kem(config, opts)
+
+  # Ping
 
   @doc """
   Ping the Wise Home API to check availability and get authentication status.
@@ -349,6 +381,8 @@ defmodule WiseHomex do
   ```
   """
   def ping(config, query), do: api_client().ping(config, query)
+
+  # Property
 
   @doc """
   Create a property
@@ -375,16 +409,22 @@ defmodule WiseHomex do
   """
   def update_property(config, id, attrs, rels), do: api_client().update_property(config, id, attrs, rels)
 
+  # Property Syncs
+
   @doc """
   Trigger sync of an existing property
   """
   def sync_property(config, property_id), do: api_client().sync_property(config, property_id)
+
+  # Property Syncs UNIK
 
   @doc """
   Create a synced property from unik
   """
   def create_synced_property_unik(config, unik_property_number, admin_id),
     do: api_client().create_synced_property_unik(config, unik_property_number, admin_id)
+
+  # Reports
 
   @doc """
   Get reports for a device
@@ -396,6 +436,8 @@ defmodule WiseHomex do
   """
   def create_latest_report(config, device_id, query \\ %{}),
     do: api_client().create_latest_report(config, device_id, query)
+
+  # Room
 
   @doc """
   Create a room
@@ -422,6 +464,8 @@ defmodule WiseHomex do
   """
   def update_room(config, id, attrs, rels), do: api_client().update_room(config, id, attrs, rels)
 
+  # Tenancy
+
   @doc """
   Create a tenancy
   """
@@ -441,6 +485,8 @@ defmodule WiseHomex do
   Update a tenancy
   """
   def update_tenancy(config, id, attrs), do: api_client().update_tenancy(config, id, attrs)
+
+  # SIM
 
   @doc """
   Create a sim card
@@ -467,10 +513,14 @@ defmodule WiseHomex do
   """
   def update_sim(config, id, attrs), do: api_client().update_sim(config, id, attrs)
 
+  # User
+
   @doc """
   Get multiple users
   """
   def get_users(config, filters \\ []), do: api_client().get_users(config, filters)
+
+  # Wmbus Cache
 
   @doc """
   Get wmbus cache
