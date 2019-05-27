@@ -54,6 +54,11 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/accounts/" <> id, payload)
   end
 
+  # Account User
+  def get_account_users(config, query) do
+    Request.get(config, "/account-users", query)
+  end
+
   # Angel Note
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
@@ -92,10 +97,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def ping(config, query) do
     Request.get(config, "/ping", query)
-  end
-
-  def get_account_users(config, query) do
-    Request.get(config, "/account-users", query)
   end
 
   def update_account_email_settings(config, account_id, id, attrs) do
