@@ -518,6 +518,51 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/properties/" <> id)
   end
 
+  # Property Syncs
+
+  @doc """
+  Trigger sync of an existing property
+  """
+  def sync_property(config, property_id) do
+    params =
+      %{
+        data: %{
+          type: "property-syncs",
+          relationships: %{
+            property: %{data: %{type: "properties", id: property_id}}
+          }
+        }
+      }
+      |> normalize_payload
+
+    config
+    |> Map.update!(:timeout, fn _ -> 30_000 end)
+    |> Request.post("/property-syncs", params)
+  end
+
+  @doc """
+  Create a synced property from an external system
+  """
+  def create_synced_property_unik(config, unik_property_number, admin_id) do
+    params =
+      %{
+        data: %{
+          type: "property-syncs",
+          attributes: %{
+            number: unik_property_number
+          },
+          relationships: %{
+            admin: %{data: %{type: "accounts", id: admin_id}}
+          }
+        }
+      }
+      |> normalize_payload
+
+    config
+    |> Map.update!(:timeout, fn _ -> 30_000 end)
+    |> Request.post("/property-syncs/unik", params)
+  end
+
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
   end
@@ -667,49 +712,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_sim(config, id) do
     Request.delete(config, "/sims/" <> id)
-  end
-
-  @doc """
-  Trigger sync of an existing property
-  """
-  def sync_property(config, property_id) do
-    params =
-      %{
-        data: %{
-          type: "property-syncs",
-          relationships: %{
-            property: %{data: %{type: "properties", id: property_id}}
-          }
-        }
-      }
-      |> normalize_payload
-
-    config
-    |> Map.update!(:timeout, fn _ -> 30_000 end)
-    |> Request.post("/property-syncs", params)
-  end
-
-  @doc """
-  Create a synced property from an external system
-  """
-  def create_synced_property_unik(config, unik_property_number, admin_id) do
-    params =
-      %{
-        data: %{
-          type: "property-syncs",
-          attributes: %{
-            number: unik_property_number
-          },
-          relationships: %{
-            admin: %{data: %{type: "accounts", id: admin_id}}
-          }
-        }
-      }
-      |> normalize_payload
-
-    config
-    |> Map.update!(:timeout, fn _ -> 30_000 end)
-    |> Request.post("/property-syncs/unik", params)
   end
 
   defp normalize_payload(%{} = payload) do
