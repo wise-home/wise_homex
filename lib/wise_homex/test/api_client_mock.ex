@@ -213,7 +213,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
   end
 
-  # KEM
+  # KEM uploads
   def upload_kem(_config, opts) do
     call_and_get_mock_value(:upload_kem, %{opts: opts})
   end

@@ -86,7 +86,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Account invitation
   @callback create_account_invitation(Config.t(), id, attributes) :: response
 
-  # KEM
+  # KEM uploads
   @callback upload_kem(Config.t(), list) :: response
 
   # Ping

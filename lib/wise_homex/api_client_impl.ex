@@ -448,6 +448,27 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
   end
 
+  # KEM uploads
+
+  def upload_kem(config, file_base64: file_base64, key: key) do
+    payload =
+      %{
+        data: %{
+          type: "kems",
+          attributes: %{
+            file_base64: file_base64,
+            key: key
+          }
+        }
+      }
+      |> normalize_payload
+
+    # Use a longer timeout for the request since it may take a long time
+    config
+    |> Map.update!(:timeout, fn _ -> 60_000 end)
+    |> Request.post("/kamstrup/kems", payload)
+  end
+
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
@@ -642,25 +663,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_sim(config, id) do
     Request.delete(config, "/sims/" <> id)
-  end
-
-  def upload_kem(config, file_base64: file_base64, key: key) do
-    payload =
-      %{
-        data: %{
-          type: "kems",
-          attributes: %{
-            file_base64: file_base64,
-            key: key
-          }
-        }
-      }
-      |> normalize_payload
-
-    # Use a longer timeout for the request since it may take a long time
-    config
-    |> Map.update!(:timeout, fn _ -> 60_000 end)
-    |> Request.post("/kamstrup/kems", payload)
   end
 
   @doc """
