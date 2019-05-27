@@ -393,14 +393,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Household
 
-  def get_households(config, query \\ %{}) do
-    Request.get(config, "/households", query)
-  end
-
-  def get_household(config, id, query \\ %{}) do
-    Request.get(config, "/households/" <> id, query)
-  end
-
   def create_household(config, attrs, rels) do
     params =
       %{
@@ -413,6 +405,18 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/households", params)
+  end
+
+  def delete_household(config, id) do
+    Request.delete(config, "/households/" <> id)
+  end
+
+  def get_household(config, id, query \\ %{}) do
+    Request.get(config, "/households/" <> id, query)
+  end
+
+  def get_households(config, query \\ %{}) do
+    Request.get(config, "/households", query)
   end
 
   def update_household(config, id, attrs, rels) do
@@ -428,10 +432,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.patch(config, "/households/" <> id, params)
-  end
-
-  def delete_household(config, id) do
-    Request.delete(config, "/households/" <> id)
   end
 
   # Account invitation
