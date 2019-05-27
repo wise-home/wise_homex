@@ -568,10 +568,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Reports
 
-  def get_device_reports(config, id) do
-    Request.get(config, "/devices/" <> id <> "/reports")
-  end
-
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{
       data: %{
@@ -583,6 +579,10 @@ defmodule WiseHomex.ApiClientImpl do
     }
 
     Request.post(config, "/reports/latest", query, payload)
+  end
+
+  def get_device_reports(config, id) do
+    Request.get(config, "/devices/" <> id <> "/reports")
   end
 
   # Room
