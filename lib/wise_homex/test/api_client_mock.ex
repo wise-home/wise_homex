@@ -56,6 +56,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:delete_admin_integration, %{id: id})
   end
 
+  # Admin Integration UNIK
   def create_admin_integration_unik(_config, attrs, rels) do
     call_and_get_mock_value(:create_admin_integration_unik, %{attrs: attrs, rels: rels})
   end
