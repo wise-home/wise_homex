@@ -582,25 +582,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/reports/latest", query, payload)
   end
 
-  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
-    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
-  end
-
-  def refresh_wmbus_cache(config, gateway_id) do
-    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
-  end
-
-  def get_users(config, filters \\ []) do
-    query =
-      filters
-      |> Enum.map(fn {key, value} ->
-        "filter[#{key}]=#{value}"
-      end)
-      |> Enum.join("&")
-
-    query = if query == "", do: query, else: "?#{query}"
-    Request.get(config, "/users#{query}")
-  end
+  # Room
 
   def get_rooms(config, query) do
     Request.get(config, "/rooms", query)
@@ -639,6 +621,26 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_room(config, id) do
     Request.delete(config, "/rooms/" <> id)
+  end
+
+  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
+    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
+  end
+
+  def refresh_wmbus_cache(config, gateway_id) do
+    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
+  end
+
+  def get_users(config, filters \\ []) do
+    query =
+      filters
+      |> Enum.map(fn {key, value} ->
+        "filter[#{key}]=#{value}"
+      end)
+      |> Enum.join("&")
+
+    query = if query == "", do: query, else: "?#{query}"
+    Request.get(config, "/users#{query}")
   end
 
   def get_tenancy(config, id, query \\ %{}) do
