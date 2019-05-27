@@ -702,13 +702,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/sims/" <> id)
   end
 
-  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
-    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
-  end
-
-  def refresh_wmbus_cache(config, gateway_id) do
-    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
-  end
+  # User
 
   def get_users(config, filters \\ []) do
     query =
@@ -720,6 +714,14 @@ defmodule WiseHomex.ApiClientImpl do
 
     query = if query == "", do: query, else: "?#{query}"
     Request.get(config, "/users#{query}")
+  end
+
+  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
+    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
+  end
+
+  def refresh_wmbus_cache(config, gateway_id) do
+    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
   end
 
   defp normalize_payload(%{} = payload) do
