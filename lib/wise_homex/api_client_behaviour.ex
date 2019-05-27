@@ -103,7 +103,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback sync_property(Config.t(), id) :: response
   @callback create_synced_property_unik(Config.t(), unik_number, id) :: response
 
-  # Report
+  # Reports
   @callback get_device_reports(Config.t(), id) :: response
   @callback create_latest_report(Config.t(), id, query) :: response
 

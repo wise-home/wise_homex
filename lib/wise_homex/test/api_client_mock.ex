@@ -256,7 +256,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     })
   end
 
-  # Report
+  # Reports
   def get_device_reports(_config, id) do
     call_and_get_mock_value(:get_device_reports, %{id: id})
   end

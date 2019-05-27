@@ -563,28 +563,10 @@ defmodule WiseHomex.ApiClientImpl do
     |> Request.post("/property-syncs/unik", params)
   end
 
-  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
-    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
-  end
-
-  def refresh_wmbus_cache(config, gateway_id) do
-    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
-  end
+  # Reports
 
   def get_device_reports(config, id) do
     Request.get(config, "/devices/" <> id <> "/reports")
-  end
-
-  def get_users(config, filters \\ []) do
-    query =
-      filters
-      |> Enum.map(fn {key, value} ->
-        "filter[#{key}]=#{value}"
-      end)
-      |> Enum.join("&")
-
-    query = if query == "", do: query, else: "?#{query}"
-    Request.get(config, "/users#{query}")
   end
 
   def create_latest_report(config, device_id, query \\ %{}) do
@@ -598,6 +580,26 @@ defmodule WiseHomex.ApiClientImpl do
     }
 
     Request.post(config, "/reports/latest", query, payload)
+  end
+
+  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
+    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
+  end
+
+  def refresh_wmbus_cache(config, gateway_id) do
+    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
+  end
+
+  def get_users(config, filters \\ []) do
+    query =
+      filters
+      |> Enum.map(fn {key, value} ->
+        "filter[#{key}]=#{value}"
+      end)
+      |> Enum.join("&")
+
+    query = if query == "", do: query, else: "?#{query}"
+    Request.get(config, "/users#{query}")
   end
 
   def get_rooms(config, query) do
