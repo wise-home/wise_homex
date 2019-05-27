@@ -269,6 +269,63 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
   end
 
+  # External Info
+
+  def create_external_info(config, attributes, relationships) do
+    payload =
+      %{
+        data: %{
+          type: "external-infos",
+          attributes: attributes,
+          relationships: relationships
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/external-infos", payload)
+  end
+
+  def update_external_info(config, id, attributes) do
+    payload =
+      %{
+        data: %{
+          type: "external-infos",
+          id: id,
+          attributes: attributes
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/external-infos/" <> id, payload)
+  end
+
+  def delete_external_info(config, id) do
+    Request.delete(config, "/external-infos/" <> id)
+  end
+
+  # Firmware
+
+  def create_firmware(config, file_content) do
+    payload = %{
+      data: %{
+        type: "firmwares",
+        attributes: %{
+          content_base64: file_content |> Base.encode64()
+        }
+      }
+    }
+
+    Request.post(config, "/firmwares", payload)
+  end
+
+  def delete_firmware(config, id) do
+    Request.delete(config, "/firmwares/" <> id)
+  end
+
+  def get_firmwares(config) do
+    Request.get(config, "/firmwares", %{"page[size]" => 500})
+  end
+
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
@@ -411,27 +468,6 @@ defmodule WiseHomex.ApiClientImpl do
 
     query = if query == "", do: query, else: "?#{query}"
     Request.get(config, "/users#{query}")
-  end
-
-  def get_firmwares(config) do
-    Request.get(config, "/firmwares", %{"page[size]" => 500})
-  end
-
-  def create_firmware(config, file_content) do
-    payload = %{
-      data: %{
-        type: "firmwares",
-        attributes: %{
-          content_base64: file_content |> Base.encode64()
-        }
-      }
-    }
-
-    Request.post(config, "/firmwares", payload)
-  end
-
-  def delete_firmware(config, id) do
-    Request.delete(config, "/firmwares/" <> id)
   end
 
   def create_latest_report(config, device_id, query \\ %{}) do
@@ -619,39 +655,6 @@ defmodule WiseHomex.ApiClientImpl do
     config
     |> Map.update!(:timeout, fn _ -> 60_000 end)
     |> Request.post("/kamstrup/kems", payload)
-  end
-
-  # External Info
-  def create_external_info(config, attributes, relationships) do
-    payload =
-      %{
-        data: %{
-          type: "external-infos",
-          attributes: attributes,
-          relationships: relationships
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/external-infos", payload)
-  end
-
-  def update_external_info(config, id, attributes) do
-    payload =
-      %{
-        data: %{
-          type: "external-infos",
-          id: id,
-          attributes: attributes
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/external-infos/" <> id, payload)
-  end
-
-  def delete_external_info(config, id) do
-    Request.delete(config, "/external-infos/" <> id)
   end
 
   @doc """
