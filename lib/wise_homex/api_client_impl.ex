@@ -171,6 +171,90 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/bmeters/keys", payload)
   end
 
+  # Device
+  def add_device(config, gateway_id, protocol, serial) do
+    payload =
+      %{
+        "data" => %{
+          "type" => "devices",
+          "attributes" => %{
+            "serial" => serial,
+            "protocol" => protocol
+          },
+          "relationships" => %{
+            "gateway" => %{"data" => %{"type" => "gateways", "id" => gateway_id}}
+          }
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/devices", payload)
+  end
+
+  def authorize_device(config, device_id) do
+    Request.post(config, "/devices/" <> device_id <> "/authorizations")
+  end
+
+  def deauthorize_device(config, device_id) do
+    Request.delete(config, "/devices/" <> device_id <> "/authorizations")
+  end
+
+  def delete_device(config, id) do
+    Request.delete(config, "/devices/" <> id)
+  end
+
+  def fast_ping_device(config, id) do
+    params =
+      %{
+        data: %{
+          type: "device-fast-pings"
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/devices/" <> id <> "/fast-pings", params)
+  end
+
+  def get_device(config, id, query \\ %{}) do
+    Request.get(config, "/devices/" <> id, query)
+  end
+
+  def get_devices(config, query \\ %{}) do
+    Request.get(config, "/devices", query)
+  end
+
+  def set_device_location(config, device_id, room_id) do
+    payload =
+      %{
+        data: %{
+          type: "device-locations",
+          relationships: %{
+            room: %{data: %{type: "rooms", id: room_id}}
+          }
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/devices/" <> device_id <> "/location", payload)
+  end
+
+  def update_device(config, id, attrs, rels) do
+    params =
+      %{
+        data: %{
+          type: "devices",
+          id: id,
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/devices/" <> id, params)
+  end
+
+  # Email Settings
+
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
@@ -272,79 +356,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
   end
 
-  def get_devices(config, query \\ %{}) do
-    Request.get(config, "/devices", query)
-  end
-
-  def get_device(config, id, query \\ %{}) do
-    Request.get(config, "/devices/" <> id, query)
-  end
-
-  def update_device(config, id, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "devices",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/devices/" <> id, params)
-  end
-
-  def set_device_location(config, device_id, room_id) do
-    payload =
-      %{
-        data: %{
-          type: "device-locations",
-          relationships: %{
-            room: %{data: %{type: "rooms", id: room_id}}
-          }
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/devices/" <> device_id <> "/location", payload)
-  end
-
-  def add_device(config, gateway_id, protocol, serial) do
-    payload =
-      %{
-        "data" => %{
-          "type" => "devices",
-          "attributes" => %{
-            "serial" => serial,
-            "protocol" => protocol
-          },
-          "relationships" => %{
-            "gateway" => %{"data" => %{"type" => "gateways", "id" => gateway_id}}
-          }
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/devices", payload)
-  end
-
-  def delete_device(config, id) do
-    Request.delete(config, "/devices/" <> id)
-  end
-
-  def fast_ping_device(config, id) do
-    params =
-      %{
-        data: %{
-          type: "device-fast-pings"
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/devices/" <> id <> "/fast-pings", params)
-  end
-
   def get_device_reports(config, id) do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
@@ -388,14 +399,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_household(config, id) do
     Request.delete(config, "/households/" <> id)
-  end
-
-  def authorize_device(config, device_id) do
-    Request.post(config, "/devices/" <> device_id <> "/authorizations")
-  end
-
-  def deauthorize_device(config, device_id) do
-    Request.delete(config, "/devices/" <> device_id <> "/authorizations")
   end
 
   def get_users(config, filters \\ []) do
