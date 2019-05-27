@@ -469,6 +469,8 @@ defmodule WiseHomex.ApiClientImpl do
     |> Request.post("/kamstrup/kems", payload)
   end
 
+  # Ping
+
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
