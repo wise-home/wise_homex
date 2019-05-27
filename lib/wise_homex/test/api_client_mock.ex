@@ -8,6 +8,7 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
+  # Account
   def create_account(_config, attrs, rels) do
     call_and_get_mock_value(:create_account, %{attrs: attrs, rels: rels})
   end
@@ -28,10 +29,12 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_account, %{id: id, attrs: attrs})
   end
 
+  # Account User
   def get_account_users(_config, query) do
     call_and_get_mock_value(:get_account_users, %{query: query})
   end
 
+  # Address
   def create_address(_config, attrs, rels) do
     call_and_get_mock_value(:create_address, %{attrs: attrs, rels: rels})
   end
@@ -40,6 +43,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_address, %{id: id, query: query})
   end
 
+  # Admin Integration
   def get_admin_integrations(_config, query \\ %{}) do
     call_and_get_mock_value(:get_admin_integrations, %{query: query})
   end
@@ -60,6 +64,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_admin_integration_unik, %{id: id, attrs: attrs})
   end
 
+  # Angel Note
   def get_angel_note(_config, target_type, target_id) do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
   end
@@ -76,10 +81,12 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:delete_angel_note, %{id: id})
   end
 
+  # Bmeters Keys
   def upload_bmeters_keys(_config, opts) do
     call_and_get_mock_value(:upload_bmeters_keys, %{opts: opts})
   end
 
+  # Device
   def add_device(_config, gateway_id, protocol, serial) do
     call_and_get_mock_value(:add_device, %{
       gateway_id: gateway_id,
@@ -120,6 +127,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_device, %{id: id, attrs: attrs, rels: rels})
   end
 
+  # Email Settings
   def update_account_email_settings(_config, account_id, id, attrs) do
     call_and_get_mock_value(:update_account_email_settings, %{
       id: id,
@@ -141,6 +149,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:delete_external_info, %{id: id})
   end
 
+  # Firmware
   def create_firmware(_config, _file_content) do
     call_and_get_mock_value(:create_firmware, %{})
   end
@@ -153,6 +162,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_firmwares, %{})
   end
 
+  # Gateway
   def get_gateway(_config, id, query) do
     call_and_get_mock_value(:get_gateway, %{id: id, query: query})
   end
@@ -177,6 +187,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_gateway, %{id: id, attrs: attrs, rels: rels})
   end
 
+  # Household
   def create_household(_config, attrs, rels) do
     call_and_get_mock_value(:create_household, %{attrs: attrs, rels: rels})
   end
@@ -197,18 +208,22 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_household, %{id: id, attrs: attrs, rels: rels})
   end
 
+  # Invitation
   def create_account_invitation(_config, account_id, attrs) do
     call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
   end
 
+  # KEM
   def upload_kem(_config, opts) do
     call_and_get_mock_value(:upload_kem, %{opts: opts})
   end
 
+  # Ping
   def ping(_config, query) do
     call_and_get_mock_value(:ping, %{query: query})
   end
 
+  # Property
   def create_property(_config, attrs, rels) do
     call_and_get_mock_value(:create_property, %{attrs: attrs, rels: rels})
   end
@@ -229,6 +244,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_property, %{id: id, attrs: attrs, rels: rels})
   end
 
+  # Property Syncs
   def sync_property(_config, property_id) do
     call_and_get_mock_value(:sync_property, %{property_id: property_id})
   end
@@ -240,6 +256,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     })
   end
 
+  # Report
   def get_device_reports(_config, id) do
     call_and_get_mock_value(:get_device_reports, %{id: id})
   end
@@ -248,6 +265,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_latest_report, %{device_id: device_id, query: query})
   end
 
+  # Room
   def create_room(_config, attrs, rels) do
     call_and_get_mock_value(:create_room, %{attrs: attrs, rels: rels})
   end
@@ -268,6 +286,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_room, %{id: id, attrs: attrs, rels: rels})
   end
 
+  # Tenancy
   def create_tenancy(_config, attrs, rels) do
     call_and_get_mock_value(:create_tenancy, %{attrs: attrs, rels: rels})
   end
@@ -284,6 +303,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_tenancy, %{id: id, attrs: attrs})
   end
 
+  # SIM
   def create_sim(_config, attrs) do
     call_and_get_mock_value(:create_sim, %{attrs: attrs})
   end
@@ -304,10 +324,12 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_sim, %{id: id, attrs: attrs})
   end
 
+  # User
   def get_users(_config, filters \\ []) do
     call_and_get_mock_value(:get_users, %{filters: filters})
   end
 
+  # Wmbus Cache
   def get_wmbus_cache(_config, gateway_id, query) do
     call_and_get_mock_value(:get_wmbus_cache, %{gateway_id: gateway_id, query: query})
   end
