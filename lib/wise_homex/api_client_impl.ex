@@ -155,6 +155,22 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/angel-notes/" <> id)
   end
 
+  # Bmeters Keys
+  def upload_bmeters_keys(config, file_base64: file_base64) do
+    payload =
+      %{
+        data: %{
+          type: "encryption-keys",
+          attributes: %{
+            file_base64: file_base64
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/bmeters/keys", payload)
+  end
+
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
@@ -600,21 +616,6 @@ defmodule WiseHomex.ApiClientImpl do
     config
     |> Map.update!(:timeout, fn _ -> 60_000 end)
     |> Request.post("/kamstrup/kems", payload)
-  end
-
-  def upload_bmeters_keys(config, file_base64: file_base64) do
-    payload =
-      %{
-        data: %{
-          type: "encryption-keys",
-          attributes: %{
-            file_base64: file_base64
-          }
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/bmeters/keys", payload)
   end
 
   # External Info
