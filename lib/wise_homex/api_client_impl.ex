@@ -326,22 +326,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/firmwares", %{"page[size]" => 500})
   end
 
-  def ping(config, query) do
-    Request.get(config, "/ping", query)
-  end
-
-  def create_account_invitation(config, account_id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "account-invitations",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
-  end
+  # Gateway
 
   def get_gateways(config, query \\ %{}) do
     Request.get(config, "/gateways", query)
@@ -403,6 +388,25 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/gateways/" <> id <> "/restarts", payload)
+  end
+
+  # Household
+
+  def ping(config, query) do
+    Request.get(config, "/ping", query)
+  end
+
+  def create_account_invitation(config, account_id, attrs) do
+    payload =
+      %{
+        data: %{
+          type: "account-invitations",
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
   end
 
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
