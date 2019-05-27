@@ -392,35 +392,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Household
 
-  def ping(config, query) do
-    Request.get(config, "/ping", query)
-  end
-
-  def create_account_invitation(config, account_id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "account-invitations",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
-  end
-
-  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
-    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
-  end
-
-  def refresh_wmbus_cache(config, gateway_id) do
-    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
-  end
-
-  def get_device_reports(config, id) do
-    Request.get(config, "/devices/" <> id <> "/reports")
-  end
-
   def get_households(config, query \\ %{}) do
     Request.get(config, "/households", query)
   end
@@ -460,6 +431,35 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_household(config, id) do
     Request.delete(config, "/households/" <> id)
+  end
+
+  def ping(config, query) do
+    Request.get(config, "/ping", query)
+  end
+
+  def create_account_invitation(config, account_id, attrs) do
+    payload =
+      %{
+        data: %{
+          type: "account-invitations",
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
+  end
+
+  def get_wmbus_cache(config, gateway_id, query \\ %{}) do
+    Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
+  end
+
+  def refresh_wmbus_cache(config, gateway_id) do
+    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
+  end
+
+  def get_device_reports(config, id) do
+    Request.get(config, "/devices/" <> id <> "/reports")
   end
 
   def get_users(config, filters \\ []) do
