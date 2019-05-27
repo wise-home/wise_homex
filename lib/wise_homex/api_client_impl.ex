@@ -59,6 +59,25 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/account-users", query)
   end
 
+  # Address
+  def create_address(config, attrs, rels) do
+    params =
+      %{
+        data: %{
+          type: "addresses",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/addresses", params)
+  end
+
+  def get_address(config, id, query \\ %{}) do
+    Request.get(config, "/addresses/" <> id, query)
+  end
+
   # Angel Note
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
@@ -446,24 +465,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_property(config, id) do
     Request.delete(config, "/properties/" <> id)
-  end
-
-  def get_address(config, id, query \\ %{}) do
-    Request.get(config, "/addresses/" <> id, query)
-  end
-
-  def create_address(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "addresses",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/addresses", params)
   end
 
   def get_tenancy(config, id, query \\ %{}) do
