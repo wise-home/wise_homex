@@ -29,17 +29,17 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_address(Config.t(), id, query) :: response
 
   # Admin Integration
-  @callback get_admin_integrations(Config.t(), query) :: response
-  @callback get_admin_integration(Config.t(), id, query) :: response
-  @callback delete_admin_integration(Config.t(), id) :: response
   @callback create_admin_integration_unik(Config.t(), attributes, relationships) :: response
+  @callback delete_admin_integration(Config.t(), id) :: response
+  @callback get_admin_integration(Config.t(), id, query) :: response
+  @callback get_admin_integrations(Config.t(), query) :: response
   @callback update_admin_integration_unik(Config.t(), id, attributes) :: response
 
   # Angel Note
-  @callback get_angel_note(Config.t(), String.t(), id) :: response
   @callback create_angel_note(Config.t(), attributes) :: response
-  @callback update_angel_note(Config.t(), id, attributes) :: response
   @callback delete_angel_note(Config.t(), id) :: response
+  @callback get_angel_note(Config.t(), String.t(), id) :: response
+  @callback update_angel_note(Config.t(), id, attributes) :: response
 
   # Bmeters Keys
   @callback upload_bmeters_keys(Config.t(), list) :: response
@@ -60,8 +60,8 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   # External Info
   @callback create_external_info(Config.t(), attributes, relationships) :: response
-  @callback update_external_info(Config.t(), id, attributes) :: response
   @callback delete_external_info(Config.t(), id) :: response
+  @callback update_external_info(Config.t(), id, attributes) :: response
 
   # Firmware
   @callback create_firmware(Config.t(), String.t()) :: response
@@ -100,12 +100,12 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_property(Config.t(), id, attributes, relationships) :: response
 
   # Property Syncs
-  @callback sync_property(Config.t(), id) :: response
   @callback create_synced_property_unik(Config.t(), unik_number, id) :: response
+  @callback sync_property(Config.t(), id) :: response
 
   # Reports
-  @callback get_device_reports(Config.t(), id) :: response
   @callback create_latest_report(Config.t(), id, query) :: response
+  @callback get_device_reports(Config.t(), id) :: response
 
   # Room
   @callback create_room(Config.t(), attributes, relationships) :: response
