@@ -286,6 +286,10 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/external-infos", payload)
   end
 
+  def delete_external_info(config, id) do
+    Request.delete(config, "/external-infos/" <> id)
+  end
+
   def update_external_info(config, id, attributes) do
     payload =
       %{
@@ -298,10 +302,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.patch(config, "/external-infos/" <> id, payload)
-  end
-
-  def delete_external_info(config, id) do
-    Request.delete(config, "/external-infos/" <> id)
   end
 
   # Firmware
