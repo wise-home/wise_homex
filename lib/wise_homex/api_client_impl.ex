@@ -255,10 +255,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Email Settings
 
-  def ping(config, query) do
-    Request.get(config, "/ping", query)
-  end
-
   def update_account_email_settings(config, account_id, id, attrs) do
     payload =
       %{
@@ -271,6 +267,10 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
+  end
+
+  def ping(config, query) do
+    Request.get(config, "/ping", query)
   end
 
   def create_account_invitation(config, account_id, attrs) do
