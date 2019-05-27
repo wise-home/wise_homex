@@ -78,6 +78,47 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/addresses/" <> id, query)
   end
 
+  # Admin integrations
+  def get_admin_integrations(config, query \\ %{}) do
+    Request.get(config, "/admin-integrations", query)
+  end
+
+  def get_admin_integration(config, id, query \\ %{}) do
+    Request.get(config, "/admin-integrations/" <> id, query)
+  end
+
+  def delete_admin_integration(config, id) do
+    Request.delete(config, "/admin-integrations/" <> id)
+  end
+
+  def create_admin_integration_unik(config, attrs, rels) do
+    params =
+      %{
+        data: %{
+          type: "admin-integrations",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/admin-integrations/unik", params)
+  end
+
+  def update_admin_integration_unik(config, id, attrs) do
+    params =
+      %{
+        data: %{
+          type: "admin-integrations",
+          id: id,
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/admin-integrations/unik/" <> id, params)
+  end
+
   # Angel Note
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
@@ -607,49 +648,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def delete_external_info(config, id) do
     Request.delete(config, "/external-infos/" <> id)
-  end
-
-  @doc """
-  Get admin integrations
-  """
-  def get_admin_integrations(config, query \\ %{}) do
-    Request.get(config, "/admin-integrations", query)
-  end
-
-  def get_admin_integration(config, id, query \\ %{}) do
-    Request.get(config, "/admin-integrations/" <> id, query)
-  end
-
-  def delete_admin_integration(config, id) do
-    Request.delete(config, "/admin-integrations/" <> id)
-  end
-
-  def create_admin_integration_unik(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "admin-integrations",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/admin-integrations/unik", params)
-  end
-
-  def update_admin_integration_unik(config, id, attrs) do
-    params =
-      %{
-        data: %{
-          type: "admin-integrations",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/admin-integrations/unik/" <> id, params)
   end
 
   @doc """
