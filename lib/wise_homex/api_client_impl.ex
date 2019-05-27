@@ -329,42 +329,12 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Gateway
 
-  def get_gateways(config, query \\ %{}) do
-    Request.get(config, "/gateways", query)
-  end
-
   def get_gateway(config, id, query \\ %{}) do
     Request.get(config, "/gateways/" <> id, query)
   end
 
-  def update_gateway(config, id, attrs, rels \\ %{}) do
-    payload =
-      %{
-        data: %{
-          type: "gateways",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/gateways/" <> id, payload)
-  end
-
-  def unlock_gateway(config, id, seconds) do
-    payload =
-      %{
-        data: %{
-          type: "gateway-unlocks",
-          attributes: %{
-            unlocked_seconds: seconds
-          }
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
+  def get_gateways(config, query \\ %{}) do
+    Request.get(config, "/gateways", query)
   end
 
   def lock_gateway(config, id) do
@@ -389,6 +359,36 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/gateways/" <> id <> "/restarts", payload)
+  end
+
+  def unlock_gateway(config, id, seconds) do
+    payload =
+      %{
+        data: %{
+          type: "gateway-unlocks",
+          attributes: %{
+            unlocked_seconds: seconds
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
+  end
+
+  def update_gateway(config, id, attrs, rels \\ %{}) do
+    payload =
+      %{
+        data: %{
+          type: "gateways",
+          id: id,
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/gateways/" <> id, payload)
   end
 
   # Household
