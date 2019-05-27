@@ -208,7 +208,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_household, %{id: id, attrs: attrs, rels: rels})
   end
 
-  # Invitation
+  # Account invitation
   def create_account_invitation(_config, account_id, attrs) do
     call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
   end

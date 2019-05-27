@@ -83,7 +83,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_households(Config.t(), query) :: response
   @callback update_household(Config.t(), id, attributes, relationships) :: response
 
-  # Invitation
+  # Account invitation
   @callback create_account_invitation(Config.t(), id, attributes) :: response
 
   # KEM

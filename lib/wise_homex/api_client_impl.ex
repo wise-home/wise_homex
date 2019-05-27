@@ -433,9 +433,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/households/" <> id)
   end
 
-  def ping(config, query) do
-    Request.get(config, "/ping", query)
-  end
+  # Account invitation
 
   def create_account_invitation(config, account_id, attrs) do
     payload =
@@ -448,6 +446,10 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
+  end
+
+  def ping(config, query) do
+    Request.get(config, "/ping", query)
   end
 
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
