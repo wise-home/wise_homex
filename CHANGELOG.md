@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.11 2019-05-28
+
+- Order all functions by functionality and then alphabetically (https://github.com/wise-home/wise_homex/issues/13)
+
 ## 0.6.10
 
 - Set up multiple mocks in a single call (https://github.com/wise-home/wise_homex/issues/31)
