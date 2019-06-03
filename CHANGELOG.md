@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.12 2019-06-03
+
+- Add last_synced_at field to ExternalInfo model (https://github.com/wise-home/wise_homex/issues/34)
+
 ## 0.6.11 2019-05-28
 
 - Order all functions by functionality and then alphabetically (https://github.com/wise-home/wise_homex/issues/13)
