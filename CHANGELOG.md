@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.13 2019-06-07
+
+- Add delete_gateway call (https://github.com/wise-home/wise_homex/issues/36)
+
 ## 0.6.12 2019-06-03
 
 - Add last_synced_at field to ExternalInfo model (https://github.com/wise-home/wise_homex/issues/34)
