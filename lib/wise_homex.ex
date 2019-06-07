@@ -306,6 +306,13 @@ defmodule WiseHomex do
   def get_gateways(config, query \\ %{}), do: api_client().get_gateways(config, query)
 
   @doc """
+  Delete a gateway
+
+  Deleting a gateway with devices will return an error.
+  """
+  def delete_gateway(config, id), do: api_client().delete_gateway(config, id)
+
+  @doc """
   Lock a gateway
   """
   def lock_gateway(config, id), do: api_client().lock_gateway(config, id)

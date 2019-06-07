@@ -172,6 +172,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_gateways, %{query: query})
   end
 
+  def delete_gateway(_config, id) do
+    call_and_get_mock_value(:delete_gateway, %{id: id})
+  end
+
   def lock_gateway(_config, id) do
     call_and_get_mock_value(:lock_gateway, %{id: id})
   end

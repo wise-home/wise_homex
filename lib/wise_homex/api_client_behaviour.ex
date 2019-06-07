@@ -73,6 +73,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Gateway
   @callback get_gateway(Config.t(), id, query) :: response
   @callback get_gateways(Config.t(), query) :: response
+  @callback delete_gateway(Config.t(), id) :: response
   @callback lock_gateway(Config.t(), id) :: response
   @callback restart_gateway(Config.t(), id) :: response
   @callback unlock_gateway(Config.t(), id, integer) :: response
