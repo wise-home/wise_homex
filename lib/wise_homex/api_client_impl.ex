@@ -337,6 +337,10 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/gateways", query)
   end
 
+  def delete_gateway(config, id) do
+    Request.delete(config, "/gateways/" <> id)
+  end
+
   def lock_gateway(config, id) do
     payload =
       %{
