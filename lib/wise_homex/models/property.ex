@@ -6,8 +6,9 @@ defmodule WiseHomex.Property do
   embedded_schema do
     belongs_to(:admin, WiseHomex.Account)
     belongs_to(:external_info, WiseHomex.ExternalInfo)
+    has_many(:addresses, WiseHomex.Address)
 
     field(:name, :string)
-    has_many(:addresses, WiseHomex.Address)
+    field(:number, :integer)
   end
 end
