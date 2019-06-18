@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.15 2019-06-18
+
+- Include file_content for :create_firmware mock (https://github.com/wise-home/wise_homex/issues/40)
+
 ## 0.6.14 2019-06-17
 
 - Add number field on Property model (https://github.com/wise-home/wise_homex/issues/38)
