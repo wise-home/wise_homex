@@ -151,8 +151,8 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Firmware
-  def create_firmware(_config, _file_content) do
-    call_and_get_mock_value(:create_firmware, %{})
+  def create_firmware(_config, file_content) do
+    call_and_get_mock_value(:create_firmware, %{file_content: file_content})
   end
 
   def delete_firmware(_config, id) do
