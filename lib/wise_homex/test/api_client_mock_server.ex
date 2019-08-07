@@ -11,6 +11,19 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   end
 
   @doc """
+  Child spec for starting the mock server in a supervisor.
+  Can be started supervised from a test with `start_supervised(WiseHomex.Test.ApiClientMockServer)`
+  """
+  @spec child_spec([]) :: Supervisor.child_spec()
+  def child_spec([]) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, []},
+      type: :worker
+    }
+  end
+
+  @doc """
   Set a mock value on the ApiClientMock
 
   Example call for setting up a mock response for `:get_gateways`:
