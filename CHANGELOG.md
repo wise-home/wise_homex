@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.16 2019-08-07
+
+- Added child_spec for ApiClientMockServer
+
 ## 0.6.15 2019-06-18
 
 - Include file_content for :create_firmware mock (https://github.com/wise-home/wise_homex/issues/40)
