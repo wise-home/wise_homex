@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.17 2019-08-07
+
+- Can reset a running mock server
+
 ## 0.6.16 2019-08-07
 
 - Added child_spec for ApiClientMockServer
