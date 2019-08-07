@@ -76,13 +76,22 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   end
 
   @doc """
+  Resets the mock server to inital state
+  """
+  @spec reset() :: :ok
+  def reset do
+    GenServer.cast(@name, :reset)
+  end
+
+  @doc """
   Initialize the mock server with an empty request stack
   """
+  @impl GenServer
   def init([]) do
     {:ok, initial_state()}
   end
 
-  def initial_state() do
+  defp initial_state() do
     %{
       calls: %{},
       mocks: %{}
@@ -100,6 +109,7 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   Note that the mocks map will be populated with keys that are tuples of an atom and a map.
   As key order doesn't mapper when comparing maps, this will enable us to set precise mocks.
   """
+  @impl GenServer
   def handle_call({:push_mock_value, api_function, opts, value}, _from, state) do
     key = {api_function, opts}
 
@@ -173,5 +183,10 @@ defmodule WiseHomex.Test.ApiClientMockServer do
       end)
 
     {:reply, opts, state}
+  end
+
+  @impl GenServer
+  def handle_cast(:reset, _state) do
+    {:noreply, initial_state()}
   end
 end
