@@ -548,15 +548,17 @@ defmodule WiseHomex.ApiClientImpl do
   # Property Syncs UNIK
 
   @doc """
-  Create a synced property from an external system
+  Create a synced property from UNIK
+  Both property_number and company_number are the numbers from the UNIK system
   """
-  def create_synced_property_unik(config, unik_property_number, admin_id) do
+  def create_synced_property_unik(config, property_number, company_number, admin_id) do
     params =
       %{
         data: %{
           type: "property-syncs",
           attributes: %{
-            number: unik_property_number
+            property_number: property_number,
+            company_number: company_number
           },
           relationships: %{
             admin: %{data: %{type: "accounts", id: admin_id}}

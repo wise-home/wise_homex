@@ -9,7 +9,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @type response :: WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :closed
 
   @type id :: String.t()
-  @type unik_number :: String.t()
+  @type unik_number :: pos_integer
   @type query :: map
   @type attributes :: map
   @type relationships :: map
@@ -106,7 +106,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback sync_property(Config.t(), id) :: response
 
   # Property Syncs UNIK
-  @callback create_synced_property_unik(Config.t(), unik_number, id) :: response
+  @callback create_synced_property_unik(Config.t(), unik_number, unik_number, id) :: response
 
   # Reports
   @callback create_latest_report(Config.t(), id, query) :: response

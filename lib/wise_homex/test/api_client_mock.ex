@@ -255,9 +255,10 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Property Syncs UNIK
-  def create_synced_property_unik(_config, unik_property_number, admin_id) do
+  def create_synced_property_unik(_config, property_number, company_number, admin_id) do
     call_and_get_mock_value(:create_synced_property_unik, %{
-      unik_property_number: unik_property_number,
+      property_number: property_number,
+      company_number: company_number,
       admin_id: admin_id
     })
   end
