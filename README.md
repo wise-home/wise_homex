@@ -129,3 +129,13 @@ defmodule MyModule.SampleTest do
   end
 end
 ```
+
+## Versions of Elixir and Erlang
+
+WiseHomex will be tested against the two latest minor versions of Elixir and the three latest minor versions of Erlang.
+In all cases the latest patch version is used.
+
+E.g. if the latest Elixir is 1.9.1 and the latest Erlang is 22.0.7, we test against:
+
+* Elixir: 1.9.1 and 1.8.2
+* Erlang: 22.0.7, 21.3.8 and 21.2.7
