@@ -8,6 +8,7 @@ defmodule WiseHomex.Address do
     has_many(:households, WiseHomex.Household)
 
     field(:street_and_number, :string)
+    field(:place, :string)
     field(:zip_code, :string)
     field(:city, :string)
     field(:country_code_alpha3, :string)
