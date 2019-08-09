@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.18 2019-08-09
+
+* Can unset device location
+* Added legal_name attribute to property
+* Added address place attribute
+* CircleCI build script and tool-versions, 8
+* Include company number as required attr in unic sync
+
 ## 0.6.17 2019-08-07
 
 - Can reset a running mock server
