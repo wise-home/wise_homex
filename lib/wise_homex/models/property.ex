@@ -9,6 +9,7 @@ defmodule WiseHomex.Property do
     has_many(:addresses, WiseHomex.Address)
 
     field(:name, :string)
+    field(:legal_name, :string)
     field(:number, :integer)
   end
 end
