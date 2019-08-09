@@ -428,8 +428,8 @@ defmodule WiseHomex do
   @doc """
   Create a synced property from unik
   """
-  def create_synced_property_unik(config, unik_property_number, admin_id),
-    do: api_client().create_synced_property_unik(config, unik_property_number, admin_id)
+  def create_synced_property_unik(config, property_number, company_number, admin_id),
+    do: api_client().create_synced_property_unik(config, property_number, company_number, admin_id)
 
   # Reports
 
