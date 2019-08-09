@@ -124,6 +124,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:set_device_location, %{device_id: device_id, room_id: room_id})
   end
 
+  def unset_device_location(_config, device_id) do
+    call_and_get_mock_value(:unset_device_location, %{device_id: device_id})
+  end
+
   def update_device(_config, id, attrs, rels) do
     call_and_get_mock_value(:update_device, %{id: id, attrs: attrs, rels: rels})
   end

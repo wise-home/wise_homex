@@ -239,6 +239,10 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/" <> device_id <> "/location", payload)
   end
 
+  def unset_device_location(config, device_id) do
+    Request.delete(config, "/devices/#{device_id}/location")
+  end
+
   def update_device(config, id, attrs, rels) do
     params =
       %{
