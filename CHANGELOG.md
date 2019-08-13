@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.19 2019-08-13
+
+* Added unconfigurable_reason to ConfigurableMeterID
+
 ## 0.6.18 2019-08-09
 
 * Can unset device location
