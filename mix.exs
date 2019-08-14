@@ -35,7 +35,7 @@ defmodule WiseHomex.MixProject do
       {:dialyxir, "~> 0.4", only: [:dev, :test], runtime: false},
 
       # Documentation
-      {:ex_doc, "~> 0.19.3", only: [:dev]}
+      {:ex_doc, "~> 0.21", only: [:dev]}
     ]
   end
 
