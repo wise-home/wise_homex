@@ -649,4 +649,25 @@ defmodule WiseHomex.JSONParserTest do
 
     assert account.id == "1"
   end
+
+  test "parse dates as Date" do
+    json = """
+    {
+      "data": {
+        "type": "tenancies",
+        "id": "a2d75bd4-c0a8-4316-8592-df4ac86774b8",
+        "attributes": {
+          "move-in-date": "2019-08-19"
+        }
+      }
+    }
+    """
+
+    tenancy =
+      json
+      |> Jason.decode!()
+      |> JSONParser.parse()
+
+    assert tenancy.move_in_date == ~D[2019-08-19]
+  end
 end

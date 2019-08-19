@@ -3,6 +3,8 @@ defmodule WiseHomex.JSONParser do
   Parses a jsonapi response from the api.
   """
 
+  alias Ecto.Changeset
+
   @structs %{
     "account-email-settings" => WiseHomex.Account.EmailSettings,
     "account-users" => WiseHomex.AccountUser,
@@ -256,11 +258,20 @@ defmodule WiseHomex.JSONParser do
   end
 
   defp set_struct_attribute(struct, key, value) do
-    if Map.has_key?(struct, key) do
-      %{struct | key => value}
-    else
-      struct
+    %{__struct__: module} = struct
+    fields = module.__changeset__()
+
+    case Map.fetch(fields, key) do
+      {:ok, :date} -> coerce_struct_value(struct, key, value)
+      {:ok, _} -> %{struct | key => value}
+      _ -> struct
     end
+  end
+
+  defp coerce_struct_value(struct, key, value) do
+    struct
+    |> Changeset.cast(%{key => value}, [key])
+    |> Changeset.apply_changes()
   end
 
   defp parse_required_entities(data) do
