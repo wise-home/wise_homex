@@ -262,7 +262,7 @@ defmodule WiseHomex.JSONParser do
     fields = module.__changeset__()
 
     case Map.fetch(fields, key) do
-      {:ok, :date} -> coerce_struct_value(struct, key, value)
+      {:ok, type} when type in [:date, :utc_datetime] -> coerce_struct_value(struct, key, value)
       {:ok, _} -> %{struct | key => value}
       _ -> struct
     end

@@ -670,4 +670,20 @@ defmodule WiseHomex.JSONParserTest do
 
     assert tenancy.move_in_date == ~D[2019-08-19]
   end
+
+  test "parse datetimes as DateTime" do
+    data = %{
+      "data" => %{
+        "type" => "users",
+        "id" => "45",
+        "attributes" => %{
+          "activated-at" => "2019-08-19T15:28:00.000000Z"
+        }
+      }
+    }
+
+    user = JSONParser.parse(data)
+
+    assert user.activated_at == ~N[2019-08-19 15:28:00] |> DateTime.from_naive!("Etc/UTC")
+  end
 end
