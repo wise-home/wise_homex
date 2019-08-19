@@ -686,4 +686,19 @@ defmodule WiseHomex.JSONParserTest do
 
     assert user.activated_at == ~N[2019-08-19 15:28:00] |> DateTime.from_naive!("Etc/UTC")
   end
+
+  test "sets relations to nil if they are nil" do
+    data = %{
+      "data" => %{
+        "type" => "households",
+        "id" => "1",
+        "relationships" => %{
+          "tenant" => %{"data" => nil}
+        }
+      }
+    }
+
+    household = JSONParser.parse(data)
+    assert household.tenant == nil
+  end
 end

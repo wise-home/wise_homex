@@ -224,8 +224,9 @@ defmodule WiseHomex.JSONParser do
     |> set_struct_attribute(id_key, related_struct.id)
   end
 
-  defp add_related_entity(_key, nil, struct) do
+  defp add_related_entity(key, nil, struct) do
     struct
+    |> set_struct_attribute(key, nil)
   end
 
   defp add_related_entity(key, list, struct) when is_list(list) do
