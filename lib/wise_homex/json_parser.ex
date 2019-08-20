@@ -259,17 +259,24 @@ defmodule WiseHomex.JSONParser do
   end
 
   defp set_struct_attribute(struct, key, value) do
-    %{__struct__: module} = struct
-    fields = module.__changeset__()
+    struct_types = ecto_types(struct)
 
-    case Map.fetch(fields, key) do
-      {:ok, type} when type in [:date, :utc_datetime] -> coerce_struct_value(struct, key, value)
+    case Map.fetch(struct_types, key) do
+      {:ok, type} when type in [:date, :utc_datetime] -> convert_ecto_value(struct, key, value)
       {:ok, _} -> %{struct | key => value}
       _ -> struct
     end
   end
 
-  defp coerce_struct_value(struct, key, value) do
+  defp ecto_types(struct) do
+    # Get struct module name
+    %{__struct__: module} = struct
+    # Call ecto function to get a map of {key, ecto-type}
+    module.__changeset__()
+  end
+
+  # Using Ecto to convert a single value to the type defined in the Ecto schema
+  defp convert_ecto_value(struct, key, value) do
     struct
     |> Changeset.cast(%{key => value}, [key])
     |> Changeset.apply_changes()
