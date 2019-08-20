@@ -649,4 +649,56 @@ defmodule WiseHomex.JSONParserTest do
 
     assert account.id == "1"
   end
+
+  test "parse dates as Date" do
+    json = """
+    {
+      "data": {
+        "type": "tenancies",
+        "id": "a2d75bd4-c0a8-4316-8592-df4ac86774b8",
+        "attributes": {
+          "move-in-date": "2019-08-19"
+        }
+      }
+    }
+    """
+
+    tenancy =
+      json
+      |> Jason.decode!()
+      |> JSONParser.parse()
+
+    assert tenancy.move_in_date == ~D[2019-08-19]
+  end
+
+  test "parse datetimes as DateTime" do
+    data = %{
+      "data" => %{
+        "type" => "users",
+        "id" => "45",
+        "attributes" => %{
+          "activated-at" => "2019-08-19T15:28:00.000000Z"
+        }
+      }
+    }
+
+    user = JSONParser.parse(data)
+
+    assert user.activated_at == ~N[2019-08-19 15:28:00] |> DateTime.from_naive!("Etc/UTC")
+  end
+
+  test "sets relations to nil if they are nil" do
+    data = %{
+      "data" => %{
+        "type" => "households",
+        "id" => "1",
+        "relationships" => %{
+          "tenant" => %{"data" => nil}
+        }
+      }
+    }
+
+    household = JSONParser.parse(data)
+    assert household.tenant == nil
+  end
 end

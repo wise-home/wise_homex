@@ -3,6 +3,8 @@ defmodule WiseHomex.JSONParser do
   Parses a jsonapi response from the api.
   """
 
+  alias Ecto.Changeset
+
   @structs %{
     "account-email-settings" => WiseHomex.Account.EmailSettings,
     "account-users" => WiseHomex.AccountUser,
@@ -222,8 +224,9 @@ defmodule WiseHomex.JSONParser do
     |> set_struct_attribute(id_key, related_struct.id)
   end
 
-  defp add_related_entity(_key, nil, struct) do
+  defp add_related_entity(key, nil, struct) do
     struct
+    |> set_struct_attribute(key, nil)
   end
 
   defp add_related_entity(key, list, struct) when is_list(list) do
@@ -256,11 +259,27 @@ defmodule WiseHomex.JSONParser do
   end
 
   defp set_struct_attribute(struct, key, value) do
-    if Map.has_key?(struct, key) do
-      %{struct | key => value}
-    else
-      struct
+    struct_types = ecto_types(struct)
+
+    case Map.fetch(struct_types, key) do
+      {:ok, type} when type in [:date, :utc_datetime] -> convert_ecto_value(struct, key, value)
+      {:ok, _} -> %{struct | key => value}
+      _ -> struct
     end
+  end
+
+  defp ecto_types(struct) do
+    # Get struct module name
+    %{__struct__: module} = struct
+    # Call ecto function to get a map of {key, ecto-type}
+    module.__changeset__()
+  end
+
+  # Using Ecto to convert a single value to the type defined in the Ecto schema
+  defp convert_ecto_value(struct, key, value) do
+    struct
+    |> Changeset.cast(%{key => value}, [key])
+    |> Changeset.apply_changes()
   end
 
   defp parse_required_entities(data) do
