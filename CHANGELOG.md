@@ -1,5 +1,16 @@
 # Changelog for wise_homex
 
+## 0.6.20 2019-08-20
+
+* Fix nil relationship parsing, 52
+* Parses datetimes, 52
+* Parses dates in json parser, 52
+* Update ex_doc 0.19.3 -> 0.21.1 + nested deps
+* Update credo 1.0.3 -> 1.1.2
+* Update ecto 3.0.7 -> 3.1.7
+* Update decimal 1.7.0 -> 1.8.0
+* Update httpoison 1.5.0 -> 1.5.1
+
 ## 0.6.19 2019-08-13
 
 * Added unconfigurable_reason to ConfigurableMeterID
