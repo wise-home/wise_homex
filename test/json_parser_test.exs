@@ -701,4 +701,26 @@ defmodule WiseHomex.JSONParserTest do
     household = JSONParser.parse(data)
     assert household.tenant == nil
   end
+
+  test "parsing embed" do
+    data = %{
+      "data" => %{
+        "type" => "devices",
+        "id" => "1",
+        "attributes" => %{
+          "signal-strength-history" => [
+            %{"time" => "2019-08-21T23:58:00Z", "signal-strength" => -88},
+            %{"time" => "2019-08-21T23:59:00Z", "signal-strength" => -87}
+          ]
+        }
+      }
+    }
+
+    device = JSONParser.parse(data)
+
+    assert device.signal_strength_history == [
+             %Device.Signal{time: ~U[2019-08-21 23:58:00Z], signal_strength: -88},
+             %Device.Signal{time: ~U[2019-08-21 23:59:00Z], signal_strength: -87}
+           ]
+  end
 end

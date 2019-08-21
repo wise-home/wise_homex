@@ -15,8 +15,12 @@ defmodule WiseHomex.Device do
     field(:last_seen, :utc_datetime)
     field(:inserted_at, :utc_datetime)
     field(:signal_strength, :integer)
-    field(:signal_strength_history, {:array, :map})
     field(:protocol, :string)
+
+    embeds_many :signal_strength_history, Signal, primary_key: false do
+      field(:time, :utc_datetime)
+      field(:signal_strength, :integer)
+    end
   end
 
   def household_id(%__MODULE__{room: %{household: %{id: id}}}), do: id
