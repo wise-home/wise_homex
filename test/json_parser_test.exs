@@ -684,7 +684,7 @@ defmodule WiseHomex.JSONParserTest do
 
     user = JSONParser.parse(data)
 
-    assert user.activated_at == ~N[2019-08-19 15:28:00] |> DateTime.from_naive!("Etc/UTC")
+    assert user.activated_at == ~U[2019-08-19 15:28:00Z]
   end
 
   test "sets relations to nil if they are nil" do
