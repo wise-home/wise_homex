@@ -95,39 +95,6 @@ jobs:
           ERLANG_VERSION: "21.2.7"
           CACHE_VERSION: "v1"
 
-  "elixir 1.8 - erlang 22.0":
-    <<: *default_build
-    docker:
-      # This version of Elixir is overruled by asdf
-      - image: circleci/elixir:1.8
-        environment:
-          <<: *default_env
-          ELIXIR_VERSION: "1.8.2-otp-22"
-          ERLANG_VERSION: "22.0.7"
-          CACHE_VERSION: "v1"
-
-  "elixir 1.8 - erlang 21.3":
-    <<: *default_build
-    docker:
-      # This version of Elixir is overruled by asdf
-      - image: circleci/elixir:1.8
-        environment:
-          <<: *default_env
-          ELIXIR_VERSION: "1.8.2-otp-21"
-          ERLANG_VERSION: "21.3.8"
-          CACHE_VERSION: "v1"
-
-  "elixir 1.8 - erlang 21.2":
-    <<: *default_build
-    docker:
-      # This version of Elixir is overruled by asdf
-      - image: circleci/elixir:1.8
-        environment:
-          <<: *default_env
-          ELIXIR_VERSION: "1.8.2-otp-21"
-          ERLANG_VERSION: "21.2.7"
-          CACHE_VERSION: "v1"
-
 workflows:
   version: 2
   "elixir 1.9 - erlang 22.0":
@@ -141,15 +108,3 @@ workflows:
   "elixir 1.9 - erlang 21.2":
     jobs:
       - "elixir 1.9 - erlang 21.2"
-
-  "elixir 1.8 - erlang 22.0":
-    jobs:
-      - "elixir 1.8 - erlang 22.0"
-
-  "elixir 1.8 - erlang 21.3":
-    jobs:
-      - "elixir 1.8 - erlang 21.3"
-
-  "elixir 1.8 - erlang 21.2":
-    jobs:
-      - "elixir 1.8 - erlang 21.2"

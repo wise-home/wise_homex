@@ -262,6 +262,7 @@ defmodule WiseHomex.JSONParser do
     struct_types = ecto_types(struct)
 
     case Map.fetch(struct_types, key) do
+      {:ok, {:embed, embedded_type}} -> convert_ecto_embedded_value(struct, embedded_type, key, value)
       {:ok, type} when type in [:date, :utc_datetime] -> convert_ecto_value(struct, key, value)
       {:ok, _} -> %{struct | key => value}
       _ -> struct
@@ -280,6 +281,33 @@ defmodule WiseHomex.JSONParser do
     struct
     |> Changeset.cast(%{key => value}, [key])
     |> Changeset.apply_changes()
+  end
+
+  defp convert_ecto_embedded_value(struct, %Ecto.Embedded{} = embedded_type, key, value) do
+    embedded_module = embedded_type.related
+
+    embedded_value =
+      case embedded_type.cardinality do
+        :one -> parse_embed(embedded_module, value)
+        :many -> Enum.map(value, &parse_embed(embedded_module, &1))
+      end
+
+    %{struct | key => embedded_value}
+  end
+
+  # If the value is a struct, it is already parsed because it is in the included list
+  defp parse_embed(_module, %{__struct__: _} = parsed_value) do
+    parsed_value
+  end
+
+  # If it's a map of attributes, it does not have it's own json-api type. Parse it to the given Ecto module
+  defp parse_embed(module, attributes) do
+    struct = struct(module)
+
+    attributes
+    |> Enum.reduce(struct, fn {key, value}, struct ->
+      set_struct_attribute(struct, transform_key(key), value)
+    end)
   end
 
   defp parse_required_entities(data) do
