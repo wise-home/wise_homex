@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.21 2019-08-23
+
+* Skip tests against Elixir 1.8 as we want ~U in tests
+* Parses signal_strength_history as an embed
+* Update credo 1.1.2 -> 1.1.3
+
 ## 0.6.20 2019-08-20
 
 * Fix nil relationship parsing, 52
