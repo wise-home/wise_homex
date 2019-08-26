@@ -674,6 +674,47 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/tenancies/" <> id, payload)
   end
 
+  # SettlementKey
+  def get_settlement_key(config, id) do
+    Request.get(config, "/settlement-keys/#{id}")
+  end
+
+  def get_settlement_keys(config, query) do
+    Request.get(config, "/settlement-keys", query)
+  end
+
+  def create_settlement_key(config, attrs, rels) do
+    payload =
+      %{
+        data: %{
+          type: "settlement-keys",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/settlement-keys", payload)
+  end
+
+  def update_settlement_key(config, id, attrs) do
+    payload =
+      %{
+        data: %{
+          type: "settlement-keys",
+          id: id,
+          attributes: attrs
+        }
+      }
+      |> normalize_payload()
+
+    Request.patch(config, "/settlement-keys/#{id}", payload)
+  end
+
+  def delete_settlement_key(config, id) do
+    Request.delete(config, "/settlement-keys/#{id}")
+  end
+
   # SIM
 
   def create_sim(config, attrs) do

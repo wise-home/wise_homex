@@ -498,6 +498,33 @@ defmodule WiseHomex do
   """
   def update_tenancy(config, id, attrs), do: api_client().update_tenancy(config, id, attrs)
 
+  # SettlementKey
+
+  @doc """
+  Get SettlementKey by id
+  """
+  def get_settlement_key(config, id), do: api_client().get_settlement_key(config, id)
+
+  @doc """
+  List SettlementKeys
+  """
+  def get_settlement_keys(config, query), do: api_client().get_settlement_keys(config, query)
+
+  @doc """
+  Create a settlement key
+  """
+  def create_settlement_key(config, attrs, rels), do: api_client().create_settlement_key(config, attrs, rels)
+
+  @doc """
+  Update a settlement key
+  """
+  def update_settlement_key(config, id, attrs), do: api_client().update_settlement_key(config, id, attrs)
+
+  @doc """
+  Delete a settlement key
+  """
+  def delete_settlement_key(config, id), do: api_client().delete_settlement_key(config, id)
+
   # SIM
 
   @doc """

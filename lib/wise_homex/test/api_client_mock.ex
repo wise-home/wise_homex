@@ -314,6 +314,27 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_tenancy, %{id: id, attrs: attrs})
   end
 
+  # SettlementKey
+  def get_settlement_key(_config, id) do
+    call_and_get_mock_value(:get_settlement_key, %{id: id})
+  end
+
+  def get_settlement_keys(_config, query) do
+    call_and_get_mock_value(:get_settlement_keys, %{query: query})
+  end
+
+  def create_settlement_key(_config, attrs, rels) do
+    call_and_get_mock_value(:create_settlement_key, %{attrs: attrs, rels: rels})
+  end
+
+  def update_settlement_key(_config, id, attrs) do
+    call_and_get_mock_value(:update_settlement_key, %{id: id, attrs: attrs})
+  end
+
+  def delete_settlement_key(_config, id) do
+    call_and_get_mock_value(:delete_settlement_key, %{id: id})
+  end
+
   # SIM
   def create_sim(_config, attrs) do
     call_and_get_mock_value(:create_sim, %{attrs: attrs})

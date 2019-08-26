@@ -29,6 +29,7 @@ defmodule WiseHomex.JSONParser do
     "pongs" => WiseHomex.Pong,
     "properties" => WiseHomex.Property,
     "rooms" => WiseHomex.Room,
+    "settlement-keys" => WiseHomex.SettlementKey,
     "sims" => WiseHomex.Sim,
     "tenancies" => WiseHomex.Tenancy,
     "users" => WiseHomex.User,
