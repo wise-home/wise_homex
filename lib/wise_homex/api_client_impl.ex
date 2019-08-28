@@ -715,6 +715,44 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/settlement-keys/#{id}")
   end
 
+  # SettlementValue
+
+  def get_settlement_value(config, id, query \\ %{}) do
+    Request.get(config, "/settlement-values/#{id}", query)
+  end
+
+  def create_settlement_value(config, attrs, rels) do
+    payload =
+      %{
+        data: %{
+          type: "settlement-values",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/settlement-values", payload)
+  end
+
+  def update_settlement_value(config, id, attrs) do
+    payload =
+      %{
+        data: %{
+          type: "settlement-values",
+          id: id,
+          attributes: attrs
+        }
+      }
+      |> normalize_payload()
+
+    Request.patch(config, "/settlement-values/#{id}", payload)
+  end
+
+  def delete_settlement_value(config, id) do
+    Request.delete(config, "/settlement-values/#{id}")
+  end
+
   # SIM
 
   def create_sim(config, attrs) do
@@ -778,6 +816,10 @@ defmodule WiseHomex.ApiClientImpl do
 
   def refresh_wmbus_cache(config, gateway_id) do
     Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
+  end
+
+  defp normalize_payload(%Date{} = date) do
+    Date.to_string(date)
   end
 
   defp normalize_payload(%{} = payload) do

@@ -127,6 +127,12 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_settlement_key(Config.t(), id, attributes) :: response
   @callback delete_settlement_key(Config.t(), id) :: response
 
+  # SettlementValue
+  @callback get_settlement_value(Config.t(), id, query) :: response
+  @callback create_settlement_value(Config.t(), attributes, relationships) :: response
+  @callback update_settlement_value(Config.t(), id, attributes) :: response
+  @callback delete_settlement_value(Config.t(), id) :: response
+
   # Tenancy
   @callback create_tenancy(Config.t(), attributes, relationships) :: response
   @callback delete_tenancy(Config.t(), id) :: response

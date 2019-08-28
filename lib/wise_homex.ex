@@ -525,6 +525,28 @@ defmodule WiseHomex do
   """
   def delete_settlement_key(config, id), do: api_client().delete_settlement_key(config, id)
 
+  # SettlementValue
+
+  @doc """
+  Get a settlement value by id
+  """
+  def get_settlement_value(config, id, query \\ %{}), do: api_client().get_settlement_value(config, id, query)
+
+  @doc """
+  Create a settlement value
+  """
+  def create_settlement_value(config, attrs, rels), do: api_client().create_settlement_value(config, attrs, rels)
+
+  @doc """
+  Create a settlement value
+  """
+  def update_settlement_value(config, id, attrs), do: api_client().update_settlement_value(config, id, attrs)
+
+  @doc """
+  Deletes a settlement value
+  """
+  def delete_settlement_value(config, id), do: api_client().delete_settlement_value(config, id)
+
   # SIM
 
   @doc """
