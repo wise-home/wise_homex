@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.22 2019-08-29
+
+* SettlementValue model and API functions
+* SettlementKey model and api functions
+
 ## 0.6.21 2019-08-23
 
 * Skip tests against Elixir 1.8 as we want ~U in tests
