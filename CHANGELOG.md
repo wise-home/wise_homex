@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.23 2019-09-02
+
+* Add query to get_settlement_key to be able to include relations<Paste>
+
 ## 0.6.22 2019-08-29
 
 * SettlementValue model and API functions
