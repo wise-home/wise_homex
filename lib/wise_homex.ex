@@ -503,7 +503,7 @@ defmodule WiseHomex do
   @doc """
   Get SettlementKey by id
   """
-  def get_settlement_key(config, id), do: api_client().get_settlement_key(config, id)
+  def get_settlement_key(config, id, query \\ %{}), do: api_client().get_settlement_key(config, id, query)
 
   @doc """
   List SettlementKeys

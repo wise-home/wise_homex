@@ -675,8 +675,8 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # SettlementKey
-  def get_settlement_key(config, id) do
-    Request.get(config, "/settlement-keys/#{id}")
+  def get_settlement_key(config, id, query \\ %{}) do
+    Request.get(config, "/settlement-keys/#{id}", query)
   end
 
   def get_settlement_keys(config, query) do
