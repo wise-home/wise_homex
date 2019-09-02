@@ -315,8 +315,8 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # SettlementKey
-  def get_settlement_key(_config, id) do
-    call_and_get_mock_value(:get_settlement_key, %{id: id})
+  def get_settlement_key(_config, id, query \\ %{}) do
+    call_and_get_mock_value(:get_settlement_key, %{id: id, query: query})
   end
 
   def get_settlement_keys(_config, query) do
