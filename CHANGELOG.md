@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.24 2019-09-06
+
+* 281de16 Can get_addresses
+* 81f504c Update ex_doc 0.21.1 -> 0.21.2
+* 0e80add Update earmark 1.3.5 -> 1.3.6
+* c53e810 Update credo 1.1.3 -> 1.1.4
+
 ## 0.6.23 2019-09-02
 
 * Add query to get_settlement_key to be able to include relations<Paste>
