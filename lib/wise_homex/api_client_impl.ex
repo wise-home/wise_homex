@@ -78,6 +78,10 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/addresses/" <> id, query)
   end
 
+  def get_addresses(config, query \\ %{}) do
+    Request.get(config, "/addresses", query)
+  end
+
   # Admin integration
   def delete_admin_integration(config, id) do
     Request.delete(config, "/admin-integrations/" <> id)

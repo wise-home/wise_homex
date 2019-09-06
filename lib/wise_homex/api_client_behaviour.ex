@@ -27,6 +27,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Address
   @callback create_address(Config.t(), attributes, relationships) :: response
   @callback get_address(Config.t(), id, query) :: response
+  @callback get_addresses(Config.t(), query) :: response
 
   # Admin Integration
   @callback delete_admin_integration(Config.t(), id) :: response

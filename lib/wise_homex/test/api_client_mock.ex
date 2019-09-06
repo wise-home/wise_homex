@@ -43,6 +43,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_address, %{id: id, query: query})
   end
 
+  def get_addresses(_config, query \\ %{}) do
+    call_and_get_mock_value(:get_addresses, %{query: query})
+  end
+
   # Admin Integration
   def get_admin_integrations(_config, query \\ %{}) do
     call_and_get_mock_value(:get_admin_integrations, %{query: query})
