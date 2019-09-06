@@ -74,6 +74,20 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/addresses", params)
   end
 
+  def update_address(config, id, attrs) do
+    params =
+      %{
+        data: %{
+          type: "addresses",
+          id: id,
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.patch(config, "/addresses/#{id}", params)
+  end
+
   def get_address(config, id, query \\ %{}) do
     Request.get(config, "/addresses/" <> id, query)
   end
