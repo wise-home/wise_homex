@@ -139,6 +139,11 @@ defmodule WiseHomex do
   """
   def get_address(config, id, query \\ %{}), do: api_client().get_address(config, id, query)
 
+  @doc """
+  List addresses
+  """
+  def get_addresses(config, query \\ %{}), do: api_client().get_addresses(config, query)
+
   # Admin Integration
 
   @doc """
