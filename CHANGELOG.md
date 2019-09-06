@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.25 2019-09-06
+
+* Can update address
+
 ## 0.6.24 2019-09-06
 
 * 281de16 Can get_addresses
