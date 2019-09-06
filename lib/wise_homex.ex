@@ -135,6 +135,11 @@ defmodule WiseHomex do
   def create_address(config, attrs, rels), do: api_client().create_address(config, attrs, rels)
 
   @doc """
+  Update an address
+  """
+  def update_address(config, id, attrs), do: api_client().update_address(config, id, attrs)
+
+  @doc """
   Get an address
   """
   def get_address(config, id, query \\ %{}), do: api_client().get_address(config, id, query)
