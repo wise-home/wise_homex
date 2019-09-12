@@ -826,6 +826,12 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/users#{query}")
   end
 
+  # UtilityReading
+
+  def get_utility_readings(config, query \\ %{}) do
+    Request.get(config, "/utility-readings", query)
+  end
+
   # Wmbus Cache
 
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do

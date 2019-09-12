@@ -591,6 +591,13 @@ defmodule WiseHomex do
   """
   def get_users(config, filters \\ []), do: api_client().get_users(config, filters)
 
+  # UtilityReading
+
+  @doc """
+  Get UtilityReadings
+  """
+  def get_utility_readings(config, query \\ %{}), do: api_client().get_utility_readings(config, query)
+
   # Wmbus Cache
 
   @doc """
