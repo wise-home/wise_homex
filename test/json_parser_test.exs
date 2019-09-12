@@ -1,5 +1,5 @@
 defmodule WiseHomex.JSONParserTest do
-  use ExUnit.Case, async: true
+  use WiseHomex.Test.Case, async: true
 
   alias WiseHomex.Account
   alias WiseHomex.Device
