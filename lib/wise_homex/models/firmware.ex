@@ -4,10 +4,10 @@ defmodule WiseHomex.Firmware do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:manufacturer_code, :string)
-    field(:image_type, :string)
-    field(:file_version, :string)
+    field :manufacturer_code, :string
+    field :image_type, :string
+    field :file_version, :string
 
-    timestamps()
+    timestamps type: :utc_datetime
   end
 end

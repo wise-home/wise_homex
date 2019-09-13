@@ -4,12 +4,12 @@ defmodule WiseHomex.Property do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:admin, WiseHomex.Account)
-    belongs_to(:external_info, WiseHomex.ExternalInfo)
-    has_many(:addresses, WiseHomex.Address)
+    belongs_to :admin, WiseHomex.Account
+    belongs_to :external_info, WiseHomex.ExternalInfo
+    has_many :addresses, WiseHomex.Address
 
-    field(:name, :string)
-    field(:legal_name, :string)
-    field(:number, :integer)
+    field :name, :string
+    field :legal_name, :string
+    field :number, :integer
   end
 end

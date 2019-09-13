@@ -4,12 +4,12 @@ defmodule WiseHomex.Measurement do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:measurement_at, :utc_datetime)
-    field(:meter_type, :string)
+    field :measurement_at, :utc_datetime
+    field :meter_type, :string
 
-    field(:value, :integer)
+    field :value, :integer
     # Base 10
-    field(:exponent, :integer)
-    field(:unit, :string)
+    field :exponent, :integer
+    field :unit, :string
   end
 end

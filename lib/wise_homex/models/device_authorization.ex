@@ -4,6 +4,6 @@ defmodule WiseHomex.DeviceAuthorization do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:device, WiseHomex.Device)
+    belongs_to :device, WiseHomex.Device
   end
 end

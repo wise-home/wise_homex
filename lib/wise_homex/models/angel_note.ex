@@ -4,9 +4,9 @@ defmodule WiseHomex.AngelNote do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:target_type, :string)
-    field(:target_id, :string)
-    field(:content, :string)
-    timestamps(type: :utc_datetime)
+    field :target_type, :string
+    field :target_id, :string
+    field :content, :string
+    timestamps type: :utc_datetime
   end
 end
