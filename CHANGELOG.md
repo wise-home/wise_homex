@@ -1,5 +1,14 @@
 # Changelog for wise_homex
 
+## 0.6.26 2019-09-13
+
+* Add get_utility_readings
+* UtilityReading model
+* Quantity
+* Use a common test case for all tests
+* Update earmark 1.3.6 -> 1.4.0
+* Update ecto 3.1.7 -> 3.2.0
+
 ## 0.6.25 2019-09-06
 
 * Can update address
