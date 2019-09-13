@@ -7,9 +7,9 @@ defmodule WiseHomex.SettlementKey do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:admin, WiseHomex.Account)
-    belongs_to(:property, WiseHomex.Property)
-    field(:name, :string)
-    field(:unit, :string)
+    belongs_to :admin, WiseHomex.Account
+    belongs_to :property, WiseHomex.Property
+    field :name, :string
+    field :unit, :string
   end
 end

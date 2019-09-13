@@ -6,6 +6,6 @@ defmodule WiseHomex.WMBusDeviceType do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:name, :string)
+    field :name, :string
   end
 end

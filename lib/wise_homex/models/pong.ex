@@ -6,9 +6,9 @@ defmodule WiseHomex.Pong do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:message, :string)
-    field(:version, :string)
-    belongs_to(:user, WiseHomex.User)
-    belongs_to(:account, WiseHomex.Account)
+    field :message, :string
+    field :version, :string
+    belongs_to :user, WiseHomex.User
+    belongs_to :account, WiseHomex.Account
   end
 end

@@ -4,9 +4,9 @@ defmodule WiseHomex.AdminIntegration do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:admin, WiseHomex.Account)
+    belongs_to :admin, WiseHomex.Account
 
-    field(:integration_type, :string)
-    field(:config, :map)
+    field :integration_type, :string
+    field :config, :map
   end
 end

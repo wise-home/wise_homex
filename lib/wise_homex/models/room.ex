@@ -4,7 +4,7 @@ defmodule WiseHomex.Room do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:household, WiseHomex.Household)
-    field(:name, :string)
+    belongs_to :household, WiseHomex.Household
+    field :name, :string
   end
 end

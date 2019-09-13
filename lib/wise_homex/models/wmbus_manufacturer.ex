@@ -6,7 +6,7 @@ defmodule WiseHomex.WMBusManufacturer do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:name, :string)
-    field(:en_61107, :string)
+    field :name, :string
+    field :en_61107, :string
   end
 end

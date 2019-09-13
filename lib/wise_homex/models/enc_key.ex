@@ -4,7 +4,7 @@ defmodule WiseHomex.EncKey do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field(:manufacturer, :string)
-    field(:serial, :string)
+    field :manufacturer, :string
+    field :serial, :string
   end
 end

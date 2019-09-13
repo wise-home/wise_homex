@@ -4,13 +4,13 @@ defmodule WiseHomex.Address do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:property, WiseHomex.Property)
-    has_many(:households, WiseHomex.Household)
+    belongs_to :property, WiseHomex.Property
+    has_many :households, WiseHomex.Household
 
-    field(:street_and_number, :string)
-    field(:place, :string)
-    field(:zip_code, :string)
-    field(:city, :string)
-    field(:country_code_alpha3, :string)
+    field :street_and_number, :string
+    field :place, :string
+    field :zip_code, :string
+    field :city, :string
+    field :country_code_alpha3, :string
   end
 end
