@@ -8,7 +8,9 @@ defmodule WiseHomex.MixProject do
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      elixirc_paths: elixirc_paths(Mix.env()),
+      dialyzer: dialyzer()
     ]
   end
 
@@ -42,6 +44,15 @@ defmodule WiseHomex.MixProject do
   defp aliases do
     [
       compile: ["compile --warnings-as-errors"]
+    ]
+  end
+
+  defp elixirc_paths(:test), do: ~w[lib test/support]
+  defp elixirc_paths(_), do: ~w[lib]
+
+  defp dialyzer do
+    [
+      plt_add_apps: [:ex_unit]
     ]
   end
 end

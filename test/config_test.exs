@@ -3,7 +3,7 @@ defmodule WiseHomex.ConfigTest do
   Performs doctests for WiseHomex.Config
   """
 
-  use ExUnit.Case, async: true
+  use WiseHomex.Test.Case, async: true
   import WiseHomex.Config
 
   doctest WiseHomex.Config

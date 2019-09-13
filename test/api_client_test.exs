@@ -1,5 +1,5 @@
 defmodule WiseHomex.ApiClientTest do
-  use ExUnit.Case
+  use WiseHomex.Test.Case
 
   alias WiseHomex.Test.ApiClientMockServer, as: MockServer
 

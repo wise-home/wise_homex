@@ -1,5 +1,5 @@
 defmodule WiseHomex.ResponseParserTest do
-  use ExUnit.Case, async: true
+  use WiseHomex.Test.Case, async: true
 
   alias WiseHomex.ResponseParser
 

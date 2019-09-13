@@ -15,8 +15,8 @@ defmodule WiseHomex.JSONParser do
     "configurable-meter-id" => WiseHomex.ConfigurableMeterID,
     "configurable-meters" => WiseHomex.ConfigurableMeters,
     "device-authorizations" => WiseHomex.DeviceAuthorization,
-    "devices" => WiseHomex.Device,
     "device-types" => WiseHomex.DeviceType,
+    "devices" => WiseHomex.Device,
     "encryption-keys" => WiseHomex.EncKey,
     "external-infos" => WiseHomex.ExternalInfo,
     "firmwares" => WiseHomex.Firmware,
@@ -34,6 +34,7 @@ defmodule WiseHomex.JSONParser do
     "sims" => WiseHomex.Sim,
     "tenancies" => WiseHomex.Tenancy,
     "users" => WiseHomex.User,
+    "utility-readings" => WiseHomex.UtilityReading,
     "wmbus-device-types" => WiseHomex.WMBusDeviceType,
     "wmbus-manufacturers" => WiseHomex.WMBusManufacturer
   }
