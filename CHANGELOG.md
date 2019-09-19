@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.27 2019-09-19
+
+* Can implicitly encode DateTime and Quantity in requests
+* Get, create, update and delete utility readings
+* Update ecto 3.2.0 -> 3.2.1
+* Update erlang 22.0.7 -> 22.1
+* Use default ecto format without parenthesis in schema spec, 57
+
 ## 0.6.26 2019-09-13
 
 * Add get_utility_readings
