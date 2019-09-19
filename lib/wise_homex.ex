@@ -594,9 +594,29 @@ defmodule WiseHomex do
   # UtilityReading
 
   @doc """
+  Get UtilityReading by id
+  """
+  def get_utility_reading(config, id, query \\ %{}), do: api_client().get_utility_reading(config, id, query)
+
+  @doc """
   Get UtilityReadings
   """
   def get_utility_readings(config, query \\ %{}), do: api_client().get_utility_readings(config, query)
+
+  @doc """
+  Create a UtilityReading
+  """
+  def create_utility_reading(config, attrs, rels), do: api_client().create_utility_reading(config, attrs, rels)
+
+  @doc """
+  Update a UtilityReading
+  """
+  def update_utility_reading(config, id, attrs, rels), do: api_client().update_utility_reading(config, id, attrs, rels)
+
+  @doc """
+  Delete a UtilityReading
+  """
+  def delete_utility_reading(config, id), do: api_client().delete_utility_reading(config, id)
 
   # Wmbus Cache
 

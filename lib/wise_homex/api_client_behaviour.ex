@@ -152,7 +152,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_users(Config.t(), list) :: response
 
   # UtilityReading
+  @callback get_utility_reading(Config.t(), id, query) :: response
   @callback get_utility_readings(Config.t(), query) :: response
+  @callback create_utility_reading(Config.t(), attributes, relationships) :: response
+  @callback update_utility_reading(Config.t(), id, attributes, relationships) :: response
+  @callback delete_utility_reading(Config.t(), id) :: response
 
   # Wmbus Cache
   @callback get_wmbus_cache(Config.t(), id, query) :: response
