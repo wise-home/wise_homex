@@ -9,6 +9,7 @@ defmodule WiseHomex.ApiClientImpl do
 
   @behaviour WiseHomex.ApiClientBehaviour
 
+  alias WiseHomex.Quantity
   alias WiseHomex.Request
 
   # Account
@@ -881,6 +882,14 @@ defmodule WiseHomex.ApiClientImpl do
 
   defp normalize_payload(%Date{} = date) do
     Date.to_string(date)
+  end
+
+  defp normalize_payload(%DateTime{} = time) do
+    DateTime.to_iso8601(time)
+  end
+
+  defp normalize_payload(%Quantity{} = quantity) do
+    Quantity.to_string(quantity)
   end
 
   defp normalize_payload(%{} = payload) do
