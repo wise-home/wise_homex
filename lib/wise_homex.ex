@@ -254,7 +254,8 @@ defmodule WiseHomex do
   @doc """
   Set device location
   """
-  def set_device_location(config, device_id, room_id), do: api_client().set_device_location(config, device_id, room_id)
+  def set_device_location(config, device_id, attrs, rels),
+    do: api_client().set_device_location(config, device_id, attrs, rels)
 
   @doc """
   Unset device location

@@ -243,19 +243,18 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices", query)
   end
 
-  def set_device_location(config, device_id, room_id) do
+  def set_device_location(config, device_id, attrs, rels) do
     payload =
       %{
         data: %{
           type: "device-locations",
-          relationships: %{
-            room: %{data: %{type: "rooms", id: room_id}}
-          }
+          attributes: attrs,
+          relationships: rels
         }
       }
       |> normalize_payload()
 
-    Request.post(config, "/devices/" <> device_id <> "/location", payload)
+    Request.post(config, "/devices/#{device_id}/location", payload)
   end
 
   def unset_device_location(config, device_id) do
