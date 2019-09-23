@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.29 2019-09-23
+
+* Rename wmbus serials to number
+
 ## 0.6.28 2019-09-21
 
 * Change interface of set_device_location
