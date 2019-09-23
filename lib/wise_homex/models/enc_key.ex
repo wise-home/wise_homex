@@ -5,6 +5,6 @@ defmodule WiseHomex.EncKey do
 
   embedded_schema do
     field :manufacturer, :string
-    field :serial, :string
+    field :number, :string
   end
 end

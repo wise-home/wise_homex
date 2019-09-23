@@ -6,7 +6,7 @@ defmodule WiseHomex.ConfigurableMeterID do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field :serial, :string
+    field :number, :string
     field :version, :integer
     field :configurable, :boolean
     field :unconfigurable_reason, :string

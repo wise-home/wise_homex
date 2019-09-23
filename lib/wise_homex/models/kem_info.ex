@@ -6,6 +6,6 @@ defmodule WiseHomex.KEMInfo do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field :serial, :string
+    field :number, :string
   end
 end
