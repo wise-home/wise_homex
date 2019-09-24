@@ -59,6 +59,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback set_device_location(Config.t(), id, attributes, relationships) :: response
   @callback unset_device_location(Config.t(), id) :: response
   @callback update_device(Config.t(), id, attributes, relationships) :: response
+  @callback import_devices(Config.t(), attributes, relationships) :: response
 
   # Email Settings
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response

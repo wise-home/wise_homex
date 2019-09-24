@@ -262,7 +262,7 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def update_device(config, id, attrs, rels) do
-    params =
+    payload =
       %{
         data: %{
           type: "devices",
@@ -271,9 +271,21 @@ defmodule WiseHomex.ApiClientImpl do
           relationships: rels
         }
       }
-      |> normalize_payload
+      |> normalize_payload()
 
-    Request.patch(config, "/devices/" <> id, params)
+    Request.patch(config, "/devices/#{id}", payload)
+  end
+
+  def import_devices(config, attrs, rels) do
+    payload = %{
+      data: %{
+        type: "device-imports",
+        attributes: attrs,
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/devices/import", payload)
   end
 
   # Email Settings

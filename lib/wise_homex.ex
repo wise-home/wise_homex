@@ -267,6 +267,11 @@ defmodule WiseHomex do
   """
   def update_device(config, id, attrs, rels), do: api_client().update_device(config, id, attrs, rels)
 
+  @doc """
+  Import devices from CSV
+  """
+  def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
+
   # Email Settings
 
   @doc """

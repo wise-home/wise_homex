@@ -15,6 +15,7 @@ defmodule WiseHomex.JSONParser do
     "configurable-meter-id" => WiseHomex.ConfigurableMeterID,
     "configurable-meters" => WiseHomex.ConfigurableMeters,
     "device-authorizations" => WiseHomex.DeviceAuthorization,
+    "device-imports" => WiseHomex.DeviceImport,
     "device-types" => WiseHomex.DeviceType,
     "devices" => WiseHomex.Device,
     "encryption-keys" => WiseHomex.EncKey,
