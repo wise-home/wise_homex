@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.30 2019-09-24
+
+* Added support for import device endpoint.
+
 ## 0.6.29 2019-09-23
 
 * Rename wmbus serials to number
