@@ -288,6 +288,19 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/import", payload)
   end
 
+  # Radiator
+
+  def import_radiators(config, attrs) do
+    payload = %{
+      data: %{
+        type: "radiator-imports",
+        attributes: attrs
+      }
+    }
+
+    Request.post(config, "/radiators/import", payload)
+  end
+
   # Email Settings
 
   def update_account_email_settings(config, account_id, id, attrs) do

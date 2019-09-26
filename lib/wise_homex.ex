@@ -272,6 +272,10 @@ defmodule WiseHomex do
   """
   def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
 
+  # Radiator
+
+  def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
+
   # Email Settings
 
   @doc """
