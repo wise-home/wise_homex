@@ -144,6 +144,11 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})
   end
 
+  # Radiator
+  def import_radiators(_config, attrs) do
+    call_and_get_mock_value(:import_radiators, %{attrs: attrs})
+  end
+
   # Email Settings
   def update_account_email_settings(_config, account_id, id, attrs) do
     call_and_get_mock_value(:update_account_email_settings, %{

@@ -61,6 +61,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_device(Config.t(), id, attributes, relationships) :: response
   @callback import_devices(Config.t(), attributes, relationships) :: response
 
+  # Radiators
+  @callback import_radiators(Config.t(), attributes) :: response
+
   # Email Settings
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
 
