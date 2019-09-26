@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.31 2019-09-26
+
+* Added support for radiator import
+* Update dialyxir 0.5.1 -> 1.0.0-rc.7
+* Update earmark 1.4.0 -> 1.4.1
+
 ## 0.6.30 2019-09-24
 
 * Added support for import device endpoint.
