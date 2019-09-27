@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.32 2019-09-27
+
+* Parse MessageReports with correct utc_datetimes, 72
+
 ## 0.6.31 2019-09-26
 
 * Added support for radiator import
