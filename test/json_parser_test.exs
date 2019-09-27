@@ -723,4 +723,33 @@ defmodule WiseHomex.JSONParserTest do
              %Device.Signal{time: ~U[2019-08-21 23:59:00Z], signal_strength: -87}
            ]
   end
+
+  test "parsing MessageReport" do
+    data = %{
+      "data" => [
+        %{
+          "attributes" => %{
+            "events" => [
+              ["Waiting for device to become responsive", "2019-09-27T20:14:23.942737Z"]
+            ],
+            "name" => "Fast ping",
+            "started-at" => "2019-09-27T20:14:23.942389Z",
+            "stopped-at" => "2019-09-27T20:23:53.450495Z"
+          },
+          "id" => "",
+          "type" => "message-reports"
+        }
+      ],
+      "jsonapi" => %{"version" => "1.0"}
+    }
+
+    [report] = JSONParser.parse(data)
+
+    [event] = report.events
+    assert event.description == "Waiting for device to become responsive"
+    assert event.time == ~U[2019-09-27 20:14:23Z]
+    assert report.name == "Fast ping"
+    assert report.started_at == ~U[2019-09-27 20:14:23Z]
+    assert report.stopped_at == ~U[2019-09-27 20:23:53Z]
+  end
 end
