@@ -306,13 +306,19 @@ defmodule WiseHomex.JSONParser do
   end
 
   # If it's a map of attributes, it does not have it's own json-api type. Parse it to the given Ecto module
-  defp parse_embed(module, attributes) do
+  defp parse_embed(module, %{} = attributes) do
     struct = struct(module)
 
     attributes
     |> Enum.reduce(struct, fn {key, value}, struct ->
       set_struct_attribute(struct, transform_key(key), value)
     end)
+  end
+
+  # If it's something else, it must be able to parse itself
+  defp parse_embed(module, data) do
+    {:ok, model} = module.cast(data)
+    model
   end
 
   defp parse_required_entities(data) do

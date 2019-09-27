@@ -7,8 +7,8 @@ defmodule WiseHomex.MessageReport do
 
   embedded_schema do
     field :name, :string
-    field :started_at, :string
-    field :stopped_at, :string
-    field :events, {:array, :string}
+    field :started_at, :utc_datetime
+    field :stopped_at, :utc_datetime
+    embeds_many :events, WiseHomex.MessageReport.Event
   end
 end
