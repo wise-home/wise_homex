@@ -274,6 +274,8 @@ defmodule WiseHomex do
 
   # Radiator
 
+  def get_radiator(config, id, query \\ %{}), do: api_client().get_radiator(config, id, query)
+  def get_radiators(config, query \\ %{}), do: api_client().get_radiators(config, query)
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
   # Email Settings
