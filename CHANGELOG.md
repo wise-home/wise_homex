@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.33 2019-09-30
+
+* Support for show and index radiators
+
 ## 0.6.32 2019-09-27
 
 * Parse MessageReports with correct utc_datetimes, 72
