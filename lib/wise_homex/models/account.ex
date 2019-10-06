@@ -12,6 +12,8 @@ defmodule WiseHomex.Account do
     field :role, :string
     field :email, :string
     field :phone, :string
+    field :customer_number, :string
+    field :postal_address, WiseHomex.PostalAddress
 
     embeds_one :email_settings, EmailSettings do
       field :ventilation_alarm, :boolean
