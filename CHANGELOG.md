@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.34 2019-10-06
+
+* Added postal_address and customer_number to accounts
+* Update erlang 21.1 -> 21.1.1
+* Update ecto 3.2.1 -> 3.2.2
+* Update httpoison 1.5.1 -> 1.6.0
+* Update hackney 1.15.1 -> 1.15.2, ssl_verify_fun 1.1.4 -> 1.1.5
+
 ## 0.6.33 2019-09-30
 
 * Support for show and index radiators
