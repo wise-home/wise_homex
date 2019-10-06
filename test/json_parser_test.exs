@@ -6,6 +6,7 @@ defmodule WiseHomex.JSONParserTest do
   alias WiseHomex.DeviceAuthorization
   alias WiseHomex.Household
   alias WiseHomex.JSONParser
+  alias WiseHomex.PostalAddress
   alias WiseHomex.Room
 
   test "can parse json body to entities" do
@@ -751,5 +752,25 @@ defmodule WiseHomex.JSONParserTest do
     assert report.name == "Fast ping"
     assert report.started_at == ~U[2019-09-27 20:14:23Z]
     assert report.stopped_at == ~U[2019-09-27 20:23:53Z]
+  end
+
+  test "parse custom ecto type PostalAddress" do
+    data = %{
+      "data" => %{
+        "type" => "accounts",
+        "id" => "9",
+        "attributes" => %{
+          "postal-address" => %{
+            "address" => "Storegade 42",
+            "city" => "Aarhus C",
+            "country_code_alpha3" => "DNK",
+            "zip_code" => "8000"
+          }
+        }
+      }
+    }
+
+    account = JSONParser.parse(data)
+    assert account.postal_address == PostalAddress.new("Storegade 42", "8000", "Aarhus C", "DNK")
   end
 end
