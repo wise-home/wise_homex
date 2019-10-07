@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.35 2019-10-07
+
+* Add postal_address to Property
+
 ## 0.6.34 2019-10-06
 
 * Added postal_address and customer_number to accounts
