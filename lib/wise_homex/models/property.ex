@@ -11,5 +11,6 @@ defmodule WiseHomex.Property do
     field :name, :string
     field :legal_name, :string
     field :number, :integer
+    field :postal_address, WiseHomex.PostalAddress
   end
 end
