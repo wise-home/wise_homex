@@ -6,7 +6,7 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   alias WiseHomex.Config
 
-  @type response :: WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :closed
+  @type response :: WiseHomex.ResponseParser.response() | :econnrefused | :connect_timeout | :timeout | :closed
 
   @type id :: String.t()
   @type unik_number :: pos_integer

@@ -93,6 +93,7 @@ defmodule WiseHomex.Request do
     case reason do
       :econnrefused -> :econnrefused
       :connect_timeout -> :connect_timeout
+      :timeout -> :timeout
       :closed -> :closed
     end
   end
