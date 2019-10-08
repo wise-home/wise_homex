@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.36 2019-10-08
+
+* Respect timeout for get, patch and delete
+* Handle timeout
+
 ## 0.6.35 2019-10-07
 
 * Add postal_address to Property
