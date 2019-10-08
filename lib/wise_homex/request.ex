@@ -8,13 +8,14 @@ defmodule WiseHomex.Request do
 
   def get(config, path, query \\ %{}) do
     headers = build_headers(config)
+    options = build_options(config)
 
     path
     |> path_with_query(query)
     |> versionise_path(config)
     |> add_base_url(config)
-    |> HTTPoison.get(headers)
-    |> parse_response
+    |> HTTPoison.get(headers, options)
+    |> parse_response()
   end
 
   def post(config, path, body \\ %{}) when is_map(body) do
@@ -25,7 +26,7 @@ defmodule WiseHomex.Request do
     |> versionise_path(config)
     |> add_base_url(config)
     |> HTTPoison.post(body |> Jason.encode!(), headers, options)
-    |> parse_response
+    |> parse_response()
   end
 
   def post(config, path, query, body) when is_map(query) and is_map(body) do
@@ -35,21 +36,23 @@ defmodule WiseHomex.Request do
   def patch(config, path, params) do
     headers = build_headers(config)
     body = Jason.encode!(params)
+    options = build_options(config)
 
     path
     |> versionise_path(config)
     |> add_base_url(config)
-    |> HTTPoison.patch(body, headers)
-    |> parse_response
+    |> HTTPoison.patch(body, headers, options)
+    |> parse_response()
   end
 
   def delete(config, path) do
     headers = build_headers(config)
+    options = build_options(config)
 
     path
     |> versionise_path(config)
     |> add_base_url(config)
-    |> HTTPoison.delete(headers)
+    |> HTTPoison.delete(headers, options)
     |> parse_response
   end
 
