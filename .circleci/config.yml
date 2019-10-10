@@ -57,7 +57,7 @@ default_build: &default_build
 
     - run: mix test --trace
     - run: mix credo
-    - run: mix dialyzer --halt-exit-status --no-check --no-compile
+    - run: mix dialyzer --no-check --no-compile
     - run: mix format --check-formatted
 
 version: 2
