@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.37 2019-10-10
+
+* Added virtual field to household
+* Update erlang 22.1.1 -> 22.1.2
+* Update httpoison 1.6.0 -> 1.6.1
+
 ## 0.6.36 2019-10-08
 
 * Respect timeout for get, patch and delete
