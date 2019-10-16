@@ -159,6 +159,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_sims(Config.t(), query) :: response
   @callback update_sim(Config.t(), id, attributes) :: response
 
+  # Statement
+  @callback get_statement(Config.t(), id, query) :: response
+  @callback get_statements(Config.t(), query) :: response
+  @callback create_statement(Config.t(), attributes, relationships) :: response
+  @callback update_statement(Config.t(), id, attributes) :: response
+  @callback delete_statement(Config.t(), id) :: response
+
   # User
   @callback get_users(Config.t(), list) :: response
 

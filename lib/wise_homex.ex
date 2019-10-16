@@ -618,6 +618,17 @@ defmodule WiseHomex do
   """
   def update_sim(config, id, attrs), do: api_client().update_sim(config, id, attrs)
 
+  # Statement
+
+  @doc """
+  Get a Statement by id
+  """
+  def get_statement(config, id, query \\ %{}), do: api_client().get_statement(config, id, query)
+  def get_statements(config, query \\ %{}), do: api_client().get_statements(config, query)
+  def create_statement(config, attrs, rels), do: api_client().create_statement(config, attrs, rels)
+  def update_statement(config, id, attrs), do: api_client().update_statement(config, id, attrs)
+  def delete_statement(config, id), do: api_client().delete_statement(config, id)
+
   # User
 
   @doc """
