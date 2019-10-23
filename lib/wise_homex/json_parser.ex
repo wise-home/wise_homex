@@ -22,6 +22,7 @@ defmodule WiseHomex.JSONParser do
     "external-infos" => WiseHomex.ExternalInfo,
     "firmwares" => WiseHomex.Firmware,
     "gateways" => WiseHomex.Gateway,
+    "heat-sources" => WiseHomex.HeatSource,
     "households" => WiseHomex.Household,
     "kems" => WiseHomex.KEMInfo,
     "latest-reports" => WiseHomex.LatestReport,

@@ -221,6 +221,15 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:update_gateway, %{id: id, attrs: attrs, rels: rels})
   end
 
+  # HeatSource
+  def get_heat_source(_config, id, query \\ %{}) do
+    call_and_get_mock_value(:get_heat_source, %{id: id, query: query})
+  end
+
+  def get_heat_sources(_config, query \\ %{}) do
+    call_and_get_mock_value(:get_heat_sources, %{query: query})
+  end
+
   # Household
   def create_household(_config, attrs, rels) do
     call_and_get_mock_value(:create_household, %{attrs: attrs, rels: rels})

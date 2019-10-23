@@ -88,6 +88,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback unlock_gateway(Config.t(), id, integer) :: response
   @callback update_gateway(Config.t(), id, attributes, relationships) :: response
 
+  # HeatSource
+  @callback get_heat_source(Config.t(), id, query) :: response
+  @callback get_heat_sources(Config.t(), query) :: response
+
   # Household
   @callback create_household(Config.t(), attributes, relationships) :: response
   @callback delete_household(Config.t(), id) :: response

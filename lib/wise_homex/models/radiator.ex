@@ -6,6 +6,8 @@ defmodule WiseHomex.Radiator do
   use WiseHomex.BaseModel
 
   embedded_schema do
+    has_many :heat_sources, WiseHomex.HeatSource
+
     field :internal_id, :integer
     field :group, :string
     field :manufacturer, :string
