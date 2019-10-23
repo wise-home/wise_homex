@@ -7,6 +7,7 @@ defmodule WiseHomex.Device do
     belongs_to :room, WiseHomex.Room
     belongs_to :gateway, WiseHomex.Gateway
     belongs_to :device_type, WiseHomex.DeviceType
+    belongs_to :heat_source, WiseHomex.HeatSource
     field :serial, :string
     field :number, :string
     field :authorized_at, :utc_datetime

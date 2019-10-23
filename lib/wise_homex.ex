@@ -359,6 +359,18 @@ defmodule WiseHomex do
   """
   def update_gateway(config, id, attrs, rels \\ %{}), do: api_client().update_gateway(config, id, attrs, rels)
 
+  # HeatSource
+
+  @doc """
+  Get heat source by id
+  """
+  def get_heat_source(config, id, query \\ %{}), do: api_client().get_heat_source(config, id, query)
+
+  @doc """
+  Gets heat sources
+  """
+  def get_heat_sources(config, query \\ %{}), do: api_client().get_heat_sources(config, query)
+
   # Household
 
   @doc """

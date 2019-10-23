@@ -773,4 +773,19 @@ defmodule WiseHomex.JSONParserTest do
     account = JSONParser.parse(data)
     assert account.postal_address == PostalAddress.new("Storegade 42", "8000", "Aarhus C", "DNK")
   end
+
+  test "parse custom ecto type DecimalType" do
+    data = %{
+      "data" => %{
+        "type" => "heat-sources",
+        "id" => "9",
+        "attributes" => %{
+          "reduction-factor" => "1.10"
+        }
+      }
+    }
+
+    heat_source = JSONParser.parse(data)
+    assert heat_source.reduction_factor == ~d[1.10]
+  end
 end
