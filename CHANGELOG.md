@@ -1,5 +1,14 @@
 # Changelog for wise_homex
 
+## 0.6.38 2019-10-23
+
+* Support for getting heat sources from the API
+* Update erlang 22.1.2 -> 22.1.3
+* Update elixir 1.9.1 -> 1.9.2
+* Update earmark 1.4.1 -> 1.4.2
+* Cleanup credo config
+* Update credo 1.1.4 -> 1.1.5
+
 ## 0.6.37 2019-10-10
 
 * Added virtual field to household
