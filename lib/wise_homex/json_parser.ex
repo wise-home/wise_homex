@@ -273,20 +273,8 @@ defmodule WiseHomex.JSONParser do
         # Convert embedded value
         convert_ecto_embedded_value(struct, embedded_type, key, value)
 
-      {:ok, type} when type in [:date, :utc_datetime] ->
-        # Convert Date and DateTime
-        convert_ecto_value(struct, key, value)
-
       {:ok, type} when is_atom(type) ->
-        Code.ensure_loaded(type)
-
-        if function_exported?(type, :cast, 1) do
-          # Convert Ecto.Type
-          convert_ecto_value(struct, key, value)
-        else
-          # Otherwise just set the value
-          %{struct | key => value}
-        end
+        convert_ecto_value(struct, key, value)
 
       {:ok, _} ->
         # Otherwise just set the value
