@@ -8,9 +8,11 @@ defmodule WiseHomex.HeatSource do
     belongs_to :radiator, WiseHomex.Radiator
 
     field :floor_area, WiseHomex.Quantity.Type
+    field :length, :integer
     field :num_elements, :integer
     field :reduction_factor, WiseHomex.DecimalType
     field :remote, :boolean
     field :source_type, :string
+    field :radiator_string, :string
   end
 end
