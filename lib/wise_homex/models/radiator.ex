@@ -10,6 +10,7 @@ defmodule WiseHomex.Radiator do
 
     field :internal_id, :integer
     field :group, :string
+    field :group_id, :integer
     field :manufacturer, :string
     field :model, :string
     field :illustration_number, :integer
