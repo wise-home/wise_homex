@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.39 2019-10-29
+
+* Added new fields to heat source and radiator
+* Update erlang 22.1.3 -> 22.1.4
+* Update ecto 3.2.2 -> 3.2.3
+* Faster json parsing
+
 ## 0.6.38 2019-10-23
 
 * Support for getting heat sources from the API
