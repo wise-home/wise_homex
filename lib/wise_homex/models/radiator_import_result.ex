@@ -7,5 +7,6 @@ defmodule WiseHomex.RadiatorImportResult do
 
   embedded_schema do
     field :count, :integer
+    field :count_updated, :integer
   end
 end
