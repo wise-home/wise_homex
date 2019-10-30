@@ -22,5 +22,6 @@ defmodule WiseHomex.Radiator do
     field :alt_height, :integer
     field :element_length, :integer
     field :performance_per_element, :float
+    field :archived_at, :utc_datetime
   end
 end
