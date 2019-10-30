@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.40 2019-10-30
+
+* Added archived_at field to Radiator model
+
 ## 0.6.39 2019-10-29
 
 * Added new fields to heat source and radiator
