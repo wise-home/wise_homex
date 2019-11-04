@@ -653,4 +653,9 @@ defmodule WiseHomex do
   Refresh wmbus cache
   """
   def refresh_wmbus_cache(config, gateway_id), do: api_client().refresh_wmbus_cache(config, gateway_id)
+
+  @doc """
+  Get zip codes and citites
+  """
+  def get_zip_codes(config), do: api_client().get_zip_codes(config)
 end
