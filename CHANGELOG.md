@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.42 2019-11-06
+
+* Added support for zip codes (#89)
+
 ## 0.6.41 2019-10-30
 
 * Added count_updated field to RadiatorImportResult
