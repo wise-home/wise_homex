@@ -40,7 +40,8 @@ defmodule WiseHomex.JSONParser do
     "users" => WiseHomex.User,
     "utility-readings" => WiseHomex.UtilityReading,
     "wmbus-device-types" => WiseHomex.WMBusDeviceType,
-    "wmbus-manufacturers" => WiseHomex.WMBusManufacturer
+    "wmbus-manufacturers" => WiseHomex.WMBusManufacturer,
+    "zip-codes" => WiseHomex.ZipCode
   }
 
   @spec parse(map | [map]) :: struct | [struct]
