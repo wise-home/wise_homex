@@ -77,6 +77,11 @@ defmodule WiseHomex do
   @behaviour WiseHomex.ApiClientBehaviour
 
   @doc """
+  Get a guest configuration without an api key for the API Client
+  """
+  defdelegate anonymous_config(opts \\ []), to: WiseHomex.Config
+
+  @doc """
   Get a new configuration for the API Client
   """
   defdelegate new_config(auth_type, credentials, opts \\ []), to: WiseHomex.Config
