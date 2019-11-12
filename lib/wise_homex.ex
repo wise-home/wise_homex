@@ -132,6 +132,11 @@ defmodule WiseHomex do
   """
   def get_account_users(config, query \\ %{}), do: api_client().get_account_users(config, query)
 
+  @doc """
+  Delete an account_user
+  """
+  def delete_account_user(config, id), do: api_client().delete_account_user(config, id)
+
   # Address
 
   @doc """

@@ -34,6 +34,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_account_users, %{query: query})
   end
 
+  def delete_account_user(_config, id) do
+    call_and_get_mock_value(:delete_account_user, %{id: id})
+  end
+
   # Address
   def create_address(_config, attrs, rels) do
     call_and_get_mock_value(:create_address, %{attrs: attrs, rels: rels})
