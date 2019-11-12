@@ -23,6 +23,7 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   # Account User
   @callback get_account_users(Config.t(), query) :: response
+  @callback delete_account_user(Config.t(), id) :: response
 
   # Address
   @callback create_address(Config.t(), attributes, relationships) :: response
