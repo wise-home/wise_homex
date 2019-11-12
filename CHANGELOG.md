@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.43 2019-11-12
+
+* Can delete account-users
+* Update erlang 22.1.5 -> 22.1.6
+* Update elixir 1.9.2 -> 1.9.4
+* Update httpoison 1.6.1 -> 1.6.2
+* Update ecto 3.2.3 -> 3.2.5
+
 ## 0.6.42 2019-11-06
 
 * Added support for zip codes (#89)
