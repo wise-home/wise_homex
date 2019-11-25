@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.44 2019-11-25
+
+* Fix casting of PostalAddress, 95
+* Update erlang 22.1.6 -> 22.1.8
+* Update earmark 1.4.2 -> 1.4.3
+* Update nimble_parsec 0.5.1 -> 0.5.2
+
 ## 0.6.43 2019-11-12
 
 * Can delete account-users
