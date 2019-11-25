@@ -763,8 +763,8 @@ defmodule WiseHomex.JSONParserTest do
           "postal-address" => %{
             "address" => "Storegade 42",
             "city" => "Aarhus C",
-            "country_code_alpha3" => "DNK",
-            "zip_code" => "8000"
+            "country-code-alpha3" => "DNK",
+            "zip-code" => "8000"
           }
         }
       }
