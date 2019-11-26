@@ -14,6 +14,7 @@ defmodule WiseHomex.Household do
     field :active_from, :date
     field :active_to, :date
     field :active, :boolean
+    field :number, :integer
     field :virtual, :boolean
   end
 end
