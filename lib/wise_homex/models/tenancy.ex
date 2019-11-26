@@ -10,6 +10,7 @@ defmodule WiseHomex.Tenancy do
 
     field :move_in_date, :date
     field :move_out_date, :date
+    field :number, :integer
   end
 
   @doc """
