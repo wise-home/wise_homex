@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.45 2019-11-26
+
+* Add number to Tenancy and Household models, 98
+
 ## 0.6.44 2019-11-25
 
 * Fix casting of PostalAddress, 95
