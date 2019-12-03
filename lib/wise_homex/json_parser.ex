@@ -21,6 +21,7 @@ defmodule WiseHomex.JSONParser do
     "encryption-keys" => WiseHomex.EncKey,
     "external-infos" => WiseHomex.ExternalInfo,
     "firmwares" => WiseHomex.Firmware,
+    "fiscal-years" => WiseHomex.FiscalYear,
     "gateways" => WiseHomex.Gateway,
     "heat-sources" => WiseHomex.HeatSource,
     "households" => WiseHomex.Household,
