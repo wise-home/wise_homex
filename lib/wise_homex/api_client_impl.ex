@@ -871,9 +871,11 @@ defmodule WiseHomex.ApiClientImpl do
   def create_statement(config, attrs, rels) do
     payload =
       %{
-        type: "statements",
-        attributes: attrs,
-        relationships: rels
+        data: %{
+          type: "statements",
+          attributes: attrs,
+          relationships: rels
+        }
       }
       |> normalize_payload()
 
@@ -883,9 +885,11 @@ defmodule WiseHomex.ApiClientImpl do
   def update_statement(config, id, attrs) do
     payload =
       %{
-        type: "statements",
-        id: id,
-        attributes: attrs
+        data: %{
+          type: "statements",
+          id: id,
+          attributes: attrs
+        }
       }
       |> normalize_payload()
 
