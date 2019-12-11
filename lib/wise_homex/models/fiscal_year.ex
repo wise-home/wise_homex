@@ -14,4 +14,3 @@ defmodule WiseHomex.FiscalYear do
     field(:end_date, :date)
   end
 end
-
