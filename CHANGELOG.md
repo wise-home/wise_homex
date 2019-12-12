@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.46 2019-12-12
+
+* Add support for statements, 100
+
 ## 0.6.45 2019-11-26
 
 * Add number to Tenancy and Household models, 98
