@@ -7,6 +7,7 @@ defmodule WiseHomex.Property do
     belongs_to :admin, WiseHomex.Account
     belongs_to :external_info, WiseHomex.ExternalInfo
     has_many :addresses, WiseHomex.Address
+    has_many :statements, WiseHomex.Statement
 
     field :name, :string
     field :legal_name, :string
