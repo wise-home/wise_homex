@@ -624,9 +624,25 @@ defmodule WiseHomex do
   Get a Statement by id
   """
   def get_statement(config, id, query \\ %{}), do: api_client().get_statement(config, id, query)
+
+  @doc """
+  Get multiple statements
+  """
   def get_statements(config, query \\ %{}), do: api_client().get_statements(config, query)
+
+  @doc """
+  Create a statement
+  """
   def create_statement(config, attrs, rels), do: api_client().create_statement(config, attrs, rels)
+
+  @doc """
+  Update a statement
+  """
   def update_statement(config, id, attrs), do: api_client().update_statement(config, id, attrs)
+
+  @doc """
+  Delete a statement
+  """
   def delete_statement(config, id), do: api_client().delete_statement(config, id)
 
   # User
