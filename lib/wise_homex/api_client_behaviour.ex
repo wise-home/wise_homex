@@ -80,6 +80,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_firmware(Config.t(), id) :: response
   @callback get_firmwares(Config.t()) :: response
 
+  # Fiscal Years
+  @callback get_fiscal_years(Config.t(), query) :: response
+  @callback get_fiscal_year(Config.t(), id, query) :: response
+  @callback create_fiscal_year(Config.t(), attributes, relationships) :: response
+  @callback update_fiscal_year(Config.t(), id, attributes, relationships) :: response
+  @callback delete_fiscal_year(Config.t(), id) :: response
+
   # Gateway
   @callback get_gateway(Config.t(), id, query) :: response
   @callback get_gateways(Config.t(), query) :: response
