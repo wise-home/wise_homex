@@ -8,6 +8,7 @@ defmodule WiseHomex.Property do
     belongs_to :external_info, WiseHomex.ExternalInfo
     has_many :addresses, WiseHomex.Address
     has_many :statements, WiseHomex.Statement
+    has_many :fiscal_years, WiseHomex.FiscalYear
 
     field :name, :string
     field :legal_name, :string

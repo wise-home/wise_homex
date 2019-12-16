@@ -386,8 +386,50 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/firmwares", %{"page[size]" => 500})
   end
 
-  # Gateway
+  # Fiscal Year
 
+  def get_fiscal_years(config, query \\ %{}) do
+    Request.get(config, "/fiscal-years", query)
+  end
+
+  def get_fiscal_year(config, id, query \\ %{}) do
+    Request.get(config, "/fiscal-years/#{id}", query)
+  end
+
+  def create_fiscal_year(config, attrs, rels) do
+    params =
+      %{
+        data: %{
+          type: "fiscal-years",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/fiscal-years", params)
+  end
+
+  def update_fiscal_year(config, id, attrs, rels) do
+    payload =
+      %{
+        data: %{
+          type: "fiscal-years",
+          id: id,
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.patch(config, "/fiscal-years/#{id}", payload)
+  end
+
+  def delete_fiscal_year(config, id) do
+    Request.delete(config, "/fiscal-years/#{id}")
+  end
+
+  # Gateway
   def get_gateway(config, id, query \\ %{}) do
     Request.get(config, "/gateways/" <> id, query)
   end
