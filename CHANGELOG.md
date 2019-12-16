@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.47 2019-12-16
+
+* Add support for fiscal years, 102
+* Update ecto 3.2.5 -> 3.3.0, 103
+* Update nimble_parsec 0.5.2 -> 0.5.3, 103
+* Update erlang 22.1.8 -> 22.2, 103
+
 ## 0.6.46 2019-12-12
 
 * Add support for statements, 100
