@@ -12,6 +12,8 @@ defmodule WiseHomex.ApiClientImpl do
   alias WiseHomex.Quantity
   alias WiseHomex.Request
 
+  use WiseHomex.ApiClientImpl.Creator
+
   # Account
   def create_account(config, attributes, rels) do
     Map.put_new(attributes, :owner_id, nil)
