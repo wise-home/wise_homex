@@ -32,6 +32,7 @@ defmodule WiseHomex.JSONParser do
     "pongs" => WiseHomex.Pong,
     "properties" => WiseHomex.Property,
     "radiator-import-results" => WiseHomex.RadiatorImportResult,
+    "radiator-infos" => WiseHomex.RadiatorInfo,
     "radiators" => WiseHomex.Radiator,
     "rooms" => WiseHomex.Room,
     "settlement-keys" => WiseHomex.SettlementKey,

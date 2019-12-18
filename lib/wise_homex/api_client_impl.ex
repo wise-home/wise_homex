@@ -292,27 +292,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/import", payload)
   end
 
-  # Radiator
-
-  def get_radiator(config, id, query \\ %{}) do
-    Request.get(config, "/radiators/#{id}", query)
-  end
-
-  def get_radiators(config, query \\ %{}) do
-    Request.get(config, "/radiators", query)
-  end
-
-  def import_radiators(config, attrs) do
-    payload = %{
-      data: %{
-        type: "radiator-imports",
-        attributes: attrs
-      }
-    }
-
-    Request.post(config, "/radiators/import", payload)
-  end
-
   # Email Settings
 
   def update_account_email_settings(config, account_id, id, attrs) do
@@ -680,6 +659,33 @@ defmodule WiseHomex.ApiClientImpl do
     config
     |> Map.update!(:timeout, fn _ -> 30_000 end)
     |> Request.post("/property-syncs/unik", params)
+  end
+
+  # Radiator
+
+  def get_radiator(config, id, query \\ %{}) do
+    Request.get(config, "/radiators/#{id}", query)
+  end
+
+  def get_radiators(config, query \\ %{}) do
+    Request.get(config, "/radiators", query)
+  end
+
+  def import_radiators(config, attrs) do
+    payload = %{
+      data: %{
+        type: "radiator-imports",
+        attributes: attrs
+      }
+    }
+
+    Request.post(config, "/radiators/import", payload)
+  end
+
+  # Radiator Info
+
+  def get_radiator_info(config, id) do
+    Request.get(config, "/radiator-infos/#{id}")
   end
 
   # Reports
