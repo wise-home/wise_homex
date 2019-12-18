@@ -148,19 +148,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})
   end
 
-  # Radiator
-  def get_radiator(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_radiator, %{id: id, query: query})
-  end
-
-  def get_radiators(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_radiators, %{query: query})
-  end
-
-  def import_radiators(_config, attrs) do
-    call_and_get_mock_value(:import_radiators, %{attrs: attrs})
-  end
-
   # Email Settings
   def update_account_email_settings(_config, account_id, id, attrs) do
     call_and_get_mock_value(:update_account_email_settings, %{
@@ -324,6 +311,24 @@ defmodule WiseHomex.Test.ApiClientMock do
       company_number: company_number,
       admin_id: admin_id
     })
+  end
+
+  # Radiator
+  def get_radiator(_config, id, query \\ %{}) do
+    call_and_get_mock_value(:get_radiator, %{id: id, query: query})
+  end
+
+  def get_radiators(_config, query \\ %{}) do
+    call_and_get_mock_value(:get_radiators, %{query: query})
+  end
+
+  def import_radiators(_config, attrs) do
+    call_and_get_mock_value(:import_radiators, %{attrs: attrs})
+  end
+
+  # Radiator Info
+  def get_radiator_info(_config, id) do
+    call_and_get_mock_value(:get_radiator_info, %{id: id})
   end
 
   # Reports

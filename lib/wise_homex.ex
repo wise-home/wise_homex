@@ -282,12 +282,6 @@ defmodule WiseHomex do
   """
   def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
 
-  # Radiator
-
-  def get_radiator(config, id, query \\ %{}), do: api_client().get_radiator(config, id, query)
-  def get_radiators(config, query \\ %{}), do: api_client().get_radiators(config, query)
-  def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
-
   # Email Settings
 
   @doc """
@@ -519,6 +513,30 @@ defmodule WiseHomex do
   """
   def create_latest_report(config, device_id, query \\ %{}),
     do: api_client().create_latest_report(config, device_id, query)
+
+  # Radiator
+
+  @doc """
+  Get a radiator
+  """
+  def get_radiator(config, id, query \\ %{}), do: api_client().get_radiator(config, id, query)
+
+  @doc """
+  Get multiple radiators
+  """
+  def get_radiators(config, query \\ %{}), do: api_client().get_radiators(config, query)
+
+  @doc """
+  Import radiators
+  """
+  def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
+
+  # Radiator Info
+
+  @doc """
+  Get an url to info about a radiator
+  """
+  def get_radiator_info(config, id), do: api_client().get_radiator_info(config, id)
 
   # Room
 

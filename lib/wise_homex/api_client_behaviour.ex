@@ -62,11 +62,6 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_device(Config.t(), id, attributes, relationships) :: response
   @callback import_devices(Config.t(), attributes, relationships) :: response
 
-  # Radiators
-  @callback get_radiator(Config.t(), id, query) :: response
-  @callback get_radiators(Config.t(), query) :: response
-  @callback import_radiators(Config.t(), attributes) :: response
-
   # Email Settings
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
 
@@ -128,6 +123,14 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   # Property Syncs UNIK
   @callback create_synced_property_unik(Config.t(), unik_number, unik_number, id) :: response
+
+  # Radiators
+  @callback get_radiator(Config.t(), id, query) :: response
+  @callback get_radiators(Config.t(), query) :: response
+  @callback import_radiators(Config.t(), attributes) :: response
+
+  # Radiator Info
+  @callback get_radiator_info(Config.t(), id) :: response
 
   # Reports
   @callback create_latest_report(Config.t(), id, query) :: response
