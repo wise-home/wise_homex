@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.48 2019-12-18
+
+* Add support for radiator info, 104
+
 ## 0.6.47 2019-12-16
 
 * Add support for fiscal years, 102
