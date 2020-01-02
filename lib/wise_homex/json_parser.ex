@@ -19,6 +19,7 @@ defmodule WiseHomex.JSONParser do
     "device-types" => WiseHomex.DeviceType,
     "devices" => WiseHomex.Device,
     "encryption-keys" => WiseHomex.EncKey,
+    "expenses" => WiseHomex.Expense,
     "external-infos" => WiseHomex.ExternalInfo,
     "firmwares" => WiseHomex.Firmware,
     "fiscal-years" => WiseHomex.FiscalYear,

@@ -76,6 +76,8 @@ defmodule WiseHomex do
 
   @behaviour WiseHomex.ApiClientBehaviour
 
+  use WiseHomex.Creator
+
   @doc """
   Get a guest configuration without an api key for the API Client
   """

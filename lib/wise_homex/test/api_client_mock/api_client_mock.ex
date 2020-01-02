@@ -6,6 +6,8 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   @behaviour WiseHomex.ApiClientBehaviour
 
+  use WiseHomex.Test.ApiClientMock.Creator
+
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
   # Account

@@ -70,6 +70,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_external_info(Config.t(), id) :: response
   @callback update_external_info(Config.t(), id, attributes) :: response
 
+  # Expense
+  @callback get_expenses(Config.t(), query) :: response
+  @callback get_expense(Config.t(), id, query) :: response
+  @callback create_expense(Config.t(), attributes, relationships) :: response
+  @callback update_expense(Config.t(), id, attributes, relationships) :: response
+  @callback delete_expense(Config.t(), id) :: response
+
   # Firmware
   @callback create_firmware(Config.t(), String.t()) :: response
   @callback delete_firmware(Config.t(), id) :: response

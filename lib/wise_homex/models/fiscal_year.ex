@@ -8,6 +8,7 @@ defmodule WiseHomex.FiscalYear do
   embedded_schema do
     belongs_to(:property, WiseHomex.Property)
     belongs_to(:statement, WiseHomex.Statement)
+    has_many(:expenses, WiseHomex.FiscalYear)
 
     field(:utility_type, :string)
     field(:start_date, :date)
