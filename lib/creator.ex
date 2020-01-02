@@ -43,7 +43,7 @@ defmodule WiseHomex.Creator do
     function_name = "create_#{api_resource.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, attrs, rels),
+      def unquote(function_name)(config, attrs, rels \\ %{}),
         do: api_client().unquote(function_name)(config, attrs, rels)
     end
   end

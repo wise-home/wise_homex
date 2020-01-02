@@ -44,7 +44,7 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     function_name = "create_#{api_resource.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, attrs, rels) do
+      def unquote(function_name)(config, attrs, rels \\ %{}) do
         WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), %{attrs: attrs, rels: rels})
       end
     end

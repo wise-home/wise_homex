@@ -45,7 +45,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     function_name = "create_#{api_resource.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, attrs, rels) do
+      def unquote(function_name)(config, attrs, rels \\ %{}) do
         payload =
           %{
             data: %{
