@@ -25,10 +25,15 @@ defmodule WiseHomex.ApiDefinition do
   @type api_definition :: %{endpoint_name => endpoint_definition}
 
   @doc """
-  The definition of the Wise Home API
+  The Wise Home API as a list of ApiResource structs
   """
-  @spec api_definition() :: api_definition
-  def api_definition() do
+  @spec api_resources() :: [APIResource.t()]
+  def api_resources() do
+    api_definition() |> to_api_resources()
+  end
+
+  # The definition of the Wise Home API
+  defp api_definition() do
     %{
       expense: %{
         endpoints: [:index, :show, :create, :update, :delete],
@@ -38,11 +43,8 @@ defmodule WiseHomex.ApiDefinition do
     }
   end
 
-  @doc """
-  Transforms the api definition into an APIResource struct representing every function that should be created
-  """
-  @spec to_api_resources(api_definition()) :: [APIResource.t()]
-  def to_api_resources(api_definition) do
+  # Transforms the api definition into an APIResource struct representing every function that should be created
+  defp to_api_resources(api_definition) do
     api_definition
     |> Enum.flat_map(fn {resource_name, %{endpoints: endpoints, path: path, type: type}} ->
       endpoints
