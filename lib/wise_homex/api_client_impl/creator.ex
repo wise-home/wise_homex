@@ -32,8 +32,8 @@ defmodule WiseHomex.ApiClientImpl.Creator do
 
     quote do
       def unquote(function_name)(config, id, query \\ %{}) do
-        id = "#{unquote(api_resource.path)}/#{id}"
-        WiseHomex.Request.get(config, id, query)
+        path = "#{unquote(api_resource.path)}/#{id}"
+        WiseHomex.Request.get(config, path, query)
       end
     end
   end
