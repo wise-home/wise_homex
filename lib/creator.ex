@@ -15,7 +15,7 @@ defmodule WiseHomex.Creator do
   end
 
   @doc """
-  Create a mock index function
+  Create an index function that delegates to api_client()
   """
   def create_endpoint({:index, api_resource}) do
     function_name = "get_#{api_resource.name_plural}" |> String.to_atom()
@@ -26,7 +26,7 @@ defmodule WiseHomex.Creator do
   end
 
   @doc """
-  Create a mock show function
+  Create a show function that delegates to api_client()
   """
   def create_endpoint({:show, api_resource}) do
     function_name = "get_#{api_resource.name_singular}" |> String.to_atom()
@@ -37,7 +37,7 @@ defmodule WiseHomex.Creator do
   end
 
   @doc """
-  Create a mock create function
+  Create a create function that delegates to api_client()
   """
   def create_endpoint({:create, api_resource}) do
     function_name = "create_#{api_resource.name_singular}" |> String.to_atom()
@@ -49,7 +49,7 @@ defmodule WiseHomex.Creator do
   end
 
   @doc """
-  Create a mock update function
+  Create an update function that delegates to api_client()
   """
   def create_endpoint({:update, api_resource}) do
     function_name = "update_#{api_resource.name_singular}" |> String.to_atom()
@@ -61,7 +61,7 @@ defmodule WiseHomex.Creator do
   end
 
   @doc """
-  Create a mock delete function
+  Create a delete function that delegates to api_client()
   """
   def create_endpoint({:delete, api_resource}) do
     function_name = "delete_#{api_resource.name_singular}" |> String.to_atom()
