@@ -49,7 +49,7 @@ defmodule WiseHomex.ApiDefinition do
       |> Enum.map(fn verb ->
         api_resource = %APIResource{
           name_singular: resource_name |> Atom.to_string(),
-          name_plural: type,
+          name_plural: type |> snake_case(),
           path: path,
           type: type
         }
@@ -58,4 +58,18 @@ defmodule WiseHomex.ApiDefinition do
       end)
     end)
   end
+
+  @doc """
+  Transform a kebab cased string to snake case
+
+  iex> ApiDefinition.snake_case("large-households")
+  "large_households"
+
+  iex> ApiDefinition.snake_case("households")
+  "households"
+
+  iex> ApiDefinition.snake_case("")
+  ""
+  """
+  def snake_case(input), do: input |> String.replace("-", "_")
 end
