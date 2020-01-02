@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.49 2020-01-02
+
+* Expenses and Automatic API client function generation, 107
+* Update erlang 22.2 -> 22.2.1, 108
+* Update ecto 3.3.0 -> 3.3.1, 108
+* Update decimal 1.8.0 -> 1.8.1, 108
+
 ## 0.6.48 2019-12-18
 
 * Add support for radiator info, 104
