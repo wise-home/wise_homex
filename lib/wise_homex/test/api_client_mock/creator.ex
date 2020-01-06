@@ -14,8 +14,8 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
   @doc """
   Create a mock index function
   """
-  def create_endpoint(%{verb: :index} = api_resource) do
-    function_name = "get_#{api_resource.name_plural}" |> String.to_atom()
+  def create_endpoint(%{verb: :index} = api_endpoint) do
+    function_name = "get_#{api_endpoint.name_plural}" |> String.to_atom()
 
     quote do
       def unquote(function_name)(config, query \\ %{}) do
@@ -27,8 +27,8 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
   @doc """
   Create a mock show function
   """
-  def create_endpoint(%{verb: :show} = api_resource) do
-    function_name = "get_#{api_resource.name_singular}" |> String.to_atom()
+  def create_endpoint(%{verb: :show} = api_endpoint) do
+    function_name = "get_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
       def unquote(function_name)(config, id, query \\ %{}) do
@@ -40,8 +40,8 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
   @doc """
   Create a mock create function
   """
-  def create_endpoint(%{verb: :create} = api_resource) do
-    function_name = "create_#{api_resource.name_singular}" |> String.to_atom()
+  def create_endpoint(%{verb: :create} = api_endpoint) do
+    function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
       def unquote(function_name)(config, attrs, rels \\ %{}) do
@@ -53,8 +53,8 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
   @doc """
   Create a mock update function
   """
-  def create_endpoint(%{verb: :update} = api_resource) do
-    function_name = "update_#{api_resource.name_singular}" |> String.to_atom()
+  def create_endpoint(%{verb: :update} = api_endpoint) do
+    function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
       def unquote(function_name)(config, id, attrs, rels \\ %{}) do
@@ -70,8 +70,8 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
   @doc """
   Create a mock delete function
   """
-  def create_endpoint(%{verb: :delete} = api_resource) do
-    function_name = "delete_#{api_resource.name_singular}" |> String.to_atom()
+  def create_endpoint(%{verb: :delete} = api_endpoint) do
+    function_name = "delete_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
       def unquote(function_name)(config, id) do
