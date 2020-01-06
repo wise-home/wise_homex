@@ -1,6 +1,6 @@
 defmodule WiseHomex.ApiDefinition do
   @moduledoc """
-  The definition of the Wise Home API
+  Converts the API configuration into data that can be used to dynamically create each api endpoint
   """
 
   defmodule Reader do
@@ -10,15 +10,16 @@ defmodule WiseHomex.ApiDefinition do
     """
 
     @typedoc """
-    Supported endpoint types
+    The types of API verbs supported
     """
     @type verb :: :index | :show | :create | :update | :delete
 
     @typedoc """
-    Definition of multiple api endpoints as given in automated_api_definition.exs
+    Definition of endpoints for an api resource as given in api_config.exs
+    This can be used to create multiple api endpoints as defined below.
     """
     @type resource_definition :: %{
-            endpoints: [atom],
+            endpoints: [verb],
             name_plural: String.t(),
             name_singular: String.t(),
             path: String.t(),
@@ -26,51 +27,54 @@ defmodule WiseHomex.ApiDefinition do
           }
 
     @typedoc """
-    Definition of a single endpoint
+    Definition data for a single api endpoint
     """
-    @type single_endpoint :: %{
+    @type api_endpoint :: %{
+            verb: verb(),
             name_plural: String.t(),
             name_singular: String.t(),
             path: String.t(),
             type: String.t()
           }
 
-    def api_resources_from_file(filename) do
-      # Handle when called directly from Code.eval_file/1, which returns a 2-tuple
+    @doc """
+    Read the api configuration from a file, convert it to api resources
+    """
+    @spec api_endpoints_from_file(filename :: String.t()) :: [api_endpoint]
+    def api_endpoints_from_file(filename) do
       {_, variables} = filename |> Code.eval_file()
-      variables |> Keyword.fetch!(:endpoints) |> to_api_resources()
+      variables |> Keyword.fetch!(:endpoints) |> to_api_endpoints()
     end
 
     @doc """
-    Transform the api resource definition into a list of single api functions
+    Transform the api resource definition into a list of single api endpoints
     """
-    @spec to_api_resources([resource_definition]) :: [{verb, single_endpoint}]
-    def to_api_resources(endpoints) do
+    @spec to_api_endpoints([resource_definition]) :: [api_endpoint]
+    def to_api_endpoints(endpoints) do
       endpoints
       |> Enum.flat_map(fn %{endpoints: endpoints} = resource ->
         endpoints
         |> Enum.map(fn verb ->
-          api_resource = %{
+          %{
+            verb: verb,
             name_singular: resource.name_singular,
             name_plural: resource.name_plural,
             path: resource.path,
             type: resource.type
           }
-
-          {verb, api_resource}
         end)
       end)
     end
   end
 
   @external_resource "lib/wise_homex/api_config.exs"
-  @api_resources "api_config.exs"
+  @api_endpoints "api_config.exs"
                  |> Path.expand("./lib/wise_homex")
-                 |> Reader.api_resources_from_file()
+                 |> Reader.api_endpoints_from_file()
 
   @doc """
   The Wise Home API as a list of single functions to be implemented including verbs
   """
-  @spec api_resources() :: [{Reader.verb(), Reader.single_endpoint()}]
-  def api_resources(), do: @api_resources
+  @spec api_endpoints() :: [Reader.api_endpoint()]
+  def api_endpoints(), do: @api_endpoints
 end
