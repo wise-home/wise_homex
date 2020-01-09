@@ -45,8 +45,10 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
 
     quote do
       def unquote(function_name)(config, attrs, rels \\ %{}, query \\ %{}) do
-        args = %{attrs: attrs, rels: rels}
-        args = if(query == %{}, do: args, else: args |> Map.put(:query, query))
+        args =
+          [attrs: attrs, rels: rels, query: query]
+          |> Enum.reject(fn {_key, value} -> value == %{} end)
+          |> Enum.into(%{})
 
         WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), args)
       end
@@ -61,8 +63,10 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
 
     quote do
       def unquote(function_name)(config, id, attrs, rels \\ %{}, query \\ %{}) do
-        args = %{id: id, attrs: attrs, rels: rels}
-        args = if(query == %{}, do: args, else: args |> Map.put(:query, query))
+        args =
+          [id: id, attrs: attrs, rels: rels, query: query]
+          |> Enum.reject(fn {_key, value} -> value == %{} end)
+          |> Enum.into(%{})
 
         WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), args)
       end
