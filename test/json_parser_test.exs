@@ -891,6 +891,26 @@ defmodule WiseHomex.JSONParserTest do
     wmbus_message_query = JSONParser.parse(data)
     assert wmbus_message_query.devices |> length() == 2
     assert wmbus_message_query.gateway
+    assert wmbus_message_query.gateway_id == "2389"
     assert wmbus_message_query.wmbus_message_infos |> length() == 2
+  end
+
+  test "parse embeds that are not included" do
+    data = %{
+      "data" => %{
+        "attributes" => %{"save" => true, "timeout" => 30_000},
+        "id" => "",
+        "relationships" => %{
+          "gateway" => %{"data" => %{"id" => "7", "type" => "gateways"}}
+        },
+        "type" => "wmbus-message-queries"
+      },
+      "jsonapi" => %{"version" => "1.0"}
+    }
+
+    wmbus_message_query = JSONParser.parse(data)
+    assert wmbus_message_query.devices |> length() == 0
+    assert wmbus_message_query.gateway_id == "7"
+    assert wmbus_message_query.wmbus_message_infos |> length() == 0
   end
 end

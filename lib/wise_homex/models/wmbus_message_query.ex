@@ -8,7 +8,7 @@ defmodule WiseHomex.WMBusMessageQuery do
   embedded_schema do
     embeds_many :devices, WiseHomex.Device
     embeds_many :wmbus_message_infos, WiseHomex.WMBusMessageInfo
-    embeds_one :gateway, WiseHomex.Gateway
+    belongs_to :gateway, WiseHomex.Gateway
 
     field :save, :boolean
     field :timeout, :integer
