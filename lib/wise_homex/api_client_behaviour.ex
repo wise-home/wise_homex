@@ -73,8 +73,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Expense
   @callback get_expenses(Config.t(), query) :: response
   @callback get_expense(Config.t(), id, query) :: response
-  @callback create_expense(Config.t(), attributes, relationships) :: response
-  @callback update_expense(Config.t(), id, attributes, relationships) :: response
+  @callback create_expense(Config.t(), attributes, relationships, query) :: response
+  @callback update_expense(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_expense(Config.t(), id) :: response
 
   # Firmware
