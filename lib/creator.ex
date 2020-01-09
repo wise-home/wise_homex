@@ -44,7 +44,7 @@ defmodule WiseHomex.Creator do
 
     quote do
       def unquote(function_name)(config, attrs, rels \\ %{}, query \\ %{}),
-        do: api_client().unquote(function_name)(config, attrs, rels)
+        do: api_client().unquote(function_name)(config, attrs, rels, query)
     end
   end
 
@@ -56,7 +56,7 @@ defmodule WiseHomex.Creator do
 
     quote do
       def unquote(function_name)(config, id, attrs, rels \\ %{}, query \\ %{}),
-        do: api_client().unquote(function_name)(config, id, attrs, rels)
+        do: api_client().unquote(function_name)(config, id, attrs, rels, query)
     end
   end
 
