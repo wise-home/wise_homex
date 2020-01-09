@@ -18,7 +18,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     function_name = "get_#{api_endpoint.name_plural}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, query \\ %{}) do
+      def unquote(function_name)(config, query) do
         WiseHomex.Request.get(config, unquote(api_endpoint.path), query)
       end
     end
@@ -31,7 +31,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     function_name = "get_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, id, query \\ %{}) do
+      def unquote(function_name)(config, id, query) do
         path = "#{unquote(api_endpoint.path)}/#{id}"
         WiseHomex.Request.get(config, path, query)
       end
@@ -45,7 +45,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, attrs, rels \\ %{}) do
+      def unquote(function_name)(config, attrs, rels, query) do
         payload =
           %{
             data: %{
@@ -56,7 +56,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
           }
           |> normalize_payload()
 
-        WiseHomex.Request.post(config, unquote(api_endpoint.path), payload)
+        WiseHomex.Request.post(config, unquote(api_endpoint.path), payload, query)
       end
     end
   end
@@ -68,7 +68,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, id, attrs, rels \\ %{}) do
+      def unquote(function_name)(config, id, attrs, rels, query) do
         payload =
           %{
             data: %{
@@ -81,7 +81,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
           |> normalize_payload()
 
         path = "#{unquote(api_endpoint.path)}/#{id}"
-        WiseHomex.Request.patch(config, path, payload)
+        WiseHomex.Request.patch(config, path, payload, query)
       end
     end
   end

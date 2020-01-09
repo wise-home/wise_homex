@@ -43,8 +43,8 @@ defmodule WiseHomex.Creator do
     function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, attrs, rels \\ %{}),
-        do: api_client().unquote(function_name)(config, attrs, rels)
+      def unquote(function_name)(config, attrs, rels \\ %{}, query \\ %{}),
+        do: api_client().unquote(function_name)(config, attrs, rels, query)
     end
   end
 
@@ -55,8 +55,8 @@ defmodule WiseHomex.Creator do
     function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, id, attrs, rels \\ %{}),
-        do: api_client().unquote(function_name)(config, id, attrs, rels)
+      def unquote(function_name)(config, id, attrs, rels \\ %{}, query \\ %{}),
+        do: api_client().unquote(function_name)(config, id, attrs, rels, query)
     end
   end
 
