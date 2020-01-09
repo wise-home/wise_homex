@@ -44,8 +44,11 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, attrs, rels \\ %{}) do
-        WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), %{attrs: attrs, rels: rels})
+      def unquote(function_name)(config, attrs, rels \\ %{}, query \\ %{}) do
+        args = %{attrs: attrs, rels: rels}
+        args = if(query == %{}, do: args, else: args |> Map.put(:query, query))
+
+        WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), args)
       end
     end
   end
@@ -57,12 +60,11 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
     quote do
-      def unquote(function_name)(config, id, attrs, rels \\ %{}) do
-        WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), %{
-          id: id,
-          attrs: attrs,
-          rels: rels
-        })
+      def unquote(function_name)(config, id, attrs, rels \\ %{}, query \\ %{}) do
+        args = %{id: id, attrs: attrs, rels: rels}
+        args = if(query == %{}, do: args, else: args |> Map.put(:query, query))
+
+        WiseHomex.Test.ApiClientMockServer.call_and_get_mock_value(unquote(function_name), args)
       end
     end
   end
