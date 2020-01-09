@@ -702,7 +702,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
     }
 
-    Request.post(config, "/reports/latest", query, payload)
+    Request.post(config, "/reports/latest", payload, query)
   end
 
   def get_device_reports(config, id) do

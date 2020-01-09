@@ -29,20 +29,23 @@ defmodule WiseHomex.Request do
     |> parse_response()
   end
 
-  def post(config, path, query, body) when is_map(query) and is_map(body) do
+  def post(config, path, body, query) when is_map(query) and is_map(body) do
     post(config, path |> path_with_query(query), body)
   end
 
-  def patch(config, path, params) do
+  def patch(config, path, body) do
     headers = build_headers(config)
-    body = Jason.encode!(params)
     options = build_options(config)
 
     path
     |> versionise_path(config)
     |> add_base_url(config)
-    |> HTTPoison.patch(body, headers, options)
+    |> HTTPoison.patch(body |> Jason.encode!(), headers, options)
     |> parse_response()
+  end
+
+  def patch(config, path, body, query) when is_map(query) and is_map(body) do
+    patch(config, path |> path_with_query(query), body)
   end
 
   def delete(config, path) do
