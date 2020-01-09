@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.50 2020-01-09
+
+* Standalone API configuration in api_config.exs, 109
+* Automatic registration of models and types in JSONParser, 114
+* Add support for query on :create and :update, 119
+
 ## 0.6.49 2020-01-02
 
 * Expenses and Automatic API client function generation, 107
