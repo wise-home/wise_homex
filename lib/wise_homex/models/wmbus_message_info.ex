@@ -6,7 +6,7 @@ defmodule WiseHomex.WMBusMessageInfo do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    embeds_one :device, WiseHomex.Device
+    belongs_to :device, WiseHomex.Device
 
     field :signal_strength, :integer
     field :time, :utc_datetime
