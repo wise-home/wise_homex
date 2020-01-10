@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.51 2020-01-10
+
+* Add support for WMBusMessageInfo, WMBusMessageQuery, 113
+* Add support for embeds_one and embeds_many, 117
+
 ## 0.6.50 2020-01-09
 
 * Standalone API configuration in api_config.exs, 109
