@@ -44,6 +44,7 @@ defmodule WiseHomex.JSONParser do
              "utility-readings" => WiseHomex.UtilityReading,
              "wmbus-device-types" => WiseHomex.WMBusDeviceType,
              "wmbus-manufacturers" => WiseHomex.WMBusManufacturer,
+             "wmbus-message-infos" => WiseHomex.WMBusMessageInfo,
              "zip-codes" => WiseHomex.ZipCode
            }
            |> Map.merge(WiseHomex.ApiDefinition.type_to_model_mappings())

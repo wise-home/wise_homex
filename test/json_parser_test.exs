@@ -788,4 +788,129 @@ defmodule WiseHomex.JSONParserTest do
     heat_source = JSONParser.parse(data)
     assert heat_source.reduction_factor == ~d[1.10]
   end
+
+  test "parse embeds that are normal ecto schemas" do
+    data = %{
+      "data" => %{
+        "attributes" => %{"save" => true, "timeout" => 30_000},
+        "id" => "",
+        "relationships" => %{
+          "devices" => %{"data" => [%{"id" => "8350", "type" => "devices"}, %{"id" => "8351", "type" => "devices"}]},
+          "gateway" => %{"data" => %{"id" => "2389", "type" => "gateways"}},
+          "wmbus-message-infos" => %{
+            "data" => [
+              %{"id" => "286dbd35-93da-4926-b927-5a2202b9e350", "type" => "wmbus-message-infos"},
+              %{"id" => "a961b901-092e-4bb0-9c35-5a04fef2c888", "type" => "wmbus-message-infos"}
+            ]
+          }
+        },
+        "type" => "wmbus-message-queries"
+      },
+      "included" => [
+        %{
+          "attributes" => %{
+            "address" => nil,
+            "enabled-modules" => [],
+            "last-connect-at" => "2020-01-09T13:06:14Z",
+            "location" => nil,
+            "notes" => nil,
+            "online" => "no",
+            "postal-address" => nil,
+            "serial" => "0200000100003A7C",
+            "skip-offline-report" => false,
+            "software-version" => "balrog 1.2.3",
+            "unlocked-at" => "2020-01-09T13:06:14Z",
+            "unlocked-seconds" => 60
+          },
+          "id" => "2389",
+          "relationships" => %{"admin" => %{"data" => nil}, "sim" => %{"data" => nil}},
+          "type" => "gateways"
+        },
+        %{
+          "attributes" => %{
+            "authorized-at" => nil,
+            "inserted-at" => "2020-01-09T13:06:14Z",
+            "installation-year" => 2019,
+            "last-seen" => nil,
+            "number" => "00000107",
+            "online" => "no",
+            "protocol" => "wmbus",
+            "reduction-factor" => "1",
+            "serial" => "070100002D2C3004",
+            "signal-strength" => nil,
+            "signal-strength-history" => []
+          },
+          "id" => "8350",
+          "relationships" => %{
+            "device-type" => %{"data" => %{"id" => "4", "type" => "device-types"}},
+            "gateway" => %{"data" => nil},
+            "heat-source" => %{"data" => nil},
+            "room" => %{"data" => nil}
+          },
+          "type" => "devices"
+        },
+        %{
+          "attributes" => %{
+            "authorized-at" => nil,
+            "inserted-at" => "2020-01-09T13:06:14Z",
+            "installation-year" => 2019,
+            "last-seen" => nil,
+            "number" => "00000108",
+            "online" => "no",
+            "protocol" => "wmbus",
+            "reduction-factor" => "1",
+            "serial" => "080100002D2C3004",
+            "signal-strength" => nil,
+            "signal-strength-history" => []
+          },
+          "id" => "8351",
+          "relationships" => %{
+            "device-type" => %{"data" => %{"id" => "4", "type" => "device-types"}},
+            "gateway" => %{"data" => nil},
+            "heat-source" => %{"data" => nil},
+            "room" => %{"data" => nil}
+          },
+          "type" => "devices"
+        },
+        %{
+          "attributes" => %{"signal-strength" => -40, "time" => "2020-01-09T13:06:14.492626Z"},
+          "id" => "286dbd35-93da-4926-b927-5a2202b9e350",
+          "relationships" => %{"device" => %{"data" => %{"id" => "8350", "type" => "devices"}}},
+          "type" => "wmbus-message-infos"
+        },
+        %{
+          "attributes" => %{"signal-strength" => -40, "time" => "2020-01-09T13:06:14.493500Z"},
+          "id" => "a961b901-092e-4bb0-9c35-5a04fef2c888",
+          "relationships" => %{"device" => %{"data" => %{"id" => "8351", "type" => "devices"}}},
+          "type" => "wmbus-message-infos"
+        }
+      ],
+      "jsonapi" => %{"version" => "1.0"}
+    }
+
+    wmbus_message_query = JSONParser.parse(data)
+    assert wmbus_message_query.devices |> length() == 2
+    assert wmbus_message_query.gateway
+    assert wmbus_message_query.gateway_id == "2389"
+    assert wmbus_message_query.wmbus_message_infos |> length() == 2
+  end
+
+  test "parse embeds that are not included" do
+    data = %{
+      "data" => %{
+        "attributes" => %{"save" => true, "timeout" => 30_000},
+        "id" => "",
+        "relationships" => %{
+          "gateway" => %{"data" => %{"id" => "7", "type" => "gateways"}}
+        },
+        "type" => "wmbus-message-queries"
+      },
+      "jsonapi" => %{"version" => "1.0"}
+    }
+
+    wmbus_message_query = JSONParser.parse(data)
+    assert wmbus_message_query.devices |> length() == 0
+    assert wmbus_message_query.gateway_id == "7"
+    assert wmbus_message_query.wmbus_message_infos |> length() == 0
+  end
 end
