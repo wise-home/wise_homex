@@ -9,7 +9,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   @behaviour WiseHomex.ApiClientBehaviour
 
-  alias WiseHomex.Quantity
   alias WiseHomex.Request
 
   use WiseHomex.ApiClientImpl.Creator

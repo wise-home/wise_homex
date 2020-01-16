@@ -5,8 +5,6 @@ defmodule WiseHomex.Quantity.Type do
 
   use Ecto.Type
 
-  alias WiseHomex.Quantity
-
   @impl Ecto.Type
   def type, do: :string
 
