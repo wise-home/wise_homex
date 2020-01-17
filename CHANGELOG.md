@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.52 2020-01-17
+
+* Extract Quantity into separate library, 120
+
 ## 0.6.51 2020-01-10
 
 * Add support for WMBusMessageInfo, WMBusMessageQuery, 113
