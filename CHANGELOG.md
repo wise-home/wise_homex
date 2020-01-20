@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.53 2020-01-20
+
+* Update Quantity 0.1.0 -> 0.2.0, #123
+
 ## 0.6.52 2020-01-17
 
 * Extract Quantity into separate library, 120
