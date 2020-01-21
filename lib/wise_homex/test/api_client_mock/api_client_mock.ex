@@ -10,19 +10,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
-  # Admin Integration
-  def get_admin_integrations(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_admin_integrations, %{query: query})
-  end
-
-  def get_admin_integration(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_admin_integration, %{id: id, query: query})
-  end
-
-  def delete_admin_integration(_config, id) do
-    call_and_get_mock_value(:delete_admin_integration, %{id: id})
-  end
-
   # Admin Integration UNIK
   def create_admin_integration_unik(_config, attrs, rels) do
     call_and_get_mock_value(:create_admin_integration_unik, %{attrs: attrs, rels: rels})

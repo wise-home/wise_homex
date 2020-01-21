@@ -13,19 +13,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
-  # Admin integration
-  def delete_admin_integration(config, id) do
-    Request.delete(config, "/admin-integrations/" <> id)
-  end
-
-  def get_admin_integrations(config, query \\ %{}) do
-    Request.get(config, "/admin-integrations", query)
-  end
-
-  def get_admin_integration(config, id, query \\ %{}) do
-    Request.get(config, "/admin-integrations/" <> id, query)
-  end
-
   # Admin integration UNIK
   def create_admin_integration_unik(config, attrs, rels) do
     params =

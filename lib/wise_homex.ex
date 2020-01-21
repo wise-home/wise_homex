@@ -91,23 +91,6 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
-  # Admin Integration
-
-  @doc """
-  Get admin integrations
-  """
-  def get_admin_integrations(config, query \\ %{}), do: api_client().get_admin_integrations(config, query)
-
-  @doc """
-  Get admin integration
-  """
-  def get_admin_integration(config, id, query \\ %{}), do: api_client().get_admin_integration(config, id, query)
-
-  @doc """
-  Delete an admin integration
-  """
-  def delete_admin_integration(config, id), do: api_client().delete_admin_integration(config, id)
-
   # Admin Integration UNIK
 
   @doc """
