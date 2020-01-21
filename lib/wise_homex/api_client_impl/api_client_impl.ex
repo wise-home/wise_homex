@@ -13,35 +13,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
-  # Admin integration UNIK
-  def create_admin_integration_unik(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "admin-integrations",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/admin-integrations/unik", params)
-  end
-
-  def update_admin_integration_unik(config, id, attrs) do
-    params =
-      %{
-        data: %{
-          type: "admin-integrations",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/admin-integrations/unik/" <> id, params)
-  end
-
   # Angel Note
   def create_angel_note(config, attrs) do
     payload =

@@ -91,20 +91,6 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
-  # Admin Integration UNIK
-
-  @doc """
-  Create a UNIK admin integration
-  """
-  def create_admin_integration_unik(config, attrs, rels),
-    do: api_client().create_admin_integration_unik(config, attrs, rels)
-
-  @doc """
-  Update a UNIK admin integration
-  """
-  def update_admin_integration_unik(config, id, attrs),
-    do: api_client().update_admin_integration_unik(config, id, attrs)
-
   # Angel Note
 
   @doc """

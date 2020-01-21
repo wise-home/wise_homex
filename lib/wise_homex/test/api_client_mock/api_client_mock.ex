@@ -10,15 +10,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
-  # Admin Integration UNIK
-  def create_admin_integration_unik(_config, attrs, rels) do
-    call_and_get_mock_value(:create_admin_integration_unik, %{attrs: attrs, rels: rels})
-  end
-
-  def update_admin_integration_unik(_config, id, attrs) do
-    call_and_get_mock_value(:update_admin_integration_unik, %{id: id, attrs: attrs})
-  end
-
   # Angel Note
   def get_angel_note(_config, target_type, target_id) do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})

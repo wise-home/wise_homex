@@ -34,6 +34,14 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
+    endpoints: [:create, :update],
+    model: WiseHomex.AdminIntegration,
+    name_plural: "admin_integrations_unik",
+    name_singular: "admin_integration_unik",
+    path: "/admin-integrations/unik",
+    type: "admin-integrations"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
