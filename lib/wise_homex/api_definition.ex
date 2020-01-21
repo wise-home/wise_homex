@@ -20,6 +20,7 @@ defmodule WiseHomex.ApiDefinition do
     """
     @type resource_definition :: %{
             endpoints: [verb],
+            model: atom(),
             name_plural: String.t(),
             name_singular: String.t(),
             path: String.t(),
