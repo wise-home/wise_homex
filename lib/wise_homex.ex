@@ -91,33 +91,6 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
-  # Account
-
-  @doc """
-  Create an account
-  """
-  def create_account(config, attributes, rels), do: api_client().create_account(config, attributes, rels)
-
-  @doc """
-  Delete an account
-  """
-  def delete_account(config, id), do: api_client().delete_account(config, id)
-
-  @doc """
-  Get an account
-  """
-  def get_account(config, id, query \\ %{}), do: api_client().get_account(config, id, query)
-
-  @doc """
-  Get multiple accounts
-  """
-  def get_accounts(config, query \\ %{}), do: api_client().get_accounts(config, query)
-
-  @doc """
-  Update an account
-  """
-  def update_account(config, id, attrs), do: api_client().update_account(config, id, attrs)
-
   # Account User
 
   @doc """

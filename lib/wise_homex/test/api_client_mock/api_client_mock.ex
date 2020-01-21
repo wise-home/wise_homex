@@ -10,27 +10,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
-  # Account
-  def create_account(_config, attrs, rels) do
-    call_and_get_mock_value(:create_account, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_account(_config, id) do
-    call_and_get_mock_value(:delete_account, %{id: id})
-  end
-
-  def get_account(_config, id, query) do
-    call_and_get_mock_value(:get_account, %{id: id, query: query})
-  end
-
-  def get_accounts(_config, query) do
-    call_and_get_mock_value(:get_accounts, %{query: query})
-  end
-
-  def update_account(_config, id, attrs) do
-    call_and_get_mock_value(:update_account, %{id: id, attrs: attrs})
-  end
-
   # Account User
   def get_account_users(_config, query) do
     call_and_get_mock_value(:get_account_users, %{query: query})

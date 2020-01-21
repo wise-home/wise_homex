@@ -13,49 +13,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
-  # Account
-  def create_account(config, attributes, rels) do
-    Map.put_new(attributes, :owner_id, nil)
-
-    params =
-      %{
-        data: %{
-          type: "accounts",
-          attributes: attributes,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/accounts", params)
-  end
-
-  def delete_account(config, id) do
-    Request.delete(config, "/accounts/" <> id)
-  end
-
-  def get_account(config, id, query \\ %{}) do
-    Request.get(config, "/accounts/" <> id, query)
-  end
-
-  def get_accounts(config, query \\ %{}) do
-    Request.get(config, "/accounts", query)
-  end
-
-  def update_account(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "accounts",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/accounts/" <> id, payload)
-  end
-
   # Account User
   def get_account_users(config, query) do
     Request.get(config, "/account-users", query)

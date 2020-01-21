@@ -15,11 +15,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @type relationships :: map
 
   # Account
-  @callback create_account(Config.t(), attributes, relationships) :: response
+  @callback create_account(Config.t(), attributes, relationships, query) :: response
   @callback delete_account(Config.t(), id) :: response
   @callback get_account(Config.t(), id, query) :: response
   @callback get_accounts(Config.t(), query) :: response
-  @callback update_account(Config.t(), id, attributes) :: response
+  @callback update_account(Config.t(), id, attributes, relationships, query) :: response
 
   # Account User
   @callback get_account_users(Config.t(), query) :: response
