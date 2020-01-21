@@ -91,27 +91,6 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
-  # Account User
-
-  @doc """
-  Gets the account users for the current user.
-
-  * Optional includes: `user`, `account`
-  * Optional filters: `role`, `account_id`
-
-  Example:
-
-  ```
-  config |> WiseHomex.get_account_users(%{"include" => "user", "filter[role]" => "tenant"})
-  ```
-  """
-  def get_account_users(config, query \\ %{}), do: api_client().get_account_users(config, query)
-
-  @doc """
-  Delete an account_user
-  """
-  def delete_account_user(config, id), do: api_client().delete_account_user(config, id)
-
   # Address
 
   @doc """

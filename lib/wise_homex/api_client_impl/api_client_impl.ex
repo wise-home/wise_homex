@@ -13,15 +13,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
-  # Account User
-  def get_account_users(config, query) do
-    Request.get(config, "/account-users", query)
-  end
-
-  def delete_account_user(config, id) do
-    Request.delete(config, "/account-users/#{id}")
-  end
-
   # Address
   def create_address(config, attrs, rels) do
     params =

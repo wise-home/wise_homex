@@ -10,6 +10,14 @@ endpoints = [
     type: "accounts"
   },
   %{
+    endpoints: [:index, :delete],
+    model: WiseHomex.AccountUser,
+    name_plural: "account_users",
+    name_singular: "account_user",
+    path: "/account-users",
+    type: "account-users"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
