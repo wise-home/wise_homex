@@ -3,6 +3,46 @@
 endpoints = [
   %{
     endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Account,
+    name_plural: "accounts",
+    name_singular: "account",
+    path: "/accounts",
+    type: "accounts"
+  },
+  %{
+    endpoints: [:index, :delete],
+    model: WiseHomex.AccountUser,
+    name_plural: "account_users",
+    name_singular: "account_user",
+    path: "/account-users",
+    type: "account-users"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update],
+    model: WiseHomex.Address,
+    name_plural: "addresses",
+    name_singular: "address",
+    path: "/addresses",
+    type: "addresses"
+  },
+  %{
+    endpoints: [:index, :show, :delete],
+    model: WiseHomex.AdminIntegration,
+    name_plural: "admin_integrations",
+    name_singular: "admin_integration",
+    path: "/admin-integrations",
+    type: "admin-integrations"
+  },
+  %{
+    endpoints: [:create, :update],
+    model: WiseHomex.AdminIntegration,
+    name_plural: "admin_integrations_unik",
+    name_singular: "admin_integration_unik",
+    path: "/admin-integrations/unik",
+    type: "admin-integrations"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
     name_singular: "expense",

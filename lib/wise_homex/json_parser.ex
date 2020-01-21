@@ -7,10 +7,6 @@ defmodule WiseHomex.JSONParser do
 
   @structs %{
              "account-email-settings" => WiseHomex.Account.EmailSettings,
-             "account-users" => WiseHomex.AccountUser,
-             "accounts" => WiseHomex.Account,
-             "addresses" => WiseHomex.Address,
-             "admin-integrations" => WiseHomex.AdminIntegration,
              "angel-notes" => WiseHomex.AngelNote,
              "configurable-meter-id" => WiseHomex.ConfigurableMeterID,
              "configurable-meters" => WiseHomex.ConfigurableMeters,

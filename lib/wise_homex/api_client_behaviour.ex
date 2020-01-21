@@ -15,19 +15,19 @@ defmodule WiseHomex.ApiClientBehaviour do
   @type relationships :: map
 
   # Account
-  @callback create_account(Config.t(), attributes, relationships) :: response
+  @callback create_account(Config.t(), attributes, relationships, query) :: response
   @callback delete_account(Config.t(), id) :: response
   @callback get_account(Config.t(), id, query) :: response
   @callback get_accounts(Config.t(), query) :: response
-  @callback update_account(Config.t(), id, attributes) :: response
+  @callback update_account(Config.t(), id, attributes, relationships, query) :: response
 
   # Account User
   @callback get_account_users(Config.t(), query) :: response
   @callback delete_account_user(Config.t(), id) :: response
 
   # Address
-  @callback create_address(Config.t(), attributes, relationships) :: response
-  @callback update_address(Config.t(), id, attributes) :: response
+  @callback create_address(Config.t(), attributes, relationships, query) :: response
+  @callback update_address(Config.t(), id, attributes, relationships, query) :: response
   @callback get_address(Config.t(), id, query) :: response
   @callback get_addresses(Config.t(), query) :: response
 
@@ -37,8 +37,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_admin_integrations(Config.t(), query) :: response
 
   # Admin Integration UNIK
-  @callback create_admin_integration_unik(Config.t(), attributes, relationships) :: response
-  @callback update_admin_integration_unik(Config.t(), id, attributes) :: response
+  @callback create_admin_integration_unik(Config.t(), attributes, relationships, query) :: response
+  @callback update_admin_integration_unik(Config.t(), id, attributes, relationships, query) :: response
 
   # Angel Note
   @callback create_angel_note(Config.t(), attributes) :: response
