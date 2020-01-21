@@ -13,43 +13,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
-  # Address
-  def create_address(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "addresses",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/addresses", params)
-  end
-
-  def update_address(config, id, attrs) do
-    params =
-      %{
-        data: %{
-          type: "addresses",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/addresses/#{id}", params)
-  end
-
-  def get_address(config, id, query \\ %{}) do
-    Request.get(config, "/addresses/" <> id, query)
-  end
-
-  def get_addresses(config, query \\ %{}) do
-    Request.get(config, "/addresses", query)
-  end
-
   # Admin integration
   def delete_admin_integration(config, id) do
     Request.delete(config, "/admin-integrations/" <> id)

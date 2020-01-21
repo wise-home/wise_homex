@@ -10,23 +10,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
-  # Address
-  def create_address(_config, attrs, rels) do
-    call_and_get_mock_value(:create_address, %{attrs: attrs, rels: rels})
-  end
-
-  def update_address(_config, id, attrs) do
-    call_and_get_mock_value(:update_address, %{id: id, attrs: attrs})
-  end
-
-  def get_address(_config, id, query) do
-    call_and_get_mock_value(:get_address, %{id: id, query: query})
-  end
-
-  def get_addresses(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_addresses, %{query: query})
-  end
-
   # Admin Integration
   def get_admin_integrations(_config, query \\ %{}) do
     call_and_get_mock_value(:get_admin_integrations, %{query: query})
