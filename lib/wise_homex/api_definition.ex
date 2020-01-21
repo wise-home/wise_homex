@@ -78,8 +78,22 @@ defmodule WiseHomex.ApiDefinition do
     """
     @spec type_to_model_mappings(resources :: resource_definition) :: type_to_model_map
     def type_to_model_mappings(endpoints) do
-      endpoints
-      |> Enum.into(%{}, fn %{type: type, model: model} -> {type, model} end)
+      case endpoints |> check_for_overwrites() do
+        :ok -> endpoints |> Enum.into(%{}, &{&1.type, &1.model})
+        {:error, type} -> raise(ArgumentError, ~s[Multiple models defined for type "#{type}"])
+      end
+    end
+
+    # Does any type have multiple models defined? We do not want that to happen
+    defp check_for_overwrites(tuple_endpoints) do
+      tuple_endpoints
+      |> Enum.group_by(fn %{type: type} -> type end, fn %{model: model} -> model end)
+      |> Enum.map(fn {type, models} -> {type, Enum.uniq(models)} end)
+      |> Enum.find(fn {_type, models} -> models |> length() > 1 end)
+      |> case do
+        {type, _} -> {:error, type}
+        nil -> :ok
+      end
     end
   end
 
