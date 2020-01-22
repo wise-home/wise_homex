@@ -135,14 +135,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/firmwares", payload)
   end
 
-  def delete_firmware(config, id) do
-    Request.delete(config, "/firmwares/" <> id)
-  end
-
-  def get_firmwares(config) do
-    Request.get(config, "/firmwares", %{"page[size]" => 500})
-  end
-
   # Fiscal Year
 
   def get_fiscal_years(config, query \\ %{}) do

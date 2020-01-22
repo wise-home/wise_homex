@@ -159,16 +159,6 @@ defmodule WiseHomex do
   """
   def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
 
-  @doc """
-  Delete firmware
-  """
-  def delete_firmware(config, id), do: api_client().delete_firmware(config, id)
-
-  @doc """
-  Get firmwares
-  """
-  def get_firmwares(config), do: api_client().get_firmwares(config)
-
   # Fiscal Year
 
   @doc """

@@ -80,7 +80,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Firmware
   @callback create_firmware(Config.t(), String.t()) :: response
   @callback delete_firmware(Config.t(), id) :: response
-  @callback get_firmwares(Config.t()) :: response
+  @callback get_firmwares(Config.t(), query) :: response
 
   # Fiscal Years
   @callback get_fiscal_years(Config.t(), query) :: response

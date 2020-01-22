@@ -67,14 +67,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_firmware, %{file_content: file_content})
   end
 
-  def delete_firmware(_config, id) do
-    call_and_get_mock_value(:delete_firmware, %{id: id})
-  end
-
-  def get_firmwares(_config) do
-    call_and_get_mock_value(:get_firmwares, %{})
-  end
-
   # Fiscal Year
   def get_fiscal_years(_config, query \\ %{}) do
     call_and_get_mock_value(:get_fiscal_years, %{query: query})
