@@ -85,8 +85,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Fiscal Years
   @callback get_fiscal_years(Config.t(), query) :: response
   @callback get_fiscal_year(Config.t(), id, query) :: response
-  @callback create_fiscal_year(Config.t(), attributes, relationships) :: response
-  @callback update_fiscal_year(Config.t(), id, attributes, relationships) :: response
+  @callback create_fiscal_year(Config.t(), attributes, relationships, query) :: response
+  @callback update_fiscal_year(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_fiscal_year(Config.t(), id) :: response
 
   # Gateway

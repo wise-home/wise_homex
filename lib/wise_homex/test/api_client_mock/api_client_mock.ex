@@ -67,27 +67,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_firmware, %{file_content: file_content})
   end
 
-  # Fiscal Year
-  def get_fiscal_years(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_fiscal_years, %{query: query})
-  end
-
-  def get_fiscal_year(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_fiscal_year, %{id: id, query: query})
-  end
-
-  def create_fiscal_year(_config, attrs, rels) do
-    call_and_get_mock_value(:create_fiscal_year, %{attrs: attrs, rels: rels})
-  end
-
-  def update_fiscal_year(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_fiscal_year, %{id: id, attrs: attrs, rels: rels})
-  end
-
-  def delete_fiscal_year(_config, id) do
-    call_and_get_mock_value(:delete_fiscal_year, %{id: id})
-  end
-
   # Gateway
   def get_gateway(_config, id, query) do
     call_and_get_mock_value(:get_gateway, %{id: id, query: query})

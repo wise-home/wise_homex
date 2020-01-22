@@ -82,6 +82,14 @@ endpoints = [
     type: "firmwares"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.FiscalYear,
+    name_plural: "fiscal_years",
+    name_singular: "fiscal_year",
+    path: "/fiscal-years",
+    type: "fiscal-years"
+  },
+  %{
     endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",

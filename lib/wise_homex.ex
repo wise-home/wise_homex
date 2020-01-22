@@ -159,33 +159,6 @@ defmodule WiseHomex do
   """
   def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
 
-  # Fiscal Year
-
-  @doc """
-  Get multiple fiscal years
-  """
-  def get_fiscal_years(config, query \\ %{}), do: api_client().get_fiscal_years(config, query)
-
-  @doc """
-  Get a single fiscal year
-  """
-  def get_fiscal_year(config, id, query \\ %{}), do: api_client().get_fiscal_year(config, id, query)
-
-  @doc """
-  Create a fiscal year
-  """
-  def create_fiscal_year(config, attrs, rels), do: api_client().create_fiscal_year(config, attrs, rels)
-
-  @doc """
-  Update a fiscal year
-  """
-  def update_fiscal_year(config, id, attrs, rels), do: api_client().update_fiscal_year(config, id, attrs, rels)
-
-  @doc """
-  Delete a fiscal year
-  """
-  def delete_fiscal_year(config, id), do: api_client().delete_fiscal_year(config, id)
-
   # Gateway
 
   @doc """
