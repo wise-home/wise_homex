@@ -124,24 +124,9 @@ defmodule WiseHomex do
   def deauthorize_device(config, device_id), do: api_client().deauthorize_device(config, device_id)
 
   @doc """
-  Delete a device
-  """
-  def delete_device(config, id), do: api_client().delete_device(config, id)
-
-  @doc """
   Fast ping a device
   """
   def fast_ping_device(config, id), do: api_client().fast_ping_device(config, id)
-
-  @doc """
-  Get a device
-  """
-  def get_device(config, id, query \\ %{}), do: api_client().get_device(config, id, query)
-
-  @doc """
-  Get multiple devices
-  """
-  def get_devices(config, query \\ %{}), do: api_client().get_devices(config, query)
 
   @doc """
   Set device location
@@ -153,11 +138,6 @@ defmodule WiseHomex do
   Unset device location
   """
   def unset_device_location(config, device_id), do: api_client().unset_device_location(config, device_id)
-
-  @doc """
-  Update a device
-  """
-  def update_device(config, id, attrs, rels), do: api_client().update_device(config, id, attrs, rels)
 
   @doc """
   Import devices from CSV

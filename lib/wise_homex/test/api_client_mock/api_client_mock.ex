@@ -37,20 +37,8 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:deauthorize_device, %{device_id: device_id})
   end
 
-  def delete_device(_config, id) do
-    call_and_get_mock_value(:delete_device, %{id: id})
-  end
-
   def fast_ping_device(_config, id) do
     call_and_get_mock_value(:fast_ping_device, %{id: id})
-  end
-
-  def get_device(_config, id, query) do
-    call_and_get_mock_value(:get_device, %{id: id, query: query})
-  end
-
-  def get_devices(_config, query) do
-    call_and_get_mock_value(:get_devices, %{query: query})
   end
 
   def set_device_location(_config, device_id, attrs, rels) do
@@ -59,10 +47,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   def unset_device_location(_config, device_id) do
     call_and_get_mock_value(:unset_device_location, %{device_id: device_id})
-  end
-
-  def update_device(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_device, %{id: id, attrs: attrs, rels: rels})
   end
 
   def import_devices(_config, attrs, rels) do

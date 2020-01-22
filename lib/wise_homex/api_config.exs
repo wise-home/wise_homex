@@ -50,6 +50,14 @@ endpoints = [
     type: "angel-notes"
   },
   %{
+    endpoints: [:index, :show, :update, :delete],
+    model: WiseHomex.Device,
+    name_plural: "devices",
+    name_singular: "device",
+    path: "/devices",
+    type: "devices"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
