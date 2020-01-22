@@ -7,17 +7,12 @@ defmodule WiseHomex.JSONParser do
 
   @structs %{
              "account-email-settings" => WiseHomex.Account.EmailSettings,
-             "angel-notes" => WiseHomex.AngelNote,
              "configurable-meter-id" => WiseHomex.ConfigurableMeterID,
              "configurable-meters" => WiseHomex.ConfigurableMeters,
              "device-authorizations" => WiseHomex.DeviceAuthorization,
              "device-imports" => WiseHomex.DeviceImport,
              "device-types" => WiseHomex.DeviceType,
-             "devices" => WiseHomex.Device,
              "encryption-keys" => WiseHomex.EncKey,
-             "external-infos" => WiseHomex.ExternalInfo,
-             "firmwares" => WiseHomex.Firmware,
-             "fiscal-years" => WiseHomex.FiscalYear,
              "gateways" => WiseHomex.Gateway,
              "heat-sources" => WiseHomex.HeatSource,
              "households" => WiseHomex.Household,

@@ -14,39 +14,8 @@ defmodule WiseHomex.ApiClientImpl do
   use WiseHomex.ApiClientImpl.Creator
 
   # Angel Note
-  def create_angel_note(config, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "angel-notes",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/angel-notes", payload)
-  end
-
-  def delete_angel_note(config, id) do
-    Request.delete(config, "/angel-notes/" <> id)
-  end
-
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
-  end
-
-  def update_angel_note(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "angel-notes",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/angel-notes/" <> id, payload)
   end
 
   # Bmeters Keys
@@ -93,10 +62,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/devices/" <> device_id <> "/authorizations")
   end
 
-  def delete_device(config, id) do
-    Request.delete(config, "/devices/" <> id)
-  end
-
   def fast_ping_device(config, id) do
     params =
       %{
@@ -107,14 +72,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/devices/" <> id <> "/fast-pings", params)
-  end
-
-  def get_device(config, id, query \\ %{}) do
-    Request.get(config, "/devices/" <> id, query)
-  end
-
-  def get_devices(config, query \\ %{}) do
-    Request.get(config, "/devices", query)
   end
 
   def set_device_location(config, device_id, attrs, rels) do
@@ -133,21 +90,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def unset_device_location(config, device_id) do
     Request.delete(config, "/devices/#{device_id}/location")
-  end
-
-  def update_device(config, id, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "devices",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/devices/#{id}", payload)
   end
 
   def import_devices(config, attrs, rels) do
@@ -178,40 +120,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
   end
 
-  # External Info
-
-  def create_external_info(config, attributes, relationships) do
-    payload =
-      %{
-        data: %{
-          type: "external-infos",
-          attributes: attributes,
-          relationships: relationships
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/external-infos", payload)
-  end
-
-  def delete_external_info(config, id) do
-    Request.delete(config, "/external-infos/" <> id)
-  end
-
-  def update_external_info(config, id, attributes) do
-    payload =
-      %{
-        data: %{
-          type: "external-infos",
-          id: id,
-          attributes: attributes
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/external-infos/" <> id, payload)
-  end
-
   # Firmware
 
   def create_firmware(config, file_content) do
@@ -225,57 +133,6 @@ defmodule WiseHomex.ApiClientImpl do
     }
 
     Request.post(config, "/firmwares", payload)
-  end
-
-  def delete_firmware(config, id) do
-    Request.delete(config, "/firmwares/" <> id)
-  end
-
-  def get_firmwares(config) do
-    Request.get(config, "/firmwares", %{"page[size]" => 500})
-  end
-
-  # Fiscal Year
-
-  def get_fiscal_years(config, query \\ %{}) do
-    Request.get(config, "/fiscal-years", query)
-  end
-
-  def get_fiscal_year(config, id, query \\ %{}) do
-    Request.get(config, "/fiscal-years/#{id}", query)
-  end
-
-  def create_fiscal_year(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "fiscal-years",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/fiscal-years", params)
-  end
-
-  def update_fiscal_year(config, id, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "fiscal-years",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/fiscal-years/#{id}", payload)
-  end
-
-  def delete_fiscal_year(config, id) do
-    Request.delete(config, "/fiscal-years/#{id}")
   end
 
   # Gateway

@@ -98,25 +98,6 @@ defmodule WiseHomex do
   """
   def get_angel_note(config, target_type, target_id), do: api_client().get_angel_note(config, target_type, target_id)
 
-  @doc """
-  Create an angel note
-
-  * Required attributes: `target_type`, `target_id`, `content`
-  """
-  def create_angel_note(config, attrs), do: api_client().create_angel_note(config, attrs)
-
-  @doc """
-  Update an angel note
-
-  * Only the `content` attribute can be changed
-  """
-  def update_angel_note(config, id, attrs), do: api_client().update_angel_note(config, id, attrs)
-
-  @doc """
-  Delete an angel note by its id
-  """
-  def delete_angel_note(config, id), do: api_client().delete_angel_note(config, id)
-
   # Bmeters Keys
 
   @doc """
@@ -143,24 +124,9 @@ defmodule WiseHomex do
   def deauthorize_device(config, device_id), do: api_client().deauthorize_device(config, device_id)
 
   @doc """
-  Delete a device
-  """
-  def delete_device(config, id), do: api_client().delete_device(config, id)
-
-  @doc """
   Fast ping a device
   """
   def fast_ping_device(config, id), do: api_client().fast_ping_device(config, id)
-
-  @doc """
-  Get a device
-  """
-  def get_device(config, id, query \\ %{}), do: api_client().get_device(config, id, query)
-
-  @doc """
-  Get multiple devices
-  """
-  def get_devices(config, query \\ %{}), do: api_client().get_devices(config, query)
 
   @doc """
   Set device location
@@ -172,11 +138,6 @@ defmodule WiseHomex do
   Unset device location
   """
   def unset_device_location(config, device_id), do: api_client().unset_device_location(config, device_id)
-
-  @doc """
-  Update a device
-  """
-  def update_device(config, id, attrs, rels), do: api_client().update_device(config, id, attrs, rels)
 
   @doc """
   Import devices from CSV
@@ -191,66 +152,12 @@ defmodule WiseHomex do
   def update_account_email_settings(config, account_id, id, attrs),
     do: api_client().update_account_email_settings(config, account_id, id, attrs)
 
-  # External Info
-
-  @doc """
-  Create ExternalInfo
-  """
-  def create_external_info(config, attrs, rels), do: api_client().create_external_info(config, attrs, rels)
-
-  @doc """
-  Update ExternalInfo
-  """
-  def update_external_info(config, id, attrs), do: api_client().update_external_info(config, id, attrs)
-
-  @doc """
-  Delete ExternalInfo
-  """
-  def delete_external_info(config, id), do: api_client().delete_external_info(config, id)
-
   # Firmware
 
   @doc """
   Create firmware
   """
   def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
-
-  @doc """
-  Delete firmware
-  """
-  def delete_firmware(config, id), do: api_client().delete_firmware(config, id)
-
-  @doc """
-  Get firmwares
-  """
-  def get_firmwares(config), do: api_client().get_firmwares(config)
-
-  # Fiscal Year
-
-  @doc """
-  Get multiple fiscal years
-  """
-  def get_fiscal_years(config, query \\ %{}), do: api_client().get_fiscal_years(config, query)
-
-  @doc """
-  Get a single fiscal year
-  """
-  def get_fiscal_year(config, id, query \\ %{}), do: api_client().get_fiscal_year(config, id, query)
-
-  @doc """
-  Create a fiscal year
-  """
-  def create_fiscal_year(config, attrs, rels), do: api_client().create_fiscal_year(config, attrs, rels)
-
-  @doc """
-  Update a fiscal year
-  """
-  def update_fiscal_year(config, id, attrs, rels), do: api_client().update_fiscal_year(config, id, attrs, rels)
-
-  @doc """
-  Delete a fiscal year
-  """
-  def delete_fiscal_year(config, id), do: api_client().delete_fiscal_year(config, id)
 
   # Gateway
 

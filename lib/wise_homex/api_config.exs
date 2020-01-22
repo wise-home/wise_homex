@@ -42,12 +42,52 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
+    endpoints: [:create, :update, :delete],
+    model: WiseHomex.AngelNote,
+    name_plural: "angel_notes",
+    name_singular: "angel_note",
+    path: "/angel-notes",
+    type: "angel-notes"
+  },
+  %{
+    endpoints: [:index, :show, :update, :delete],
+    model: WiseHomex.Device,
+    name_plural: "devices",
+    name_singular: "device",
+    path: "/devices",
+    type: "devices"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
     name_singular: "expense",
     path: "/expenses",
     type: "expenses"
+  },
+  %{
+    endpoints: [:create, :update, :delete],
+    model: WiseHomex.ExternalInfo,
+    name_plural: "external_infos",
+    name_singular: "external_info",
+    path: "/external-infos",
+    type: "external-infos"
+  },
+  %{
+    endpoints: [:index, :delete],
+    model: WiseHomex.Firmware,
+    name_plural: "firmwares",
+    name_singular: "firmware",
+    path: "/firmwares",
+    type: "firmwares"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.FiscalYear,
+    name_plural: "fiscal_years",
+    name_singular: "fiscal_year",
+    path: "/fiscal-years",
+    type: "fiscal-years"
   },
   %{
     endpoints: [:create],

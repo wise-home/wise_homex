@@ -41,10 +41,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_admin_integration_unik(Config.t(), id, attributes, relationships, query) :: response
 
   # Angel Note
-  @callback create_angel_note(Config.t(), attributes) :: response
+  @callback create_angel_note(Config.t(), attributes, relationships, query) :: response
   @callback delete_angel_note(Config.t(), id) :: response
   @callback get_angel_note(Config.t(), String.t(), id) :: response
-  @callback update_angel_note(Config.t(), id, attributes) :: response
+  @callback update_angel_note(Config.t(), id, attributes, relationships, query) :: response
 
   # Bmeters Keys
   @callback upload_bmeters_keys(Config.t(), list) :: response
@@ -59,16 +59,16 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_devices(Config.t(), query) :: response
   @callback set_device_location(Config.t(), id, attributes, relationships) :: response
   @callback unset_device_location(Config.t(), id) :: response
-  @callback update_device(Config.t(), id, attributes, relationships) :: response
+  @callback update_device(Config.t(), id, attributes, relationships, query) :: response
   @callback import_devices(Config.t(), attributes, relationships) :: response
 
   # Email Settings
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
 
   # External Info
-  @callback create_external_info(Config.t(), attributes, relationships) :: response
+  @callback create_external_info(Config.t(), attributes, relationships, query) :: response
   @callback delete_external_info(Config.t(), id) :: response
-  @callback update_external_info(Config.t(), id, attributes) :: response
+  @callback update_external_info(Config.t(), id, attributes, relationships, query) :: response
 
   # Expense
   @callback get_expenses(Config.t(), query) :: response
@@ -80,13 +80,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Firmware
   @callback create_firmware(Config.t(), String.t()) :: response
   @callback delete_firmware(Config.t(), id) :: response
-  @callback get_firmwares(Config.t()) :: response
+  @callback get_firmwares(Config.t(), query) :: response
 
   # Fiscal Years
   @callback get_fiscal_years(Config.t(), query) :: response
   @callback get_fiscal_year(Config.t(), id, query) :: response
-  @callback create_fiscal_year(Config.t(), attributes, relationships) :: response
-  @callback update_fiscal_year(Config.t(), id, attributes, relationships) :: response
+  @callback create_fiscal_year(Config.t(), attributes, relationships, query) :: response
+  @callback update_fiscal_year(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_fiscal_year(Config.t(), id) :: response
 
   # Gateway

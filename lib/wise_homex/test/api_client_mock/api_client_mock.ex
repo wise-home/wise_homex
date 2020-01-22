@@ -15,18 +15,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
   end
 
-  def create_angel_note(_config, attrs) do
-    call_and_get_mock_value(:create_angel_note, %{attrs: attrs})
-  end
-
-  def update_angel_note(_config, id, attrs) do
-    call_and_get_mock_value(:update_angel_note, %{id: id, attrs: attrs})
-  end
-
-  def delete_angel_note(_config, id) do
-    call_and_get_mock_value(:delete_angel_note, %{id: id})
-  end
-
   # Bmeters Keys
   def upload_bmeters_keys(_config, opts) do
     call_and_get_mock_value(:upload_bmeters_keys, %{opts: opts})
@@ -49,20 +37,8 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:deauthorize_device, %{device_id: device_id})
   end
 
-  def delete_device(_config, id) do
-    call_and_get_mock_value(:delete_device, %{id: id})
-  end
-
   def fast_ping_device(_config, id) do
     call_and_get_mock_value(:fast_ping_device, %{id: id})
-  end
-
-  def get_device(_config, id, query) do
-    call_and_get_mock_value(:get_device, %{id: id, query: query})
-  end
-
-  def get_devices(_config, query) do
-    call_and_get_mock_value(:get_devices, %{query: query})
   end
 
   def set_device_location(_config, device_id, attrs, rels) do
@@ -71,10 +47,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   def unset_device_location(_config, device_id) do
     call_and_get_mock_value(:unset_device_location, %{device_id: device_id})
-  end
-
-  def update_device(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_device, %{id: id, attrs: attrs, rels: rels})
   end
 
   def import_devices(_config, attrs, rels) do
@@ -90,51 +62,9 @@ defmodule WiseHomex.Test.ApiClientMock do
     })
   end
 
-  # External Info
-  def create_external_info(_config, attrs, rels) do
-    call_and_get_mock_value(:create_external_info, %{attrs: attrs, rels: rels})
-  end
-
-  def update_external_info(_config, id, attrs) do
-    call_and_get_mock_value(:update_external_info, %{id: id, attrs: attrs})
-  end
-
-  def delete_external_info(_config, id) do
-    call_and_get_mock_value(:delete_external_info, %{id: id})
-  end
-
   # Firmware
   def create_firmware(_config, file_content) do
     call_and_get_mock_value(:create_firmware, %{file_content: file_content})
-  end
-
-  def delete_firmware(_config, id) do
-    call_and_get_mock_value(:delete_firmware, %{id: id})
-  end
-
-  def get_firmwares(_config) do
-    call_and_get_mock_value(:get_firmwares, %{})
-  end
-
-  # Fiscal Year
-  def get_fiscal_years(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_fiscal_years, %{query: query})
-  end
-
-  def get_fiscal_year(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_fiscal_year, %{id: id, query: query})
-  end
-
-  def create_fiscal_year(_config, attrs, rels) do
-    call_and_get_mock_value(:create_fiscal_year, %{attrs: attrs, rels: rels})
-  end
-
-  def update_fiscal_year(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_fiscal_year, %{id: id, attrs: attrs, rels: rels})
-  end
-
-  def delete_fiscal_year(_config, id) do
-    call_and_get_mock_value(:delete_fiscal_year, %{id: id})
   end
 
   # Gateway
