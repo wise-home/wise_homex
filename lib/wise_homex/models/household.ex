@@ -16,5 +16,6 @@ defmodule WiseHomex.Household do
     field :active, :boolean
     field :number, :integer
     field :virtual, :boolean
+    field :standard_dk_sort, :integer
   end
 end
