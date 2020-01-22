@@ -41,10 +41,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_admin_integration_unik(Config.t(), id, attributes, relationships, query) :: response
 
   # Angel Note
-  @callback create_angel_note(Config.t(), attributes) :: response
+  @callback create_angel_note(Config.t(), attributes, relationships, query) :: response
   @callback delete_angel_note(Config.t(), id) :: response
   @callback get_angel_note(Config.t(), String.t(), id) :: response
-  @callback update_angel_note(Config.t(), id, attributes) :: response
+  @callback update_angel_note(Config.t(), id, attributes, relationships, query) :: response
 
   # Bmeters Keys
   @callback upload_bmeters_keys(Config.t(), list) :: response

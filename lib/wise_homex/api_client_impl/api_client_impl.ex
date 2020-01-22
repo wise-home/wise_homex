@@ -14,39 +14,8 @@ defmodule WiseHomex.ApiClientImpl do
   use WiseHomex.ApiClientImpl.Creator
 
   # Angel Note
-  def create_angel_note(config, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "angel-notes",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/angel-notes", payload)
-  end
-
-  def delete_angel_note(config, id) do
-    Request.delete(config, "/angel-notes/" <> id)
-  end
-
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
-  end
-
-  def update_angel_note(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "angel-notes",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/angel-notes/" <> id, payload)
   end
 
   # Bmeters Keys
