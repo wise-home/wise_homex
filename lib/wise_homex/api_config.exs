@@ -66,6 +66,14 @@ endpoints = [
     type: "expenses"
   },
   %{
+    endpoints: [:create, :update, :delete],
+    model: WiseHomex.ExternalInfo,
+    name_plural: "external_infos",
+    name_singular: "external_info",
+    path: "/external-infos",
+    type: "external-infos"
+  },
+  %{
     endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",

@@ -120,40 +120,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
   end
 
-  # External Info
-
-  def create_external_info(config, attributes, relationships) do
-    payload =
-      %{
-        data: %{
-          type: "external-infos",
-          attributes: attributes,
-          relationships: relationships
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/external-infos", payload)
-  end
-
-  def delete_external_info(config, id) do
-    Request.delete(config, "/external-infos/" <> id)
-  end
-
-  def update_external_info(config, id, attributes) do
-    payload =
-      %{
-        data: %{
-          type: "external-infos",
-          id: id,
-          attributes: attributes
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/external-infos/" <> id, payload)
-  end
-
   # Firmware
 
   def create_firmware(config, file_content) do

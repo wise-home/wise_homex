@@ -66,9 +66,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
 
   # External Info
-  @callback create_external_info(Config.t(), attributes, relationships) :: response
+  @callback create_external_info(Config.t(), attributes, relationships, query) :: response
   @callback delete_external_info(Config.t(), id) :: response
-  @callback update_external_info(Config.t(), id, attributes) :: response
+  @callback update_external_info(Config.t(), id, attributes, relationships, query) :: response
 
   # Expense
   @callback get_expenses(Config.t(), query) :: response
