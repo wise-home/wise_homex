@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.54 2020-01-23
+
+* Update Quantity 0.2.0 -> 0.3.0, 130
+* Generate :fiscal_year endpoints, :firmware, :external_info, :devices, :angel_notes endpoints, 127
+* Generate :admin_integration_unik, :admin_integration, :address, :account_user, :account endpoints automatically, 126
+
 ## 0.6.53 2020-01-20
 
 * Update Quantity 0.1.0 -> 0.2.0, #123
