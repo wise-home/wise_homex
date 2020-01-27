@@ -2,6 +2,14 @@
 
 endpoints = [
   %{
+    endpoints: [:show, :create, :delete],
+    model: WiseHomex.AccountPayment,
+    name_plural: "account_payments",
+    name_singular: "account_payment",
+    path: "/account-payments",
+    type: "account-payments"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Account,
     name_plural: "accounts",
