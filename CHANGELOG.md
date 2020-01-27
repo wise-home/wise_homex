@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.55 2020-01-27
+
+* Add support for Account Payments, 111
+* Update erlang 22.2.2 -> 22.2.3, 132
+
 ## 0.6.54 2020-01-23
 
 * Update Quantity 0.2.0 -> 0.3.0, 130
