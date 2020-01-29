@@ -13,6 +13,6 @@ defmodule WiseHomex.UtilityReading do
     field :target_date, :date
     field :meter_type, :string
     field :reading_type, :string
-    field :value, WiseHomex.Quantity.Type
+    field :value, WiseHomex.QuantityType
   end
 end
