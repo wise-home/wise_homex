@@ -137,7 +137,8 @@ end
 WiseHomex will be tested against the two latest minor versions of Elixir (but >= 1.9) and the three latest minor versions of Erlang.
 In all cases the latest patch version is used.
 
-E.g. if the latest Elixir is 1.9.1 and the latest Erlang is 22.0.7, we test against:
+E.g. if the latest Elixir is 1.10.0 and the latest Erlang is 22.2.4, we test against:
 
-* Elixir: 1.9.1
-* Erlang: 22.0.7, 21.3.8 and 21.2.7
+* Elixir: 1.9.4, 1.10.0
+* Erlang: 22.0.7, 22.1.8.1 and 22.2.4
+
