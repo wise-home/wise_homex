@@ -1,5 +1,7 @@
 # Wise Home API Client for Elixir
 
+![](https://github.com/wise-home/wise_homex/workflows/CI/badge.svg)
+
 **This api client is currently under development, and is currently only for internal use in [Wise Home](https://wisehome.dk).**
 
 Jump to:
