@@ -1,6 +1,6 @@
-defmodule WiseHomex.Quantity.Type do
+defmodule WiseHomex.QuantityType do
   @moduledoc """
-  An Ecto type for WiseHomex.Quantity
+  An Ecto type for Quantity
   """
 
   use Ecto.Type
