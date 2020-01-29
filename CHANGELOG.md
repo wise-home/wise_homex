@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.57 2020-01-29
+
+* Move reduction factor, 133
+* Update ecto 3.3.1 -> 3.3.2, 139
+* Update credo 1.1.5 -> 1.2.1, 139
+* Update erlang to 22.2.4, 139
+* Update elixir 1.9.4 -> 1.10.0, 139
+
 ## 0.6.56 2020-01-29
 
 * Rename WiseHomex.Quantity.Type -> WiseHomex.QuantityType for better compatability with Quantity, 134
