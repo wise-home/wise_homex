@@ -777,7 +777,7 @@ defmodule WiseHomex.JSONParserTest do
   test "parse custom ecto type DecimalType" do
     data = %{
       "data" => %{
-        "type" => "heat-sources",
+        "type" => "devices",
         "id" => "9",
         "attributes" => %{
           "reduction-factor" => "1.10"
@@ -785,8 +785,8 @@ defmodule WiseHomex.JSONParserTest do
       }
     }
 
-    heat_source = JSONParser.parse(data)
-    assert heat_source.reduction_factor == ~d[1.10]
+    device = JSONParser.parse(data)
+    assert device.reduction_factor == ~d[1.10]
   end
 
   test "parse embeds that are normal ecto schemas" do
