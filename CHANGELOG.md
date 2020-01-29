@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.56 2020-01-29
+
+* Rename WiseHomex.Quantity.Type -> WiseHomex.QuantityType for better compatability with Quantity, 134
+
 ## 0.6.55 2020-01-27
 
 * Add support for Account Payments, 111
