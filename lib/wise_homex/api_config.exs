@@ -98,6 +98,14 @@ endpoints = [
     type: "fiscal-years"
   },
   %{
+    endpoints: [:show, :create],
+    model: WiseHomex.StatementData,
+    name_plural: "statement_datas",
+    name_singular: "statement_data",
+    path: "/statement-data",
+    type: "statement-data"
+  },
+  %{
     endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",
