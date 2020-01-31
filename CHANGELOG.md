@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.58
+
+* Add support for Statement Data, 140
+
 ## 0.6.57 2020-01-29
 
 * Move reduction factor, 133
