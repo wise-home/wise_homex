@@ -183,6 +183,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_statement(Config.t(), id, attributes) :: response
   @callback delete_statement(Config.t(), id) :: response
 
+  # Statement Data
+  @callback get_statement_data(Config.t(), id, query) :: response
+  @callback create_statement_data(Config.t(), attributes, relationships, query) :: response
+
   # User
   @callback get_users(Config.t(), list) :: response
 
