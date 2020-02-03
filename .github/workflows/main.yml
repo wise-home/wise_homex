@@ -22,7 +22,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ matrix.otp }}-${{ matrix.elixir }}
 
-      - uses: actions/setup-elixir@v1
+      - uses: actions/setup-elixir@v1.2.0
         name: Setup elixir
         with:
           otp-version: ${{matrix.otp}}
