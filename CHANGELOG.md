@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.59 2020-02-04
+
+* Add support for statement-zips
+* Use latest setup-elixir action
+* Update erlang 22.2.4 -> 22.2.5
+* Update ex_doc 0.21.2 -> 0.21.3
+* Update credo 1.2.1 -> 1.2.2
+
 ## 0.6.58
 
 * Add support for Statement Data, 140
