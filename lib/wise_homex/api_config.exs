@@ -107,6 +107,14 @@ endpoints = [
   },
   %{
     endpoints: [:create],
+    model: WiseHomex.StatementZip,
+    name_plural: "statement_zips",
+    name_singular: "statement_zip",
+    path: "/statement-zips",
+    type: "statement-zips"
+  },
+  %{
+    endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",
     name_singular: "wmbus_message_query",

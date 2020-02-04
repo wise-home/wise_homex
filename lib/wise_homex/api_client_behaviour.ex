@@ -187,6 +187,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_statement_data(Config.t(), id, query) :: response
   @callback create_statement_data(Config.t(), attributes, relationships, query) :: response
 
+  # StatementZip
+  @callback create_statement_zip(Config.t(), attributes, relationships, query) :: response
+
   # User
   @callback get_users(Config.t(), list) :: response
 
