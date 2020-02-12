@@ -8,16 +8,17 @@ defmodule WiseHomex.Device do
     belongs_to :gateway, WiseHomex.Gateway
     belongs_to :device_type, WiseHomex.DeviceType
     belongs_to :heat_source, WiseHomex.HeatSource
-    field :serial, :string
-    field :number, :string
     field :authorized_at, :utc_datetime
-    field :online, :string
+    field :exclude_from_statements, :boolean
+    field :inserted_at, :utc_datetime
     field :installation_year, :integer
     field :last_seen, :utc_datetime
-    field :inserted_at, :utc_datetime
-    field :signal_strength, :integer
+    field :number, :string
+    field :online, :string
     field :protocol, :string
     field :reduction_factor, WiseHomex.DecimalType
+    field :serial, :string
+    field :signal_strength, :integer
 
     embeds_many :signal_strength_history, Signal, primary_key: false do
       field :time, :utc_datetime
