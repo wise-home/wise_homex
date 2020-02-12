@@ -4,8 +4,7 @@ defmodule ApiClientMockServerTest do
   alias WiseHomex.Test.ApiClientMockServer, as: MockServer
 
   setup do
-    MockServer.start_link()
-
+    start_supervised!(MockServer)
     :ok
   end
 
