@@ -9,7 +9,7 @@ defmodule WiseHomex.ResponseParser do
           | {:not_authorized, map | nil}
           | {:not_found, map | nil}
           | :server_error
-          | :bad_gateway
+          | {:bad_gateway, map | nil}
           | {:service_not_available, map | nil}
 
   @doc """
@@ -59,8 +59,8 @@ defmodule WiseHomex.ResponseParser do
     :server_error
   end
 
-  defp parse_json_response(502, nil) do
-    :bad_gateway
+  defp parse_json_response(502, json) do
+    {:bad_gateway, json}
   end
 
   defp parse_json_response(503, json) do
