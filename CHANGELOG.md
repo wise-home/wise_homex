@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.60 2020-02-12
+
+* Handle if bad_gateway has a body
+* Update erlang 22.2.5 -> 22.2.6
+* Update elixir 1.10.0 -> 1.10.1
+
 ## 0.6.59 2020-02-04
 
 * Add support for statement-zips
