@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.62 2020-02-13
+
+* Add hot_water_heat_meter boolean to device, 148
+
 ## 0.6.61 2020-02-13
 
 * Add exclude_from_statements to device, sort fields, 146
