@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.61 2020-02-13
+
+* Add exclude_from_statements to device, sort fields, 146
+* Fix unrelated flickering test with MockServer, 147
+* Updated mix.lock due to new hex version, 147
+
 ## 0.6.60 2020-02-12
 
 * Handle if bad_gateway has a body
