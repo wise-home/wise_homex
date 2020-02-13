@@ -10,6 +10,7 @@ defmodule WiseHomex.Device do
     belongs_to :heat_source, WiseHomex.HeatSource
     field :authorized_at, :utc_datetime
     field :exclude_from_statements, :boolean
+    field :hot_water_heat_meter, :boolean
     field :inserted_at, :utc_datetime
     field :installation_year, :integer
     field :last_seen, :utc_datetime
