@@ -4,7 +4,7 @@ defmodule WiseHomex.ApiClientTest do
   alias WiseHomex.Test.ApiClientMockServer, as: MockServer
 
   setup do
-    MockServer.start_link()
+    start_supervised!(MockServer)
     config = WiseHomex.new_config(:api_key, "somekey")
 
     {:ok, %{config: config}}
