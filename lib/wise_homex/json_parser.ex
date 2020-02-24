@@ -48,7 +48,12 @@ defmodule WiseHomex.JSONParser do
     data_entities = parse_required_entities(List.flatten([data]))
     included_entities = parse_optional_entities(included)
 
-    entities = data_entities ++ included_entities
+    entities =
+      (data_entities ++ included_entities)
+      |> Enum.into(%{}, fn {ident, _struct, _rels} = entity ->
+        key = {Map.fetch!(ident, "type"), Map.fetch!(ident, "id")}
+        {key, entity}
+      end)
 
     result =
       data_entities
@@ -183,9 +188,13 @@ defmodule WiseHomex.JSONParser do
     [{key, related} | find_related_entities(rest, entities)]
   end
 
+  defp find_entity(_entities, nil), do: nil
+
   defp find_entity(entities, identifier) do
+    key = {Map.fetch!(identifier, "type"), Map.fetch!(identifier, "id")}
+
     entities
-    |> Enum.find(fn {ident, _, _} -> ident == identifier end)
+    |> Map.get(key)
   end
 
   for {type, module} <- @structs do
