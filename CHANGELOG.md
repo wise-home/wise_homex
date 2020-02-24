@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.63 2020-02-24
+
+* Use a map for holding entities in JSONParser to speed up parsing large requests, 152
+* Update ecto 3.3.2 -> 3.3.3, 150
+
 ## 0.6.62 2020-02-13
 
 * Add hot_water_heat_meter boolean to device, 148
