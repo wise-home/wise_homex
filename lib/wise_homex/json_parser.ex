@@ -48,7 +48,12 @@ defmodule WiseHomex.JSONParser do
     data_entities = parse_required_entities(List.flatten([data]))
     included_entities = parse_optional_entities(included)
 
-    entities = data_entities ++ included_entities
+    entities =
+      (data_entities ++ included_entities)
+      |> Enum.into(%{}, fn {ident, _struct, _rels} = entity ->
+        key = {Map.fetch!(ident, "type"), Map.fetch!(ident, "id")}
+        {key, entity}
+      end)
 
     result =
       data_entities
@@ -153,7 +158,7 @@ defmodule WiseHomex.JSONParser do
     else
       struct =
         rels
-        |> find_relatated_entities(entities)
+        |> find_related_entities(entities)
         |> Enum.map(fn {key, relation} ->
           relation = add_relations(relation, entities, MapSet.put(path, ident))
           {key, relation}
@@ -164,11 +169,11 @@ defmodule WiseHomex.JSONParser do
     end
   end
 
-  defp find_relatated_entities([], _entities) do
+  defp find_related_entities([], _entities) do
     []
   end
 
-  defp find_relatated_entities([{key, rel} | rest], entities) do
+  defp find_related_entities([{key, rel} | rest], entities) do
     related =
       case rel do
         rels when is_list(rels) ->
@@ -180,12 +185,16 @@ defmodule WiseHomex.JSONParser do
           find_entity(entities, rel)
       end
 
-    [{key, related} | find_relatated_entities(rest, entities)]
+    [{key, related} | find_related_entities(rest, entities)]
   end
 
+  defp find_entity(_entities, nil), do: nil
+
   defp find_entity(entities, identifier) do
+    key = {Map.fetch!(identifier, "type"), Map.fetch!(identifier, "id")}
+
     entities
-    |> Enum.find(fn {ident, _, _} -> ident == identifier end)
+    |> Map.get(key)
   end
 
   for {type, module} <- @structs do
