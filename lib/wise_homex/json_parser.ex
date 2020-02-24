@@ -153,7 +153,7 @@ defmodule WiseHomex.JSONParser do
     else
       struct =
         rels
-        |> find_relatated_entities(entities)
+        |> find_related_entities(entities)
         |> Enum.map(fn {key, relation} ->
           relation = add_relations(relation, entities, MapSet.put(path, ident))
           {key, relation}
@@ -164,11 +164,11 @@ defmodule WiseHomex.JSONParser do
     end
   end
 
-  defp find_relatated_entities([], _entities) do
+  defp find_related_entities([], _entities) do
     []
   end
 
-  defp find_relatated_entities([{key, rel} | rest], entities) do
+  defp find_related_entities([{key, rel} | rest], entities) do
     related =
       case rel do
         rels when is_list(rels) ->
@@ -180,7 +180,7 @@ defmodule WiseHomex.JSONParser do
           find_entity(entities, rel)
       end
 
-    [{key, related} | find_relatated_entities(rest, entities)]
+    [{key, related} | find_related_entities(rest, entities)]
   end
 
   defp find_entity(entities, identifier) do
