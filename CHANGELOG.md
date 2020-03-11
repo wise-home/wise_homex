@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.64 2020-03-11
+
+* Add business field to household
+* Update erlang 22.2.6 -> 22.2.8
+* Update elixir 1.10.1 -> 1.10.2
+* Update ecto 3.3.3 -> 3.3.4
+* Update credo 1.2.2 -> 1.2.3
+
 ## 0.6.63 2020-02-24
 
 * Use a map for holding entities in JSONParser to speed up parsing large requests, 152
