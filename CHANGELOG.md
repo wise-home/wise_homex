@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.65 2020-03-17
+
+* Add active_from, active_to on Device, 157
+
 ## 0.6.64 2020-03-11
 
 * Add business field to household
