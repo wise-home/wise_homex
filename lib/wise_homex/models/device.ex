@@ -8,6 +8,9 @@ defmodule WiseHomex.Device do
     belongs_to :gateway, WiseHomex.Gateway
     belongs_to :device_type, WiseHomex.DeviceType
     belongs_to :heat_source, WiseHomex.HeatSource
+
+    field :active_from, :date
+    field :active_to, :date
     field :authorized_at, :utc_datetime
     field :exclude_from_statements, :boolean
     field :hot_water_heat_meter, :boolean
