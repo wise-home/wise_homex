@@ -11,6 +11,7 @@ defmodule WiseHomex.Statement do
 
     field :start_date, :date
     field :end_date, :date
+    field :done_at, :utc_datetime
     field :locked_at, :utc_datetime
   end
 end
