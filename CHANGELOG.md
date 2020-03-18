@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.66 2020-03-18
+
+* Add done_at to Statement model, 160
+
 ## 0.6.65 2020-03-17
 
 * Add active_from, active_to on Device, 157
