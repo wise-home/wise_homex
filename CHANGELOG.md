@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.67 2020-03-19
+
+* Add endpoint for angel_notes :index, 163
+* Support lists of values in URLs, 161
+
 ## 0.6.66 2020-03-18
 
 * Add done_at to Statement model, 160
