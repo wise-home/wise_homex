@@ -50,7 +50,7 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
-    endpoints: [:create, :update, :delete],
+    endpoints: [:index, :create, :update, :delete],
     model: WiseHomex.AngelNote,
     name_plural: "angel_notes",
     name_singular: "angel_note",
