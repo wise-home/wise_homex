@@ -59,15 +59,38 @@ defmodule WiseHomex.Request do
     |> parse_response
   end
 
-  # Take a path and append it with an encoded query string
+  @doc """
+  Take a path and append it with an encoded query string
+  """
   @spec path_with_query(binary(), map()) :: binary()
-  defp path_with_query(path, query) do
+  def path_with_query(path, query) do
     query
+    |> prepare_query()
     |> URI.encode_query()
     |> case do
       "" -> path
       query_string -> "#{path}?#{query_string}"
     end
+  end
+
+  @doc """
+  Prepare a query map for use with URI.encode_query/1 to allow for URL arrays
+  """
+  @spec prepare_query(map()) :: [{String.t(), String.t()}]
+  def prepare_query(query) when is_map(query) do
+    query
+    |> Enum.reduce([], fn {key, value}, prepared_query ->
+      case value do
+        value when is_list(value) ->
+          pairs = Enum.map(value, &{"#{key}[]", "#{&1}"}) |> Enum.reverse()
+          pairs ++ prepared_query
+
+        value ->
+          value = {"#{key}", "#{value}"}
+          [value | prepared_query]
+      end
+    end)
+    |> Enum.reverse()
   end
 
   # Add the used api_version to the path
