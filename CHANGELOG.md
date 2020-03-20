@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.68 2020-03-20
+
+* Add support for angel note bunches, 167
+
 ## 0.6.67 2020-03-19
 
 * Add endpoint for angel_notes :index, 163
