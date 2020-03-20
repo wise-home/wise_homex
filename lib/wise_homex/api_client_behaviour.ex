@@ -47,6 +47,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_angel_notes(Config.t(), query) :: response
   @callback update_angel_note(Config.t(), id, attributes, relationships, query) :: response
 
+  # Angel Note Bunch
+  @callback create_angel_note_bunch(Config.t(), attributes, relationships, query) :: response
+
   # Bmeters Keys
   @callback upload_bmeters_keys(Config.t(), list) :: response
 
