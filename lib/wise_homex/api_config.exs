@@ -50,6 +50,14 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
+    endpoints: [:create],
+    model: WiseHomex.AngelNoteBunch,
+    name_plural: "angel_note_bunches",
+    name_singular: "angel_note_bunch",
+    path: "/angel-note-bunches",
+    type: "angel-note-bunches"
+  },
+  %{
     endpoints: [:index, :create, :update, :delete],
     model: WiseHomex.AngelNote,
     name_plural: "angel_notes",
