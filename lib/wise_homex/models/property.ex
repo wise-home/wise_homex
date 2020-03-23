@@ -9,6 +9,7 @@ defmodule WiseHomex.Property do
     has_many :addresses, WiseHomex.Address
     has_many :statements, WiseHomex.Statement
     has_many :fiscal_years, WiseHomex.FiscalYear
+    has_one :statement_config, WiseHomex.StatementConfig
 
     field :name, :string
     field :legal_name, :string
