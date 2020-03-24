@@ -16,9 +16,9 @@ defmodule WiseHomex.StatementConfig do
     field :company_number_length, :integer
     field :flatrate, :boolean
     field :hca_ratio, DecimalType
-    field :heat_transmission_cost, DecimalType
+    field :heat_transmission_ratio, DecimalType
     field :hot_water_heat_ratio, DecimalType
-    field :hot_water_transmission_cost, DecimalType
+    field :hot_water_transmission_ratio, DecimalType
     field :household_number_length, :integer
     field :moving_fee_on_tenancy, :boolean
     field :moving_fee_price, QuantityType
