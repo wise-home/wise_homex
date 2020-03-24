@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.69 2020-03-24
+
+* Add support for StatementConfig, 169
+
 ## 0.6.68 2020-03-20
 
 * Add support for angel note bunches, 167
