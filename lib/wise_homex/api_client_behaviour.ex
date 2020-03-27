@@ -44,7 +44,6 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback create_angel_note(Config.t(), attributes, relationships, query) :: response
   @callback delete_angel_note(Config.t(), id) :: response
   @callback get_angel_note(Config.t(), String.t(), id) :: response
-  @callback get_angel_notes(Config.t(), query) :: response
   @callback update_angel_note(Config.t(), id, attributes, relationships, query) :: response
 
   # Angel Note Bunch
