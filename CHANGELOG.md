@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.70 2020-04-02
+
+* Add heat_hca_ratio to StatementConfig, 173
+
 ## 0.6.69 2020-03-24
 
 * Add support for StatementConfig, 169
