@@ -14,5 +14,6 @@ defmodule WiseHomex.UtilityReading do
     field :meter_type, :string
     field :reading_type, :string
     field :value, WiseHomex.QuantityType
+    field :converted_value, WiseHomex.QuantityType
   end
 end
