@@ -2,7 +2,7 @@
 
 endpoints = [
   %{
-    endpoints: [:show, :create, :delete],
+    endpoints: [:show, :create, :update, :delete],
     model: WiseHomex.AccountPayment,
     name_plural: "account_payments",
     name_singular: "account_payment",
