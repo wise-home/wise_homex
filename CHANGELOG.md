@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.72 2020-04-03
+
+* Add account_payment :update and missing behaviours, 178
+
 ## 0.6.71 2020-04-02
 
 * Add converted_value to UtilityReading, 175
