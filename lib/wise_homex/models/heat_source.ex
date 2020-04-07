@@ -9,7 +9,6 @@ defmodule WiseHomex.HeatSource do
 
     field :floor_area, WiseHomex.QuantityType
     field :length, :integer
-    field :num_elements, :integer
     field :remote, :boolean
     field :source_type, :string
     field :radiator_string, :string
