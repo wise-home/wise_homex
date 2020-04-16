@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.73 2020-04-16
+
+* Add gateway activated field
+* Remove heat source num_elements attribute
+
 ## 0.6.72 2020-04-03
 
 * Add account_payment :update and missing behaviours, 178
