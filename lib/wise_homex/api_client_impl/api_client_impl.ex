@@ -311,49 +311,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/users#{query}")
   end
 
-  # UtilityReading
-
-  def get_utility_reading(config, id, query \\ %{}) do
-    Request.get(config, "/utility-readings/#{id}", query)
-  end
-
-  def get_utility_readings(config, query \\ %{}) do
-    Request.get(config, "/utility-readings", query)
-  end
-
-  def create_utility_reading(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "utility-readings",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/utility-readings", payload)
-  end
-
-  def update_utility_reading(config, id, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "utility-readings",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/utility-readings/#{id}", payload)
-  end
-
-  def delete_utility_reading(config, id) do
-    Request.delete(config, "/utility-readings/#{id}")
-  end
-
   # Wmbus Cache
 
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do

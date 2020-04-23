@@ -218,6 +218,14 @@ endpoints = [
     type: "tenancies"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.UtilityReading,
+    name_plural: "utility_readings",
+    name_singular: "utility_reading",
+    path: "/utility-readings",
+    type: "utility-readings"
+  },
+  %{
     endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",
