@@ -237,16 +237,6 @@ defmodule WiseHomex do
   # Radiator
 
   @doc """
-  Get a radiator
-  """
-  def get_radiator(config, id, query \\ %{}), do: api_client().get_radiator(config, id, query)
-
-  @doc """
-  Get multiple radiators
-  """
-  def get_radiators(config, query \\ %{}), do: api_client().get_radiators(config, query)
-
-  @doc """
   Import radiators
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)

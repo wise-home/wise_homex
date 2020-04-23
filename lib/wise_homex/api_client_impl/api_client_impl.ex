@@ -267,14 +267,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   # Radiator
 
-  def get_radiator(config, id, query \\ %{}) do
-    Request.get(config, "/radiators/#{id}", query)
-  end
-
-  def get_radiators(config, query \\ %{}) do
-    Request.get(config, "/radiators", query)
-  end
-
   def import_radiators(config, attrs) do
     payload = %{
       data: %{

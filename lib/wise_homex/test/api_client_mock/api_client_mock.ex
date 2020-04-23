@@ -110,14 +110,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Radiator
-  def get_radiator(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_radiator, %{id: id, query: query})
-  end
-
-  def get_radiators(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_radiators, %{query: query})
-  end
-
   def import_radiators(_config, attrs) do
     call_and_get_mock_value(:import_radiators, %{attrs: attrs})
   end
