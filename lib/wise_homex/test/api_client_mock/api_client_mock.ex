@@ -80,27 +80,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:unlock_gateway, %{id: id, seconds: seconds})
   end
 
-  # Household
-  def create_household(_config, attrs, rels) do
-    call_and_get_mock_value(:create_household, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_household(_config, id) do
-    call_and_get_mock_value(:delete_household, %{id: id})
-  end
-
-  def get_household(_config, id, query) do
-    call_and_get_mock_value(:get_household, %{id: id, query: query})
-  end
-
-  def get_households(_config, query) do
-    call_and_get_mock_value(:get_households, %{query: query})
-  end
-
-  def update_household(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_household, %{id: id, attrs: attrs, rels: rels})
-  end
-
   # Account invitation
   def create_account_invitation(_config, account_id, attrs) do
     call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})

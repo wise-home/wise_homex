@@ -112,11 +112,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_heat_sources(Config.t(), query) :: response
 
   # Household
-  @callback create_household(Config.t(), attributes, relationships) :: response
+  @callback create_household(Config.t(), attributes, relationships, query) :: response
   @callback delete_household(Config.t(), id) :: response
   @callback get_household(Config.t(), id, query) :: response
   @callback get_households(Config.t(), query) :: response
-  @callback update_household(Config.t(), id, attributes, relationships) :: response
+  @callback update_household(Config.t(), id, attributes, relationships, query) :: response
 
   # Account invitation
   @callback create_account_invitation(Config.t(), id, attributes) :: response

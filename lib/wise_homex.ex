@@ -176,33 +176,6 @@ defmodule WiseHomex do
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
 
-  # Household
-
-  @doc """
-  Create a household
-  """
-  def create_household(config, attrs, rels), do: api_client().create_household(config, attrs, rels)
-
-  @doc """
-  Delete a household
-  """
-  def delete_household(config, id), do: api_client().delete_household(config, id)
-
-  @doc """
-  Get a household
-  """
-  def get_household(config, id, query \\ %{}), do: api_client().get_household(config, id, query)
-
-  @doc """
-  Get multiple households
-  """
-  def get_households(config, query \\ %{}), do: api_client().get_households(config, query)
-
-  @doc """
-  Update a household
-  """
-  def update_household(config, id, attrs, rels), do: api_client().update_household(config, id, attrs, rels)
-
   # Account invitation
 
   @doc """

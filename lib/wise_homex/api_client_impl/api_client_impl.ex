@@ -175,49 +175,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
   end
 
-  # Household
-
-  def create_household(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "households",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/households", params)
-  end
-
-  def delete_household(config, id) do
-    Request.delete(config, "/households/" <> id)
-  end
-
-  def get_household(config, id, query \\ %{}) do
-    Request.get(config, "/households/" <> id, query)
-  end
-
-  def get_households(config, query \\ %{}) do
-    Request.get(config, "/households", query)
-  end
-
-  def update_household(config, id, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "households",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/households/" <> id, params)
-  end
-
   # Account invitation
 
   def create_account_invitation(config, account_id, attrs) do

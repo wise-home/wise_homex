@@ -122,6 +122,14 @@ endpoints = [
     type: "heat-sources"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Household,
+    name_plural: "households",
+    name_singular: "household",
+    path: "/households",
+    type: "households"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
