@@ -13,6 +13,20 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
+  # Account invitation
+  def create_account_invitation(config, account_id, attrs) do
+    payload =
+      %{
+        data: %{
+          type: "account-invitations",
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
+  end
+
   # Angel Note
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
@@ -173,21 +187,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
-  end
-
-  # Account invitation
-
-  def create_account_invitation(config, account_id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "account-invitations",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
   end
 
   # KEM uploads

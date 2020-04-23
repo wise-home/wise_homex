@@ -10,6 +10,11 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
+  # Account invitation
+  def create_account_invitation(_config, account_id, attrs) do
+    call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
+  end
+
   # Angel Note
   def get_angel_note(_config, target_type, target_id) do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
@@ -78,11 +83,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   def unlock_gateway(_config, id, seconds) do
     call_and_get_mock_value(:unlock_gateway, %{id: id, seconds: seconds})
-  end
-
-  # Account invitation
-  def create_account_invitation(_config, account_id, attrs) do
-    call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
   end
 
   # KEM uploads

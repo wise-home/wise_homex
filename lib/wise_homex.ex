@@ -91,6 +91,14 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
+  # Account invitation
+
+  @doc """
+  Create an account invitation
+  """
+  def create_account_invitation(config, account_id, attrs),
+    do: api_client().create_account_invitation(config, account_id, attrs)
+
   # Angel Note
 
   @doc """
@@ -175,14 +183,6 @@ defmodule WiseHomex do
   Unlock a gateway
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
-
-  # Account invitation
-
-  @doc """
-  Create an account invitation
-  """
-  def create_account_invitation(config, account_id, attrs),
-    do: api_client().create_account_invitation(config, account_id, attrs)
 
   # KEM uploads
 

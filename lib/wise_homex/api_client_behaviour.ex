@@ -21,6 +21,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_accounts(Config.t(), query) :: response
   @callback update_account(Config.t(), id, attributes, relationships, query) :: response
 
+  # Account invitation
+  @callback create_account_invitation(Config.t(), id, attributes) :: response
+
   # Account Payment
   @callback create_account_payment(Config.t(), attributes, relationships, query) :: response
   @callback delete_account_payment(Config.t(), id) :: response
@@ -117,9 +120,6 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_household(Config.t(), id, query) :: response
   @callback get_households(Config.t(), query) :: response
   @callback update_household(Config.t(), id, attributes, relationships, query) :: response
-
-  # Account invitation
-  @callback create_account_invitation(Config.t(), id, attributes) :: response
 
   # KEM uploads
   @callback upload_kem(Config.t(), list) :: response
