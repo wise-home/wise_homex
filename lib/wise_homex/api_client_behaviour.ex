@@ -128,11 +128,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback ping(Config.t(), query) :: response
 
   # Property
-  @callback create_property(Config.t(), attributes, relationships) :: response
+  @callback create_property(Config.t(), attributes, relationships, query) :: response
   @callback delete_property(Config.t(), id) :: response
   @callback get_properties(Config.t(), query) :: response
   @callback get_property(Config.t(), id, query) :: response
-  @callback update_property(Config.t(), id, attributes, relationships) :: response
+  @callback update_property(Config.t(), id, attributes, relationships, query) :: response
 
   # Property Syncs
   @callback sync_property(Config.t(), id) :: response

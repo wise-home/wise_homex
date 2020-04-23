@@ -130,6 +130,14 @@ endpoints = [
     type: "households"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Property,
+    name_plural: "properties",
+    name_singular: "property",
+    path: "/properties",
+    type: "properties"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",

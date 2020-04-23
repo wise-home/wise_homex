@@ -206,33 +206,6 @@ defmodule WiseHomex do
   """
   def ping(config, query), do: api_client().ping(config, query)
 
-  # Property
-
-  @doc """
-  Create a property
-  """
-  def create_property(config, attrs, rels), do: api_client().create_property(config, attrs, rels)
-
-  @doc """
-  Delete a property
-  """
-  def delete_property(config, id), do: api_client().delete_property(config, id)
-
-  @doc """
-  Get multiple properties
-  """
-  def get_properties(config, query \\ %{}), do: api_client().get_properties(config, query)
-
-  @doc """
-  Get a property
-  """
-  def get_property(config, id, query \\ %{}), do: api_client().get_property(config, id, query)
-
-  @doc """
-  Update a property
-  """
-  def update_property(config, id, attrs, rels), do: api_client().update_property(config, id, attrs, rels)
-
   # Property Syncs
 
   @doc """

@@ -216,49 +216,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/ping", query)
   end
 
-  # Property
-
-  def create_property(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "properties",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/properties", params)
-  end
-
-  def delete_property(config, id) do
-    Request.delete(config, "/properties/" <> id)
-  end
-
-  def get_properties(config, query \\ %{}) do
-    Request.get(config, "/properties", query)
-  end
-
-  def get_property(config, id, query \\ %{}) do
-    Request.get(config, "/properties/" <> id, query)
-  end
-
-  def update_property(config, id, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "properties",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/properties/" <> id, params)
-  end
-
   # Property Syncs
 
   @doc """

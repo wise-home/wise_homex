@@ -95,27 +95,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:ping, %{query: query})
   end
 
-  # Property
-  def create_property(_config, attrs, rels) do
-    call_and_get_mock_value(:create_property, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_property(_config, id) do
-    call_and_get_mock_value(:delete_property, %{id: id})
-  end
-
-  def get_properties(_config, query) do
-    call_and_get_mock_value(:get_properties, %{query: query})
-  end
-
-  def get_property(_config, id, query) do
-    call_and_get_mock_value(:get_property, %{id: id, query: query})
-  end
-
-  def update_property(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_property, %{id: id, attrs: attrs, rels: rels})
-  end
-
   # Property Syncs
   def sync_property(_config, property_id) do
     call_and_get_mock_value(:sync_property, %{property_id: property_id})

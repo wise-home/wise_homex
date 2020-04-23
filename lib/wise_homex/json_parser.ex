@@ -18,7 +18,6 @@ defmodule WiseHomex.JSONParser do
              "measurements" => WiseHomex.Measurement,
              "message-reports" => WiseHomex.MessageReport,
              "pongs" => WiseHomex.Pong,
-             "properties" => WiseHomex.Property,
              "radiator-import-results" => WiseHomex.RadiatorImportResult,
              "radiator-infos" => WiseHomex.RadiatorInfo,
              "radiators" => WiseHomex.Radiator,
