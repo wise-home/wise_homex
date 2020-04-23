@@ -241,28 +241,6 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
-  # Tenancy
-
-  @doc """
-  Create a tenancy
-  """
-  def create_tenancy(config, attrs, rels), do: api_client().create_tenancy(config, attrs, rels)
-
-  @doc """
-  Delete a tenancy
-  """
-  def delete_tenancy(config, id), do: api_client().delete_tenancy(config, id)
-
-  @doc """
-  Get a tenancy
-  """
-  def get_tenancy(config, id, query \\ %{}), do: api_client().get_tenancy(config, id, query)
-
-  @doc """
-  Update a tenancy
-  """
-  def update_tenancy(config, id, attrs), do: api_client().update_tenancy(config, id, attrs)
-
   # SettlementKey
 
   @doc """

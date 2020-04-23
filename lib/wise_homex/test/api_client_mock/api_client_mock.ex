@@ -123,23 +123,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_latest_report, %{device_id: device_id, query: query})
   end
 
-  # Tenancy
-  def create_tenancy(_config, attrs, rels) do
-    call_and_get_mock_value(:create_tenancy, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_tenancy(_config, id) do
-    call_and_get_mock_value(:delete_tenancy, %{id: id})
-  end
-
-  def get_tenancy(_config, id, query) do
-    call_and_get_mock_value(:get_tenancy, %{id: id, query: query})
-  end
-
-  def update_tenancy(_config, id, attrs) do
-    call_and_get_mock_value(:update_tenancy, %{id: id, attrs: attrs})
-  end
-
   # SettlementKey
   def get_settlement_key(_config, id, query \\ %{}) do
     call_and_get_mock_value(:get_settlement_key, %{id: id, query: query})

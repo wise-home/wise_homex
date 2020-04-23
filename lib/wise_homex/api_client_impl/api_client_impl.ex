@@ -297,44 +297,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # Tenancy
-
-  def create_tenancy(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "tenancies",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/tenancies", params)
-  end
-
-  def delete_tenancy(config, id) do
-    Request.delete(config, "/tenancies/" <> id)
-  end
-
-  def get_tenancy(config, id, query \\ %{}) do
-    Request.get(config, "/tenancies/" <> id, query)
-  end
-
-  def update_tenancy(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "tenancies",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/tenancies/" <> id, payload)
-  end
-
   # SettlementKey
   def get_settlement_key(config, id, query \\ %{}) do
     Request.get(config, "/settlement-keys/#{id}", query)

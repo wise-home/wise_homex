@@ -162,6 +162,14 @@ endpoints = [
     type: "rooms"
   },
   %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.Tenancy,
+    name_plural: "tenancies",
+    name_singular: "tenancy",
+    path: "/tenancies",
+    type: "tenancies"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
