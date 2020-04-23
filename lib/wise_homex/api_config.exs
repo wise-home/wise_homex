@@ -154,6 +154,14 @@ endpoints = [
     type: "radiator-infos"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Room,
+    name_plural: "rooms",
+    name_singular: "room",
+    path: "/rooms",
+    type: "rooms"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",

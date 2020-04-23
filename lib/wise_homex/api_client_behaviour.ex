@@ -153,11 +153,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_device_reports(Config.t(), id) :: response
 
   # Room
-  @callback create_room(Config.t(), attributes, relationships) :: response
+  @callback create_room(Config.t(), attributes, relationships, query) :: response
   @callback delete_room(Config.t(), id) :: response
   @callback get_room(Config.t(), id, query) :: response
   @callback get_rooms(Config.t(), query) :: response
-  @callback update_room(Config.t(), id, attributes, relationships) :: response
+  @callback update_room(Config.t(), id, attributes, relationships, query) :: response
 
   # SettlementKey
   @callback get_settlement_key(Config.t(), id, query) :: response

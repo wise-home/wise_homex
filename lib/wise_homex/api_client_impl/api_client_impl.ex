@@ -297,47 +297,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # Room
-
-  def create_room(config, attrs, rels) do
-    params = %{
-      data: %{
-        type: "rooms",
-        attributes: attrs,
-        relationships: rels
-      }
-    }
-
-    Request.post(config, "/rooms", params)
-  end
-
-  def delete_room(config, id) do
-    Request.delete(config, "/rooms/" <> id)
-  end
-
-  def get_room(config, id, query \\ %{}) do
-    Request.get(config, "/rooms/" <> id, query)
-  end
-
-  def get_rooms(config, query) do
-    Request.get(config, "/rooms", query)
-  end
-
-  def update_room(config, id, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "rooms",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/rooms/" <> id, payload)
-  end
-
   # Tenancy
 
   def create_tenancy(config, attrs, rels) do

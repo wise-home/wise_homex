@@ -241,33 +241,6 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
-  # Room
-
-  @doc """
-  Create a room
-  """
-  def create_room(config, attrs, rels), do: api_client().create_room(config, attrs, rels)
-
-  @doc """
-  Delete a room
-  """
-  def delete_room(config, id), do: api_client().delete_room(config, id)
-
-  @doc """
-  Get a room
-  """
-  def get_room(config, id, query \\ %{}), do: api_client().get_room(config, id, query)
-
-  @doc """
-  Get multiple rooms
-  """
-  def get_rooms(config, query), do: api_client().get_rooms(config, query)
-
-  @doc """
-  Update a room
-  """
-  def update_room(config, id, attrs, rels), do: api_client().update_room(config, id, attrs, rels)
-
   # Tenancy
 
   @doc """

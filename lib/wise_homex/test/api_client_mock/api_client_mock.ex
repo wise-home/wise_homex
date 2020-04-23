@@ -123,27 +123,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_latest_report, %{device_id: device_id, query: query})
   end
 
-  # Room
-  def create_room(_config, attrs, rels) do
-    call_and_get_mock_value(:create_room, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_room(_config, id) do
-    call_and_get_mock_value(:delete_room, %{id: id})
-  end
-
-  def get_room(_config, id, query) do
-    call_and_get_mock_value(:get_room, %{id: id, query: query})
-  end
-
-  def get_rooms(_config, query) do
-    call_and_get_mock_value(:get_rooms, %{query: query})
-  end
-
-  def update_room(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_room, %{id: id, attrs: attrs, rels: rels})
-  end
-
   # Tenancy
   def create_tenancy(_config, attrs, rels) do
     call_and_get_mock_value(:create_tenancy, %{attrs: attrs, rels: rels})
