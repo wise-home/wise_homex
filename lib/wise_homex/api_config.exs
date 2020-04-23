@@ -114,6 +114,14 @@ endpoints = [
     type: "gateways"
   },
   %{
+    endpoints: [:index, :show],
+    model: WiseHomex.HeatSource,
+    name_plural: "heat_sources",
+    name_singular: "heat_source",
+    path: "/heat-sources",
+    type: "heat-sources"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",

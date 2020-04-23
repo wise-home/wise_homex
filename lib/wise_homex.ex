@@ -176,18 +176,6 @@ defmodule WiseHomex do
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
 
-  # HeatSource
-
-  @doc """
-  Get heat source by id
-  """
-  def get_heat_source(config, id, query \\ %{}), do: api_client().get_heat_source(config, id, query)
-
-  @doc """
-  Gets heat sources
-  """
-  def get_heat_sources(config, query \\ %{}), do: api_client().get_heat_sources(config, query)
-
   # Household
 
   @doc """

@@ -175,15 +175,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
   end
 
-  # HeatSource
-  def get_heat_source(config, id, query \\ %{}) do
-    Request.get(config, "/heat-sources/#{id}", query)
-  end
-
-  def get_heat_sources(config, query \\ %{}) do
-    Request.get(config, "/heat-sources", query)
-  end
-
   # Household
 
   def create_household(config, attrs, rels) do
