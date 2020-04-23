@@ -21,6 +21,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_accounts(Config.t(), query) :: response
   @callback update_account(Config.t(), id, attributes, relationships, query) :: response
 
+  # Account invitation
+  @callback create_account_invitation(Config.t(), id, attributes) :: response
+
   # Account Payment
   @callback create_account_payment(Config.t(), attributes, relationships, query) :: response
   @callback delete_account_payment(Config.t(), id) :: response
@@ -105,21 +108,18 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback lock_gateway(Config.t(), id) :: response
   @callback restart_gateway(Config.t(), id) :: response
   @callback unlock_gateway(Config.t(), id, integer) :: response
-  @callback update_gateway(Config.t(), id, attributes, relationships) :: response
+  @callback update_gateway(Config.t(), id, attributes, relationships, query) :: response
 
   # HeatSource
   @callback get_heat_source(Config.t(), id, query) :: response
   @callback get_heat_sources(Config.t(), query) :: response
 
   # Household
-  @callback create_household(Config.t(), attributes, relationships) :: response
+  @callback create_household(Config.t(), attributes, relationships, query) :: response
   @callback delete_household(Config.t(), id) :: response
   @callback get_household(Config.t(), id, query) :: response
   @callback get_households(Config.t(), query) :: response
-  @callback update_household(Config.t(), id, attributes, relationships) :: response
-
-  # Account invitation
-  @callback create_account_invitation(Config.t(), id, attributes) :: response
+  @callback update_household(Config.t(), id, attributes, relationships, query) :: response
 
   # KEM uploads
   @callback upload_kem(Config.t(), list) :: response
@@ -128,11 +128,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback ping(Config.t(), query) :: response
 
   # Property
-  @callback create_property(Config.t(), attributes, relationships) :: response
+  @callback create_property(Config.t(), attributes, relationships, query) :: response
   @callback delete_property(Config.t(), id) :: response
   @callback get_properties(Config.t(), query) :: response
   @callback get_property(Config.t(), id, query) :: response
-  @callback update_property(Config.t(), id, attributes, relationships) :: response
+  @callback update_property(Config.t(), id, attributes, relationships, query) :: response
 
   # Property Syncs
   @callback sync_property(Config.t(), id) :: response

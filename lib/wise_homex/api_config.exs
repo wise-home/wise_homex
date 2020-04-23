@@ -106,6 +106,38 @@ endpoints = [
     type: "fiscal-years"
   },
   %{
+    endpoints: [:index, :show, :update, :delete],
+    model: WiseHomex.Gateway,
+    name_plural: "gateways",
+    name_singular: "gateway",
+    path: "/gateways",
+    type: "gateways"
+  },
+  %{
+    endpoints: [:index, :show],
+    model: WiseHomex.HeatSource,
+    name_plural: "heat_sources",
+    name_singular: "heat_source",
+    path: "/heat-sources",
+    type: "heat-sources"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Household,
+    name_plural: "households",
+    name_singular: "household",
+    path: "/households",
+    type: "households"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Property,
+    name_plural: "properties",
+    name_singular: "property",
+    path: "/properties",
+    type: "properties"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",

@@ -10,6 +10,11 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   import WiseHomex.Test.ApiClientMockServer, only: [call_and_get_mock_value: 2]
 
+  # Account invitation
+  def create_account_invitation(_config, account_id, attrs) do
+    call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
+  end
+
   # Angel Note
   def get_angel_note(_config, target_type, target_id) do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
@@ -68,18 +73,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Gateway
-  def get_gateway(_config, id, query) do
-    call_and_get_mock_value(:get_gateway, %{id: id, query: query})
-  end
-
-  def get_gateways(_config, query) do
-    call_and_get_mock_value(:get_gateways, %{query: query})
-  end
-
-  def delete_gateway(_config, id) do
-    call_and_get_mock_value(:delete_gateway, %{id: id})
-  end
-
   def lock_gateway(_config, id) do
     call_and_get_mock_value(:lock_gateway, %{id: id})
   end
@@ -92,45 +85,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:unlock_gateway, %{id: id, seconds: seconds})
   end
 
-  def update_gateway(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_gateway, %{id: id, attrs: attrs, rels: rels})
-  end
-
-  # HeatSource
-  def get_heat_source(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_heat_source, %{id: id, query: query})
-  end
-
-  def get_heat_sources(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_heat_sources, %{query: query})
-  end
-
-  # Household
-  def create_household(_config, attrs, rels) do
-    call_and_get_mock_value(:create_household, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_household(_config, id) do
-    call_and_get_mock_value(:delete_household, %{id: id})
-  end
-
-  def get_household(_config, id, query) do
-    call_and_get_mock_value(:get_household, %{id: id, query: query})
-  end
-
-  def get_households(_config, query) do
-    call_and_get_mock_value(:get_households, %{query: query})
-  end
-
-  def update_household(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_household, %{id: id, attrs: attrs, rels: rels})
-  end
-
-  # Account invitation
-  def create_account_invitation(_config, account_id, attrs) do
-    call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
-  end
-
   # KEM uploads
   def upload_kem(_config, opts) do
     call_and_get_mock_value(:upload_kem, %{opts: opts})
@@ -139,27 +93,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   # Ping
   def ping(_config, query) do
     call_and_get_mock_value(:ping, %{query: query})
-  end
-
-  # Property
-  def create_property(_config, attrs, rels) do
-    call_and_get_mock_value(:create_property, %{attrs: attrs, rels: rels})
-  end
-
-  def delete_property(_config, id) do
-    call_and_get_mock_value(:delete_property, %{id: id})
-  end
-
-  def get_properties(_config, query) do
-    call_and_get_mock_value(:get_properties, %{query: query})
-  end
-
-  def get_property(_config, id, query) do
-    call_and_get_mock_value(:get_property, %{id: id, query: query})
-  end
-
-  def update_property(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_property, %{id: id, attrs: attrs, rels: rels})
   end
 
   # Property Syncs

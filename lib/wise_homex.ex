@@ -91,6 +91,14 @@ defmodule WiseHomex do
   # Get the ApiClient implementation to use
   defp api_client(), do: Application.get_env(:wise_homex, :api_client_impl, WiseHomex.ApiClientImpl)
 
+  # Account invitation
+
+  @doc """
+  Create an account invitation
+  """
+  def create_account_invitation(config, account_id, attrs),
+    do: api_client().create_account_invitation(config, account_id, attrs)
+
   # Angel Note
 
   @doc """
@@ -162,23 +170,6 @@ defmodule WiseHomex do
   # Gateway
 
   @doc """
-  Get a gateway
-  """
-  def get_gateway(config, id, query \\ %{}), do: api_client().get_gateway(config, id, query)
-
-  @doc """
-  Get multiple gateways
-  """
-  def get_gateways(config, query \\ %{}), do: api_client().get_gateways(config, query)
-
-  @doc """
-  Delete a gateway
-
-  Deleting a gateway with devices will return an error.
-  """
-  def delete_gateway(config, id), do: api_client().delete_gateway(config, id)
-
-  @doc """
   Lock a gateway
   """
   def lock_gateway(config, id), do: api_client().lock_gateway(config, id)
@@ -192,58 +183,6 @@ defmodule WiseHomex do
   Unlock a gateway
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
-
-  @doc """
-  Update a gateway
-  """
-  def update_gateway(config, id, attrs, rels \\ %{}), do: api_client().update_gateway(config, id, attrs, rels)
-
-  # HeatSource
-
-  @doc """
-  Get heat source by id
-  """
-  def get_heat_source(config, id, query \\ %{}), do: api_client().get_heat_source(config, id, query)
-
-  @doc """
-  Gets heat sources
-  """
-  def get_heat_sources(config, query \\ %{}), do: api_client().get_heat_sources(config, query)
-
-  # Household
-
-  @doc """
-  Create a household
-  """
-  def create_household(config, attrs, rels), do: api_client().create_household(config, attrs, rels)
-
-  @doc """
-  Delete a household
-  """
-  def delete_household(config, id), do: api_client().delete_household(config, id)
-
-  @doc """
-  Get a household
-  """
-  def get_household(config, id, query \\ %{}), do: api_client().get_household(config, id, query)
-
-  @doc """
-  Get multiple households
-  """
-  def get_households(config, query \\ %{}), do: api_client().get_households(config, query)
-
-  @doc """
-  Update a household
-  """
-  def update_household(config, id, attrs, rels), do: api_client().update_household(config, id, attrs, rels)
-
-  # Account invitation
-
-  @doc """
-  Create an account invitation
-  """
-  def create_account_invitation(config, account_id, attrs),
-    do: api_client().create_account_invitation(config, account_id, attrs)
 
   # KEM uploads
 
@@ -266,33 +205,6 @@ defmodule WiseHomex do
   ```
   """
   def ping(config, query), do: api_client().ping(config, query)
-
-  # Property
-
-  @doc """
-  Create a property
-  """
-  def create_property(config, attrs, rels), do: api_client().create_property(config, attrs, rels)
-
-  @doc """
-  Delete a property
-  """
-  def delete_property(config, id), do: api_client().delete_property(config, id)
-
-  @doc """
-  Get multiple properties
-  """
-  def get_properties(config, query \\ %{}), do: api_client().get_properties(config, query)
-
-  @doc """
-  Get a property
-  """
-  def get_property(config, id, query \\ %{}), do: api_client().get_property(config, id, query)
-
-  @doc """
-  Update a property
-  """
-  def update_property(config, id, attrs, rels), do: api_client().update_property(config, id, attrs, rels)
 
   # Property Syncs
 

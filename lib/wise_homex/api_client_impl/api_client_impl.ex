@@ -13,6 +13,20 @@ defmodule WiseHomex.ApiClientImpl do
 
   use WiseHomex.ApiClientImpl.Creator
 
+  # Account invitation
+  def create_account_invitation(config, account_id, attrs) do
+    payload =
+      %{
+        data: %{
+          type: "account-invitations",
+          attributes: attrs
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
+  end
+
   # Angel Note
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
@@ -136,18 +150,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Gateway
-  def get_gateway(config, id, query \\ %{}) do
-    Request.get(config, "/gateways/" <> id, query)
-  end
-
-  def get_gateways(config, query \\ %{}) do
-    Request.get(config, "/gateways", query)
-  end
-
-  def delete_gateway(config, id) do
-    Request.delete(config, "/gateways/" <> id)
-  end
-
   def lock_gateway(config, id) do
     payload =
       %{
@@ -187,88 +189,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
   end
 
-  def update_gateway(config, id, attrs, rels \\ %{}) do
-    payload =
-      %{
-        data: %{
-          type: "gateways",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/gateways/" <> id, payload)
-  end
-
-  # HeatSource
-  def get_heat_source(config, id, query \\ %{}) do
-    Request.get(config, "/heat-sources/#{id}", query)
-  end
-
-  def get_heat_sources(config, query \\ %{}) do
-    Request.get(config, "/heat-sources", query)
-  end
-
-  # Household
-
-  def create_household(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "households",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/households", params)
-  end
-
-  def delete_household(config, id) do
-    Request.delete(config, "/households/" <> id)
-  end
-
-  def get_household(config, id, query \\ %{}) do
-    Request.get(config, "/households/" <> id, query)
-  end
-
-  def get_households(config, query \\ %{}) do
-    Request.get(config, "/households", query)
-  end
-
-  def update_household(config, id, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "households",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/households/" <> id, params)
-  end
-
-  # Account invitation
-
-  def create_account_invitation(config, account_id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "account-invitations",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
-  end
-
   # KEM uploads
 
   def upload_kem(config, file_base64: file_base64, key: key) do
@@ -294,49 +214,6 @@ defmodule WiseHomex.ApiClientImpl do
 
   def ping(config, query) do
     Request.get(config, "/ping", query)
-  end
-
-  # Property
-
-  def create_property(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "properties",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/properties", params)
-  end
-
-  def delete_property(config, id) do
-    Request.delete(config, "/properties/" <> id)
-  end
-
-  def get_properties(config, query \\ %{}) do
-    Request.get(config, "/properties", query)
-  end
-
-  def get_property(config, id, query \\ %{}) do
-    Request.get(config, "/properties/" <> id, query)
-  end
-
-  def update_property(config, id, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "properties",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/properties/" <> id, params)
   end
 
   # Property Syncs
