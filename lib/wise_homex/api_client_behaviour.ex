@@ -146,7 +146,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback import_radiators(Config.t(), attributes) :: response
 
   # Radiator Info
-  @callback get_radiator_info(Config.t(), id) :: response
+  @callback get_radiator_info(Config.t(), id, query) :: response
 
   # Reports
   @callback create_latest_report(Config.t(), id, query) :: response

@@ -114,11 +114,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:import_radiators, %{attrs: attrs})
   end
 
-  # Radiator Info
-  def get_radiator_info(_config, id) do
-    call_and_get_mock_value(:get_radiator_info, %{id: id})
-  end
-
   # Reports
   def get_device_reports(_config, id) do
     call_and_get_mock_value(:get_device_reports, %{id: id})

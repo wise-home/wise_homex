@@ -241,13 +241,6 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
-  # Radiator Info
-
-  @doc """
-  Get an url to info about a radiator
-  """
-  def get_radiator_info(config, id), do: api_client().get_radiator_info(config, id)
-
   # Room
 
   @doc """

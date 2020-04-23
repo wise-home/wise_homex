@@ -278,12 +278,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/radiators/import", payload)
   end
 
-  # Radiator Info
-
-  def get_radiator_info(config, id) do
-    Request.get(config, "/radiator-infos/#{id}")
-  end
-
   # Reports
 
   def create_latest_report(config, device_id, query \\ %{}) do
