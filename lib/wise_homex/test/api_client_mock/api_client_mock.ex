@@ -123,27 +123,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_latest_report, %{device_id: device_id, query: query})
   end
 
-  # Statement
-  def get_statement(_config, id, query \\ %{}) do
-    call_and_get_mock_value(:get_statement, %{id: id, query: query})
-  end
-
-  def get_statements(_config, query \\ %{}) do
-    call_and_get_mock_value(:get_statements, %{query: query})
-  end
-
-  def create_statement(_config, attrs, rels) do
-    call_and_get_mock_value(:create_statement, %{attrs: attrs, rels: rels})
-  end
-
-  def update_statement(_config, id, attrs) do
-    call_and_get_mock_value(:update_statement, %{id: id, attrs: attrs})
-  end
-
-  def delete_statement(_config, id) do
-    call_and_get_mock_value(:delete_statement, %{id: id})
-  end
-
   # User
   def get_users(_config, filters \\ []) do
     call_and_get_mock_value(:get_users, %{filters: filters})

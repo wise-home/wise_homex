@@ -297,48 +297,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # Statement
-
-  def get_statement(config, id, query \\ %{}) do
-    Request.get(config, "/statements/#{id}", query)
-  end
-
-  def get_statements(config, query \\ %{}) do
-    Request.get(config, "/statements", query)
-  end
-
-  def create_statement(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "statements",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/statements", payload)
-  end
-
-  def update_statement(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "statements",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/statements/#{id}", payload)
-  end
-
-  def delete_statement(config, id) do
-    Request.delete(config, "/statements/#{id}")
-  end
-
   # User
 
   def get_users(config, filters \\ []) do

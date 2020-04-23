@@ -186,6 +186,14 @@ endpoints = [
     type: "sims"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Statement,
+    name_plural: "statements",
+    name_singular: "statement",
+    path: "/statements",
+    type: "statements"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
