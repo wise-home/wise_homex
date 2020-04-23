@@ -297,44 +297,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # SettlementValue
-
-  def get_settlement_value(config, id, query \\ %{}) do
-    Request.get(config, "/settlement-values/#{id}", query)
-  end
-
-  def create_settlement_value(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-values",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/settlement-values", payload)
-  end
-
-  def update_settlement_value(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-values",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/settlement-values/#{id}", payload)
-  end
-
-  def delete_settlement_value(config, id) do
-    Request.delete(config, "/settlement-values/#{id}")
-  end
-
   # SIM
 
   def create_sim(config, attrs) do

@@ -178,6 +178,14 @@ endpoints = [
     type: "settlement-keys"
   },
   %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.SettlementValue,
+    name_plural: "settlement_values",
+    name_singular: "settlement_value",
+    path: "/settlement-values",
+    type: "settlement-values"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
