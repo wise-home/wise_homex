@@ -123,27 +123,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_latest_report, %{device_id: device_id, query: query})
   end
 
-  # SIM
-  def create_sim(_config, attrs) do
-    call_and_get_mock_value(:create_sim, %{attrs: attrs})
-  end
-
-  def delete_sim(_config, id) do
-    call_and_get_mock_value(:delete_sim, %{id: id})
-  end
-
-  def get_sim(_config, id, query) do
-    call_and_get_mock_value(:get_sim, %{id: id, query: query})
-  end
-
-  def get_sims(_config, query) do
-    call_and_get_mock_value(:get_sims, %{query: query})
-  end
-
-  def update_sim(_config, id, attrs) do
-    call_and_get_mock_value(:update_sim, %{id: id, attrs: attrs})
-  end
-
   # Statement
   def get_statement(_config, id, query \\ %{}) do
     call_and_get_mock_value(:get_statement, %{id: id, query: query})

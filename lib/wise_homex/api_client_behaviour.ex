@@ -173,11 +173,11 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_settlement_value(Config.t(), id) :: response
 
   # SIM
-  @callback create_sim(Config.t(), attributes) :: response
+  @callback create_sim(Config.t(), attributes, relationships, query) :: response
   @callback delete_sim(Config.t(), id) :: response
   @callback get_sim(Config.t(), id, query) :: response
   @callback get_sims(Config.t(), query) :: response
-  @callback update_sim(Config.t(), id, attributes) :: response
+  @callback update_sim(Config.t(), id, attributes, relationships, query) :: response
 
   # Statement
   @callback get_statement(Config.t(), id, query) :: response

@@ -241,33 +241,6 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
-  # SIM
-
-  @doc """
-  Create a sim card
-  """
-  def create_sim(config, attrs), do: api_client().create_sim(config, attrs)
-
-  @doc """
-  Delete a sim card
-  """
-  def delete_sim(config, id), do: api_client().delete_sim(config, id)
-
-  @doc """
-  Get a sim card
-  """
-  def get_sim(config, id, query \\ %{}), do: api_client().get_sim(config, id, query)
-
-  @doc """
-  Get multiple sim cards
-  """
-  def get_sims(config, query \\ %{}), do: api_client().get_sims(config, query)
-
-  @doc """
-  Update a sim card
-  """
-  def update_sim(config, id, attrs), do: api_client().update_sim(config, id, attrs)
-
   # Statement
 
   @doc """

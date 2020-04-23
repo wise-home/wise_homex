@@ -297,47 +297,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # SIM
-
-  def create_sim(config, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "sims",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/sims", payload)
-  end
-
-  def delete_sim(config, id) do
-    Request.delete(config, "/sims/" <> id)
-  end
-
-  def get_sim(config, id, query \\ %{}) do
-    Request.get(config, "/sims/" <> id, query)
-  end
-
-  def get_sims(config, query \\ %{}) do
-    Request.get(config, "/sims", query)
-  end
-
-  def update_sim(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "sims",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/sims/" <> id, payload)
-  end
-
   # Statement
 
   def get_statement(config, id, query \\ %{}) do
