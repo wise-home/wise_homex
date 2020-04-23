@@ -194,6 +194,14 @@ endpoints = [
     type: "statements"
   },
   %{
+    endpoints: [:show, :update],
+    model: WiseHomex.StatementConfig,
+    name_plural: "statement_configs",
+    name_singular: "statement_config",
+    path: "/statement-configs",
+    type: "statement-configs"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
@@ -232,13 +240,5 @@ endpoints = [
     name_singular: "wmbus_message_query",
     path: "/wmbus-message-queries",
     type: "wmbus-message-queries"
-  },
-  %{
-    endpoints: [:show, :update],
-    model: WiseHomex.StatementConfig,
-    name_plural: "statement_configs",
-    name_singular: "statement_config",
-    path: "/statement-configs",
-    type: "statement-configs"
   }
 ]
