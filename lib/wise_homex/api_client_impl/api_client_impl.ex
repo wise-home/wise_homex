@@ -136,18 +136,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Gateway
-  def get_gateway(config, id, query \\ %{}) do
-    Request.get(config, "/gateways/" <> id, query)
-  end
-
-  def get_gateways(config, query \\ %{}) do
-    Request.get(config, "/gateways", query)
-  end
-
-  def delete_gateway(config, id) do
-    Request.delete(config, "/gateways/" <> id)
-  end
-
   def lock_gateway(config, id) do
     payload =
       %{
@@ -185,21 +173,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
-  end
-
-  def update_gateway(config, id, attrs, rels \\ %{}) do
-    payload =
-      %{
-        data: %{
-          type: "gateways",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/gateways/" <> id, payload)
   end
 
   # HeatSource

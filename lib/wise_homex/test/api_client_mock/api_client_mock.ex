@@ -68,18 +68,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Gateway
-  def get_gateway(_config, id, query) do
-    call_and_get_mock_value(:get_gateway, %{id: id, query: query})
-  end
-
-  def get_gateways(_config, query) do
-    call_and_get_mock_value(:get_gateways, %{query: query})
-  end
-
-  def delete_gateway(_config, id) do
-    call_and_get_mock_value(:delete_gateway, %{id: id})
-  end
-
   def lock_gateway(_config, id) do
     call_and_get_mock_value(:lock_gateway, %{id: id})
   end
@@ -90,10 +78,6 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   def unlock_gateway(_config, id, seconds) do
     call_and_get_mock_value(:unlock_gateway, %{id: id, seconds: seconds})
-  end
-
-  def update_gateway(_config, id, attrs, rels) do
-    call_and_get_mock_value(:update_gateway, %{id: id, attrs: attrs, rels: rels})
   end
 
   # HeatSource

@@ -105,7 +105,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback lock_gateway(Config.t(), id) :: response
   @callback restart_gateway(Config.t(), id) :: response
   @callback unlock_gateway(Config.t(), id, integer) :: response
-  @callback update_gateway(Config.t(), id, attributes, relationships) :: response
+  @callback update_gateway(Config.t(), id, attributes, relationships, query) :: response
 
   # HeatSource
   @callback get_heat_source(Config.t(), id, query) :: response

@@ -162,23 +162,6 @@ defmodule WiseHomex do
   # Gateway
 
   @doc """
-  Get a gateway
-  """
-  def get_gateway(config, id, query \\ %{}), do: api_client().get_gateway(config, id, query)
-
-  @doc """
-  Get multiple gateways
-  """
-  def get_gateways(config, query \\ %{}), do: api_client().get_gateways(config, query)
-
-  @doc """
-  Delete a gateway
-
-  Deleting a gateway with devices will return an error.
-  """
-  def delete_gateway(config, id), do: api_client().delete_gateway(config, id)
-
-  @doc """
   Lock a gateway
   """
   def lock_gateway(config, id), do: api_client().lock_gateway(config, id)
@@ -192,11 +175,6 @@ defmodule WiseHomex do
   Unlock a gateway
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
-
-  @doc """
-  Update a gateway
-  """
-  def update_gateway(config, id, attrs, rels \\ %{}), do: api_client().update_gateway(config, id, attrs, rels)
 
   # HeatSource
 

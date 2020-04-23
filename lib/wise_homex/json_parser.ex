@@ -13,7 +13,6 @@ defmodule WiseHomex.JSONParser do
              "device-imports" => WiseHomex.DeviceImport,
              "device-types" => WiseHomex.DeviceType,
              "encryption-keys" => WiseHomex.EncKey,
-             "gateways" => WiseHomex.Gateway,
              "heat-sources" => WiseHomex.HeatSource,
              "households" => WiseHomex.Household,
              "kems" => WiseHomex.KEMInfo,

@@ -106,6 +106,14 @@ endpoints = [
     type: "fiscal-years"
   },
   %{
+    endpoints: [:index, :show, :update, :delete],
+    model: WiseHomex.Gateway,
+    name_plural: "gateways",
+    name_singular: "gateway",
+    path: "/gateways",
+    type: "gateways"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
