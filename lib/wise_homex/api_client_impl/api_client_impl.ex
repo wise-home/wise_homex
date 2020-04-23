@@ -119,7 +119,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Email Settings
-
   def update_account_email_settings(config, account_id, id, attrs) do
     payload =
       %{
@@ -135,7 +134,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Firmware
-
   def create_firmware(config, file_content) do
     payload = %{
       data: %{
@@ -190,7 +188,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # KEM uploads
-
   def upload_kem(config, file_base64: file_base64, key: key) do
     payload =
       %{
@@ -211,7 +208,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Ping
-
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
@@ -266,7 +262,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Radiator
-
   def import_radiators(config, attrs) do
     payload = %{
       data: %{
@@ -279,7 +274,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Reports
-
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{
       data: %{
@@ -298,7 +292,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # User
-
   def get_users(config, filters \\ []) do
     query =
       filters
@@ -312,7 +305,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Wmbus Cache
-
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
   end
@@ -322,7 +314,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Utility functions
-
   defp normalize_payload(%Date{} = date) do
     Date.to_string(date)
   end

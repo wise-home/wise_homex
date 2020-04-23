@@ -21,7 +21,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_accounts(Config.t(), query) :: response
   @callback update_account(Config.t(), id, attributes, relationships, query) :: response
 
-  # Account invitation
+  # Account Invitation
   @callback create_account_invitation(Config.t(), id, attributes) :: response
 
   # Account Payment

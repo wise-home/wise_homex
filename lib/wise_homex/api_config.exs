@@ -2,20 +2,20 @@
 
 endpoints = [
   %{
-    endpoints: [:show, :create, :update, :delete],
-    model: WiseHomex.AccountPayment,
-    name_plural: "account_payments",
-    name_singular: "account_payment",
-    path: "/account-payments",
-    type: "account-payments"
-  },
-  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Account,
     name_plural: "accounts",
     name_singular: "account",
     path: "/accounts",
     type: "accounts"
+  },
+  %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.AccountPayment,
+    name_plural: "account_payments",
+    name_singular: "account_payment",
+    path: "/account-payments",
+    type: "account-payments"
   },
   %{
     endpoints: [:index, :delete],
@@ -50,20 +50,20 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
-    endpoints: [:create],
-    model: WiseHomex.AngelNoteBunch,
-    name_plural: "angel_note_bunches",
-    name_singular: "angel_note_bunch",
-    path: "/angel-note-bunches",
-    type: "angel-note-bunches"
-  },
-  %{
     endpoints: [:create, :update, :delete],
     model: WiseHomex.AngelNote,
     name_plural: "angel_notes",
     name_singular: "angel_note",
     path: "/angel-notes",
     type: "angel-notes"
+  },
+  %{
+    endpoints: [:create],
+    model: WiseHomex.AngelNoteBunch,
+    name_plural: "angel_note_bunches",
+    name_singular: "angel_note_bunch",
+    path: "/angel-note-bunches",
+    type: "angel-note-bunches"
   },
   %{
     endpoints: [:index, :show, :update, :delete],
