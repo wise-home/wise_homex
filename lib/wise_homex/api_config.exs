@@ -162,14 +162,6 @@ endpoints = [
     type: "rooms"
   },
   %{
-    endpoints: [:show, :create, :update, :delete],
-    model: WiseHomex.Tenancy,
-    name_plural: "tenancies",
-    name_singular: "tenancy",
-    path: "/tenancies",
-    type: "tenancies"
-  },
-  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.SettlementKey,
     name_plural: "settlement_keys",
@@ -200,6 +192,14 @@ endpoints = [
     name_singular: "statement_zip",
     path: "/statement-zips",
     type: "statement-zips"
+  },
+  %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.Tenancy,
+    name_plural: "tenancies",
+    name_singular: "tenancy",
+    path: "/tenancies",
+    type: "tenancies"
   },
   %{
     endpoints: [:create],
