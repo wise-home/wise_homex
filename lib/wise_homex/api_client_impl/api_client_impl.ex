@@ -297,47 +297,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # SettlementKey
-  def get_settlement_key(config, id, query \\ %{}) do
-    Request.get(config, "/settlement-keys/#{id}", query)
-  end
-
-  def get_settlement_keys(config, query) do
-    Request.get(config, "/settlement-keys", query)
-  end
-
-  def create_settlement_key(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-keys",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/settlement-keys", payload)
-  end
-
-  def update_settlement_key(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-keys",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/settlement-keys/#{id}", payload)
-  end
-
-  def delete_settlement_key(config, id) do
-    Request.delete(config, "/settlement-keys/#{id}")
-  end
-
   # SettlementValue
 
   def get_settlement_value(config, id, query \\ %{}) do
