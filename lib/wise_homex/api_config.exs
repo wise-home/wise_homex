@@ -240,5 +240,13 @@ endpoints = [
     name_singular: "wmbus_message_query",
     path: "/wmbus-message-queries",
     type: "wmbus-message-queries"
+  },
+  %{
+    endpoints: [:index],
+    model: WiseHomex.ZipCode,
+    name_plural: "zip_codes",
+    name_singular: "zip_code",
+    path: "/zip-codes",
+    type: "zip-codes"
   }
 ]
