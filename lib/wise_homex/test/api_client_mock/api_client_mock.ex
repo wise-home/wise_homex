@@ -26,14 +26,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Device
-  def add_device(_config, gateway_id, protocol, serial) do
-    call_and_get_mock_value(:add_device, %{
-      gateway_id: gateway_id,
-      protocol: protocol,
-      serial: serial
-    })
-  end
-
   def authorize_device(_config, device_id) do
     call_and_get_mock_value(:authorize_device, %{device_id: device_id})
   end

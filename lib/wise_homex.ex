@@ -116,12 +116,6 @@ defmodule WiseHomex do
   # Device
 
   @doc """
-  Add a device
-  """
-  def add_device(config, gateway_id, protocol, serial),
-    do: api_client().add_device(config, gateway_id, protocol, serial)
-
-  @doc """
   Authorize a device
   """
   def authorize_device(config, device_id), do: api_client().authorize_device(config, device_id)

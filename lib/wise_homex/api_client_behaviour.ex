@@ -62,8 +62,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback upload_bmeters_keys(Config.t(), list) :: response
 
   # Device
-  @callback add_device(Config.t(), id, String.t(), String.t()) :: response
   @callback authorize_device(Config.t(), id) :: response
+  @callback create_device(Config.t(), attributes, relationships, query) :: response
   @callback deauthorize_device(Config.t(), id) :: response
   @callback delete_device(Config.t(), id) :: response
   @callback fast_ping_device(Config.t(), id) :: response

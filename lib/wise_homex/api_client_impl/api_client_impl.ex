@@ -49,25 +49,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Device
-  def add_device(config, gateway_id, protocol, serial) do
-    payload =
-      %{
-        "data" => %{
-          "type" => "devices",
-          "attributes" => %{
-            "serial" => serial,
-            "protocol" => protocol
-          },
-          "relationships" => %{
-            "gateway" => %{"data" => %{"type" => "gateways", "id" => gateway_id}}
-          }
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/devices", payload)
-  end
-
   def authorize_device(config, device_id) do
     Request.post(config, "/devices/" <> device_id <> "/authorizations")
   end

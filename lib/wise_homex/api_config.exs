@@ -66,7 +66,7 @@ endpoints = [
     type: "angel-note-bunches"
   },
   %{
-    endpoints: [:index, :show, :update, :delete],
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Device,
     name_plural: "devices",
     name_singular: "device",
