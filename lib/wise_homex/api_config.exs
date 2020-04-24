@@ -90,7 +90,7 @@ endpoints = [
     type: "external-infos"
   },
   %{
-    endpoints: [:index, :delete],
+    endpoints: [:index, :create, :delete],
     model: WiseHomex.Firmware,
     name_plural: "firmwares",
     name_singular: "firmware",

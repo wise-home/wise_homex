@@ -114,20 +114,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
   end
 
-  # Firmware
-  def create_firmware(config, file_content) do
-    payload = %{
-      data: %{
-        type: "firmwares",
-        attributes: %{
-          content_base64: file_content |> Base.encode64()
-        }
-      }
-    }
-
-    Request.post(config, "/firmwares", payload)
-  end
-
   # Gateway
   def lock_gateway(config, id) do
     payload =

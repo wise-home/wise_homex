@@ -59,11 +59,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     })
   end
 
-  # Firmware
-  def create_firmware(_config, file_content) do
-    call_and_get_mock_value(:create_firmware, %{file_content: file_content})
-  end
-
   # Gateway
   def lock_gateway(_config, id) do
     call_and_get_mock_value(:lock_gateway, %{id: id})

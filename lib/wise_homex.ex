@@ -154,13 +154,6 @@ defmodule WiseHomex do
   def update_account_email_settings(config, account_id, id, attrs),
     do: api_client().update_account_email_settings(config, account_id, id, attrs)
 
-  # Firmware
-
-  @doc """
-  Create firmware
-  """
-  def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
-
   # Gateway
 
   @doc """

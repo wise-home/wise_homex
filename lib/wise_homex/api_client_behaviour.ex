@@ -90,7 +90,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_expense(Config.t(), id) :: response
 
   # Firmware
-  @callback create_firmware(Config.t(), String.t()) :: response
+  @callback create_firmware(Config.t(), attributes, relationships, query) :: response
   @callback delete_firmware(Config.t(), id) :: response
   @callback get_firmwares(Config.t(), query) :: response
 
