@@ -258,19 +258,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # User
-  def get_users(config, filters \\ []) do
-    query =
-      filters
-      |> Enum.map(fn {key, value} ->
-        "filter[#{key}]=#{value}"
-      end)
-      |> Enum.join("&")
-
-    query = if query == "", do: query, else: "?#{query}"
-    Request.get(config, "/users#{query}")
-  end
-
   # Wmbus Cache
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)

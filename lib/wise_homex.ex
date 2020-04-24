@@ -228,13 +228,6 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
-  # User
-
-  @doc """
-  Get multiple users
-  """
-  def get_users(config, filters \\ []), do: api_client().get_users(config, filters)
-
   # Wmbus Cache
 
   @doc """

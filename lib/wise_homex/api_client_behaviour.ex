@@ -204,7 +204,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_tenancy(Config.t(), id, attributes, relationships, query) :: response
 
   # User
-  @callback get_users(Config.t(), list) :: response
+  @callback get_users(Config.t(), query) :: response
 
   # UtilityReading
   @callback get_utility_reading(Config.t(), id, query) :: response

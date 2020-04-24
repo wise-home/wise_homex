@@ -226,6 +226,14 @@ endpoints = [
     type: "tenancies"
   },
   %{
+    endpoints: [:index],
+    model: WiseHomex.User,
+    name_plural: "users",
+    name_singular: "user",
+    path: "/users",
+    type: "users"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.UtilityReading,
     name_plural: "utility_readings",

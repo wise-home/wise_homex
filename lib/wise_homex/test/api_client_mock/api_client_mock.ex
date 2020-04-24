@@ -110,11 +110,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_latest_report, %{device_id: device_id, query: query})
   end
 
-  # User
-  def get_users(_config, filters \\ []) do
-    call_and_get_mock_value(:get_users, %{filters: filters})
-  end
-
   # Wmbus Cache
   def get_wmbus_cache(_config, gateway_id, query) do
     call_and_get_mock_value(:get_wmbus_cache, %{gateway_id: gateway_id, query: query})
