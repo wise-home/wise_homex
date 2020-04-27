@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.74 2020-04-27
+
+* Autocreate all endpoints that are not customized, #125
+
 ## 0.6.73 2020-04-16
 
 * Add gateway activated field
