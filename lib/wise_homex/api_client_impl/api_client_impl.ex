@@ -49,25 +49,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Device
-  def add_device(config, gateway_id, protocol, serial) do
-    payload =
-      %{
-        "data" => %{
-          "type" => "devices",
-          "attributes" => %{
-            "serial" => serial,
-            "protocol" => protocol
-          },
-          "relationships" => %{
-            "gateway" => %{"data" => %{"type" => "gateways", "id" => gateway_id}}
-          }
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/devices", payload)
-  end
-
   def authorize_device(config, device_id) do
     Request.post(config, "/devices/" <> device_id <> "/authorizations")
   end
@@ -119,7 +100,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Email Settings
-
   def update_account_email_settings(config, account_id, id, attrs) do
     payload =
       %{
@@ -132,21 +112,6 @@ defmodule WiseHomex.ApiClientImpl do
       |> normalize_payload
 
     Request.patch(config, "/accounts/" <> account_id <> "/email-settings", payload)
-  end
-
-  # Firmware
-
-  def create_firmware(config, file_content) do
-    payload = %{
-      data: %{
-        type: "firmwares",
-        attributes: %{
-          content_base64: file_content |> Base.encode64()
-        }
-      }
-    }
-
-    Request.post(config, "/firmwares", payload)
   end
 
   # Gateway
@@ -190,7 +155,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # KEM uploads
-
   def upload_kem(config, file_base64: file_base64, key: key) do
     payload =
       %{
@@ -211,7 +175,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Ping
-
   def ping(config, query) do
     Request.get(config, "/ping", query)
   end
@@ -266,15 +229,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Radiator
-
-  def get_radiator(config, id, query \\ %{}) do
-    Request.get(config, "/radiators/#{id}", query)
-  end
-
-  def get_radiators(config, query \\ %{}) do
-    Request.get(config, "/radiators", query)
-  end
-
   def import_radiators(config, attrs) do
     payload = %{
       data: %{
@@ -286,14 +240,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/radiators/import", payload)
   end
 
-  # Radiator Info
-
-  def get_radiator_info(config, id) do
-    Request.get(config, "/radiator-infos/#{id}")
-  end
-
   # Reports
-
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{
       data: %{
@@ -311,306 +258,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
-  # Room
-
-  def create_room(config, attrs, rels) do
-    params = %{
-      data: %{
-        type: "rooms",
-        attributes: attrs,
-        relationships: rels
-      }
-    }
-
-    Request.post(config, "/rooms", params)
-  end
-
-  def delete_room(config, id) do
-    Request.delete(config, "/rooms/" <> id)
-  end
-
-  def get_room(config, id, query \\ %{}) do
-    Request.get(config, "/rooms/" <> id, query)
-  end
-
-  def get_rooms(config, query) do
-    Request.get(config, "/rooms", query)
-  end
-
-  def update_room(config, id, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "rooms",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/rooms/" <> id, payload)
-  end
-
-  # Tenancy
-
-  def create_tenancy(config, attrs, rels) do
-    params =
-      %{
-        data: %{
-          type: "tenancies",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/tenancies", params)
-  end
-
-  def delete_tenancy(config, id) do
-    Request.delete(config, "/tenancies/" <> id)
-  end
-
-  def get_tenancy(config, id, query \\ %{}) do
-    Request.get(config, "/tenancies/" <> id, query)
-  end
-
-  def update_tenancy(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "tenancies",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/tenancies/" <> id, payload)
-  end
-
-  # SettlementKey
-  def get_settlement_key(config, id, query \\ %{}) do
-    Request.get(config, "/settlement-keys/#{id}", query)
-  end
-
-  def get_settlement_keys(config, query) do
-    Request.get(config, "/settlement-keys", query)
-  end
-
-  def create_settlement_key(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-keys",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/settlement-keys", payload)
-  end
-
-  def update_settlement_key(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-keys",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/settlement-keys/#{id}", payload)
-  end
-
-  def delete_settlement_key(config, id) do
-    Request.delete(config, "/settlement-keys/#{id}")
-  end
-
-  # SettlementValue
-
-  def get_settlement_value(config, id, query \\ %{}) do
-    Request.get(config, "/settlement-values/#{id}", query)
-  end
-
-  def create_settlement_value(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-values",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/settlement-values", payload)
-  end
-
-  def update_settlement_value(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "settlement-values",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/settlement-values/#{id}", payload)
-  end
-
-  def delete_settlement_value(config, id) do
-    Request.delete(config, "/settlement-values/#{id}")
-  end
-
-  # SIM
-
-  def create_sim(config, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "sims",
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/sims", payload)
-  end
-
-  def delete_sim(config, id) do
-    Request.delete(config, "/sims/" <> id)
-  end
-
-  def get_sim(config, id, query \\ %{}) do
-    Request.get(config, "/sims/" <> id, query)
-  end
-
-  def get_sims(config, query \\ %{}) do
-    Request.get(config, "/sims", query)
-  end
-
-  def update_sim(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "sims",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload
-
-    Request.patch(config, "/sims/" <> id, payload)
-  end
-
-  # Statement
-
-  def get_statement(config, id, query \\ %{}) do
-    Request.get(config, "/statements/#{id}", query)
-  end
-
-  def get_statements(config, query \\ %{}) do
-    Request.get(config, "/statements", query)
-  end
-
-  def create_statement(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "statements",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/statements", payload)
-  end
-
-  def update_statement(config, id, attrs) do
-    payload =
-      %{
-        data: %{
-          type: "statements",
-          id: id,
-          attributes: attrs
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/statements/#{id}", payload)
-  end
-
-  def delete_statement(config, id) do
-    Request.delete(config, "/statements/#{id}")
-  end
-
-  # User
-
-  def get_users(config, filters \\ []) do
-    query =
-      filters
-      |> Enum.map(fn {key, value} ->
-        "filter[#{key}]=#{value}"
-      end)
-      |> Enum.join("&")
-
-    query = if query == "", do: query, else: "?#{query}"
-    Request.get(config, "/users#{query}")
-  end
-
-  # UtilityReading
-
-  def get_utility_reading(config, id, query \\ %{}) do
-    Request.get(config, "/utility-readings/#{id}", query)
-  end
-
-  def get_utility_readings(config, query \\ %{}) do
-    Request.get(config, "/utility-readings", query)
-  end
-
-  def create_utility_reading(config, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "utility-readings",
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.post(config, "/utility-readings", payload)
-  end
-
-  def update_utility_reading(config, id, attrs, rels) do
-    payload =
-      %{
-        data: %{
-          type: "utility-readings",
-          id: id,
-          attributes: attrs,
-          relationships: rels
-        }
-      }
-      |> normalize_payload()
-
-    Request.patch(config, "/utility-readings/#{id}", payload)
-  end
-
-  def delete_utility_reading(config, id) do
-    Request.delete(config, "/utility-readings/#{id}")
-  end
-
   # Wmbus Cache
-
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
   end
@@ -619,10 +267,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
   end
 
-  def get_zip_codes(config) do
-    Request.get(config, "/zip-codes")
-  end
-
+  # Utility functions
   defp normalize_payload(%Date{} = date) do
     Date.to_string(date)
   end

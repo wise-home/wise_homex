@@ -21,7 +21,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_accounts(Config.t(), query) :: response
   @callback update_account(Config.t(), id, attributes, relationships, query) :: response
 
-  # Account invitation
+  # Account Invitation
   @callback create_account_invitation(Config.t(), id, attributes) :: response
 
   # Account Payment
@@ -62,8 +62,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback upload_bmeters_keys(Config.t(), list) :: response
 
   # Device
-  @callback add_device(Config.t(), id, String.t(), String.t()) :: response
   @callback authorize_device(Config.t(), id) :: response
+  @callback create_device(Config.t(), attributes, relationships, query) :: response
   @callback deauthorize_device(Config.t(), id) :: response
   @callback delete_device(Config.t(), id) :: response
   @callback fast_ping_device(Config.t(), id) :: response
@@ -90,7 +90,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_expense(Config.t(), id) :: response
 
   # Firmware
-  @callback create_firmware(Config.t(), String.t()) :: response
+  @callback create_firmware(Config.t(), attributes, relationships, query) :: response
   @callback delete_firmware(Config.t(), id) :: response
   @callback get_firmwares(Config.t(), query) :: response
 
@@ -146,50 +146,44 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback import_radiators(Config.t(), attributes) :: response
 
   # Radiator Info
-  @callback get_radiator_info(Config.t(), id) :: response
+  @callback get_radiator_info(Config.t(), id, query) :: response
 
   # Reports
   @callback create_latest_report(Config.t(), id, query) :: response
   @callback get_device_reports(Config.t(), id) :: response
 
   # Room
-  @callback create_room(Config.t(), attributes, relationships) :: response
+  @callback create_room(Config.t(), attributes, relationships, query) :: response
   @callback delete_room(Config.t(), id) :: response
   @callback get_room(Config.t(), id, query) :: response
   @callback get_rooms(Config.t(), query) :: response
-  @callback update_room(Config.t(), id, attributes, relationships) :: response
+  @callback update_room(Config.t(), id, attributes, relationships, query) :: response
 
   # SettlementKey
   @callback get_settlement_key(Config.t(), id, query) :: response
   @callback get_settlement_keys(Config.t(), query) :: response
-  @callback create_settlement_key(Config.t(), attributes, relationships) :: response
-  @callback update_settlement_key(Config.t(), id, attributes) :: response
+  @callback create_settlement_key(Config.t(), attributes, relationships, query) :: response
+  @callback update_settlement_key(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_settlement_key(Config.t(), id) :: response
 
   # SettlementValue
   @callback get_settlement_value(Config.t(), id, query) :: response
-  @callback create_settlement_value(Config.t(), attributes, relationships) :: response
-  @callback update_settlement_value(Config.t(), id, attributes) :: response
+  @callback create_settlement_value(Config.t(), attributes, relationships, query) :: response
+  @callback update_settlement_value(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_settlement_value(Config.t(), id) :: response
 
-  # Tenancy
-  @callback create_tenancy(Config.t(), attributes, relationships) :: response
-  @callback delete_tenancy(Config.t(), id) :: response
-  @callback get_tenancy(Config.t(), id, query) :: response
-  @callback update_tenancy(Config.t(), id, attributes) :: response
-
   # SIM
-  @callback create_sim(Config.t(), attributes) :: response
+  @callback create_sim(Config.t(), attributes, relationships, query) :: response
   @callback delete_sim(Config.t(), id) :: response
   @callback get_sim(Config.t(), id, query) :: response
   @callback get_sims(Config.t(), query) :: response
-  @callback update_sim(Config.t(), id, attributes) :: response
+  @callback update_sim(Config.t(), id, attributes, relationships, query) :: response
 
   # Statement
   @callback get_statement(Config.t(), id, query) :: response
   @callback get_statements(Config.t(), query) :: response
-  @callback create_statement(Config.t(), attributes, relationships) :: response
-  @callback update_statement(Config.t(), id, attributes) :: response
+  @callback create_statement(Config.t(), attributes, relationships, query) :: response
+  @callback update_statement(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_statement(Config.t(), id) :: response
 
   # StatementConfig
@@ -203,14 +197,20 @@ defmodule WiseHomex.ApiClientBehaviour do
   # StatementZip
   @callback create_statement_zip(Config.t(), attributes, relationships, query) :: response
 
+  # Tenancy
+  @callback create_tenancy(Config.t(), attributes, relationships, query) :: response
+  @callback delete_tenancy(Config.t(), id) :: response
+  @callback get_tenancy(Config.t(), id, query) :: response
+  @callback update_tenancy(Config.t(), id, attributes, relationships, query) :: response
+
   # User
-  @callback get_users(Config.t(), list) :: response
+  @callback get_users(Config.t(), query) :: response
 
   # UtilityReading
   @callback get_utility_reading(Config.t(), id, query) :: response
   @callback get_utility_readings(Config.t(), query) :: response
-  @callback create_utility_reading(Config.t(), attributes, relationships) :: response
-  @callback update_utility_reading(Config.t(), id, attributes, relationships) :: response
+  @callback create_utility_reading(Config.t(), attributes, relationships, query) :: response
+  @callback update_utility_reading(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_utility_reading(Config.t(), id) :: response
 
   # Wmbus Cache
@@ -218,5 +218,5 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback refresh_wmbus_cache(Config.t(), id) :: response
 
   # Zip codes
-  @callback get_zip_codes(Config.t()) :: response
+  @callback get_zip_codes(Config.t(), query) :: response
 end

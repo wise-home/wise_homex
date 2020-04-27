@@ -116,12 +116,6 @@ defmodule WiseHomex do
   # Device
 
   @doc """
-  Add a device
-  """
-  def add_device(config, gateway_id, protocol, serial),
-    do: api_client().add_device(config, gateway_id, protocol, serial)
-
-  @doc """
   Authorize a device
   """
   def authorize_device(config, device_id), do: api_client().authorize_device(config, device_id)
@@ -159,13 +153,6 @@ defmodule WiseHomex do
   """
   def update_account_email_settings(config, account_id, id, attrs),
     do: api_client().update_account_email_settings(config, account_id, id, attrs)
-
-  # Firmware
-
-  @doc """
-  Create firmware
-  """
-  def create_firmware(config, file_content), do: api_client().create_firmware(config, file_content)
 
   # Gateway
 
@@ -237,212 +224,9 @@ defmodule WiseHomex do
   # Radiator
 
   @doc """
-  Get a radiator
-  """
-  def get_radiator(config, id, query \\ %{}), do: api_client().get_radiator(config, id, query)
-
-  @doc """
-  Get multiple radiators
-  """
-  def get_radiators(config, query \\ %{}), do: api_client().get_radiators(config, query)
-
-  @doc """
   Import radiators
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
-
-  # Radiator Info
-
-  @doc """
-  Get an url to info about a radiator
-  """
-  def get_radiator_info(config, id), do: api_client().get_radiator_info(config, id)
-
-  # Room
-
-  @doc """
-  Create a room
-  """
-  def create_room(config, attrs, rels), do: api_client().create_room(config, attrs, rels)
-
-  @doc """
-  Delete a room
-  """
-  def delete_room(config, id), do: api_client().delete_room(config, id)
-
-  @doc """
-  Get a room
-  """
-  def get_room(config, id, query \\ %{}), do: api_client().get_room(config, id, query)
-
-  @doc """
-  Get multiple rooms
-  """
-  def get_rooms(config, query), do: api_client().get_rooms(config, query)
-
-  @doc """
-  Update a room
-  """
-  def update_room(config, id, attrs, rels), do: api_client().update_room(config, id, attrs, rels)
-
-  # Tenancy
-
-  @doc """
-  Create a tenancy
-  """
-  def create_tenancy(config, attrs, rels), do: api_client().create_tenancy(config, attrs, rels)
-
-  @doc """
-  Delete a tenancy
-  """
-  def delete_tenancy(config, id), do: api_client().delete_tenancy(config, id)
-
-  @doc """
-  Get a tenancy
-  """
-  def get_tenancy(config, id, query \\ %{}), do: api_client().get_tenancy(config, id, query)
-
-  @doc """
-  Update a tenancy
-  """
-  def update_tenancy(config, id, attrs), do: api_client().update_tenancy(config, id, attrs)
-
-  # SettlementKey
-
-  @doc """
-  Get SettlementKey by id
-  """
-  def get_settlement_key(config, id, query \\ %{}), do: api_client().get_settlement_key(config, id, query)
-
-  @doc """
-  List SettlementKeys
-  """
-  def get_settlement_keys(config, query), do: api_client().get_settlement_keys(config, query)
-
-  @doc """
-  Create a settlement key
-  """
-  def create_settlement_key(config, attrs, rels), do: api_client().create_settlement_key(config, attrs, rels)
-
-  @doc """
-  Update a settlement key
-  """
-  def update_settlement_key(config, id, attrs), do: api_client().update_settlement_key(config, id, attrs)
-
-  @doc """
-  Delete a settlement key
-  """
-  def delete_settlement_key(config, id), do: api_client().delete_settlement_key(config, id)
-
-  # SettlementValue
-
-  @doc """
-  Get a settlement value by id
-  """
-  def get_settlement_value(config, id, query \\ %{}), do: api_client().get_settlement_value(config, id, query)
-
-  @doc """
-  Create a settlement value
-  """
-  def create_settlement_value(config, attrs, rels), do: api_client().create_settlement_value(config, attrs, rels)
-
-  @doc """
-  Create a settlement value
-  """
-  def update_settlement_value(config, id, attrs), do: api_client().update_settlement_value(config, id, attrs)
-
-  @doc """
-  Deletes a settlement value
-  """
-  def delete_settlement_value(config, id), do: api_client().delete_settlement_value(config, id)
-
-  # SIM
-
-  @doc """
-  Create a sim card
-  """
-  def create_sim(config, attrs), do: api_client().create_sim(config, attrs)
-
-  @doc """
-  Delete a sim card
-  """
-  def delete_sim(config, id), do: api_client().delete_sim(config, id)
-
-  @doc """
-  Get a sim card
-  """
-  def get_sim(config, id, query \\ %{}), do: api_client().get_sim(config, id, query)
-
-  @doc """
-  Get multiple sim cards
-  """
-  def get_sims(config, query \\ %{}), do: api_client().get_sims(config, query)
-
-  @doc """
-  Update a sim card
-  """
-  def update_sim(config, id, attrs), do: api_client().update_sim(config, id, attrs)
-
-  # Statement
-
-  @doc """
-  Get a Statement by id
-  """
-  def get_statement(config, id, query \\ %{}), do: api_client().get_statement(config, id, query)
-
-  @doc """
-  Get multiple statements
-  """
-  def get_statements(config, query \\ %{}), do: api_client().get_statements(config, query)
-
-  @doc """
-  Create a statement
-  """
-  def create_statement(config, attrs, rels), do: api_client().create_statement(config, attrs, rels)
-
-  @doc """
-  Update a statement
-  """
-  def update_statement(config, id, attrs), do: api_client().update_statement(config, id, attrs)
-
-  @doc """
-  Delete a statement
-  """
-  def delete_statement(config, id), do: api_client().delete_statement(config, id)
-
-  # User
-
-  @doc """
-  Get multiple users
-  """
-  def get_users(config, filters \\ []), do: api_client().get_users(config, filters)
-
-  # UtilityReading
-
-  @doc """
-  Get UtilityReading by id
-  """
-  def get_utility_reading(config, id, query \\ %{}), do: api_client().get_utility_reading(config, id, query)
-
-  @doc """
-  Get UtilityReadings
-  """
-  def get_utility_readings(config, query \\ %{}), do: api_client().get_utility_readings(config, query)
-
-  @doc """
-  Create a UtilityReading
-  """
-  def create_utility_reading(config, attrs, rels), do: api_client().create_utility_reading(config, attrs, rels)
-
-  @doc """
-  Update a UtilityReading
-  """
-  def update_utility_reading(config, id, attrs, rels), do: api_client().update_utility_reading(config, id, attrs, rels)
-
-  @doc """
-  Delete a UtilityReading
-  """
-  def delete_utility_reading(config, id), do: api_client().delete_utility_reading(config, id)
 
   # Wmbus Cache
 
@@ -455,9 +239,4 @@ defmodule WiseHomex do
   Refresh wmbus cache
   """
   def refresh_wmbus_cache(config, gateway_id), do: api_client().refresh_wmbus_cache(config, gateway_id)
-
-  @doc """
-  Get zip codes and citites
-  """
-  def get_zip_codes(config), do: api_client().get_zip_codes(config)
 end

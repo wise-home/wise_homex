@@ -2,20 +2,20 @@
 
 endpoints = [
   %{
-    endpoints: [:show, :create, :update, :delete],
-    model: WiseHomex.AccountPayment,
-    name_plural: "account_payments",
-    name_singular: "account_payment",
-    path: "/account-payments",
-    type: "account-payments"
-  },
-  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Account,
     name_plural: "accounts",
     name_singular: "account",
     path: "/accounts",
     type: "accounts"
+  },
+  %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.AccountPayment,
+    name_plural: "account_payments",
+    name_singular: "account_payment",
+    path: "/account-payments",
+    type: "account-payments"
   },
   %{
     endpoints: [:index, :delete],
@@ -50,14 +50,6 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
-    endpoints: [:create],
-    model: WiseHomex.AngelNoteBunch,
-    name_plural: "angel_note_bunches",
-    name_singular: "angel_note_bunch",
-    path: "/angel-note-bunches",
-    type: "angel-note-bunches"
-  },
-  %{
     endpoints: [:create, :update, :delete],
     model: WiseHomex.AngelNote,
     name_plural: "angel_notes",
@@ -66,7 +58,15 @@ endpoints = [
     type: "angel-notes"
   },
   %{
-    endpoints: [:index, :show, :update, :delete],
+    endpoints: [:create],
+    model: WiseHomex.AngelNoteBunch,
+    name_plural: "angel_note_bunches",
+    name_singular: "angel_note_bunch",
+    path: "/angel-note-bunches",
+    type: "angel-note-bunches"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Device,
     name_plural: "devices",
     name_singular: "device",
@@ -90,7 +90,7 @@ endpoints = [
     type: "external-infos"
   },
   %{
-    endpoints: [:index, :delete],
+    endpoints: [:index, :create, :delete],
     model: WiseHomex.Firmware,
     name_plural: "firmwares",
     name_singular: "firmware",
@@ -138,6 +138,70 @@ endpoints = [
     type: "properties"
   },
   %{
+    endpoints: [:index, :show],
+    model: WiseHomex.Radiator,
+    name_plural: "radiators",
+    name_singular: "radiator",
+    path: "/radiators",
+    type: "radiators"
+  },
+  %{
+    endpoints: [:show],
+    model: WiseHomex.RadiatorInfo,
+    name_plural: "radiator_infos",
+    name_singular: "radiator_info",
+    path: "/radiator-infos",
+    type: "radiator-infos"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Room,
+    name_plural: "rooms",
+    name_singular: "room",
+    path: "/rooms",
+    type: "rooms"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.SettlementKey,
+    name_plural: "settlement_keys",
+    name_singular: "settlement_key",
+    path: "/settlement-keys",
+    type: "settlement-keys"
+  },
+  %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.SettlementValue,
+    name_plural: "settlement_values",
+    name_singular: "settlement_value",
+    path: "/settlement-values",
+    type: "settlement-values"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Sim,
+    name_plural: "sims",
+    name_singular: "sim",
+    path: "/sims",
+    type: "sims"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.Statement,
+    name_plural: "statements",
+    name_singular: "statement",
+    path: "/statements",
+    type: "statements"
+  },
+  %{
+    endpoints: [:show, :update],
+    model: WiseHomex.StatementConfig,
+    name_plural: "statement_configs",
+    name_singular: "statement_config",
+    path: "/statement-configs",
+    type: "statement-configs"
+  },
+  %{
     endpoints: [:show, :create],
     model: WiseHomex.StatementData,
     name_plural: "statement_datas",
@@ -154,6 +218,30 @@ endpoints = [
     type: "statement-zips"
   },
   %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.Tenancy,
+    name_plural: "tenancies",
+    name_singular: "tenancy",
+    path: "/tenancies",
+    type: "tenancies"
+  },
+  %{
+    endpoints: [:index],
+    model: WiseHomex.User,
+    name_plural: "users",
+    name_singular: "user",
+    path: "/users",
+    type: "users"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.UtilityReading,
+    name_plural: "utility_readings",
+    name_singular: "utility_reading",
+    path: "/utility-readings",
+    type: "utility-readings"
+  },
+  %{
     endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",
@@ -162,11 +250,11 @@ endpoints = [
     type: "wmbus-message-queries"
   },
   %{
-    endpoints: [:show, :update],
-    model: WiseHomex.StatementConfig,
-    name_plural: "statement_configs",
-    name_singular: "statement_config",
-    path: "/statement-configs",
-    type: "statement-configs"
+    endpoints: [:index],
+    model: WiseHomex.ZipCode,
+    name_plural: "zip_codes",
+    name_singular: "zip_code",
+    path: "/zip-codes",
+    type: "zip-codes"
   }
 ]

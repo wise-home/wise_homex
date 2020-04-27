@@ -19,20 +19,9 @@ defmodule WiseHomex.JSONParser do
              "message-reports" => WiseHomex.MessageReport,
              "pongs" => WiseHomex.Pong,
              "radiator-import-results" => WiseHomex.RadiatorImportResult,
-             "radiator-infos" => WiseHomex.RadiatorInfo,
-             "radiators" => WiseHomex.Radiator,
-             "rooms" => WiseHomex.Room,
-             "settlement-keys" => WiseHomex.SettlementKey,
-             "settlement-values" => WiseHomex.SettlementValue,
-             "sims" => WiseHomex.Sim,
-             "statements" => WiseHomex.Statement,
-             "tenancies" => WiseHomex.Tenancy,
-             "users" => WiseHomex.User,
-             "utility-readings" => WiseHomex.UtilityReading,
              "wmbus-device-types" => WiseHomex.WMBusDeviceType,
              "wmbus-manufacturers" => WiseHomex.WMBusManufacturer,
-             "wmbus-message-infos" => WiseHomex.WMBusMessageInfo,
-             "zip-codes" => WiseHomex.ZipCode
+             "wmbus-message-infos" => WiseHomex.WMBusMessageInfo
            }
            |> Map.merge(WiseHomex.ApiDefinition.type_to_model_mappings())
 
