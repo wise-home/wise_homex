@@ -23,6 +23,7 @@ defmodule WiseHomex.StatementConfig do
     field :household_number_length, :integer
     field :moving_fee_on_tenancy, :boolean
     field :moving_fee_price, QuantityType
+    field :pdf_naming_scheme, :string
     field :property_number_length, :integer
     field :settlement_file, :string
     field :tenancy_number_length, :integer
