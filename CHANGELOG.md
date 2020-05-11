@@ -1,5 +1,15 @@
 # Changelog for wise_homex
 
+## 0.6.75 2020-05-11
+
+* Add pdf_naming_scheme to StatementConfig model, #199
+* Update ecto 3.4.2 -> 3.4.3
+* Update earmark 1.4.3 -> 1.4.4
+* Update jason 1.2.0 -> 1.2.1
+* Update erlang 22.3.2 -> 22.3.4
+* Update credo 1.3.2 -> 1.4.0
+* Update elixir 1.10.2 -> 1.10.3
+
 ## 0.6.74 2020-04-27
 
 * Autocreate all endpoints that are not customized, #125
