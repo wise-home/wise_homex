@@ -21,6 +21,9 @@ defmodule WiseHomex.StatementConfig do
     field :hot_water_heat_ratio, DecimalType
     field :hot_water_transmission_ratio, DecimalType
     field :household_number_length, :integer
+    field :message_all, :string
+    field :message_owed, :string
+    field :message_reimbursement, :string
     field :moving_fee_on_tenancy, :boolean
     field :moving_fee_price, QuantityType
     field :pdf_naming_scheme, :string
