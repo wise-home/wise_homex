@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.77 2020-05-13
+
+* Add fuel_type to Expense model, 193
+
 ## 0.6.76 2020-05-13
 
 * Add messages to StatementConfig model, #191
