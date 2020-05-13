@@ -12,6 +12,7 @@ defmodule WiseHomex.Expense do
     field :company_name, :string
     field :currency, :string
     field :exponent, :integer
+    field :fuel_type, :string
     field :quantity, :integer
     field :total_amount, :integer
     field :unit, :string
