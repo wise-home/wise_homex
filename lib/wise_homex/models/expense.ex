@@ -7,14 +7,15 @@ defmodule WiseHomex.Expense do
 
   embedded_schema do
     belongs_to(:fiscal_year, WiseHomex.FiscalYear, type: :binary_id)
-    field(:company_name, :string)
+
     field(:accounting_date, :date)
-    field(:total_amount, :integer)
-    field(:vat_amount, :integer)
+    field(:company_name, :string)
     field(:currency, :string)
-    field(:quantity, :integer)
-    field(:unit, :string)
     field(:exponent, :integer)
+    field(:quantity, :integer)
+    field(:total_amount, :integer)
+    field(:unit, :string)
+    field(:vat_amount, :integer)
 
     timestamps(type: :utc_datetime)
   end
