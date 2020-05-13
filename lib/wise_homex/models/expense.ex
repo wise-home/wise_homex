@@ -6,7 +6,7 @@ defmodule WiseHomex.Expense do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to(:fiscal_year, WiseHomex.FiscalYear, type: :binary_id)
+    belongs_to :fiscal_year, WiseHomex.FiscalYear, type: :binary_id
 
     field :accounting_date, :date
     field :company_name, :string
