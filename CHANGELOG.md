@@ -1,8 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.76 2020-05-13
+
+* Add messages to StatementConfig model, #191
+
 ## 0.6.75 2020-05-11
 
-* Add pdf_naming_scheme to StatementConfig model, #199
+* Add pdf_naming_scheme to StatementConfig model, #189
 * Update ecto 3.4.2 -> 3.4.3
 * Update earmark 1.4.3 -> 1.4.4
 * Update jason 1.2.0 -> 1.2.1
