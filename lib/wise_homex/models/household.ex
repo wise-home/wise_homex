@@ -18,5 +18,7 @@ defmodule WiseHomex.Household do
     field :virtual, :boolean
     field :standard_dk_sort, :integer
     field :business, :boolean
+    field :taxable, :boolean
+    field :excluded, :boolean
   end
 end
