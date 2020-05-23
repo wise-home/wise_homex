@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.78 2020-05-23
+
+* taxable and excluded household fields
+* Update elixir and erlang to OTP 23
+
 ## 0.6.77 2020-05-13
 
 * Add fuel_type to Expense model, 193
