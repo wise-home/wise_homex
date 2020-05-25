@@ -7,6 +7,7 @@ defmodule WiseHomex.Household do
     belongs_to :tenant, WiseHomex.Account
     belongs_to :address, WiseHomex.Address, type: :binary_id
     belongs_to :external_info, WiseHomex.ExternalInfo
+    has_many :foreign_devices, WiseHomex.ForeignDevice
     has_many :tenancies, WiseHomex.Tenancy
     has_many :settlement_values, WiseHomex.SettlementValue
 
