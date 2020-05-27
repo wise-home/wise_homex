@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.79 2020-05-27
+
+* Add Foreign Devices, 197
+
 ## 0.6.78 2020-05-23
 
 * taxable and excluded household fields
