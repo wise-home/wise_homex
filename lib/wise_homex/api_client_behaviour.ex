@@ -94,6 +94,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_firmware(Config.t(), id) :: response
   @callback get_firmwares(Config.t(), query) :: response
 
+  # Foreign Device
+  @callback get_foreign_device(Config.t(), id, query) :: response
+  @callback get_foreign_devices(Config.t(), query) :: response
+  @callback create_foreign_device(Config.t(), attributes, relationships, query) :: response
+  @callback update_foreign_device(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_foreign_device(Config.t(), id) :: response
+
   # Fiscal Years
   @callback get_fiscal_years(Config.t(), query) :: response
   @callback get_fiscal_year(Config.t(), id, query) :: response
