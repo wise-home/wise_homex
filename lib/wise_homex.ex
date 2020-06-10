@@ -126,11 +126,6 @@ defmodule WiseHomex do
   def deauthorize_device(config, device_id), do: api_client().deauthorize_device(config, device_id)
 
   @doc """
-  Fast ping a device
-  """
-  def fast_ping_device(config, id), do: api_client().fast_ping_device(config, id)
-
-  @doc """
   Set device location
   """
   def set_device_location(config, device_id, attrs, rels),

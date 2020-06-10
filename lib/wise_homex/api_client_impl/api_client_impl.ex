@@ -57,18 +57,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.delete(config, "/devices/" <> device_id <> "/authorizations")
   end
 
-  def fast_ping_device(config, id) do
-    params =
-      %{
-        data: %{
-          type: "device-fast-pings"
-        }
-      }
-      |> normalize_payload
-
-    Request.post(config, "/devices/" <> id <> "/fast-pings", params)
-  end
-
   def set_device_location(config, device_id, attrs, rels) do
     payload =
       %{
