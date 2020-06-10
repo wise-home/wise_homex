@@ -731,9 +731,9 @@ defmodule WiseHomex.JSONParserTest do
         %{
           "attributes" => %{
             "events" => [
-              ["Waiting for device to become responsive", "2019-09-27T20:14:23.942737Z"]
+              ["Device configured", "2019-09-27T20:14:23.942737Z"]
             ],
-            "name" => "Fast ping",
+            "name" => "Configuring device",
             "started-at" => "2019-09-27T20:14:23.942389Z",
             "stopped-at" => "2019-09-27T20:23:53.450495Z"
           },
@@ -747,9 +747,9 @@ defmodule WiseHomex.JSONParserTest do
     [report] = JSONParser.parse(data)
 
     [event] = report.events
-    assert event.description == "Waiting for device to become responsive"
+    assert event.description == "Device configured"
     assert event.time == ~U[2019-09-27 20:14:23Z]
-    assert report.name == "Fast ping"
+    assert report.name == "Configuring device"
     assert report.started_at == ~U[2019-09-27 20:14:23Z]
     assert report.stopped_at == ~U[2019-09-27 20:23:53Z]
   end
