@@ -99,6 +99,13 @@ defmodule WiseHomex do
   def create_account_invitation(config, account_id, attrs),
     do: api_client().create_account_invitation(config, account_id, attrs)
 
+  # Add start readings
+
+  @doc """
+  Add zero-valued start readings for all devices that does not have any readings near the start of a statement period
+  """
+  def add_start_readings(config, statement_id), do: api_client().add_start_readings(config, statement_id)
+
   # Angel Note
 
   @doc """

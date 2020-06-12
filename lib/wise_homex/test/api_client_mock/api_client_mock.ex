@@ -15,6 +15,11 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_account_invitation, %{account_id: account_id, attrs: attrs})
   end
 
+  # Add start readings
+  def add_start_readings(_config, statement_id) do
+    call_and_get_mock_value(:add_start_readings, %{statement_id: statement_id})
+  end
+
   # Angel Note
   def get_angel_note(_config, target_type, target_id) do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})

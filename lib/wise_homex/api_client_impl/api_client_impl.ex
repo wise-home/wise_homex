@@ -27,6 +27,22 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/accounts/" <> account_id <> "/invitations", payload)
   end
 
+  # Add start readings
+  def add_start_readings(config, statement_id) do
+    payload =
+      %{
+        data: %{
+          type: "add-start-readings-result",
+          relationships: %{
+            statement: %{data: %{type: "statements", id: statement_id}}
+          }
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/add-start-readings", payload)
+  end
+
   # Angel Note
   def get_angel_note(config, target_type, target_id) do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
