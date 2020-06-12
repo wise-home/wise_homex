@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.80 2020-06-12
+
+* Remove fast_ping endpoint, 199
+* Add add_start_readings endpoint, 202
+
 ## 0.6.79 2020-05-27
 
 * Add Foreign Devices, 197
