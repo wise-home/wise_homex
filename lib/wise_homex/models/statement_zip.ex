@@ -5,5 +5,6 @@ defmodule WiseHomex.StatementZip do
 
   embedded_schema do
     field :zip_content, :string
+    field :zip_file_name, :string
   end
 end
