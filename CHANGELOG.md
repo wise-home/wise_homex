@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.81 2020-06-15
+
+* Add zip_file_name to StatementZip, 204
+
 ## 0.6.80 2020-06-12
 
 * Remove fast_ping endpoint, 199
