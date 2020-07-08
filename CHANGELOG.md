@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.82 2020-07-08
+
+* Added customer_reference to statement_config
+* Update earmark 1.4.5 -> 1.4.7
+* Update telemetry 0.4.1 -> 0.4.2
+* Update httpoison 1.6.2 -> 1.7.0
+* Update ecto 3.4.4 -> 3.4.5
+
 ## 0.6.81 2020-06-15
 
 * Add zip_file_name to StatementZip, 204
