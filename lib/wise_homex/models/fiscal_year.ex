@@ -10,6 +10,7 @@ defmodule WiseHomex.FiscalYear do
     belongs_to(:statement, WiseHomex.Statement)
     has_many(:expenses, WiseHomex.FiscalYear)
     has_many(:account_payments, WiseHomex.AccountPayment)
+    has_many(:vacancy_account_payments, WiseHomex.VacancyAccountPayment)
     embeds_many(:tenancies, WiseHomex.Tenancy)
 
     field(:utility_type, :string)
