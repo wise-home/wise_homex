@@ -11,6 +11,7 @@ defmodule WiseHomex.Vacancy do
     belongs_to :vacancy_info, WiseHomex.VacancyInfo
 
     field :number, :integer
-    field :period, :map
+    field :start_date, :date
+    field :end_date, :date
   end
 end
