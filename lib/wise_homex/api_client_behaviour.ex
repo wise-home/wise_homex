@@ -28,6 +28,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback create_account_payment(Config.t(), attributes, relationships, query) :: response
   @callback delete_account_payment(Config.t(), id) :: response
   @callback get_account_payment(Config.t(), id, query) :: response
+  @callback get_account_payments(Config.t(), query) :: response
   @callback update_account_payment(Config.t(), id, attributes, relationships, query) :: response
 
   # Account User
@@ -221,6 +222,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback create_utility_reading(Config.t(), attributes, relationships, query) :: response
   @callback update_utility_reading(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_utility_reading(Config.t(), id) :: response
+
+  # Account Payment
+  @callback update_vacancy_account_payment(Config.t(), id, attributes, relationships, query) :: response
 
   # Wmbus Cache
   @callback get_wmbus_cache(Config.t(), id, query) :: response
