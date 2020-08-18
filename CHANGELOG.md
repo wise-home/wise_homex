@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.83 2020-07-18
+
+* Add Vacancy, VacancyInfo and VacancyAccountPayment, 211
+
 ## 0.6.82 2020-07-08
 
 * Added customer_reference to statement_config
