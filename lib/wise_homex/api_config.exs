@@ -10,7 +10,7 @@ endpoints = [
     type: "accounts"
   },
   %{
-    endpoints: [:show, :create, :update, :delete],
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.AccountPayment,
     name_plural: "account_payments",
     name_singular: "account_payment",
@@ -248,6 +248,14 @@ endpoints = [
     name_singular: "utility_reading",
     path: "/utility-readings",
     type: "utility-readings"
+  },
+  %{
+    endpoints: [:update],
+    model: WiseHomex.VacancyAccountPayment,
+    name_plural: "vacancy-account-payments",
+    name_singular: "vacancy_account_payment",
+    path: "/vacancy-account-payments",
+    type: "vacancy-account-payments"
   },
   %{
     endpoints: [:create],
