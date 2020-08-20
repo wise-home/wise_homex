@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.84 2020-07-20
+
+* Add :enabled field on StatementConfig, 213
+
 ## 0.6.83 2020-07-18
 
 * Add Vacancy, VacancyInfo and VacancyAccountPayment, 211
