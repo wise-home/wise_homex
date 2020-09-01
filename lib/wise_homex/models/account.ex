@@ -5,9 +5,9 @@ defmodule WiseHomex.Account do
 
   embedded_schema do
     belongs_to :owner, __MODULE__
-    has_many :tenancies, WiseHomex.Tenancy, foreign_key: :tenant_id
     has_many :admin_integrations, WiseHomex.AdminIntegration, foreign_key: :admin_id
     has_many :account_users, WiseHomex.AccountUser
+    has_one :tenancies, WiseHomex.Tenancy, foreign_key: :tenant_id
 
     field :name, :string
     field :role, :string
