@@ -34,6 +34,14 @@ endpoints = [
     type: "addresses"
   },
   %{
+    endpoints: [:show, :update],
+    model: WiseHomex.AdminData,
+    name_plural: "admin_datas",
+    name_singular: "admin_data",
+    path: "/admin-datas",
+    type: "admin-datas"
+  },
+  %{
     endpoints: [:index, :show, :delete],
     model: WiseHomex.AdminIntegration,
     name_plural: "admin_integrations",
