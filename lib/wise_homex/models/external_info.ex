@@ -4,9 +4,10 @@ defmodule WiseHomex.ExternalInfo do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    field :system, :string
+    field :company_number, :integer
+    field :last_synced_at, :utc_datetime
     field :number, :string
     field :synced, :boolean
-    field :last_synced_at, :utc_datetime
+    field :system, :string
   end
 end
