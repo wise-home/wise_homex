@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.88 2020-09-16
+
+* Rename require_customer_number -> require_customer_reference, 222
+
 ## 0.6.87 2020-09-16
 
 * Add AdminData model, endpoints and behaviour, 220
