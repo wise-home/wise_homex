@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.87 2020-09-16
+
+* Add AdminData model, endpoints and behaviour, 220
+
 ## 0.6.86 2020-09-15
 
 * Add :company_number to ExternalInfo, 219
