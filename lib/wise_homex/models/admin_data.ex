@@ -6,6 +6,6 @@ defmodule WiseHomex.AdminData do
   embedded_schema do
     belongs_to :account, WiseHomex.Account
 
-    field :require_customer_number, :boolean
+    field :require_customer_reference, :boolean
   end
 end
