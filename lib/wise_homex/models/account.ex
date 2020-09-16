@@ -8,6 +8,7 @@ defmodule WiseHomex.Account do
     has_many :admin_integrations, WiseHomex.AdminIntegration, foreign_key: :admin_id
     has_many :account_users, WiseHomex.AccountUser
     has_one :tenancy, WiseHomex.Tenancy, foreign_key: :tenant_id
+    has_one :admin_data, WiseHomex.AdminData
 
     field :name, :string
     field :role, :string

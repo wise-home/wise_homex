@@ -44,6 +44,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Add start readings
   @callback add_start_readings(Config.t(), id) :: response
 
+  # Admin Data
+  @callback get_admin_data(Config.t(), id, query) :: response
+  @callback update_admin_data(Config.t(), id, attributes, relationships, query) :: response
+
   # Admin Integration
   @callback delete_admin_integration(Config.t(), id) :: response
   @callback get_admin_integration(Config.t(), id, query) :: response
