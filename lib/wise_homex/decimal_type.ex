@@ -9,7 +9,13 @@ defmodule WiseHomex.DecimalType do
   def type, do: :string
 
   @impl Ecto.Type
-  def cast(value) when is_binary(value), do: Decimal.parse(value)
+  def cast(value) when is_binary(value) do
+    case Decimal.parse(value) do
+      {%Decimal{} = decimal, ""} -> {:ok, decimal}
+      _ -> :error
+    end
+  end
+
   def cast(%Decimal{} = value), do: {:ok, value}
   def cast(nil), do: {:ok, nil}
   def cast(_), do: :error
