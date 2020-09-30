@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.89 2020-09-30
+
+* Update Decimal to 2.0.0, 226
+
 ## 0.6.88 2020-09-16
 
 * Rename require_customer_number -> require_customer_reference, 222
