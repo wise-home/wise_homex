@@ -12,8 +12,9 @@ defmodule WiseHomex.ApiClientImpl.Creator do
   end
 
   @doc """
-  Create an index endpoint
+  Functions for creating endpoints at compile time
   """
+  # Create an index endpoint
   def create_endpoint(%{verb: :index} = api_endpoint) do
     function_name = "get_#{api_endpoint.name_plural}" |> String.to_atom()
 
@@ -24,9 +25,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     end
   end
 
-  @doc """
-  Create a show endpoint
-  """
+  # Create a show endpoint
   def create_endpoint(%{verb: :show} = api_endpoint) do
     function_name = "get_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -38,9 +37,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     end
   end
 
-  @doc """
-  Create a create endpoint
-  """
+  # Create a create endpoint
   def create_endpoint(%{verb: :create} = api_endpoint) do
     function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -61,9 +58,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     end
   end
 
-  @doc """
-  Create an update endpoint
-  """
+  # Create an update endpoint
   def create_endpoint(%{verb: :update} = api_endpoint) do
     function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -86,9 +81,7 @@ defmodule WiseHomex.ApiClientImpl.Creator do
     end
   end
 
-  @doc """
-  Create a delete endpoint
-  """
+  # Create a delete endpoint
   def create_endpoint(%{verb: :delete} = api_endpoint) do
     function_name = "delete_#{api_endpoint.name_singular}" |> String.to_atom()
 

@@ -12,8 +12,9 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
   end
 
   @doc """
-  Create a mock index function
+  Functions for creating endpoints at compile time
   """
+  # Create a mock index function
   def create_endpoint(%{verb: :index} = api_endpoint) do
     function_name = "get_#{api_endpoint.name_plural}" |> String.to_atom()
 
@@ -24,9 +25,7 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     end
   end
 
-  @doc """
-  Create a mock show function
-  """
+  # Create a mock show function
   def create_endpoint(%{verb: :show} = api_endpoint) do
     function_name = "get_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -37,9 +36,7 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     end
   end
 
-  @doc """
-  Create a mock create function
-  """
+  # Create a mock create function
   def create_endpoint(%{verb: :create} = api_endpoint) do
     function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -55,9 +52,7 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     end
   end
 
-  @doc """
-  Create a mock update function
-  """
+  # Create a mock update function
   def create_endpoint(%{verb: :update} = api_endpoint) do
     function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -73,9 +68,7 @@ defmodule WiseHomex.Test.ApiClientMock.Creator do
     end
   end
 
-  @doc """
-  Create a mock delete function
-  """
+  # Create a mock delete function
   def create_endpoint(%{verb: :delete} = api_endpoint) do
     function_name = "delete_#{api_endpoint.name_singular}" |> String.to_atom()
 
