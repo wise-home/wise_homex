@@ -1,5 +1,20 @@
 # Changelog for wise_homex
 
+## 0.6.90 2020-10-20
+
+* Remove duplicated docs, 229
+* Update ex_doc 0.22.6 -> 0.23.0, 229
+* Update ecto 3.5.0 -> 3.5.2, 229
+* Update credo 1.4.0 -> 1.4.1, 229
+* Update README.md, 229
+* Update main.yml for GitHub Actions, 229
+* Update elixir 1.10.4 -> 1.11.1, 229
+* Update makeup_elixir 0.14.1 -> 0.15.0, 228
+* Update makeup 1.0.4 -> 1.0.5, nimble_parsec 1.0.0 -> 1.1.0, 228
+* Update ecto 3.4.6 -> 3.5.0, 228
+* Update main.yml, README.md, 228
+* Update erlang 23.1 -> 23.1.1, 228
+
 ## 0.6.89 2020-09-30
 
 * Update Decimal to 2.0.0, 226
