@@ -98,17 +98,13 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     }
   end
 
-  @doc """
-  Push a new mock value to the stack of calls
-
-  - api_function is the key of the function called, e.g. :get_gateways
-  - opts is a map with the request attributes, which can include :id, :query, :attrs and :rels,
-    but also attributes specific to the api functions, e.g. :gateway_id.
-  - value is the value to be returned from the mock
-
-  Note that the mocks map will be populated with keys that are tuples of an atom and a map.
-  As key order doesn't mapper when comparing maps, this will enable us to set precise mocks.
-  """
+  # Push a new mock value to the stack of calls
+  # - api_function is the key of the function called, e.g. :get_gateways
+  # - opts is a map with the request attributes, which can include :id, :query, :attrs and :rels,
+  #   but also attributes specific to the api functions, e.g. :gateway_id.
+  # - value is the value to be returned from the mock
+  # Note that the mocks map will be populated with keys that are tuples of an atom and a map.
+  # As key order doesn't mapper when comparing maps, this will enable us to set precise mocks.
   @impl GenServer
   def handle_call({:push_mock_value, api_function, opts, value}, _from, state) do
     key = {api_function, opts}
@@ -122,9 +118,7 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     {:reply, :ok, state}
   end
 
-  @doc """
-  Pop a value from the mock
-  """
+  # Pop a value from the mock
   def handle_call({:pop_mock_value, api_function, opts}, _from, state) do
     key = {api_function, opts}
 
@@ -147,17 +141,13 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     {:reply, return_value, state}
   end
 
-  @doc """
-  Get remaining mock calls
-  """
+  # Get remaining mock calls
   def handle_call(:get_all_mocks, _from, state) do
     {:reply, Map.fetch!(state, :mocks), state}
   end
 
-  @doc """
-  Push a call with opts to the mock
-  It will update the calls map with e.g. %{get_gateways: [%{query: %{}}, %{query: %{"include" => "devices"}}, ...]}
-  """
+  # Push a call with opts to the mock
+  # It will update the calls map with e.g. %{get_gateways: [%{query: %{}}, %{query: %{"include" => "devices"}}, ...]}
   def handle_call({:called!, api_function, opts}, _from, state) do
     state =
       update_in(state, [:calls, api_function], fn
@@ -168,12 +158,7 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     {:reply, :ok, state}
   end
 
-  @doc """
-  Receive a call from mock including its opts
-
-  First we are receiving the list of opts an api function was called with, then we are searching that list
-  for the
-  """
+  # Receive a call from mock including its opts
   def handle_call({:called?, api_function}, _from, state) do
     {opts, state} =
       get_and_update_in(state, [:calls, api_function], fn

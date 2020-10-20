@@ -15,8 +15,9 @@ defmodule WiseHomex.Creator do
   end
 
   @doc """
-  Create an index function that delegates to api_client()
+  Functions for creating endpoints at compile time
   """
+  # Create an index function that delegates to api_client()
   def create_endpoint(%{verb: :index} = api_endpoint) do
     function_name = "get_#{api_endpoint.name_plural}" |> String.to_atom()
 
@@ -25,9 +26,7 @@ defmodule WiseHomex.Creator do
     end
   end
 
-  @doc """
-  Create a show function that delegates to api_client()
-  """
+  # Create a show function that delegates to api_client()
   def create_endpoint(%{verb: :show} = api_endpoint) do
     function_name = "get_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -36,9 +35,7 @@ defmodule WiseHomex.Creator do
     end
   end
 
-  @doc """
-  Create a create function that delegates to api_client()
-  """
+  # Create a create function that delegates to api_client()
   def create_endpoint(%{verb: :create} = api_endpoint) do
     function_name = "create_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -48,9 +45,7 @@ defmodule WiseHomex.Creator do
     end
   end
 
-  @doc """
-  Create an update function that delegates to api_client()
-  """
+  # Create an update function that delegates to api_client()
   def create_endpoint(%{verb: :update} = api_endpoint) do
     function_name = "update_#{api_endpoint.name_singular}" |> String.to_atom()
 
@@ -60,9 +55,7 @@ defmodule WiseHomex.Creator do
     end
   end
 
-  @doc """
-  Create a delete function that delegates to api_client()
-  """
+  # Create a delete function that delegates to api_client()
   def create_endpoint(%{verb: :delete} = api_endpoint) do
     function_name = "delete_#{api_endpoint.name_singular}" |> String.to_atom()
 
