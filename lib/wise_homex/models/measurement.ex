@@ -7,7 +7,7 @@ defmodule WiseHomex.Measurement do
     field :measurement_at, :utc_datetime
     field :meter_type, :string
 
-    field :value, :integer
+    field :base_value, :integer
     # Base 10
     field :exponent, :integer
     field :unit, :string
