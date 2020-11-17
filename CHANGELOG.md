@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.91 2020-11-17
+
+* Rename Measurement.value -> base_value, 234
+* Use latest setup-elixir on v 1.x.x, 233
+
 ## 0.6.90 2020-10-20
 
 * Remove duplicated docs, 229
