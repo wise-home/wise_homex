@@ -6,10 +6,6 @@ defmodule WiseHomex.Measurement do
   embedded_schema do
     field :measurement_at, :utc_datetime
     field :meter_type, :string
-
-    field :base_value, :integer
-    # Base 10
-    field :exponent, :integer
-    field :unit, :string
+    field :value, WiseHomex.QuantityType
   end
 end
