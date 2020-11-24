@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.92 2020-11-24
+
+* Add fields for shared household config, 236
+
 ## 0.6.91 2020-11-17
 
 * Rename Measurement.value -> base_value, 234
