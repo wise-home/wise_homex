@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.93 2020-11-24
+
+* Add support for triggering a device re-balancing, 237
+
 ## 0.6.92 2020-11-24
 
 * Add fields for shared household config, 236
