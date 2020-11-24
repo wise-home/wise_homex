@@ -103,6 +103,22 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/import", payload)
   end
 
+  # Device balancer
+
+  def rebalance_devices(config, admin_id) do
+    payload = %{
+      data: %{
+        type: "device-balancers",
+        attributes: %{},
+        relationships: %{admin: %{data: %{id: admin_id, type: "admin"}}}
+      }
+    }
+
+    config
+    |> Map.put(:timeout, 60_000)
+    |> Request.post("/device-balancer", payload)
+  end
+
   # Email Settings
   def update_account_email_settings(config, account_id, id, attrs) do
     payload =

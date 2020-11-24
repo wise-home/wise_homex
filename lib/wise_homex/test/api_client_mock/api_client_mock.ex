@@ -51,6 +51,11 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})
   end
 
+  # Device Balancer
+  def rebalance_devices(_config, admin_id) do
+    call_and_get_mock_value(:rebalance_devices, %{admin_id: admin_id})
+  end
+
   # Email Settings
   def update_account_email_settings(_config, account_id, id, attrs) do
     call_and_get_mock_value(:update_account_email_settings, %{
