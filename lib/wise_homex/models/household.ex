@@ -11,6 +11,10 @@ defmodule WiseHomex.Household do
     has_many :tenancies, WiseHomex.Tenancy
     has_many :settlement_values, WiseHomex.SettlementValue
 
+    # shared household config
+    belongs_to :shared_settlement_key, WiseHomex.SettlementKey
+    has_many :shared_to, WiseHomex.Household
+
     field :apartment, :string
     field :active_from, :date
     field :active_to, :date
