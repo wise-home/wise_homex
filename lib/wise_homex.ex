@@ -148,6 +148,13 @@ defmodule WiseHomex do
   """
   def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
 
+  # Device Balancer
+
+  @doc """
+  Rebalance devices
+  """
+  def rebalance_devices(config, admin_id), do: api_client().rebalance_devices(config, admin_id)
+
   # Email Settings
 
   @doc """
