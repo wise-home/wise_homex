@@ -242,6 +242,14 @@ endpoints = [
     type: "tenancies"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.UnsuccessfulVisit,
+    name_plural: "unsuccessful_visits",
+    name_singular: "unsuccessful_visit",
+    path: "/unsuccessful-visits",
+    type: "unsuccessful-visits"
+  },
+  %{
     endpoints: [:index],
     model: WiseHomex.User,
     name_plural: "users",
