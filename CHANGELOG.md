@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.94 2020-11-25
+
+* Replace base_value, exponent, unit with value on Measurement model, 238
+
 ## 0.6.93 2020-11-24
 
 * Add support for triggering a device re-balancing, 237
