@@ -1,5 +1,14 @@
 # Changelog for wise_homex
 
+## 0.6.95 2020-12-03
+
+* Add unmanaged field to Device
+* Add support for UnsuccessfulVisit
+* Update file_system 0.2.9 -> 0.2.10
+* Update ecto 3.5.4 -> 3.5.5
+* Update main.yml, README.md
+* Update erlang 23.1.2 -> 23.1.4
+
 ## 0.6.94 2020-11-25
 
 * Replace base_value, exponent, unit with value on Measurement model, 238
