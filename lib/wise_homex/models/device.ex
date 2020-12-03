@@ -23,6 +23,7 @@ defmodule WiseHomex.Device do
     field :reduction_factor, WiseHomex.DecimalType
     field :serial, :string
     field :signal_strength, :integer
+    field :unmanaged, :boolean
 
     embeds_many :signal_strength_history, Signal, primary_key: false do
       field :time, :utc_datetime
