@@ -12,5 +12,7 @@ defmodule WiseHomex.HeatSource do
     field :remote, :boolean
     field :source_type, :string
     field :radiator_string, :string
+    field :active_from, :date
+    field :active_to, :date
   end
 end
