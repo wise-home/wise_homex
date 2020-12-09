@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.96 2020-12-09
+
+* Add active_from, active_to to HeatSource, 245
+* Update earmark_parser 1.4.10 -> 1.4.12, 243
+* Remove unused earmark dependency, 243
+
 ## 0.6.95 2020-12-03
 
 * Add unmanaged field to Device
