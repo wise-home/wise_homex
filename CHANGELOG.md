@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.97 2020-12-10
+
+* Add devices to heat_source model, 247
+
 ## 0.6.96 2020-12-09
 
 * Add active_from, active_to to HeatSource, 245
