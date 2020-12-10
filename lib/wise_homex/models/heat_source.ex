@@ -6,6 +6,7 @@ defmodule WiseHomex.HeatSource do
   embedded_schema do
     belongs_to :room, WiseHomex.Room
     belongs_to :radiator, WiseHomex.Radiator
+    has_many :devices, WiseHomex.Device
 
     field :floor_area, WiseHomex.QuantityType
     field :length, :integer
