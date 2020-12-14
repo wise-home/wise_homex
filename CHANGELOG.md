@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.98 2020-12-14
+
+* Add :create, :delete, :update endpoints to heat sources, 249
+
 ## 0.6.97 2020-12-10
 
 * Add devices to heat_source model, 247
