@@ -130,7 +130,7 @@ endpoints = [
     type: "gateways"
   },
   %{
-    endpoints: [:index, :show],
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.HeatSource,
     name_plural: "heat_sources",
     name_singular: "heat_source",
