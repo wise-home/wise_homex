@@ -11,6 +11,11 @@ defmodule WiseHomex.Property do
     has_many :fiscal_years, WiseHomex.FiscalYear
     has_one :statement_config, WiseHomex.StatementConfig
 
+    belongs_to :snapshot_of, __MODULE__
+    has_one :snapshot, __MODULE__, foreign_key: :snapshot_of_id
+
+    field :active_from, :date
+    field :active_to, :date
     field :name, :string
     field :legal_name, :string
     field :number, :integer
