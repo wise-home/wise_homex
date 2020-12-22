@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.99 2020-12-22
+
+* Remove :installation_year from Device model, 252
+* Add :snapshot_of, :snapshot, :active_from, :active_to fields to Property model, 254
+
 ## 0.6.98 2020-12-14
 
 * Add :create, :delete, :update endpoints to heat sources, 249
