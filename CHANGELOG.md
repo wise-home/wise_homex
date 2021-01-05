@@ -1,5 +1,13 @@
 # Changelog for wise_homex
 
+## 0.6.100 2021-01-05
+
+* Add published field to Property, 256
+* Update hackney 1.16.0 -> 1.17.0 (and its deps), 258
+* Update quantity 0.6.0 -> 0.6.1, 258
+* Update credo 1.5.3 -> 1.5.4, 258
+* Update erlang 23.2 -> 23.2.1, 258
+
 ## 0.6.99 2020-12-22
 
 * Remove :installation_year from Device model, 252
