@@ -17,6 +17,7 @@ defmodule WiseHomex.Expense do
     field :total_amount, :integer
     field :unit, :string
     field :vat_amount, :integer
+    field :partial, :boolean
 
     timestamps type: :utc_datetime
   end
