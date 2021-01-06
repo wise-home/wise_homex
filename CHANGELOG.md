@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.101 2021-01-06
+
+* Add last measurements to device, 259
+
 ## 0.6.100 2021-01-05
 
 * Add published field to Property, 256
