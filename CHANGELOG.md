@@ -3,6 +3,7 @@
 ## 0.6.101 2021-01-06
 
 * Add last measurements to device, 259
+* Add partial to expense, 257
 
 ## 0.6.100 2021-01-05
 
