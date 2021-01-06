@@ -24,6 +24,8 @@ defmodule WiseHomex.Device do
     field :signal_strength, :integer
     field :unmanaged, :boolean
 
+    has_many :last_measurements, WiseHomex.Measurement
+
     embeds_many :signal_strength_history, Signal, primary_key: false do
       field :time, :utc_datetime
       field :signal_strength, :integer
