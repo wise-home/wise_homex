@@ -23,6 +23,7 @@ defmodule WiseHomex.Radiator do
     field :model, :string
     field :performance_per_element, :float
     field :radiator_type, :string
+    field :radiator_string, :string
     field :surface_type, :string
   end
 end
