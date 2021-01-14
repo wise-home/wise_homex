@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.102 2021-01-14
+
+* Add radiator_string to Radiator, 261
+
 ## 0.6.101 2021-01-06
 
 * Add last measurements to device, 259
