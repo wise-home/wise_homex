@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.102 2021-01-27
+
+* Add unsuccessful visits to Household, 263
+
 ## 0.6.102 2021-01-14
 
 * Add radiator_string to Radiator, 261
