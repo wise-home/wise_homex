@@ -92,6 +92,34 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_external_info(Config.t(), id) :: response
   @callback update_external_info(Config.t(), id, attributes, relationships, query) :: response
 
+  # External Households
+  @callback get_external_households(Config.t(), query) :: response
+  @callback get_external_household(Config.t(), id, query) :: response
+  @callback create_external_household(Config.t(), attributes, relationships, query) :: response
+  @callback update_external_household(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_external_household(Config.t(), id) :: response
+
+  # External Properties
+  @callback get_external_properties(Config.t(), query) :: response
+  @callback get_external_property(Config.t(), id, query) :: response
+  @callback create_external_property(Config.t(), attributes, relationships, query) :: response
+  @callback update_external_property(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_external_property(Config.t(), id) :: response
+
+  # External Tenancies
+  @callback get_external_tenancies(Config.t(), query) :: response
+  @callback get_external_tenancy(Config.t(), id, query) :: response
+  @callback create_external_tenancy(Config.t(), attributes, relationships, query) :: response
+  @callback update_external_tenancy(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_external_tenancy(Config.t(), id) :: response
+
+  # External Vacancies
+  @callback get_external_vacancies(Config.t(), query) :: response
+  @callback get_external_vacancy(Config.t(), id, query) :: response
+  @callback create_external_vacancy(Config.t(), attributes, relationships, query) :: response
+  @callback update_external_vacancy(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_external_vacancy(Config.t(), id) :: response
+
   # Expense
   @callback get_expenses(Config.t(), query) :: response
   @callback get_expense(Config.t(), id, query) :: response
