@@ -9,6 +9,7 @@ defmodule WiseHomex.Vacancy do
   embedded_schema do
     belongs_to :household, WiseHomex.Household
     belongs_to :vacancy_info, WiseHomex.VacancyInfo
+    has_many :external_vacancies, WiseHomex.ExternalVacancy
 
     field :number, :integer
     field :start_date, :date

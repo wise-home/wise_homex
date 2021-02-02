@@ -5,8 +5,8 @@ defmodule WiseHomex.Property do
 
   embedded_schema do
     belongs_to :admin, WiseHomex.Account
-    belongs_to :external_info, WiseHomex.ExternalInfo
     has_many :addresses, WiseHomex.Address
+    has_many :external_properties, WiseHomex.ExternalProperty
     has_many :statements, WiseHomex.Statement
     has_one :statement_config, WiseHomex.StatementConfig
 
