@@ -1,6 +1,11 @@
 # Changelog for wise_homex
 
-## 0.6.102 2021-01-27
+## 0.6.104 2021-02-02
+
+* Remove relation from :fiscal_year to :property, 266
+* Update dependencies, 264
+
+## 0.6.103 2021-01-27
 
 * Add unsuccessful visits to Household, 263
 
