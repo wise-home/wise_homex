@@ -6,13 +6,11 @@ defmodule WiseHomex.ExternalHousehold do
   embedded_schema do
     belongs_to :household, WiseHomex.Household
     belongs_to :external_property, WiseHomex.ExternalProperty, type: :binary_id
+    has_many :external_tenancies, WiseHomex.ExternalTenancy
+    has_many :external_vacancies, WiseHomex.ExternalVacancy
 
-    belongs_to :admin, WiseHomex.Account
     field :system, Ecto.Enum, values: WiseHomex.ExternalSystem.values()
-    field :external_id, :string
-
     field :number, :integer
-
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
   end
