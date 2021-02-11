@@ -90,12 +90,36 @@ endpoints = [
     type: "expenses"
   },
   %{
-    endpoints: [:create, :update, :delete],
-    model: WiseHomex.ExternalInfo,
-    name_plural: "external_infos",
-    name_singular: "external_info",
-    path: "/external-infos",
-    type: "external-infos"
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ExternalHousehold,
+    name_plural: "external_households",
+    name_singular: "external_household",
+    path: "/external-households",
+    type: "external-households"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ExternalProperty,
+    name_plural: "external_properties",
+    name_singular: "external_property",
+    path: "/external-properties",
+    type: "external-properties"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ExternalTenancy,
+    name_plural: "external_tenancies",
+    name_singular: "external_tenancy",
+    path: "/external-tenancies",
+    type: "external-tenancies"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ExternalVacancy,
+    name_plural: "external_vacancies",
+    name_singular: "external_vacancy",
+    path: "/external-vacancies",
+    type: "external-vacancies"
   },
   %{
     endpoints: [:index, :create, :delete],
