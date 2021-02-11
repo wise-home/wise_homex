@@ -122,14 +122,6 @@ endpoints = [
     type: "external-vacancies"
   },
   %{
-    endpoints: [:create, :update, :delete],
-    model: WiseHomex.ExternalInfo,
-    name_plural: "external_infos",
-    name_singular: "external_info",
-    path: "/external-infos",
-    type: "external-infos"
-  },
-  %{
     endpoints: [:index, :create, :delete],
     model: WiseHomex.Firmware,
     name_plural: "firmwares",
