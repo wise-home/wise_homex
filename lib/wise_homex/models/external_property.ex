@@ -12,6 +12,6 @@ defmodule WiseHomex.ExternalProperty do
     field :company_number, :integer
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
-    field :sync_method, Ecto.Enum, values: [:none, :lurtz, :api]
+    field :sync_method, :string
   end
 end
