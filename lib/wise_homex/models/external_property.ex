@@ -7,7 +7,7 @@ defmodule WiseHomex.ExternalProperty do
     belongs_to :property, WiseHomex.Property
     has_many :external_households, WiseHomex.ExternalHousehold
 
-    field :system, Ecto.Enum, values: WiseHomex.ExternalSystem.values()
+    field :system, :string
     field :number, :integer
     field :company_number, :integer
     field :synced, :boolean

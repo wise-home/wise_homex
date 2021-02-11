@@ -9,7 +9,7 @@ defmodule WiseHomex.ExternalHousehold do
     has_many :external_tenancies, WiseHomex.ExternalTenancy
     has_many :external_vacancies, WiseHomex.ExternalVacancy
 
-    field :system, Ecto.Enum, values: WiseHomex.ExternalSystem.values()
+    field :system, :string
     field :number, :integer
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
