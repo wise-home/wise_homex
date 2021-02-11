@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.105 2021-02-11
+
+* Add external parts, remove external-infos, 268
+
 ## 0.6.104 2021-02-02
 
 * Remove relation from :fiscal_year to :property, 266
