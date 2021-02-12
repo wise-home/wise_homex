@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.106 2021-02-12
+
+* Add StatementFile model and endpoint, 270
+
 ## 0.6.105 2021-02-11
 
 * Add external parts, remove external-infos, 268
