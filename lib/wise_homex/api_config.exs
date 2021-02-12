@@ -251,6 +251,14 @@ endpoints = [
   },
   %{
     endpoints: [:create],
+    model: WiseHomex.StatementFile,
+    name_plural: "statement_files",
+    name_singular: "statement_file",
+    path: "/statement-files",
+    type: "statement-files"
+  },
+  %{
+    endpoints: [:create],
     model: WiseHomex.StatementZip,
     name_plural: "statement_zips",
     name_singular: "statement_zip",
