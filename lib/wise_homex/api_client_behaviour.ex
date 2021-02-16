@@ -101,6 +101,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_external_property(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_external_property(Config.t(), id) :: response
 
+  # External Resources
+  @callback get_external_resources(Config.t(), query) :: response
+  @callback get_external_resource(Config.t(), id, query) :: response
+  @callback create_external_resource(Config.t(), attributes, relationships, query) :: response
+  @callback update_external_resource(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_external_resource(Config.t(), id) :: response
+
   # External Tenancies
   @callback get_external_tenancies(Config.t(), query) :: response
   @callback get_external_tenancy(Config.t(), id, query) :: response

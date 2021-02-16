@@ -107,6 +107,14 @@ endpoints = [
   },
   %{
     endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ExternalResource,
+    name_plural: "external_resources",
+    name_singular: "external_resource",
+    path: "/external-resources",
+    type: "external-resources"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.ExternalTenancy,
     name_plural: "external_tenancies",
     name_singular: "external_tenancy",
