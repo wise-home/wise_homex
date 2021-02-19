@@ -11,6 +11,7 @@ defmodule WiseHomex.StatementConfig do
   embedded_schema do
     belongs_to :heat_transmission_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :hot_water_transmission_key, WiseHomex.SettlementKey, type: :binary_id
+    belongs_to :water_settlement_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :property, WiseHomex.Property
 
     field :company_number_length, :integer
