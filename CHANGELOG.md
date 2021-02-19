@@ -1,5 +1,14 @@
 # Changelog for wise_homex
 
+## 0.6.107 2021-02-19
+
+* Add ExternalResource models and relations, 273
+* Add statement_files, skip_moving_fee fields to Statement model, 273
+* Update makeup_elixir 0.15.0 -> 0.15.1, 271
+* Update ecto 3.5.6 -> 3.5.7, 271
+* Update credo 1.5.4 -> 1.5.5, 271
+* Update erlang 23.2.3 -> 23.2.4, 271
+
 ## 0.6.106 2021-02-12
 
 * Add StatementFile model and endpoint, 270
