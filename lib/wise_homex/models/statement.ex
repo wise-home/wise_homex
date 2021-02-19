@@ -8,10 +8,12 @@ defmodule WiseHomex.Statement do
   embedded_schema do
     belongs_to :property, WiseHomex.Property
     has_many :fiscal_years, WiseHomex.FiscalYear
+    has_many :statement_files, WiseHomex.StatementFile
 
     field :start_date, :date
     field :end_date, :date
     field :done_at, :utc_datetime
     field :locked_at, :utc_datetime
+    field :skip_moving_fee, :boolean
   end
 end
