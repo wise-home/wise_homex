@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.108 2021-02-19
+
+* Add :water_settlement_key to StatementConfig, 274
+
 ## 0.6.107 2021-02-19
 
 * Add ExternalResource models and relations, 273
