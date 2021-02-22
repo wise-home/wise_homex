@@ -29,11 +29,11 @@ jobs:
         name: Cache _build
         with:
           path: _build
-          key: build-${{ env.cache_version }}-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
+          key: build-erlef-${{ env.cache_version }}-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
           restore-keys: |
-            build-${{ env.cache_version }}-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}
+            build-erlef-${{ env.cache_version }}-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}
 
-      - uses: actions/setup-elixir@v1
+      - uses: erlef/setup-elixir@v1
         name: Setup elixir
         with:
           otp-version: ${{matrix.otp}}
