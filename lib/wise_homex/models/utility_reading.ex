@@ -9,11 +9,13 @@ defmodule WiseHomex.UtilityReading do
     belongs_to :device, WiseHomex.Device
     belongs_to :room, WiseHomex.Room
 
-    field :measurement_at, :utc_datetime
-    field :target_date, :date
-    field :meter_type, :string
-    field :reading_type, :string
-    field :value, WiseHomex.QuantityType
+    field :calculation_method, :string
     field :converted_value, WiseHomex.QuantityType
+    field :measurement_at, :utc_datetime
+    field :meter_type, :string
+    field :needs_review, :boolean
+    field :reading_type, :string
+    field :target_date, :date
+    field :value, WiseHomex.QuantityType
   end
 end
