@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.109 2021-02-23
+
+* Add :calculation_method and :needs_review fields, 279
+* Update ecto 3.5.7 -> 3.5.8, 277
+* Update erlang 23.2.4 -> 23.2.5, 277
+* Change actions/setup-elixir to erlef/setup-elixir, 276
+
 ## 0.6.108 2021-02-19
 
 * Add :water_settlement_key to StatementConfig, 274
