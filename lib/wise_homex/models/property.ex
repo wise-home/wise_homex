@@ -20,5 +20,15 @@ defmodule WiseHomex.Property do
     field :number, :integer
     field :postal_address, WiseHomex.PostalAddress
     field :published, :boolean
+    field :central_heating_system_kind, :string
+    field :radiator_meter_installation_spot, :string
+  end
+
+  def central_heating_system_kinds do
+    ["none", "single_pipe", "double_pipe"]
+  end
+
+  def radiator_meter_installation_spots do
+    ["none", "quarter", "third"]
   end
 end
