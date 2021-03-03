@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.110 2021-03-03
+
+* Add installation details to property, 281
+
 ## 0.6.109 2021-02-23
 
 * Add :calculation_method and :needs_review fields, 279
