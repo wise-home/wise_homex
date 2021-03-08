@@ -154,6 +154,14 @@ endpoints = [
     type: "foreign-devices"
   },
   %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.FuelCheckPoint,
+    name_plural: "fuel_check_points",
+    name_singular: "fuel_check_point",
+    path: "/fuel-check-points",
+    type: "fuel-check-points"
+  },
+  %{
     endpoints: [:index, :show, :update, :delete],
     model: WiseHomex.Gateway,
     name_plural: "gateways",
