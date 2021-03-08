@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.111 2021-03-08
+
+* Add fuel check points, #283
+* Add q-values to expense, #282
+
 ## 0.6.110 2021-03-03
 
 * Add installation details to property, 281
