@@ -19,6 +19,11 @@ defmodule WiseHomex.Expense do
     field :vat_amount, :integer
     field :partial, :boolean
 
+    # Tempary variables during refactoring.
+    field :q_total_amount, WiseHomex.QuantityType
+    field :q_vat_amount, WiseHomex.QuantityType
+    field :q_usage, WiseHomex.QuantityType
+
     timestamps type: :utc_datetime
   end
 end
