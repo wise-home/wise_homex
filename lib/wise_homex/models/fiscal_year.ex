@@ -10,6 +10,7 @@ defmodule WiseHomex.FiscalYear do
     has_many(:expenses, WiseHomex.FiscalYear)
     has_many(:account_payments, WiseHomex.AccountPayment)
     has_many(:vacancy_account_payments, WiseHomex.VacancyAccountPayment)
+    has_many(:fuel_check_points, WiseHomex.FuelCheckPoint)
     embeds_many(:tenancies, WiseHomex.Tenancy)
     embeds_many(:vacancies, WiseHomex.Vacancy)
 

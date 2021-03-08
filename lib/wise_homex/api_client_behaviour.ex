@@ -148,6 +148,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_fiscal_year(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_fiscal_year(Config.t(), id) :: response
 
+  # Fuel Check Point
+  @callback get_fuel_check_point(Config.t(), id, query) :: response
+  @callback get_fuel_check_points(Config.t(), query) :: response
+  @callback create_fuel_check_point(Config.t(), attributes, relationships, query) :: response
+  @callback update_fuel_check_point(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_fuel_check_point(Config.t(), id) :: response
+
   # Gateway
   @callback get_gateway(Config.t(), id, query) :: response
   @callback get_gateways(Config.t(), query) :: response
