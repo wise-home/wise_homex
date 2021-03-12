@@ -282,7 +282,7 @@ endpoints = [
     type: "statement-zips"
   },
   %{
-    endpoints: [:show, :create, :update, :delete],
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Tenancy,
     name_plural: "tenancies",
     name_singular: "tenancy",
