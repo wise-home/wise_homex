@@ -258,9 +258,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback create_statement_zip(Config.t(), attributes, relationships, query) :: response
 
   # Tenancy
+  @callback get_tenancy(Config.t(), id, query) :: response
+  @callback get_tenancies(Config.t(), query) :: response
   @callback create_tenancy(Config.t(), attributes, relationships, query) :: response
   @callback delete_tenancy(Config.t(), id) :: response
-  @callback get_tenancy(Config.t(), id, query) :: response
   @callback update_tenancy(Config.t(), id, attributes, relationships, query) :: response
 
   # User
