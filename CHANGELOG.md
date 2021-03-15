@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.112 2021-03-15
+
+* Add :index for tenancies, 286
+* Add remaining usage to household, 285
+* Update erlang 23.2.6 -> 23.2.7, 284
+
 ## 0.6.111 2021-03-08
 
 * Add fuel check points, #283
