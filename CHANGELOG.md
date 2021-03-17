@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.113 2021-03-17
+
+* Remove default: [] from household remaining usage
+
 ## 0.6.112 2021-03-15
 
 * Add :index for tenancies, 286
