@@ -27,6 +27,6 @@ defmodule WiseHomex.Household do
     field :taxable, :boolean
     field :excluded, :boolean
 
-    field :remaining_usage, {:array, :string}, default: []
+    field :remaining_usage, {:array, :string}
   end
 end
