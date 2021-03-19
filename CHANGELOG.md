@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.114 2021-03-19
+
+* Add supported fuel types for fuel check points, 288
+* Update hackney 1.17.0 -> 1.17.3, 287
+* Update ex_doc 0.23.0 -> 0.24.0, 287
+* Update elixir 1.11.3 -> 1.11.4, 287
+
 ## 0.6.113 2021-03-17
 
 * Remove default: [] from household remaining usage
