@@ -17,4 +17,14 @@ defmodule WiseHomex.FuelCheckPoint do
     field :remaining, WiseHomex.QuantityType
     field :cost, WiseHomex.QuantityType
   end
+
+  @doc """
+  Fuel types that are supported for fuel check points.
+  """
+  def fuel_types do
+    [
+      "heating_oil",
+      "wood_pellets"
+    ]
+  end
 end
