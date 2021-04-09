@@ -22,6 +22,7 @@ defmodule WiseHomex.Property do
     field :published, :boolean
     field :central_heating_system_kind, :string
     field :radiator_meter_installation_spot, :string
+    field :statements_enabled, :boolean
   end
 
   def central_heating_system_kinds do
