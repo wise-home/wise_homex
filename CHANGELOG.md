@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.115 2021-04-09
+
+* Use quantity fields on Expense, 289
+* Update dependencies, 291
+
 ## 0.6.114 2021-03-19
 
 * Add supported fuel types for fuel check points, 288
