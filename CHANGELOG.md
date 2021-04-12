@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.116 2021-04-12
+
+* Add initally_locked_at to Statement model, 293
+* Add statements_enabled to Property model, 292
+
 ## 0.6.115 2021-04-09
 
 * Use quantity fields on Expense, 289
