@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.117 2021-04-13
+
+* Remove :enabled field on statement config model, 298
+
 ## 0.6.116 2021-04-12
 
 * Add initally_locked_at to Statement model, 293
