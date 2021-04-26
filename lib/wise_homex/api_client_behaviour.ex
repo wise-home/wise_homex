@@ -84,6 +84,12 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Device balancer
   @callback rebalance_devices(Config.t(), id) :: response
 
+  # Distributed Expenses
+  @callback create_distributed_expense(Config.t(), attributes, relationships, query) :: response
+  @callback delete_distributed_expense(Config.t(), id) :: response
+  @callback get_distributed_expense(Config.t(), id, query) :: response
+  @callback update_distributed_expense(Config.t(), id, attributes, relationships, query) :: response
+
   # Email Settings
   @callback update_account_email_settings(Config.t(), id, id, attributes) :: response
 

@@ -7,12 +7,13 @@ defmodule WiseHomex.FiscalYear do
 
   embedded_schema do
     belongs_to(:statement, WiseHomex.Statement)
-    has_many(:expenses, WiseHomex.FiscalYear)
-    has_many(:account_payments, WiseHomex.AccountPayment)
-    has_many(:vacancy_account_payments, WiseHomex.VacancyAccountPayment)
-    has_many(:fuel_check_points, WiseHomex.FuelCheckPoint)
     embeds_many(:tenancies, WiseHomex.Tenancy)
     embeds_many(:vacancies, WiseHomex.Vacancy)
+    has_many(:account_payments, WiseHomex.AccountPayment)
+    has_many(:distributed_expenses, WiseHomex.DistributedExpense)
+    has_many(:expenses, WiseHomex.FiscalYear)
+    has_many(:fuel_check_points, WiseHomex.FuelCheckPoint)
+    has_many(:vacancy_account_payments, WiseHomex.VacancyAccountPayment)
 
     field(:utility_type, :string)
     field(:start_date, :date)
