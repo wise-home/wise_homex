@@ -9,10 +9,9 @@ defmodule WiseHomex.AccountPayment do
     belongs_to :tenancy, WiseHomex.Tenancy, type: :binary_id
     belongs_to :fiscal_year, WiseHomex.FiscalYear, type: :binary_id
     field :accounting_date, :date
-    field :currency, :string
     field :excluded, :boolean
-    field :total_amount, :integer
-    field :vat_amount, :integer
+    field :q_total_amount, WiseHomex.QuantityType
+    field :q_vat_amount, WiseHomex.QuantityType
 
     timestamps type: :utc_datetime
   end
