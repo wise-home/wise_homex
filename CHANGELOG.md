@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.118 2021-04-28
+
+* Refactor to use q-prefix for account payments, 307
+* Include skipped tests in CI, 304
+* Update ecto 3.6.0 -> 3.6.1, 303
+* Update ex_doc 0.24.1 -> 0.24.2, 303
+
 ## 0.6.117 2021-04-13
 
 * Remove :enabled field on statement config model, 298
