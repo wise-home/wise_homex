@@ -82,6 +82,14 @@ endpoints = [
     type: "devices"
   },
   %{
+    endpoints: [:show, :create, :update, :delete],
+    model: WiseHomex.DistributedExpense,
+    name_plural: "distributed_expenses",
+    name_singular: "distributed_expense",
+    path: "/distributed-expenses",
+    type: "distributed-expenses"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
