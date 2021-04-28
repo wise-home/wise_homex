@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.119 2021-04-28
+
+* Add distributed expense and endpoints, 306
+
 ## 0.6.118 2021-04-28
 
 * Refactor to use q-prefix for account payments, 307
