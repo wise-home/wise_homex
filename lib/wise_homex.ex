@@ -237,6 +237,14 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
+  # Statement
+
+  @doc """
+  Create the next statement from a current statement
+  """
+  def create_next_statement(config, prev_statement_id, query \\ %{}),
+    do: api_client().create_next_statement(config, prev_statement_id, query)
+
   # Wmbus Cache
 
   @doc """
