@@ -278,6 +278,20 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/devices/" <> id <> "/reports")
   end
 
+  # Statement
+  def create_next_statement(config, prev_statement_id, query) do
+    payload = %{
+      data: %{
+        type: "statements",
+        relationships: %{
+          statement: %{data: %{type: "statements", id: prev_statement_id}}
+        }
+      }
+    }
+
+    Request.post(config, "/statements/next", payload, query)
+  end
+
   # Wmbus Cache
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)

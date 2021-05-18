@@ -8,7 +8,6 @@ defmodule WiseHomex.Property do
     has_many :addresses, WiseHomex.Address
     has_many :external_properties, WiseHomex.ExternalProperty
     has_many :statements, WiseHomex.Statement
-    has_one :statement_config, WiseHomex.StatementConfig
 
     belongs_to :snapshot_of, __MODULE__
     has_one :snapshot, __MODULE__, foreign_key: :snapshot_of_id

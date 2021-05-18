@@ -12,7 +12,7 @@ defmodule WiseHomex.StatementConfig do
     belongs_to :heat_transmission_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :hot_water_transmission_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :water_settlement_key, WiseHomex.SettlementKey, type: :binary_id
-    belongs_to :property, WiseHomex.Property
+    belongs_to :statement, WiseHomex.Statement
 
     field :company_number_length, :integer
     field :customer_reference, :string
