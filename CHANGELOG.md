@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.120 2021-05-18
+
+* Move StatementConfig from Property to Statement, 310
+
 ## 0.6.119 2021-04-28
 
 * Add distributed expense and endpoints, 306
