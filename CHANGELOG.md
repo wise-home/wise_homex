@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.121 2021-05-25
+
+* Add hot_water_heat_meter to ForeignDevice
+
 ## 0.6.120 2021-05-18
 
 * Move StatementConfig from Property to Statement, 310
