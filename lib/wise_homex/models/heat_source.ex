@@ -7,6 +7,7 @@ defmodule WiseHomex.HeatSource do
     belongs_to :room, WiseHomex.Room
     belongs_to :radiator, WiseHomex.Radiator
     has_many :devices, WiseHomex.Device
+    has_many :external_resources, WiseHomex.ExternalResource
 
     field :floor_area, WiseHomex.QuantityType
     field :length, :integer
