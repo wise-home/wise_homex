@@ -1,8 +1,18 @@
 # Changelog for wise_homex
 
+## 0.6.122 2021-06-18
+
+* Update erlang 24.0.1 -> 24.0.2, 316
+* Update credo 1.5.5 -> 1.5.6, 316
+* Add needs_review on HeatSource, 315
+* Add external_resources on HeatSource, 314
+* Update elixir 1.11.4 -> 1.12.1, 313
+* Update ecto 3.6.1 -> 3.6.2, 313
+* Restrict Github Actions permissions, 312
+
 ## 0.6.121 2021-05-25
 
-* Add hot_water_heat_meter to ForeignDevice
+* Add hot_water_heat_meter to ForeignDevice, 311
 
 ## 0.6.120 2021-05-18
 
