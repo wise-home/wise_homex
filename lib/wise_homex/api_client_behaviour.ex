@@ -69,6 +69,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Bmeters Keys
   @callback upload_bmeters_keys(Config.t(), list) :: response
 
+  # Calculate missing readings
+  @callback calculate_missing_readings(Config.t(), id) :: response
+
   # Device
   @callback authorize_device(Config.t(), id) :: response
   @callback create_device(Config.t(), attributes, relationships, query) :: response
