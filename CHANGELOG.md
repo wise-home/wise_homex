@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.123 2021-06-24
+
+* Add sorting to StatementConfig, 317
+
 ## 0.6.122 2021-06-18
 
 * Update erlang 24.0.1 -> 24.0.2, 316

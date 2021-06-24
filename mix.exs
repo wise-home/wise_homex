@@ -4,7 +4,7 @@ defmodule WiseHomex.MixProject do
   def project do
     [
       app: :wise_homex,
-      version: "0.6.122",
+      version: "0.6.123",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
