@@ -35,4 +35,11 @@ defmodule WiseHomex.StatementConfig do
     field :tenancy_number_length, :integer
     field :tenancy_pdf_type, :string
   end
+
+  @doc """
+  Available values for :sorting
+  """
+  def sorting_options() do
+    ["default", "moved_out_last", "wise_home_only"]
+  end
 end
