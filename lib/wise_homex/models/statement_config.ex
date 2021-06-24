@@ -44,6 +44,11 @@ defmodule WiseHomex.StatementConfig do
   @doc """
   Available values for :sorting
   """
+  def settlement_file_options(), do: ["unik", "unik_with_sums", "eg"]
+
+  @doc """
+  Available values for :sorting
+  """
   def sorting_options(), do: ["default", "moved_out_last", "wise_home_only"]
 
   @doc """
