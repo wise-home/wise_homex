@@ -64,6 +64,22 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/bmeters/keys", payload)
   end
 
+  # Calculate missing readings
+  def calculate_missing_readings(config, statement_id) do
+    payload =
+      %{
+        data: %{
+          type: "calculate-missing-readings",
+          relationships: %{
+            statement: %{data: %{type: "statements", id: statement_id}}
+          }
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/calculate-missing-readings", payload)
+  end
+
   # Device
   def authorize_device(config, device_id) do
     Request.post(config, "/devices/" <> device_id <> "/authorizations")
