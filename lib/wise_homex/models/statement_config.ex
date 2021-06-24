@@ -31,7 +31,28 @@ defmodule WiseHomex.StatementConfig do
     field :pdf_naming_scheme, :string
     field :property_number_length, :integer
     field :settlement_file, :string
+    field :sorting, :string
     field :tenancy_number_length, :integer
     field :tenancy_pdf_type, :string
   end
+
+  @doc """
+  Available values for :pdf_naming_scheme
+  """
+  def pdf_naming_scheme_options(), do: ["wise_home", "unik"]
+
+  @doc """
+  Available values for :sorting
+  """
+  def settlement_file_options(), do: ["unik", "unik_with_sums", "eg"]
+
+  @doc """
+  Available values for :sorting
+  """
+  def sorting_options(), do: ["default", "moved_out_last", "wise_home_only"]
+
+  @doc """
+  Available values for :tenancy_pdf_type
+  """
+  def tenancy_pdf_type_options(), do: ["concatenated", "merged", "all"]
 end
