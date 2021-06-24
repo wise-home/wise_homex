@@ -31,6 +31,7 @@ defmodule WiseHomex.StatementConfig do
     field :pdf_naming_scheme, :string
     field :property_number_length, :integer
     field :settlement_file, :string
+    field :sorting, :string
     field :tenancy_number_length, :integer
     field :tenancy_pdf_type, :string
   end
