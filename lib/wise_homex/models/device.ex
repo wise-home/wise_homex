@@ -11,6 +11,8 @@ defmodule WiseHomex.Device do
 
     field :active_from, :date
     field :active_to, :date
+    field :attached_to_number, :string
+    field :attached_to_serial, :string
     field :authorized_at, :utc_datetime
     field :exclude_from_statements, :boolean
     field :hot_water_heat_meter, :boolean
