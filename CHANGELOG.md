@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.125 2021-06-28
+
+* Add attached to serial and number, 319
+
 ## 0.6.124 2021-06-24
 
 * Add calculate missing readings, 318
