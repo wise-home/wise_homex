@@ -17,5 +17,6 @@ defmodule WiseHomex.Statement do
     field :initially_locked_at, :utc_datetime
     field :locked_at, :utc_datetime
     field :skip_moving_fee, :boolean
+    field :deadline, :date
   end
 end
