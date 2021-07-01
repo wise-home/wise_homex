@@ -1,6 +1,10 @@
 # Changelog for wise_homex
 
-## 0.6.125 2021-06-28
+## 0.6.127 2021-07-01
+
+* Add deadline field to statement
+
+## 0.6.126 2021-06-28
 
 * Add models for READy groups, 320
 
