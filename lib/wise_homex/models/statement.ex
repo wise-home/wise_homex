@@ -9,6 +9,7 @@ defmodule WiseHomex.Statement do
     belongs_to :property, WiseHomex.Property
     has_many :fiscal_years, WiseHomex.FiscalYear
     has_many :statement_files, WiseHomex.StatementFile
+    has_many :statement_checks, WiseHomex.StatementCheck
     has_one :statement_config, WiseHomex.StatementConfig
 
     field :start_date, :date
