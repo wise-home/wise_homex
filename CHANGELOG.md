@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.128 2021-07-01
+
+* Added StatementCheck
+
 ## 0.6.127 2021-07-01
 
 * Add deadline field to statement
