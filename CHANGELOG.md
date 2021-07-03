@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.129 2021-07-03
+
+* Add auto_only field to StatementCheck
+
 ## 0.6.128 2021-07-01
 
 * Added StatementCheck
