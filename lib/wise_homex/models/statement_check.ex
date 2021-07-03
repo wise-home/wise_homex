@@ -11,6 +11,7 @@ defmodule WiseHomex.StatementCheck do
     field :status_source, :string
     field :status_updated_at, :utc_datetime
     field :message, :string
+    field :auto_only, :boolean
   end
 
   @doc """
