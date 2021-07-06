@@ -20,6 +20,7 @@ defmodule WiseHomex.JSONParser do
              "message-reports" => WiseHomex.MessageReport,
              "pongs" => WiseHomex.Pong,
              "radiator-import-results" => WiseHomex.RadiatorImportResult,
+             "ready-installation-matches" => WiseHomex.ReadyInstallationMatch,
              "vacancies" => WiseHomex.Vacancy,
              "vacancy-infos" => WiseHomex.VacancyInfo,
              "wmbus-device-types" => WiseHomex.WMBusDeviceType,

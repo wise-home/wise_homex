@@ -276,6 +276,18 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/radiators/import", payload)
   end
 
+  # READy
+  def ready_installation_matches(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-matches",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-matches", payload, query)
+  end
+
   # Reports
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{
