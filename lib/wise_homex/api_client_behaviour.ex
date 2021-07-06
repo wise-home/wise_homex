@@ -219,6 +219,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_ready_groups(Config.t(), query) :: response
   @callback update_ready_group(Config.t(), id, attributes, relationships, query) :: response
 
+  # READy Installation
+  @callback get_ready_installations(Config.t(), query) :: response
+
   # Reports
   @callback create_latest_report(Config.t(), id, query) :: response
   @callback get_device_reports(Config.t(), id) :: response

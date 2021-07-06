@@ -226,6 +226,14 @@ endpoints = [
     type: "ready-groups"
   },
   %{
+    endpoints: [:index],
+    model: WiseHomex.ReadyInstallation,
+    name_plural: "ready_installations",
+    name_singular: "ready_installation",
+    path: "/ready-installations",
+    type: "ready-installations"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Room,
     name_plural: "rooms",
