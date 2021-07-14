@@ -288,6 +288,28 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/ready-installation-matches", payload, query)
   end
 
+  def link_ready_installation_match(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-links",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-links", payload, query)
+  end
+
+  def unlink_ready_installation_match(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-unlinks",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-unlinks", payload, query)
+  end
+
   # Reports
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{
