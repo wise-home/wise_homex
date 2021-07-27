@@ -26,6 +26,12 @@ defmodule WiseHomex.Device do
     field :signal_strength, :integer
     field :unmanaged, :boolean
 
+    # Fields for water and heat meters
+    field :hourly_flow, :string
+    field :physical_size, :string
+    field :pipe_size, :string
+    field :stopcock, :boolean
+
     has_many :last_measurements, WiseHomex.Measurement
 
     embeds_many :signal_strength_history, Signal, primary_key: false do
