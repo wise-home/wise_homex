@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.130 2021-07-27
+
+* New fields for heat and water meters, 326
+* Update to erlang 24.0.4, elixir 1.12.2, 325
+* Update ex_doc 0.24.2 -> 0.25.0, 325
+
 ## 0.6.129 2021-07-03
 
 * Add auto_only field to StatementCheck
