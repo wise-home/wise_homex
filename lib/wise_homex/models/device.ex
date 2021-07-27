@@ -30,7 +30,7 @@ defmodule WiseHomex.Device do
     field :hourly_flow, :string
     field :physical_size, :string
     field :pipe_size, :string
-    field :stop_cock, :boolean
+    field :stopcock, :boolean
 
     has_many :last_measurements, WiseHomex.Measurement
 
