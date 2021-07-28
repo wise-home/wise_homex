@@ -7,6 +7,7 @@ defmodule WiseHomex.Tenancy do
     belongs_to :household, WiseHomex.Household
     belongs_to :tenant, WiseHomex.Account
     has_many :account_payments, WiseHomex.AccountPayment
+    has_many :direct_expenses, WiseHomex.DirectExpense
     has_many :external_tenancies, WiseHomex.ExternalTenancy
 
     field :move_in_date, :date
