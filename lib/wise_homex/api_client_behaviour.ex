@@ -87,6 +87,13 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Device balancer
   @callback rebalance_devices(Config.t(), id) :: response
 
+  # Direct Expenses
+  @callback create_direct_expense(Config.t(), attributes, relationships, query) :: response
+  @callback delete_direct_expense(Config.t(), id) :: response
+  @callback get_direct_expense(Config.t(), id, query) :: response
+  @callback get_direct_expenses(Config.t(), query) :: response
+  @callback update_direct_expense(Config.t(), id, attributes, relationships, query) :: response
+
   # Distributed Expenses
   @callback create_distributed_expense(Config.t(), attributes, relationships, query) :: response
   @callback delete_distributed_expense(Config.t(), id) :: response
