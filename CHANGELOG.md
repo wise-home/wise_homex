@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.131 2021-07-28
+
+* Add get_settlement_values, 327
+
 ## 0.6.130 2021-07-27
 
 * New fields for heat and water meters, 326
