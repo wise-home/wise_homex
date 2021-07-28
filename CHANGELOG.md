@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.132 2021-07-28
+
+* Add direct expense model and endpoints, 328
+
 ## 0.6.131 2021-07-28
 
 * Add get_settlement_values, 327
