@@ -8,6 +8,8 @@ defmodule WiseHomex.Device do
     belongs_to :gateway, WiseHomex.Gateway
     belongs_to :device_type, WiseHomex.DeviceType
     belongs_to :heat_source, WiseHomex.HeatSource
+    belongs_to :serial_connected_to, WiseHomex.Device
+    has_many :serial_connected_from, WiseHomex.Device
 
     field :active_from, :date
     field :active_to, :date
