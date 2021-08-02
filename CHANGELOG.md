@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.133 2021-08-02
+
+* Add serial connected devices, 330
+* Add excluded fiscal years to household, 329
+
 ## 0.6.132 2021-07-28
 
 * Add direct expense model and endpoints, 328
