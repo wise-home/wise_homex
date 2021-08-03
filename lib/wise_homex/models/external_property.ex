@@ -14,4 +14,16 @@ defmodule WiseHomex.ExternalProperty do
     field :last_synced_at, :utc_datetime
     field :sync_method, :string
   end
+
+  @doc """
+  The valid enum values of sync_method
+  """
+  @spec valid_sync_methods() :: [String.t()]
+  def valid_sync_methods do
+    [
+      "none",
+      "api",
+      "lurtz"
+    ]
+  end
 end
