@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.134 2021-08-03
+
+* Added valid_sync_methods to ExternalProperty
+
 ## 0.6.133 2021-08-02
 
 * Add serial connected devices, 330
