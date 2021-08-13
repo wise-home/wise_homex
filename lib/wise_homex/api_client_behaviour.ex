@@ -231,6 +231,7 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   # READy Installation Matches
   @callback ready_installation_matches(Config.t(), relationships, query) :: response
+  @callback ready_installation_already_matched(Config.t(), relationships, query) :: response
   @callback link_ready_installation_match(Config.t(), relationships, query) :: response
   @callback unlink_ready_installation_match(Config.t(), relationships, query) :: response
 

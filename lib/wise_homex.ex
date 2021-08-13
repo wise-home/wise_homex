@@ -245,6 +245,9 @@ defmodule WiseHomex do
   def ready_installation_matches(config, rels, query \\ %{}),
     do: api_client().ready_installation_matches(config, rels, query)
 
+  def ready_installation_already_matched(config, rels, query \\ %{}),
+    do: api_client().ready_installation_already_matched(config, rels, query)
+
   def link_ready_installation_match(config, rels, query \\ %{}),
     do: api_client().link_ready_installation_match(config, rels, query)
 

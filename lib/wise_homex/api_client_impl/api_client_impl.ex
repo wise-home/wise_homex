@@ -288,6 +288,17 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/ready-installation-matches", payload, query)
   end
 
+  def ready_installation_already_matched(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-already-matched",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-already-matched", payload, query)
+  end
+
   def link_ready_installation_match(config, rels, query \\ %{}) do
     payload = %{
       data: %{

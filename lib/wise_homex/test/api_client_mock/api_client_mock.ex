@@ -117,6 +117,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:ready_installation_matches, %{relationships: relationships, query: query})
   end
 
+  def ready_installation_already_matched(_config, relationships, query) do
+    call_and_get_mock_value(:ready_installation_already_matched, %{relationships: relationships, query: query})
+  end
+
   def link_ready_installation_match(_config, relationships, query) do
     call_and_get_mock_value(:link_ready_installation_match, %{relationships: relationships, query: query})
   end
