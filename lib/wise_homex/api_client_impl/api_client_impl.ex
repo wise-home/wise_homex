@@ -276,6 +276,51 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/radiators/import", payload)
   end
 
+  # READy
+  def ready_installation_matches(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-matches",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-matches", payload, query)
+  end
+
+  def ready_installation_already_matched(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-already-matched",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-already-matched", payload, query)
+  end
+
+  def link_ready_installation_match(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-links",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-links", payload, query)
+  end
+
+  def unlink_ready_installation_match(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ready-installation-unlinks",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ready-installation-unlinks", payload, query)
+  end
+
   # Reports
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{

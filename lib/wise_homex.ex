@@ -241,6 +241,19 @@ defmodule WiseHomex do
   """
   def import_radiators(config, attrs), do: api_client().import_radiators(config, attrs)
 
+  # READy
+  def ready_installation_matches(config, rels, query \\ %{}),
+    do: api_client().ready_installation_matches(config, rels, query)
+
+  def ready_installation_already_matched(config, rels, query \\ %{}),
+    do: api_client().ready_installation_already_matched(config, rels, query)
+
+  def link_ready_installation_match(config, rels, query \\ %{}),
+    do: api_client().link_ready_installation_match(config, rels, query)
+
+  def unlink_ready_installation_match(config, rels, query \\ %{}),
+    do: api_client().unlink_ready_installation_match(config, rels, query)
+
   # Statement
 
   @doc """
