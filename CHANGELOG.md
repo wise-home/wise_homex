@@ -1,5 +1,12 @@
 # Changelog for wise_homex
 
+## 0.6.135 2021-08-19
+
+* Add READy installation link and matches, 333
+* Update erlang 24.0.4 -> 24.0.5, 332
+* Update ex_doc 0.25.0 -> 0.25.1, 332
+* Added valid_sync_methods to ExternalProperty, 331
+
 ## 0.6.134 2021-08-03
 
 * Added valid_sync_methods to ExternalProperty
