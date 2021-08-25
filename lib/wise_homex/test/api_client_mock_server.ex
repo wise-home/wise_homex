@@ -126,7 +126,8 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     {value, state} =
       get_and_update_in(state, [:mocks], fn mocks ->
         case Map.fetch(mocks, key) do
-          {:ok, [value]} -> {value, mocks |> Map.delete(key)}
+          {:ok, :depleted} -> {:no_more_mocks_set, mocks}
+          {:ok, [value]} -> {value, mocks |> Map.update!(key, fn _ -> :depleted end)}
           {:ok, [value | rest]} -> {value, mocks |> Map.update!(key, fn _ -> rest end)}
           :error -> {:no_mock_set, mocks}
         end
@@ -135,6 +136,7 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     return_value =
       case value do
         :no_mock_set -> {:error, "No mock set for call", api_function, opts}
+        :no_more_mocks_set -> {:error, "No more mocks set for call", api_function, opts}
         value -> value
       end
 
@@ -143,7 +145,13 @@ defmodule WiseHomex.Test.ApiClientMockServer do
 
   # Get remaining mock calls
   def handle_call(:get_all_mocks, _from, state) do
-    {:reply, Map.fetch!(state, :mocks), state}
+    remaining =
+      state
+      |> Map.fetch!(:mocks)
+      |> Enum.reject(fn {_, v} -> v == :depleted end)
+      |> Map.new()
+
+    {:reply, remaining, state}
   end
 
   # Push a call with opts to the mock
