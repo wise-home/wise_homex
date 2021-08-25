@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.136 2021-08-25
+
+* Improve feedback when no more mocks (issue #334), 335
+
 ## 0.6.135 2021-08-19
 
 * Add READy installation link and matches, 333
