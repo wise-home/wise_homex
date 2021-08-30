@@ -36,6 +36,8 @@ defmodule WiseHomex.Device do
 
     has_many :last_measurements, WiseHomex.Measurement
 
+    has_one :ready_meter, WiseHomex.ReadyMeter
+
     embeds_many :signal_strength_history, Signal, primary_key: false do
       field :time, :utc_datetime
       field :signal_strength, :integer

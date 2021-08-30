@@ -242,6 +242,14 @@ endpoints = [
     type: "ready-installations"
   },
   %{
+    endpoints: [:index, :show, :update],
+    model: WiseHomex.ReadyMeter,
+    name_plural: "ready_meters",
+    name_singular: "ready_meter",
+    path: "/ready-meters",
+    type: "ready-meters"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Room,
     name_plural: "rooms",
