@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.137 2021-09-06
+
+* Add support for READy meters, 336
+
 ## 0.6.136 2021-08-25
 
 * Improve feedback when no more mocks (issue #334), 335
