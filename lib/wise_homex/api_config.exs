@@ -146,14 +146,6 @@ endpoints = [
     type: "external-vacancies"
   },
   %{
-    endpoints: [:index, :create, :delete],
-    model: WiseHomex.Firmware,
-    name_plural: "firmwares",
-    name_singular: "firmware",
-    path: "/firmwares",
-    type: "firmwares"
-  },
-  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.FiscalYear,
     name_plural: "fiscal_years",

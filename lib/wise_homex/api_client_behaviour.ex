@@ -145,11 +145,6 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_expense(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_expense(Config.t(), id) :: response
 
-  # Firmware
-  @callback create_firmware(Config.t(), attributes, relationships, query) :: response
-  @callback delete_firmware(Config.t(), id) :: response
-  @callback get_firmwares(Config.t(), query) :: response
-
   # Foreign Device
   @callback get_foreign_device(Config.t(), id, query) :: response
   @callback get_foreign_devices(Config.t(), query) :: response
