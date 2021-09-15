@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.138 2021-09-15
+
+* Add ReadyInstallation to Household, 338
+* Remove firmware, 337
+
 ## 0.6.137 2021-09-06
 
 * Add support for READy meters, 336
