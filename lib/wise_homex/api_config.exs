@@ -98,6 +98,22 @@ endpoints = [
     type: "distributed-expenses"
   },
   %{
+    endpoints: [:index, :show, :update],
+    model: WiseHomex.DSEnergyGroup,
+    name_plural: "ds_energy_groups",
+    name_singular: "ds_energy_group",
+    path: "/ds-energy-groups",
+    type: "ds-energy-groups"
+  },
+  %{
+    endpoints: [:index, :show, :update],
+    model: WiseHomex.DSEnergyMeter,
+    name_plural: "ds_energy_meters",
+    name_singular: "ds_energy_meter",
+    path: "/ds-energy-meters",
+    type: "ds-energy-meters"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Expense,
     name_plural: "expenses",
