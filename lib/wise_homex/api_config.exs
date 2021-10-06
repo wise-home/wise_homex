@@ -202,6 +202,14 @@ endpoints = [
     type: "properties"
   },
   %{
+    endpoints: [:index, :create, :delete],
+    model: WiseHomex.PermanentAccountKey,
+    name_plural: "permanent_account_keys",
+    name_singular: "permanent_account_key",
+    path: "/permanent-account-keys",
+    type: "permanent-account-keys"
+  },
+  %{
     endpoints: [:index, :show],
     model: WiseHomex.Radiator,
     name_plural: "radiators",
