@@ -17,6 +17,7 @@ defmodule WiseHomex.Device do
     field :attached_to_serial, :string
     field :authorized_at, :utc_datetime
     field :exclude_from_statements, :boolean
+    field :has_encryption_key, :boolean
     field :hot_water_heat_meter, :boolean
     field :inserted_at, :utc_datetime
     field :last_seen, :utc_datetime
