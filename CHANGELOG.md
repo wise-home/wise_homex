@@ -1,5 +1,11 @@
 # Changelog for wise_homex
 
+## 0.6.139 2021-10-20
+
+* Add Device.has_encryption_key field
+* Update deps 20211013 (#341)
+* Add support for PermanentAccountKeys
+
 ## 0.6.138 2021-09-15
 
 * Add ReadyInstallation to Household, 338
