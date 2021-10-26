@@ -7,6 +7,7 @@ defmodule WiseHomex.UtilityReading do
 
   embedded_schema do
     belongs_to :device, WiseHomex.Device
+    belongs_to :room, WiseHomex.Room
 
     field :calculation_method, :string
     field :converted_value, WiseHomex.QuantityType
