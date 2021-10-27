@@ -137,17 +137,6 @@ defmodule WiseHomex do
   def deauthorize_device(config, device_id), do: api_client().deauthorize_device(config, device_id)
 
   @doc """
-  Set device location
-  """
-  def set_device_location(config, device_id, attrs, rels),
-    do: api_client().set_device_location(config, device_id, attrs, rels)
-
-  @doc """
-  Unset device location
-  """
-  def unset_device_location(config, device_id), do: api_client().unset_device_location(config, device_id)
-
-  @doc """
   Import devices from CSV
   """
   def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
