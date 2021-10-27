@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.140 2021-10-27
+
+* Remove set_device_location and unset_device_location, 344
+* Remove room relation on UtilityReading, 343
+
 ## 0.6.139 2021-10-20
 
 * Add Device.has_encryption_key field
