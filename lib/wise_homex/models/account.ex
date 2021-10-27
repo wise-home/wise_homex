@@ -10,6 +10,9 @@ defmodule WiseHomex.Account do
     has_one :tenancy, WiseHomex.Tenancy, foreign_key: :tenant_id
     has_one :admin_data, WiseHomex.AdminData
 
+    # Administrators can only be set on :admin accounts, and can only be admins
+    belongs_to :administrator, WiseHomex.Account
+
     field :name, :string
     field :role, :string
     field :email, :string
