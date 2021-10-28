@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.141 2021-10-28
+
+* Add encrypted field to devices
+
 ## 0.6.140 2021-10-27
 
 * Remove set_device_location and unset_device_location, 344
