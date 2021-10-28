@@ -28,6 +28,7 @@ defmodule WiseHomex.Device do
     field :serial, :string
     field :signal_strength, :integer
     field :unmanaged, :boolean
+    field :encrypted, :boolean
 
     # Fields for water and heat meters
     field :hourly_flow, :string
