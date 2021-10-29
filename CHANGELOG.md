@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.142 2021-10-29
+
+* Add administrator field on Account, 345
+
 ## 0.6.141 2021-10-28
 
 * Add encrypted field to devices
