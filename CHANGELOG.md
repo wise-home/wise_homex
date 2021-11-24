@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.143 2021-11-24
+
+* Add has_many rooms to Household, 348
+
 ## 0.6.142 2021-10-29
 
 * Add administrator field on Account, 345
