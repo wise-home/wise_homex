@@ -36,14 +36,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   end
 
   # Device
-  def authorize_device(_config, device_id) do
-    call_and_get_mock_value(:authorize_device, %{device_id: device_id})
-  end
-
-  def deauthorize_device(_config, device_id) do
-    call_and_get_mock_value(:deauthorize_device, %{device_id: device_id})
-  end
-
   def import_devices(_config, attrs, rels) do
     call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})
   end

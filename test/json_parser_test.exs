@@ -3,7 +3,6 @@ defmodule WiseHomex.JSONParserTest do
 
   alias WiseHomex.Account
   alias WiseHomex.Device
-  alias WiseHomex.DeviceAuthorization
   alias WiseHomex.Household
   alias WiseHomex.JSONParser
   alias WiseHomex.PostalAddress
@@ -325,48 +324,6 @@ defmodule WiseHomex.JSONParserTest do
       |> Jason.decode!()
 
     %Account{} = JSONParser.parse(example_response)
-  end
-
-  test "parsing device-authorization" do
-    parsed_response =
-      """
-      {
-        "jsonapi": {
-          "version": "1.0"
-        },
-        "included": [
-          {
-            "type": "devices",
-            "id": "2",
-            "attributes": {
-              "serial": "1234123412341234",
-              "inserted-at": "2016-12-09T09:21:29",
-              "authorized-at": "2016-12-09T21:18:32"
-            }
-          }
-        ],
-        "data": {
-          "type": "device-authorizations",
-          "relationships": {
-            "device": {
-              "data": {
-                "type": "devices",
-                "id": "2"
-              }
-            }
-          },
-          "id": "",
-          "attributes": {}
-        }
-      }
-      """
-      |> Jason.decode!()
-      |> JSONParser.parse()
-
-    %DeviceAuthorization{} = auth = parsed_response
-
-    assert auth.device.id == "2"
-    assert auth.device_id == "2"
   end
 
   test "skipping unknown fields" do
