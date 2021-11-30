@@ -81,14 +81,6 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   # Device
-  def authorize_device(config, device_id) do
-    Request.post(config, "/devices/" <> device_id <> "/authorizations")
-  end
-
-  def deauthorize_device(config, device_id) do
-    Request.delete(config, "/devices/" <> device_id <> "/authorizations")
-  end
-
   def import_devices(config, attrs, rels) do
     payload = %{
       data: %{

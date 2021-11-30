@@ -73,9 +73,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback calculate_missing_readings(Config.t(), id) :: response
 
   # Device
-  @callback authorize_device(Config.t(), id) :: response
   @callback create_device(Config.t(), attributes, relationships, query) :: response
-  @callback deauthorize_device(Config.t(), id) :: response
   @callback delete_device(Config.t(), id) :: response
   @callback get_device(Config.t(), id, query) :: response
   @callback get_devices(Config.t(), query) :: response

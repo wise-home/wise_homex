@@ -127,16 +127,6 @@ defmodule WiseHomex do
   # Device
 
   @doc """
-  Authorize a device
-  """
-  def authorize_device(config, device_id), do: api_client().authorize_device(config, device_id)
-
-  @doc """
-  Deauthorize a device
-  """
-  def deauthorize_device(config, device_id), do: api_client().deauthorize_device(config, device_id)
-
-  @doc """
   Import devices from CSV
   """
   def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
