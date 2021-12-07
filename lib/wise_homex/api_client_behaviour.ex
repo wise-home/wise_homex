@@ -40,6 +40,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_address(Config.t(), id, attributes, relationships, query) :: response
   @callback get_address(Config.t(), id, query) :: response
   @callback get_addresses(Config.t(), query) :: response
+  @callback delete_address(Config.t(), id) :: response
 
   # Add start readings
   @callback add_start_readings(Config.t(), id) :: response
