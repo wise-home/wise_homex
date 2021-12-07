@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.144 2021-12-07
+
+* Can delete addresses
+* Remove obsolete authorize device endpoints
+
 ## 0.6.143 2021-11-24
 
 * Add has_many rooms to Household, 348
