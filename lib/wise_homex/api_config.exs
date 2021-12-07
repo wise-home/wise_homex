@@ -26,7 +26,7 @@ endpoints = [
     type: "account-users"
   },
   %{
-    endpoints: [:index, :show, :create, :update],
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Address,
     name_plural: "addresses",
     name_singular: "address",
