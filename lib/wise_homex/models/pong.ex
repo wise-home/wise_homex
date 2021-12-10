@@ -8,6 +8,7 @@ defmodule WiseHomex.Pong do
   embedded_schema do
     field :message, :string
     field :version, :string
+    field :tag, :string
     belongs_to :user, WiseHomex.User
     belongs_to :account, WiseHomex.Account
   end
