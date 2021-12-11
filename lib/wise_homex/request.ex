@@ -7,6 +7,7 @@ defmodule WiseHomex.Request do
   alias WiseHomex.ResponseParser
 
   def get(config, path, query \\ %{}) do
+    start = System.monotonic_time(:millisecond)
     headers = build_headers(config)
     options = build_options(config)
 
@@ -15,10 +16,12 @@ defmodule WiseHomex.Request do
     |> versionise_path(config)
     |> add_base_url(config)
     |> HTTPoison.get(headers, options)
+    |> note_duration(:get, start, path, query)
     |> parse_response()
   end
 
   def post(config, path, body \\ %{}) when is_map(body) do
+    start = System.monotonic_time(:millisecond)
     headers = build_headers(config)
     options = build_options(config)
 
@@ -26,6 +29,7 @@ defmodule WiseHomex.Request do
     |> versionise_path(config)
     |> add_base_url(config)
     |> HTTPoison.post(body |> Jason.encode!(), headers, options)
+    |> note_duration(:post, start, path, %{})
     |> parse_response()
   end
 
@@ -34,6 +38,7 @@ defmodule WiseHomex.Request do
   end
 
   def patch(config, path, body) do
+    start = System.monotonic_time(:millisecond)
     headers = build_headers(config)
     options = build_options(config)
 
@@ -41,6 +46,7 @@ defmodule WiseHomex.Request do
     |> versionise_path(config)
     |> add_base_url(config)
     |> HTTPoison.patch(body |> Jason.encode!(), headers, options)
+    |> note_duration(:patch, start, path, %{})
     |> parse_response()
   end
 
@@ -49,6 +55,7 @@ defmodule WiseHomex.Request do
   end
 
   def delete(config, path) do
+    start = System.monotonic_time(:millisecond)
     headers = build_headers(config)
     options = build_options(config)
 
@@ -56,6 +63,7 @@ defmodule WiseHomex.Request do
     |> versionise_path(config)
     |> add_base_url(config)
     |> HTTPoison.delete(headers, options)
+    |> note_duration(:delete, start, path, %{})
     |> parse_response
   end
 
@@ -125,5 +133,29 @@ defmodule WiseHomex.Request do
       :timeout -> :timeout
       :closed -> :closed
     end
+  end
+
+  defp note_duration({:ok, _} = result, action, start, path, query) do
+    duration = System.monotonic_time(:millisecond) - start
+
+    :telemetry.execute(
+      [:wise_homex, action, :ok],
+      %{duration: duration},
+      %{path: path, query: query}
+    )
+
+    result
+  end
+
+  defp note_duration({:error, %{reason: reason}} = result, action, start, path, query) do
+    duration = System.monotonic_time(:millisecond) - start
+
+    :telemetry.execute(
+      [:wise_homex, action, :error],
+      %{duration: duration},
+      %{reason: reason, path: path, query: query}
+    )
+
+    result
   end
 end
