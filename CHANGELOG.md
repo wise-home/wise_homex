@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.145 2021-12-14
+
+* models/pong: Add tag version
+* Add telemetry for get,post,patch and delete
+
 ## 0.6.144 2021-12-07
 
 * Can delete addresses
