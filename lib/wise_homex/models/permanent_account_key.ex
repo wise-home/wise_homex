@@ -4,6 +4,7 @@ defmodule WiseHomex.PermanentAccountKey do
   use WiseHomex.BaseModel
 
   embedded_schema do
+    belongs_to :account, WiseHomex.Account
     field :name, :string
     field :token, :string
     field :created_at, :utc_datetime
