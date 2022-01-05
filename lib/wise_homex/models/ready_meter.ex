@@ -13,7 +13,7 @@ defmodule WiseHomex.ReadyMeter do
     field :meter_type, :string
     field :serial_number, :string
 
-    field :last_ready_sync_attempt_at, :utc_datetime
-    field :last_ready_measurement_from, :utc_datetime
+    field :last_sync_attempt_at, :utc_datetime
+    field :last_measurement_from, :utc_datetime
   end
 end
