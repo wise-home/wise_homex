@@ -142,4 +142,21 @@ defmodule ApiClientMockServerTest do
 
     assert MockServer.remaining_calls() == %{}
   end
+
+  test "return all failed calls" do
+    MockServer.set(:some_function, %{}, {:ok, 1234})
+
+    assert MockServer.call_and_get_mock_value(:non_existing, %{a: :b}) ==
+             {:error, "No mock set for call", :non_existing, %{a: :b}}
+
+    assert {:ok, 1234} = MockServer.call_and_get_mock_value(:some_function, %{})
+
+    assert MockServer.call_and_get_mock_value(:non_existing_dos, %{c: :d}) ==
+             {:error, "No mock set for call", :non_existing_dos, %{c: :d}}
+
+    assert MockServer.failed_calls() == [
+             {:non_existing, %{a: :b}},
+             {:non_existing_dos, %{c: :d}}
+           ]
+  end
 end
