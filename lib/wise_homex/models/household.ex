@@ -13,6 +13,7 @@ defmodule WiseHomex.Household do
     has_many :settlement_values, WiseHomex.SettlementValue
     has_many :unsuccessful_visits, WiseHomex.UnsuccessfulVisit
     has_one :ready_installation, WiseHomex.ReadyInstallation
+    has_one :ds_energy_location, WiseHomex.DSEnergyLocation
 
     # shared household config
     belongs_to :shared_settlement_key, WiseHomex.SettlementKey
