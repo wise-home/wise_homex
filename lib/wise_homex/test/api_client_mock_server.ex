@@ -63,7 +63,6 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   This will fail if no mock matches the api_function and opts.
   """
   def call_and_get_mock_value(api_function, opts) do
-    GenServer.call(@name, {:called!, api_function, opts})
     GenServer.call(@name, {:pop_mock_value, api_function, opts})
   end
 
@@ -73,6 +72,14 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   """
   def remaining_calls() do
     GenServer.call(@name, :get_all_mocks)
+  end
+
+  @doc """
+  Receive all failed calls to the Mock Server.
+  Useful to see which exact calls failed.
+  """
+  def failed_calls() do
+    GenServer.call(@name, :failed_calls)
   end
 
   @doc """
@@ -94,7 +101,8 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   defp initial_state() do
     %{
       calls: %{},
-      mocks: %{}
+      mocks: %{},
+      failed_calls: []
     }
   end
 
@@ -122,25 +130,18 @@ defmodule WiseHomex.Test.ApiClientMockServer do
   def handle_call({:pop_mock_value, api_function, opts}, _from, state) do
     key = {api_function, opts}
 
-    # Pop the mock value from the state
-    {value, state} =
-      get_and_update_in(state, [:mocks], fn mocks ->
-        case Map.fetch(mocks, key) do
-          {:ok, :depleted} -> {:no_more_mocks_set, mocks}
-          {:ok, [value]} -> {value, mocks |> Map.update!(key, fn _ -> :depleted end)}
-          {:ok, [value | rest]} -> {value, mocks |> Map.update!(key, fn _ -> rest end)}
-          :error -> {:no_mock_set, mocks}
-        end
-      end)
+    case get_in(state, [:mocks, key]) do
+      :depleted ->
+        result = {:error, "No more mocks set for call", api_function, opts}
+        {:reply, result, note_failed_call(state, api_function, opts)}
 
-    return_value =
-      case value do
-        :no_mock_set -> {:error, "No mock set for call", api_function, opts}
-        :no_more_mocks_set -> {:error, "No more mocks set for call", api_function, opts}
-        value -> value
-      end
+      nil ->
+        result = {:error, "No mock set for call", api_function, opts}
+        {:reply, result, note_failed_call(state, api_function, opts)}
 
-    {:reply, return_value, state}
+      [value | _] ->
+        {:reply, value, note_successful_call(state, api_function, opts)}
+    end
   end
 
   # Get remaining mock calls
@@ -152,18 +153,6 @@ defmodule WiseHomex.Test.ApiClientMockServer do
       |> Map.new()
 
     {:reply, remaining, state}
-  end
-
-  # Push a call with opts to the mock
-  # It will update the calls map with e.g. %{get_gateways: [%{query: %{}}, %{query: %{"include" => "devices"}}, ...]}
-  def handle_call({:called!, api_function, opts}, _from, state) do
-    state =
-      update_in(state, [:calls, api_function], fn
-        nil -> [opts]
-        list -> [opts | list]
-      end)
-
-    {:reply, :ok, state}
   end
 
   # Receive a call from mock including its opts
@@ -178,8 +167,37 @@ defmodule WiseHomex.Test.ApiClientMockServer do
     {:reply, opts, state}
   end
 
+  def handle_call(:failed_calls, _from, state) do
+    {:reply, Enum.reverse(state.failed_calls), state}
+  end
+
   @impl GenServer
   def handle_cast(:reset, _state) do
     {:noreply, initial_state()}
+  end
+
+  defp note_successful_call(state, api_function, opts) do
+    key = {api_function, opts}
+
+    state
+    |> update_in([:mocks, key], fn
+      [_] -> :depleted
+      [_ | rest] -> rest
+    end)
+    |> update_in([:calls, api_function], fn
+      nil -> [opts]
+      list -> [opts | list]
+    end)
+  end
+
+  defp note_failed_call(state, api_function, opts) do
+    key = {api_function, opts}
+
+    state
+    |> update_in([:failed_calls], fn current -> [key | current] end)
+    |> update_in([:calls, api_function], fn
+      nil -> [opts]
+      list -> [opts | list]
+    end)
   end
 end
