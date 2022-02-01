@@ -295,6 +295,51 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/ready-installation-unlinks", payload, query)
   end
 
+  # DS Energy location
+  def ds_energy_location_matches(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ds-energy-location-matches",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ds-energy-location-matches", payload, query)
+  end
+
+  def ds_energy_location_already_matched(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ds-energy-location-already-matched",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ds-energy-location-already-matched", payload, query)
+  end
+
+  def link_ds_energy_location_match(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ds-energy-location-links",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ds-energy-location-links", payload, query)
+  end
+
+  def unlink_ds_energy_location_match(config, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "ds-energy-location-unlinks",
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/ds-energy-location-unlinks", payload, query)
+  end
+
   # Reports
   def create_latest_report(config, device_id, query \\ %{}) do
     payload = %{
