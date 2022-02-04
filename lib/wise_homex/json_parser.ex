@@ -21,6 +21,8 @@ defmodule WiseHomex.JSONParser do
              "radiator-import-results" => WiseHomex.RadiatorImportResult,
              "ready-installation-matches" => WiseHomex.ReadyInstallationMatch,
              "ready-installation-already-matched" => WiseHomex.ReadyInstallationMatch,
+             "ds-energy-location-matches" => WiseHomex.DSEnergyLocationMatch,
+             "ds-energy-location-already-matched" => WiseHomex.DSEnergyLocationMatch,
              "vacancies" => WiseHomex.Vacancy,
              "vacancy-infos" => WiseHomex.VacancyInfo,
              "wmbus-device-types" => WiseHomex.WMBusDeviceType,

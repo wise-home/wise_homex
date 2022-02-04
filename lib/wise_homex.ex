@@ -233,6 +233,19 @@ defmodule WiseHomex do
   def unlink_ready_installation_match(config, rels, query \\ %{}),
     do: api_client().unlink_ready_installation_match(config, rels, query)
 
+  # DS Energy
+  def ds_energy_location_matches(config, rels, query \\ %{}),
+    do: api_client().ds_energy_location_matches(config, rels, query)
+
+  def ds_energy_location_already_matched(config, rels, query \\ %{}),
+    do: api_client().ds_energy_location_already_matched(config, rels, query)
+
+  def link_ds_energy_location_match(config, rels, query \\ %{}),
+    do: api_client().link_ds_energy_location_match(config, rels, query)
+
+  def unlink_ds_energy_location_match(config, rels, query \\ %{}),
+    do: api_client().unlink_ds_energy_location_match(config, rels, query)
+
   # Statement
 
   @doc """

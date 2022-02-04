@@ -227,6 +227,12 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback link_ready_installation_match(Config.t(), relationships, query) :: response
   @callback unlink_ready_installation_match(Config.t(), relationships, query) :: response
 
+  # DS Energy
+  @callback ds_energy_location_matches(Config.t(), relationships, query) :: response
+  @callback ds_energy_location_already_matched(Config.t(), relationships, query) :: response
+  @callback link_ds_energy_location_match(Config.t(), relationships, query) :: response
+  @callback unlink_ds_energy_location_match(Config.t(), relationships, query) :: response
+
   # Reports
   @callback create_latest_report(Config.t(), id, query) :: response
   @callback get_device_reports(Config.t(), id) :: response

@@ -113,6 +113,23 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:unlink_ready_installation_match, %{relationships: relationships, query: query})
   end
 
+  # DS Energy
+  def ds_energy_location_matches(_config, relationships, query) do
+    call_and_get_mock_value(:ds_energy_location_matches, %{relationships: relationships, query: query})
+  end
+
+  def ds_energy_location_already_matched(_config, relationships, query) do
+    call_and_get_mock_value(:ds_energy_location_already_matched, %{relationships: relationships, query: query})
+  end
+
+  def link_ds_energy_location_match(_config, relationships, query) do
+    call_and_get_mock_value(:link_ds_energy_location_match, %{relationships: relationships, query: query})
+  end
+
+  def unlink_ds_energy_location_match(_config, relationships, query) do
+    call_and_get_mock_value(:unlink_ds_energy_location_match, %{relationships: relationships, query: query})
+  end
+
   # Reports
   def get_device_reports(_config, id) do
     call_and_get_mock_value(:get_device_reports, %{id: id})
