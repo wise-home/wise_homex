@@ -13,6 +13,7 @@ defmodule WiseHomex.ExternalProperty do
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
     field :sync_method, :string
+    field :external_id, :string
   end
 
   @doc """
