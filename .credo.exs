@@ -126,6 +126,7 @@
         {Credo.Check.Refactor.Nesting, []},
         {Credo.Check.Refactor.UnlessWithElse, []},
         {Credo.Check.Refactor.WithClauses, []},
+        {Credo.Check.Refactor.MapJoin, false},
 
         #
         ## Warnings
