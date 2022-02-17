@@ -10,6 +10,7 @@ defmodule WiseHomex.ExternalHousehold do
     has_many :external_vacancies, WiseHomex.ExternalVacancy
 
     field :system, :string
+    field :external_id, :string
     field :number, :integer
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
