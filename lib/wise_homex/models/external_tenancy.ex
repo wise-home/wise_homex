@@ -8,6 +8,7 @@ defmodule WiseHomex.ExternalTenancy do
     belongs_to :external_household, WiseHomex.ExternalHousehold, type: :binary_id
 
     field :system, :string
+    field :external_id, :string
     field :number, :integer
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
