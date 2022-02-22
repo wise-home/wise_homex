@@ -40,6 +40,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})
   end
 
+  def add_encryption_key(_config, device_id, query) do
+    call_and_get_mock_value(:add_encryption_key, %{device_id: device_id, query: query})
+  end
+
   # Device Balancer
   def rebalance_devices(_config, admin_id) do
     call_and_get_mock_value(:rebalance_devices, %{admin_id: admin_id})

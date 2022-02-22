@@ -93,6 +93,17 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/import", payload)
   end
 
+  def add_encryption_key(config, id, attrs) do
+    payload = %{
+      data: %{
+        type: "device-add-encryption-key",
+        attributes: attrs
+      }
+    }
+
+    Request.post(config, "/devices/#{id}/add-encryption-key", payload)
+  end
+
   # Device balancer
 
   def rebalance_devices(config, admin_id) do
