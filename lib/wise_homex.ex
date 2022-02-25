@@ -213,6 +213,12 @@ defmodule WiseHomex do
   def create_latest_report(config, device_id, query \\ %{}),
     do: api_client().create_latest_report(config, device_id, query)
 
+  @doc """
+  Add an encryption key for a device
+  """
+  def add_encryption_key(config, device_id, attrs),
+    do: api_client().add_encryption_key(config, device_id, attrs)
+
   # Radiator
 
   @doc """
