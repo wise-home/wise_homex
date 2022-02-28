@@ -104,6 +104,18 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/#{id}/add-encryption-key", payload)
   end
 
+  def split_device(config, attrs, rels) do
+    payload = %{
+      data: %{
+        type: "device-splits",
+        attributes: attrs,
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/devices/split", payload)
+  end
+
   # Device balancer
 
   def rebalance_devices(config, admin_id) do

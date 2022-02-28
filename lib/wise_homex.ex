@@ -138,6 +138,11 @@ defmodule WiseHomex do
   """
   def rebalance_devices(config, admin_id), do: api_client().rebalance_devices(config, admin_id)
 
+  @doc """
+  Split a device
+  """
+  def split_device(config, attrs, rels), do: api_client().split_device(config, attrs, rels)
+
   # Email Settings
 
   @doc """
