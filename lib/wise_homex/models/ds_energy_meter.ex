@@ -4,6 +4,7 @@ defmodule WiseHomex.DSEnergyMeter do
   use WiseHomex.BaseModel
 
   embedded_schema do
+    belongs_to :device, WiseHomex.Device
     belongs_to :ds_energy_location, WiseHomex.DSEnergyLocation
 
     field :meter_id, :string
