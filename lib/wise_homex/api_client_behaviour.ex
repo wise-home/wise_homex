@@ -202,6 +202,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_properties(Config.t(), query) :: response
   @callback get_property(Config.t(), id, query) :: response
   @callback update_property(Config.t(), id, attributes, relationships, query) :: response
+  @callback property_change_admin(Config.t(), id, attributes, relationships, query) :: response
 
   # Property Syncs
   @callback sync_property(Config.t(), id) :: response

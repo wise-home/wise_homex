@@ -85,9 +85,13 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:ping, %{query: query})
   end
 
-  # Property Syncs
+  # Property
   def sync_property(_config, property_id) do
     call_and_get_mock_value(:sync_property, %{property_id: property_id})
+  end
+
+  def property_change_admin(_config, id, attrs, rels, query \\ %{}) do
+    call_and_get_mock_value(:property_change_admin, %{id: id, attrs: attrs, rels: rels, query: query})
   end
 
   # Property Syncs UNIK
