@@ -212,7 +212,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/ping", query)
   end
 
-  # Property Syncs
+  # Property
 
   @doc """
   Trigger sync of an existing property
@@ -232,6 +232,19 @@ defmodule WiseHomex.ApiClientImpl do
     config
     |> Map.update!(:timeout, fn _ -> 30_000 end)
     |> Request.post("/property-syncs", params)
+  end
+
+  def property_change_admin(config, id, attrs, rels, query \\ %{}) do
+    payload = %{
+      data: %{
+        type: "properties",
+        id: id,
+        attributes: attrs,
+        relationships: rels
+      }
+    }
+
+    Request.patch(config, "/properties/#{id}/change-admin", payload, query)
   end
 
   # Property Syncs UNIK

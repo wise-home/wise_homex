@@ -190,7 +190,7 @@ defmodule WiseHomex do
   """
   def ping(config, query), do: api_client().ping(config, query)
 
-  # Property Syncs
+  # Properties
 
   @doc """
   Trigger sync of an existing property
@@ -204,6 +204,12 @@ defmodule WiseHomex do
   """
   def create_synced_property_unik(config, property_number, company_number, admin_id),
     do: api_client().create_synced_property_unik(config, property_number, company_number, admin_id)
+
+  @doc """
+  Change the admin of a property
+  """
+  def property_change_admin(config, id, attrs, rels, query \\ %{}),
+    do: api_client().property_change_admin(config, id, attrs, rels, query)
 
   # Reports
 
