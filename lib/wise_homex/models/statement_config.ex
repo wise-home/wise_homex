@@ -16,7 +16,6 @@ defmodule WiseHomex.StatementConfig do
 
     field :company_number_length, :integer
     field :customer_reference, :string
-    field :flatrate, :boolean
     field :hca_ratio, DecimalType
     field :heat_hca_ratio, DecimalType
     field :heat_transmission_ratio, DecimalType
