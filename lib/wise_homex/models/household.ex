@@ -12,6 +12,7 @@ defmodule WiseHomex.Household do
     has_many :rooms, WiseHomex.Room
     has_many :settlement_values, WiseHomex.SettlementValue
     has_many :unsuccessful_visits, WiseHomex.UnsuccessfulVisit
+    has_many :broken_account_payments, WiseHomex.BrokenAccountPayment
     has_one :ready_installation, WiseHomex.ReadyInstallation
     has_one :ds_energy_location, WiseHomex.DSEnergyLocation
 
