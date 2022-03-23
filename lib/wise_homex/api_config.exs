@@ -74,6 +74,14 @@ endpoints = [
     type: "angel-note-bunches"
   },
   %{
+    endpoints: [:index, :show, :delete],
+    model: WiseHomex.BrokenAccountPayment,
+    name_plural: "broken_account_payments",
+    name_singular: "broken_account_payment",
+    path: "/broken-account-payments",
+    type: "broken-account-payments"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Device,
     name_plural: "devices",
