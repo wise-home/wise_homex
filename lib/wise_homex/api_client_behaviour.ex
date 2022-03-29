@@ -87,6 +87,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback import_devices(Config.t(), attributes, relationships) :: response
   @callback split_device(Config.t(), attributes, relationships) :: response
   @callback get_device_types(Config.t()) :: response
+  @callback change_device_type(Config.t(), id, attributes) :: response
 
   # Device balancer
   @callback rebalance_devices(Config.t(), id) :: response

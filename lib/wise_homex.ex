@@ -136,6 +136,11 @@ defmodule WiseHomex do
   """
   def get_device_types(config), do: api_client().get_device_types(config)
 
+  @doc """
+  Change the type of the device
+  """
+  def change_device_type(config, id, attrs), do: api_client().change_device_type(config, id, attrs)
+
   # Device Balancer
 
   @doc """

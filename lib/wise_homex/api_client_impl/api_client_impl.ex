@@ -120,6 +120,17 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/device-types")
   end
 
+  def change_device_type(config, id, attrs) do
+    payload = %{
+      data: %{
+        type: "device-change-type",
+        attributes: attrs
+      }
+    }
+
+    Request.post(config, "/devices/#{id}/change-type", payload)
+  end
+
   # Device balancer
 
   def rebalance_devices(config, admin_id) do
