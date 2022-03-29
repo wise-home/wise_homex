@@ -116,6 +116,10 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/split", payload)
   end
 
+  def get_device_types(config) do
+    Request.get(config, "/device-types")
+  end
+
   # Device balancer
 
   def rebalance_devices(config, admin_id) do

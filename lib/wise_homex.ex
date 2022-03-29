@@ -131,6 +131,11 @@ defmodule WiseHomex do
   """
   def import_devices(config, attrs, rels), do: api_client().import_devices(config, attrs, rels)
 
+  @doc """
+  Get all device types
+  """
+  def get_device_types(config), do: api_client().get_device_types(config)
+
   # Device Balancer
 
   @doc """

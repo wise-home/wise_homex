@@ -48,6 +48,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:split_device, %{attrs: attrs, rels: rels})
   end
 
+  def get_device_types(_config) do
+    call_and_get_mock_value(:get_device_types, %{})
+  end
+
   # Device Balancer
   def rebalance_devices(_config, admin_id) do
     call_and_get_mock_value(:rebalance_devices, %{admin_id: admin_id})
