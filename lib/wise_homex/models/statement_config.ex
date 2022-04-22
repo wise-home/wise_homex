@@ -17,6 +17,7 @@ defmodule WiseHomex.StatementConfig do
 
     field :company_number_length, :integer
     field :customer_reference, :string
+    field :electricity_settlement_key_end_date, :date
     field :hca_ratio, DecimalType
     field :heat_hca_ratio, DecimalType
     field :heat_transmission_ratio, DecimalType
@@ -34,6 +35,7 @@ defmodule WiseHomex.StatementConfig do
     field :sorting, :string
     field :tenancy_number_length, :integer
     field :tenancy_pdf_type, :string
+    field :water_settlement_key_end_date, :date
   end
 
   @doc """
