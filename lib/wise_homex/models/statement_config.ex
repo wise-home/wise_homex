@@ -9,19 +9,24 @@ defmodule WiseHomex.StatementConfig do
   use WiseHomex.BaseModel
 
   embedded_schema do
+    belongs_to :statement, WiseHomex.Statement
+
+    belongs_to :electricity_settlement_key, WiseHomex.SettlementKey, type: :binary_id
+    belongs_to :heat_settlement_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :heat_transmission_key, WiseHomex.SettlementKey, type: :binary_id
+    belongs_to :hot_water_settlement_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :hot_water_transmission_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :water_settlement_key, WiseHomex.SettlementKey, type: :binary_id
-    belongs_to :electricity_settlement_key, WiseHomex.SettlementKey, type: :binary_id
-    belongs_to :statement, WiseHomex.Statement
 
     field :company_number_length, :integer
     field :customer_reference, :string
     field :electricity_settlement_key_end_date, :date
     field :hca_ratio, DecimalType
     field :heat_hca_ratio, DecimalType
+    field :heat_settlement_key_end_date, :date
     field :heat_transmission_ratio, DecimalType
     field :hot_water_heat_ratio, DecimalType
+    field :hot_water_settlement_key_end_date, :date
     field :hot_water_transmission_ratio, DecimalType
     field :household_number_length, :integer
     field :message_all, :string
