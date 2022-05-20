@@ -24,6 +24,7 @@ defmodule WiseHomex.JSONParser do
              "ready-installation-already-matched" => WiseHomex.ReadyInstallationMatch,
              "ready-installation-matches" => WiseHomex.ReadyInstallationMatch,
              "tap-places" => WiseHomex.TapPlace,
+             "technician-accesses" => WiseHomex.TechnicianAccess,
              "vacancies" => WiseHomex.Vacancy,
              "vacancy-infos" => WiseHomex.VacancyInfo,
              "wmbus-device-types" => WiseHomex.WMBusDeviceType,

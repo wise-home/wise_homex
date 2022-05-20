@@ -371,6 +371,14 @@ endpoints = [
   },
   %{
     endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.TechnicianAccess,
+    name_plural: "technician_accesses",
+    name_singular: "technician_access",
+    path: "/technician-accesses",
+    type: "technician-accesses"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.UnsuccessfulVisit,
     name_plural: "unsuccessful_visits",
     name_singular: "unsuccessful_visit",
