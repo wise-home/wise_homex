@@ -80,6 +80,23 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/calculate-missing-readings", payload)
   end
 
+  # Degree days
+  def export_degree_days(config, start_date, end_date) do
+    payload =
+      %{
+        data: %{
+          type: "degree-days",
+          attributes: %{
+            start_date: start_date,
+            end_date: end_date
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/degree-days", payload)
+  end
+
   # Device
   def import_devices(config, attrs, rels) do
     payload = %{

@@ -124,6 +124,13 @@ defmodule WiseHomex do
   def calculate_missing_readings(config, statement_id),
     do: api_client().calculate_missing_readings(config, statement_id)
 
+  # DegreeDays
+  @doc """
+  Export degree days to CSV
+  """
+  def export_degree_days(config, start_date, end_date),
+    do: api_client().export_degree_days(config, start_date, end_date)
+
   # Device
 
   @doc """
