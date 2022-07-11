@@ -35,6 +35,11 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:calculate_missing_readings, %{statement_id: statement_id})
   end
 
+  # Degree Days
+  def export_degree_days(_config, start_date, end_date) do
+    call_and_get_mock_value(:export_degree_days, %{start_date: start_date, end_date: end_date})
+  end
+
   # Device
   def import_devices(_config, attrs, rels) do
     call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})

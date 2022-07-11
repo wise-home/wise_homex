@@ -82,12 +82,12 @@ endpoints = [
     type: "broken-account-payments"
   },
   %{
-    endpoints: [:show],
-    model: WiseHomex.DegreeDay,
-    name_plural: "degree_days",
-    name_singular: "degree_day",
-    path: "/degree_days",
-    type: "degree_days"
+    endpoints: [:create],
+    model: WiseHomex.DegreeDayCSV,
+    name_plural: "degree_day_csvs",
+    name_singular: "degree_day_csv",
+    path: "/degree-day-csvs",
+    type: "degree-days"
   },
   %{
     endpoints: [:index, :show, :create, :update, :delete],
