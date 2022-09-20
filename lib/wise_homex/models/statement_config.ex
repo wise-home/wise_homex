@@ -29,6 +29,7 @@ defmodule WiseHomex.StatementConfig do
     field :hot_water_settlement_key_end_date, :date
     field :hot_water_transmission_ratio, DecimalType
     field :household_number_length, :integer
+    field :ignore_foreign_devices, :boolean
     field :message_all, :string
     field :message_owed, :string
     field :message_reimbursement, :string
