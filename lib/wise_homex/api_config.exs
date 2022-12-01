@@ -266,6 +266,14 @@ endpoints = [
     type: "radiator-infos"
   },
   %{
+    endpoints: [:index, :show],
+    model: WiseHomex.ReadyCustomer,
+    name_plural: "ready_customers",
+    name_singular: "ready_customer",
+    path: "/ready-customers",
+    type: "ready-customers"
+  },
+  %{
     endpoints: [:index, :show, :update],
     model: WiseHomex.ReadyGroup,
     name_plural: "ready_groups",

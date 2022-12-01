@@ -225,6 +225,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Radiator Info
   @callback get_radiator_info(Config.t(), id, query) :: response
 
+  # READy Customers
+  @callback get_ready_customer(Config.t(), id, query) :: response
+  @callback get_ready_customers(Config.t(), query) :: response
+
   # READy Groups
   @callback get_ready_group(Config.t(), id, query) :: response
   @callback get_ready_groups(Config.t(), query) :: response
