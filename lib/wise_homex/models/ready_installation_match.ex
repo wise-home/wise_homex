@@ -11,5 +11,6 @@ defmodule WiseHomex.ReadyInstallationMatch do
     belongs_to :ready_installation, ReadyInstallation, type: :binary_id
 
     field :distance, :integer
+    field :ready_installation_count, :integer
   end
 end
