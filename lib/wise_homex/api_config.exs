@@ -234,6 +234,14 @@ endpoints = [
     type: "households"
   },
   %{
+    endpoints: [:index, :create],
+    model: WiseHomex.HouseholdSyncIdentifier,
+    name_plural: "household_sync_identifiers",
+    name_singular: "household_sync_identifier",
+    path: "/household-sync-identifiers",
+    type: "household-sync-identifiers"
+  },
+  %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.Property,
     name_plural: "properties",

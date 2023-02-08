@@ -197,6 +197,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_households(Config.t(), query) :: response
   @callback update_household(Config.t(), id, attributes, relationships, query) :: response
 
+  # Household_sync_identifier
+  @callback create_household_sync_identifier(Config.t(), attributes, relationships, query) :: response
+  @callback get_household_sync_identifiers(Config.t(), query) :: response
+
   # KEM uploads
   @callback upload_kem(Config.t(), list) :: response
 
