@@ -113,6 +113,14 @@ defmodule WiseHomex do
   """
   def get_angel_note(config, target_type, target_id), do: api_client().get_angel_note(config, target_type, target_id)
 
+  # Account Payment import
+
+  @doc """
+  Import account payments for a fiscal year with an account payment file
+  """
+  def import_account_payments(config, fiscal_year_id, external_system, file),
+    do: api_client().import_account_payments(config, fiscal_year_id, external_system, file)
+
   # Bmeters Keys
 
   @doc """

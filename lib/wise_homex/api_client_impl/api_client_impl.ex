@@ -48,6 +48,24 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/angel-notes/#{target_type}/#{target_id}")
   end
 
+  # Account Payment import
+  def import_account_payments(config, fiscal_year_id, external_system, file_base64) do
+    payload =
+      %{
+        data: %{
+          type: "account-payment-imports",
+          attributes: %{
+            fiscal_year_id: fiscal_year_id,
+            external_system: external_system,
+            file_base64: file_base64
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/fiscal-years/#{fiscal_year_id}/account-payment-imports", payload)
+  end
+
   # Bmeters Keys
   def upload_bmeters_keys(config, file_base64: file_base64) do
     payload =
