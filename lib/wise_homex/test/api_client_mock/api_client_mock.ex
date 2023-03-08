@@ -25,6 +25,15 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_angel_note, %{target_type: target_type, target_id: target_id})
   end
 
+  # Account Payment import
+  def import_account_payments(_config, fiscal_year_id, external_system, file) do
+    call_and_get_mock_value(:import_account_payments, %{
+      fiscal_year_id: fiscal_year_id,
+      external_system: external_system,
+      file: file
+    })
+  end
+
   # Bmeters Keys
   def upload_bmeters_keys(_config, opts) do
     call_and_get_mock_value(:upload_bmeters_keys, %{opts: opts})
