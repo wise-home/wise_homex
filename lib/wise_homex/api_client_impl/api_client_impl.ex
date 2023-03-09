@@ -237,6 +237,21 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
   end
 
+  def run_job(config, id) do
+    payload =
+      %{
+        data: %{
+          type: "job-id",
+          attributes: %{
+            job_id: id
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/run-job", payload)
+  end
+
   # KEM uploads
   def upload_kem(config, file_base64: file_base64, key: key) do
     payload =
@@ -456,6 +471,20 @@ defmodule WiseHomex.ApiClientImpl do
     }
 
     Request.post(config, "/statements/next", payload, query)
+  end
+
+  # Run verification
+  def run_verification_job(config, statement_check_id) do
+    payload = %{
+      data: %{
+        type: "verification_job",
+        attributes: %{
+          statement_check_id: statement_check_id
+        }
+      }
+    }
+
+    Request.post(config, "/verification-jobs", payload)
   end
 
   # Wmbus Cache
