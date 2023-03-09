@@ -3,7 +3,6 @@ defmodule WiseHomex.Test.ApiClientMock do
   Implementation of all functions for the ApiClient Mock.
   Before using this Mock, remember to start the mock server
   """
-
   @behaviour WiseHomex.ApiClientBehaviour
 
   use WiseHomex.Test.ApiClientMock.Creator
@@ -97,6 +96,11 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:unlock_gateway, %{id: id, seconds: seconds})
   end
 
+  # Job
+  def run_job(_config, job_id) do
+    call_and_get_mock_value(:run_job, %{job_id: job_id})
+  end
+
   # KEM uploads
   def upload_kem(_config, opts) do
     call_and_get_mock_value(:upload_kem, %{opts: opts})
@@ -176,6 +180,11 @@ defmodule WiseHomex.Test.ApiClientMock do
   # Statement
   def create_next_statement(_config, prev_statement_id, query) do
     call_and_get_mock_value(:create_next_statement, %{prev_statement_id: prev_statement_id, query: query})
+  end
+
+  # Run verification
+  def run_verification_job(_config, statement_check_id) do
+    call_and_get_mock_value(:run_verification_job, %{statement_check_id: statement_check_id})
   end
 
   # Wmbus Cache

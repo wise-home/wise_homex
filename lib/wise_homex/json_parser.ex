@@ -16,6 +16,7 @@ defmodule WiseHomex.JSONParser do
              "ds-energy-location-already-matched" => WiseHomex.DSEnergyLocationMatch,
              "ds-energy-location-matches" => WiseHomex.DSEnergyLocationMatch,
              "encryption-keys" => WiseHomex.EncKey,
+             "jobs" => WiseHomex.Job,
              "kems" => WiseHomex.KEMInfo,
              "latest-reports" => WiseHomex.LatestReport,
              "measurements" => WiseHomex.Measurement,

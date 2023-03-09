@@ -193,6 +193,12 @@ defmodule WiseHomex do
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
 
+  # Job
+  @doc """
+  Run a job
+  """
+  def run_job(config, job_id), do: api_client().run_job(config, job_id)
+
   # KEM uploads
 
   @doc """
@@ -295,6 +301,14 @@ defmodule WiseHomex do
   """
   def create_next_statement(config, prev_statement_id, query \\ %{}),
     do: api_client().create_next_statement(config, prev_statement_id, query)
+
+  # Run verification job
+
+  @doc """
+  Execute a verification job 
+  """
+  def run_verification_job(config, statement_check_id),
+    do: api_client().run_verification_job(config, statement_check_id)
 
   # Wmbus Cache
 
