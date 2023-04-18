@@ -5,6 +5,7 @@ defmodule WiseHomex.ForeignDevice do
 
   embedded_schema do
     belongs_to :household, WiseHomex.Household
+    belongs_to :room, WiseHomex.Room
 
     field :start_date, :date
     field :end_date, :date
