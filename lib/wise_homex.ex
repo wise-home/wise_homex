@@ -193,6 +193,12 @@ defmodule WiseHomex do
   """
   def unlock_gateway(config, id, seconds), do: api_client().unlock_gateway(config, id, seconds)
 
+  # Job
+  @doc """
+  Run a job
+  """
+  def run_job(config, job_id), do: api_client().run_job(config, job_id)
+
   # KEM uploads
 
   @doc """

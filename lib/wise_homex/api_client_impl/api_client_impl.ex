@@ -237,6 +237,21 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> id <> "/unlocks", payload)
   end
 
+  def run_job(config, id) do
+    payload =
+      %{
+        data: %{
+          type: "job-id",
+          attributes: %{
+            job_id: id
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/run-job", payload)
+  end
+
   # KEM uploads
   def upload_kem(config, file_base64: file_base64, key: key) do
     payload =
