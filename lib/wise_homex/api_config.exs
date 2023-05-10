@@ -355,14 +355,6 @@ endpoints = [
   },
   %{
     endpoints: [:show, :update],
-    model: WiseHomex.StatementCheck,
-    name_plural: "statement_checks",
-    name_singular: "statement_check",
-    path: "/statement-checks",
-    type: "statement-checks"
-  },
-  %{
-    endpoints: [:show, :update],
     model: WiseHomex.StatementConfig,
     name_plural: "statement_configs",
     name_singular: "statement_config",
