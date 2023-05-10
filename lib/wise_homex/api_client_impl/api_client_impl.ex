@@ -473,20 +473,6 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/statements/next", payload, query)
   end
 
-  # Run verification
-  def run_verification_job(config, statement_check_id) do
-    payload = %{
-      data: %{
-        type: "verification_job",
-        attributes: %{
-          statement_check_id: statement_check_id
-        }
-      }
-    }
-
-    Request.post(config, "/verification-jobs", payload)
-  end
-
   # Wmbus Cache
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
