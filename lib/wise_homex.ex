@@ -302,14 +302,6 @@ defmodule WiseHomex do
   def create_next_statement(config, prev_statement_id, query \\ %{}),
     do: api_client().create_next_statement(config, prev_statement_id, query)
 
-  # Run verification job
-
-  @doc """
-  Execute a verification job 
-  """
-  def run_verification_job(config, statement_check_id),
-    do: api_client().run_verification_job(config, statement_check_id)
-
   # Wmbus Cache
 
   @doc """
