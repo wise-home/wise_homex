@@ -12,7 +12,8 @@ defmodule WiseHomex.TapPlace do
     field :active_from, :date
     field :active_to, :date
     field :tap_shares, :integer
-    field :danish, :string
+    field :tap_type_danish_name, :string
+    field :custom_name, :string, default: nil
   end
 
   def tap_type_kinds do
