@@ -242,6 +242,12 @@ defmodule WiseHomex do
   def property_change_admin(config, id, attrs, rels, query \\ %{}),
     do: api_client().property_change_admin(config, id, attrs, rels, query)
 
+  @doc """
+  Sets given tap shares settlement value for all households in property.
+  """
+  def property_set_tap_shares_settlement_value_for_all_households(config, property_id, attrs),
+    do: api_client().property_set_tap_shares_settlement_value_for_all_households(config, property_id, attrs)
+
   # Reports
 
   @doc """

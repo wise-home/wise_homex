@@ -312,6 +312,18 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/properties/#{id}/change-admin", payload, query)
   end
 
+  def property_set_tap_shares_settlement_value_for_all_households(config, property_id, attrs) do
+    payload = %{
+      data: %{
+        type: "set-tap-shares-settlement-value-for-all-households",
+        id: property_id,
+        attributes: attrs
+      }
+    }
+
+    Request.patch(config, "/properties/#{property_id}/set-tap-shares-settlement-value-for-all-households", payload)
+  end
+
   # Property Syncs UNIK
 
   @doc """

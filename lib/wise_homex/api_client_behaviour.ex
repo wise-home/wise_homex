@@ -214,6 +214,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_property(Config.t(), id, query) :: response
   @callback update_property(Config.t(), id, attributes, relationships, query) :: response
   @callback property_change_admin(Config.t(), id, attributes, relationships, query) :: response
+  @callback property_set_tap_shares_settlement_value_for_all_households(Config.t(), id, attributes) :: response
 
   # Property Syncs
   @callback sync_property(Config.t(), id) :: response

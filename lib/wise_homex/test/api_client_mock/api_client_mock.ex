@@ -120,6 +120,13 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:property_change_admin, %{id: id, attrs: attrs, rels: rels, query: query})
   end
 
+  def property_set_tap_shares_settlement_value_for_all_households(_config, property_id, attrs) do
+    call_and_get_mock_value(
+      :property_set_tap_shares_settlement_value_for_all_households,
+      %{id: property_id, attrs: attrs}
+    )
+  end
+
   # Property Syncs UNIK
   def create_synced_property_unik(_config, property_number, company_number, admin_id) do
     call_and_get_mock_value(:create_synced_property_unik, %{
