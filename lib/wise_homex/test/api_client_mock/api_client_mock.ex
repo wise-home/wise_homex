@@ -120,10 +120,36 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:property_change_admin, %{id: id, attrs: attrs, rels: rels, query: query})
   end
 
-  def property_set_tap_shares_settlement_value_for_all_households(_config, property_id, attrs) do
+  def property_set_tap_shares_for_households(_config, property_id, attrs) do
     call_and_get_mock_value(
-      :property_set_tap_shares_settlement_value_for_all_households,
-      %{id: property_id, attrs: attrs}
+      :property_set_tap_shares_for_households,
+      %{
+        type: "set-tap-shares-for-households",
+        id: property_id,
+        attrs: attrs
+      }
+    )
+  end
+
+  def property_calculate_tap_shares_for_households(_config, property_id, attrs) do
+    call_and_get_mock_value(
+      :property_calculate_tap_shares_for_households,
+      %{
+        type: "calculate-tap-shares-for-households",
+        id: property_id,
+        attrs: attrs
+      }
+    )
+  end
+
+  def property_calculate_room_tap_shares_for_households(_config, property_id, attrs) do
+    call_and_get_mock_value(
+      :property_calculate_room_tap_shares_for_households,
+      %{
+        type: "calculate-room-tap-shares-for-households",
+        id: property_id,
+        attrs: attrs
+      }
     )
   end
 

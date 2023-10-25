@@ -92,19 +92,70 @@ defmodule WiseHomex.ApiClientTest do
     end
   end
 
-  test "property_set_tap_shares_settlement_value_for_all_households/5 happy path", %{config: config} do
+  test "property_set_tap_shares_for_households/5 happy path", %{config: config} do
     MockServer.set(
-      :property_set_tap_shares_settlement_value_for_all_households,
-      %{id: "property_id", attrs: %{does_not_matter: :does_not_matter}},
+      :property_set_tap_shares_for_households,
+      %{
+        type: "set-tap-shares-for-households",
+        id: "property_id",
+        attrs: %{does_not_matter: :does_not_matter}
+      },
       {:ok, :empty}
     )
 
     {:ok, _account_users} =
-      WiseHomex.property_set_tap_shares_settlement_value_for_all_households(config, "property_id", %{
+      WiseHomex.property_set_tap_shares_for_households(config, "property_id", %{
         does_not_matter: :does_not_matter
       })
 
-    assert MockServer.called?(:property_set_tap_shares_settlement_value_for_all_households) == %{
+    assert MockServer.called?(:property_set_tap_shares_for_households) == %{
+             type: "set-tap-shares-for-households",
+             id: "property_id",
+             attrs: %{does_not_matter: :does_not_matter}
+           }
+  end
+
+  test "property_calculate_tap_shares_for_households/5 happy path", %{config: config} do
+    MockServer.set(
+      :property_calculate_tap_shares_for_households,
+      %{
+        type: "calculate-tap-shares-for-households",
+        id: "property_id",
+        attrs: %{does_not_matter: :does_not_matter}
+      },
+      {:ok, :empty}
+    )
+
+    {:ok, _account_users} =
+      WiseHomex.property_calculate_tap_shares_for_households(config, "property_id", %{
+        does_not_matter: :does_not_matter
+      })
+
+    assert MockServer.called?(:property_calculate_tap_shares_for_households) == %{
+             type: "calculate-tap-shares-for-households",
+             id: "property_id",
+             attrs: %{does_not_matter: :does_not_matter}
+           }
+  end
+
+  test "property_calculate_room_tap_shares_for_households/5 happy path", %{config: config} do
+    MockServer.set(
+      :property_calculate_room_tap_shares_for_households,
+      %{
+        type: "calculate-room-tap-shares-for-households",
+        id: "property_id",
+        attrs: %{does_not_matter: :does_not_matter}
+      },
+      {:ok, :empty}
+    )
+
+    {:ok, _account_users} =
+      WiseHomex.property_calculate_room_tap_shares_for_households(config, "property_id", %{
+        does_not_matter: :does_not_matter
+      })
+
+    assert MockServer.called?(:property_calculate_room_tap_shares_for_households) == %{
+             type: "calculate-room-tap-shares-for-households",
              id: "property_id",
              attrs: %{does_not_matter: :does_not_matter}
            }

@@ -312,16 +312,40 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/properties/#{id}/change-admin", payload, query)
   end
 
-  def property_set_tap_shares_settlement_value_for_all_households(config, property_id, attrs) do
+  def property_set_tap_shares_for_households(config, property_id, attrs) do
     payload = %{
       data: %{
-        type: "set-tap-shares-settlement-value-for-all-households",
+        type: "set-tap-shares-for-households",
         id: property_id,
         attributes: attrs
       }
     }
 
-    Request.patch(config, "/properties/#{property_id}/set-tap-shares-settlement-value-for-all-households", payload)
+    Request.patch(config, "/properties/#{property_id}/set-tap-shares-for-households", payload)
+  end
+
+  def property_calculate_tap_shares_for_households(config, property_id, attrs) do
+    payload = %{
+      data: %{
+        type: "calculate-tap-shares-for-households",
+        id: property_id,
+        attributes: attrs
+      }
+    }
+
+    Request.patch(config, "/properties/#{property_id}/calculate-tap-shares-for-households", payload)
+  end
+
+  def property_calculate_room_tap_shares_for_households(config, property_id, attrs) do
+    payload = %{
+      data: %{
+        type: "calculate-room-tap-shares-for-households",
+        id: property_id,
+        attributes: attrs
+      }
+    }
+
+    Request.patch(config, "/properties/#{property_id}/calculate-room-tap-shares-for-households", payload)
   end
 
   # Property Syncs UNIK
