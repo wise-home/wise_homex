@@ -103,10 +103,10 @@ defmodule WiseHomex.ApiClientTest do
       {:ok, :empty}
     )
 
-    {:ok, _account_users} =
-      WiseHomex.property_set_tap_shares_for_households(config, "property_id", %{
-        does_not_matter: :does_not_matter
-      })
+    assert {:ok, :empty} =
+             WiseHomex.property_set_tap_shares_for_households(config, "property_id", %{
+               does_not_matter: :does_not_matter
+             })
 
     assert MockServer.called?(:property_set_tap_shares_for_households) == %{
              type: "set-tap-shares-for-households",
@@ -126,10 +126,10 @@ defmodule WiseHomex.ApiClientTest do
       {:ok, :empty}
     )
 
-    {:ok, _account_users} =
-      WiseHomex.property_calculate_tap_shares_for_households(config, "property_id", %{
-        does_not_matter: :does_not_matter
-      })
+    assert {:ok, :empty} =
+             WiseHomex.property_calculate_tap_shares_for_households(config, "property_id", %{
+               does_not_matter: :does_not_matter
+             })
 
     assert MockServer.called?(:property_calculate_tap_shares_for_households) == %{
              type: "calculate-tap-shares-for-households",
@@ -149,10 +149,10 @@ defmodule WiseHomex.ApiClientTest do
       {:ok, :empty}
     )
 
-    {:ok, _account_users} =
-      WiseHomex.property_calculate_room_tap_shares_for_households(config, "property_id", %{
-        does_not_matter: :does_not_matter
-      })
+    assert {:ok, :empty} =
+             WiseHomex.property_calculate_room_tap_shares_for_households(config, "property_id", %{
+               does_not_matter: :does_not_matter
+             })
 
     assert MockServer.called?(:property_calculate_room_tap_shares_for_households) == %{
              type: "calculate-room-tap-shares-for-households",
