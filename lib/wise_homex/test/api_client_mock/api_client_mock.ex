@@ -120,6 +120,16 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:property_change_admin, %{id: id, attrs: attrs, rels: rels, query: query})
   end
 
+  def property_delete_tap_shares_for_households(_config, property_id) do
+    call_and_get_mock_value(
+      :property_delete_tap_shares_for_households,
+      %{
+        type: "delete-tap-shares-for-households",
+        id: property_id
+      }
+    )
+  end
+
   def property_set_tap_shares_for_households(_config, property_id, attrs) do
     call_and_get_mock_value(
       :property_set_tap_shares_for_households,

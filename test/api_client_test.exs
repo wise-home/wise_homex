@@ -92,6 +92,24 @@ defmodule WiseHomex.ApiClientTest do
     end
   end
 
+  test "property_delete_tap_shares_for_households/2 happy path", %{config: config} do
+    MockServer.set(
+      :property_delete_tap_shares_for_households,
+      %{
+        type: "delete-tap-shares-for-households",
+        id: "property_id"
+      },
+      {:ok, :empty}
+    )
+
+    assert {:ok, :empty} = WiseHomex.property_delete_tap_shares_for_households(config, "property_id")
+
+    assert MockServer.called?(:property_delete_tap_shares_for_households) == %{
+             type: "delete-tap-shares-for-households",
+             id: "property_id"
+           }
+  end
+
   test "property_set_tap_shares_for_households/5 happy path", %{config: config} do
     MockServer.set(
       :property_set_tap_shares_for_households,
