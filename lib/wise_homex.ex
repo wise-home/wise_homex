@@ -245,8 +245,8 @@ defmodule WiseHomex do
   @doc """
   Deletes tap shares settlement values for all households in property.
   """
-  def property_delete_tap_shares_for_households(config, property_id),
-    do: api_client().property_delete_tap_shares_for_households(config, property_id)
+  def property_delete_unlimited_active_period_tap_shares_for_households(config, property_id),
+    do: api_client().property_delete_unlimited_active_period_tap_shares_for_households(config, property_id)
 
   @doc """
   Sets given tap shares settlement value for all households in property.

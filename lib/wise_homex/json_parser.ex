@@ -10,6 +10,7 @@ defmodule WiseHomex.JSONParser do
              "add-start-readings-result" => WiseHomex.AddStartReadingsResult,
              "configurable-meter-id" => WiseHomex.ConfigurableMeterID,
              "configurable-meters" => WiseHomex.ConfigurableMeters,
+             "delete-tap-shares-for-households-result" => WiseHomex.DeleteTapSharesForHouseholdsResult,
              "degree-days" => WiseHomex.DegreeDay,
              "device-imports" => WiseHomex.DeviceImport,
              "device-types" => WiseHomex.DeviceType,
