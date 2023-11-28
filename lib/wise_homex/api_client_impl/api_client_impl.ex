@@ -312,6 +312,21 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/properties/#{id}/change-admin", payload, query)
   end
 
+  def property_delete_unlimited_active_period_tap_shares_for_households(config, property_id) do
+    payload = %{
+      data: %{
+        type: "delete-tap-shares-for-households",
+        id: property_id
+      }
+    }
+
+    Request.patch(
+      config,
+      "/properties/#{property_id}/delete-unlimited-active-period-tap-shares-for-households",
+      payload
+    )
+  end
+
   def property_set_tap_shares_for_households(config, property_id, attrs) do
     payload = %{
       data: %{

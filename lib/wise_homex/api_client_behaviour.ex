@@ -214,6 +214,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_property(Config.t(), id, query) :: response
   @callback update_property(Config.t(), id, attributes, relationships, query) :: response
   @callback property_change_admin(Config.t(), id, attributes, relationships, query) :: response
+  @callback property_delete_unlimited_active_period_tap_shares_for_households(Config.t(), id) :: response
   @callback property_set_tap_shares_for_households(Config.t(), id, attributes) :: response
   @callback property_calculate_tap_shares_for_households(Config.t(), id, attributes) :: response
   @callback property_calculate_room_tap_shares_for_households(Config.t(), id, attributes) :: response
