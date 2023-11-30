@@ -335,6 +335,6 @@ defmodule WiseHomex do
   @doc """
   Get WMBus measurement modifications
   """
-  def get_wmbus_measurement_modifications(config, query \\ %{}), do: api_client().get_wmbus_measurement_modifications(config, query)
-
+  def get_wmbus_measurement_modifications(config, query \\ %{}),
+    do: api_client().get_wmbus_measurement_modifications(config, query)
 end
