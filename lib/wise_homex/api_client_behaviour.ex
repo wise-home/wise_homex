@@ -334,6 +334,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Wmbus Cache
   @callback get_wmbus_cache(Config.t(), id, query) :: response
   @callback refresh_wmbus_cache(Config.t(), id) :: response
+  @callback get_wmbus_measurement_modifications(Config.t(), query) :: response
 
   # Zip codes
   @callback get_zip_codes(Config.t(), query) :: response

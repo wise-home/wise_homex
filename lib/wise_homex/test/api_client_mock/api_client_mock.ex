@@ -233,4 +233,8 @@ defmodule WiseHomex.Test.ApiClientMock do
   def refresh_wmbus_cache(_config, gateway_id) do
     call_and_get_mock_value(:refresh_wmbus_cache, %{gateway_id: gateway_id})
   end
+
+  def get_wmbus_measurement_modifications(_config, query) do
+    call_and_get_mock_value(:get_wmbus_measurement_modifications, %{query: query})
+  end
 end

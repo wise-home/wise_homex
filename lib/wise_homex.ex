@@ -337,4 +337,10 @@ defmodule WiseHomex do
   Refresh wmbus cache
   """
   def refresh_wmbus_cache(config, gateway_id), do: api_client().refresh_wmbus_cache(config, gateway_id)
+
+  @doc """
+  Get WMBus measurement modifications
+  """
+  def get_wmbus_measurement_modifications(config, query \\ %{}),
+    do: api_client().get_wmbus_measurement_modifications(config, query)
 end

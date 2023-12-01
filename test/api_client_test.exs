@@ -179,4 +179,19 @@ defmodule WiseHomex.ApiClientTest do
              attrs: %{does_not_matter: :does_not_matter}
            }
   end
+
+  test "get_wmbus_measurement_modifications/2 happy path", %{config: config} do
+    MockServer.set(
+      :get_wmbus_measurement_modifications,
+      %{query: %{"does-not-matter" => "does-not-matter"}},
+      {:ok, %WiseHomex.WMBusMeasurementModification{device_serial: "TestSerial"}}
+    )
+
+    assert {:ok, %WiseHomex.WMBusMeasurementModification{device_serial: "TestSerial"}} =
+             WiseHomex.get_wmbus_measurement_modifications(config, %{"does-not-matter" => "does-not-matter"})
+
+    assert MockServer.called?(:get_wmbus_measurement_modifications) == %{
+             query: %{"does-not-matter" => "does-not-matter"}
+           }
+  end
 end

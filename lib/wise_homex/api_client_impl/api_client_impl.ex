@@ -533,6 +533,10 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
   end
 
+  def get_wmbus_measurement_modifications(config, query \\ %{}) do
+    Request.get(config, "/wmbus-measurement-modifications", query)
+  end
+
   # Utility functions
   defp normalize_payload(%Date{} = date) do
     Date.to_string(date)
