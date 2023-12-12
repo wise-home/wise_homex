@@ -167,7 +167,7 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(
       :property_import_relationships,
       %{
-        type: "relationships-import",
+        type: "import-relationships",
         id: property_id,
         attrs: attrs
       }
