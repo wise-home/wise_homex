@@ -266,6 +266,12 @@ defmodule WiseHomex do
   def property_calculate_room_tap_shares_for_households(config, property_id, attrs),
     do: api_client().property_calculate_room_tap_shares_for_households(config, property_id, attrs)
 
+  @doc """
+  Imports property relationships csv.
+  """
+  def property_import_relationships(config, property_id, attrs),
+    do: api_client().property_import_relationships(config, property_id, attrs)
+
   # Reports
 
   @doc """

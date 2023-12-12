@@ -218,6 +218,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback property_set_tap_shares_for_households(Config.t(), id, attributes) :: response
   @callback property_calculate_tap_shares_for_households(Config.t(), id, attributes) :: response
   @callback property_calculate_room_tap_shares_for_households(Config.t(), id, attributes) :: response
+  @callback property_import_relationships(Config.t(), id, attributes) :: response
 
   # Property Syncs
   @callback sync_property(Config.t(), id) :: response
