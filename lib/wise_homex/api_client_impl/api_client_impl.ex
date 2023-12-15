@@ -363,6 +363,18 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/properties/#{property_id}/calculate-room-tap-shares-for-households", payload)
   end
 
+  def property_import_relationships(config, property_id, attrs) do
+    payload = %{
+      data: %{
+        type: "import-relationships",
+        id: property_id,
+        attributes: attrs
+      }
+    }
+
+    Request.patch(config, "/properties/#{property_id}/import-relationships", payload)
+  end
+
   # Property Syncs UNIK
 
   @doc """
