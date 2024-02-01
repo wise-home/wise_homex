@@ -15,7 +15,13 @@ defmodule WiseHomex.RequestTest do
         name: "Cool Herc"
       }
 
-      assert Request.prepare_query(query) == [{"cool", "true"}, {"id", "99"}, {"name", "Cool Herc"}]
+      prepared_query = Request.prepare_query(query)
+
+      assert length(prepared_query) == 3
+
+      assert Enum.member?(prepared_query, {"cool", "true"})
+      assert Enum.member?(prepared_query, {"id", "99"})
+      assert Enum.member?(prepared_query, {"name", "Cool Herc"})
     end
 
     test "handles maps with string keys and strings, booleans, integers" do
@@ -34,13 +40,15 @@ defmodule WiseHomex.RequestTest do
         "include" => "property"
       }
 
-      assert Request.prepare_query(query) == [
-               {"filter[target-ids][]", "22"},
-               {"filter[target-ids][]", "25"},
-               {"filter[target-ids][]", "39"},
-               {"filter[target-ids][]", "44"},
-               {"include", "property"}
-             ]
+      prepared_query = Request.prepare_query(query)
+
+      assert length(prepared_query) == 5
+
+      assert Enum.member?(prepared_query, {"filter[target-ids][]", "22"})
+      assert Enum.member?(prepared_query, {"filter[target-ids][]", "25"})
+      assert Enum.member?(prepared_query, {"filter[target-ids][]", "39"})
+      assert Enum.member?(prepared_query, {"filter[target-ids][]", "44"})
+      assert Enum.member?(prepared_query, {"include", "property"})
     end
 
     test "handles lists of strings" do
@@ -77,8 +85,24 @@ defmodule WiseHomex.RequestTest do
 
       path = Request.path_with_query("/api/xx", query) |> URI.decode()
 
-      assert path ==
-               "/api/xx?cool=true&filter[target-ids][]=22&filter[target-ids][]=25&filter[target-ids][]=39&filter[target-ids][]=44&id=99&include=property&target[name]=Cool+Herc"
+      # expect "/api/xx?cool=true&filter[target-ids][]=22&filter[target-ids][]=25&filter[target-ids][]=39&filter[target-ids][]=44&id=99&include=property&target[name]=Cool+Herc"
+      uri = URI.parse(path)
+      assert uri.path == "/api/xx"
+
+      query = uri.query
+
+      assert String.length(query) == 151
+
+      querty_elements = String.split(query, "&")
+
+      assert Enum.member?(querty_elements, "cool=true")
+      assert Enum.member?(querty_elements, "filter[target-ids][]=22")
+      assert Enum.member?(querty_elements, "filter[target-ids][]=25")
+      assert Enum.member?(querty_elements, "filter[target-ids][]=39")
+      assert Enum.member?(querty_elements, "filter[target-ids][]=44")
+      assert Enum.member?(querty_elements, "id=99")
+      assert Enum.member?(querty_elements, "include=property")
+      assert Enum.member?(querty_elements, "target[name]=Cool+Herc")
     end
   end
 end
