@@ -448,5 +448,13 @@ endpoints = [
     name_singular: "zip_code",
     path: "/zip-codes",
     type: "zip-codes"
+  },
+  %{
+    endpoints: [:index],
+    model: WiseHomex.Measurement,
+    name_plural: "measurements",
+    name_singular: "measurement",
+    path: "/measurements",
+    type: "measurements"
   }
 ]
