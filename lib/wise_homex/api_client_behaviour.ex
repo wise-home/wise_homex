@@ -339,4 +339,7 @@ defmodule WiseHomex.ApiClientBehaviour do
 
   # Zip codes
   @callback get_zip_codes(Config.t(), query) :: response
+
+  # Meaurements
+  @callback get_measurements(Config.t(), query) :: response
 end
