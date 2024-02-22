@@ -9,5 +9,6 @@ defmodule WiseHomex.PermanentAccountKey do
     field :token, :string
     field :created_at, :utc_datetime
     field :readonly, :boolean
+    field :meter_data_provider, :boolean
   end
 end
