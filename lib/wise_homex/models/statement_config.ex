@@ -47,6 +47,7 @@ defmodule WiseHomex.StatementConfig do
     field :tenancy_pdf_type, :string
     field :water_settlement_key_end_date, :date
     field :treat_replaced_hcas_as_foreign, :boolean
+    field :inform_admin_about_approval_via_email, :boolean
   end
 
   @doc """
