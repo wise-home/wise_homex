@@ -203,6 +203,28 @@ defmodule WiseHomex.ApiClientTest do
            }
   end
 
+  test "property_reset happy path", %{config: config} do
+    MockServer.set(
+      :property_reset,
+      %{
+        type: "reset-property",
+        id: "property_id"
+      },
+      {:ok, :empty}
+    )
+
+    assert {:ok, :empty} =
+             WiseHomex.property_reset(
+               config,
+               "property_id"
+             )
+
+    assert MockServer.called?(:property_reset) == %{
+             type: "reset-property",
+             id: "property_id"
+           }
+  end
+
   test "get_wmbus_measurement_modifications/2 happy path", %{config: config} do
     MockServer.set(
       :get_wmbus_measurement_modifications,

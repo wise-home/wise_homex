@@ -174,6 +174,16 @@ defmodule WiseHomex.Test.ApiClientMock do
     )
   end
 
+  def property_reset(_config, property_id) do
+    call_and_get_mock_value(
+      :property_reset,
+      %{
+        type: "reset-property",
+        id: property_id
+      }
+    )
+  end
+
   # Property Syncs UNIK
   def create_synced_property_unik(_config, property_number, company_number, admin_id) do
     call_and_get_mock_value(:create_synced_property_unik, %{
