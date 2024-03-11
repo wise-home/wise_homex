@@ -272,6 +272,12 @@ defmodule WiseHomex do
   def property_import_relationships(config, property_id, attrs),
     do: api_client().property_import_relationships(config, property_id, attrs)
 
+  @doc """
+  Reset property: Removes entities referenced from a given, this is meant as an undo of property_import_relationships imports.
+  """
+  def property_reset(config, property_id),
+    do: api_client().property_reset(config, property_id)
+
   # Reports
 
   @doc """

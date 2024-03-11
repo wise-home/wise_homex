@@ -375,6 +375,17 @@ defmodule WiseHomex.ApiClientImpl do
     Request.patch(config, "/properties/#{property_id}/import-relationships", payload)
   end
 
+  def property_reset(config, property_id) do
+    payload = %{
+      data: %{
+        type: "reset-property",
+        id: property_id
+      }
+    }
+
+    Request.post(config, "/properties/#{property_id}/reset", payload)
+  end
+
   # Property Syncs UNIK
 
   @doc """
