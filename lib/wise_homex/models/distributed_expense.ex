@@ -30,7 +30,8 @@ defmodule WiseHomex.DistributedExpense do
       "administration",
       "submeters",
       "renovation",
-      "electricity"
+      "electricity",
+      "eed_including_online_usage_overview"
     ]
   end
 end
