@@ -9,6 +9,7 @@ defmodule WiseHomex.Household do
     has_many :external_households, WiseHomex.ExternalHousehold
     has_many :foreign_devices, WiseHomex.ForeignDevice
     has_many :tenancies, WiseHomex.Tenancy
+    has_many :vacancies, WiseHomex.Vacancy
     has_many :rooms, WiseHomex.Room
     has_many :settlement_values, WiseHomex.SettlementValue
     has_many :unsuccessful_visits, WiseHomex.UnsuccessfulVisit
