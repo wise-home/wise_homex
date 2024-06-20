@@ -12,6 +12,7 @@ defmodule WiseHomex.DistributedExpense do
     field :business_only, :boolean
     field :expense_type, :string
     field :title, :string
+    field :partial, :boolean
   end
 
   @doc """
@@ -19,6 +20,7 @@ defmodule WiseHomex.DistributedExpense do
   """
   def supported_types() do
     [
+      nil,
       "energy_label",
       "distribution_statement",
       "caretaker",
