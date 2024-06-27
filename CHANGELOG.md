@@ -1,5 +1,57 @@
 # Changelog for wise_homex
 
+## 0.6.146 2024-06-27
+
+* build(dependencies): update Mix dependencies (#425)
+* feat(distributed-expense): add partial field and nil expense type (#424)
+* added vacancies to household
+* feat(distributed_expense): add eed_including_online_usage_overview to types (#422)
+* added support for properties/#{property.id}/reset
+* feat(statement-config): add email notification option after approval (#419)
+* change index to show action
+* feat(PermanentAccountKey): add meter_data_provider field to model
+* added measurements
+* added treat_replaced_hcas_as_foreign to statemetnconfig
+* remove unnecessary readme paragraph
+* update deps
+* add property relationships import request (#414)
+* feat(wmbus): add support for retr. WMBus measurement modifications (#413)
+* add delete tap shares for households in property (#412)
+* update tap shares settlement values for all households in property (#411)
+* feat: add custom name of tap place (#410)
+* remove StatementChecks
+* added job end-point
+* add AccountPaymentImporter endpoint
+* added household_sync_identifier
+* add equal count for ready installations
+* Added READy customers 
+* allow ignoring certain types of foreign devices in statement config
+* use Quantity master branch instead of hex.pm version
+* support getting degree days for date range
+* Support technician accesses
+* add payments_last_synced_at to external tenancies
+* add sync block field to external property
+* add new statement config fields
+* add two new fields to statement config
+* GET /device-types
+* removed flatrate from StatementConfig
+* models/room: Add tap_places to Room
+* json_parser: Add TapPlace to parser (special case)
+* models: Add TapPlace
+* endpoint for changing property admin
+* device: has_one DSEnergyMeter
+* Can split device
+* Add support for add_encryption_key
+* models: Add missing external_id:s
+* add external_id to ExternalProperty
+* add readonly field to PermanentAccountKey
+* api_client: Support link/unlink and match DSEnergyLocations
+* models: Add DSEnergyLocationMatch
+* api_client_mock_server: Add support for failed calls
+* Add support for DS Energy resources
+* ready_meter: Rename two sync fields
+* add account to permanent_account_key
+
 ## 0.6.145 2021-12-14
 
 * models/pong: Add tag version
