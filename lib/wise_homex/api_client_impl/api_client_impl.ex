@@ -128,6 +128,19 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/import", payload)
   end
 
+  # Keepfocus devices 
+  def import_keepfocus_devices(config, attrs, rels) do
+    payload = %{
+      data: %{
+        type: "keepfocus-device-import",
+        attributes: attrs,
+        relationships: rels
+      }
+    }
+
+    Request.post(config, "/devices/import-keepfocus", payload)
+  end
+
   def add_encryption_key(config, id, attrs) do
     payload = %{
       data: %{
