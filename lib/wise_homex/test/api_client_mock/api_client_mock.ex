@@ -55,7 +55,7 @@ defmodule WiseHomex.Test.ApiClientMock do
 
   # Import KeepFocus devices from CSV
   def import_keepfocus_devices(_config, attrs, rels) do
-    call_and_get_mock_value(:import_devices, %{attrs: attrs, rels: rels})
+    call_and_get_mock_value(:import_keepfocus_devices, %{attrs: attrs, rels: rels})
   end
 
   def add_encryption_key(_config, device_id, query) do
