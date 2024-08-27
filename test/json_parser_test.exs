@@ -660,6 +660,45 @@ defmodule WiseHomex.JSONParserTest do
     assert household.tenant == nil
   end
 
+  test "parsing empty (`nil`) embed; heat source embeds unknown radiator embedded schema" do
+    data = %{
+      "data" => %{
+        "type" => "heat-sources",
+        "id" => "53fe3057-95c9-43e5-88bc-6fa230510cea",
+        "attributes" => %{
+          "active-from" => nil,
+          "active-to" => nil,
+          "floor-area" => nil,
+          "length" => 5000,
+          "needs-review" => false,
+          "radiator-string" => "01/RIO/S/2/67/414/350/5000",
+          "remote" => false,
+          "source-type" => "radiator",
+          "unknown-radiator" => nil
+        },
+        "relationships" => %{
+          "radiator" => %{
+            "data" => %{
+              "id" => "8837fdd8-c4e6-4df5-b8b0-070bb6f9ee1b",
+              "type" => "radiators"
+            }
+          },
+          "room" => %{
+            "data" => %{
+              "id" => "146",
+              "type" => "rooms"
+            }
+          }
+        }
+      }
+    }
+
+    heat_source = JSONParser.parse(data)
+
+    assert heat_source.id == "53fe3057-95c9-43e5-88bc-6fa230510cea"
+    assert heat_source.unknown_radiator == nil
+  end
+
   test "parsing embed" do
     data = %{
       "data" => %{

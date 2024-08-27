@@ -314,6 +314,10 @@ defmodule WiseHomex.JSONParser do
     %{struct | key => embedded_value}
   end
 
+  defp parse_embed(_module, nil) do
+    nil
+  end
+
   # If the value is a struct, it is already parsed because it is in the included list
   defp parse_embed(_module, %{__struct__: _} = parsed_value) do
     parsed_value
