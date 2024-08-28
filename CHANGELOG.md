@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.147 2024-08-28
+
+* feat(keepfocus-meter-importer): Add KeepFocus meter importer (#428)
+
 ## 0.6.146 2024-06-27
 
 * build(dependencies): update Mix dependencies (#425)
