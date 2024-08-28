@@ -85,6 +85,7 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_devices(Config.t(), query) :: response
   @callback update_device(Config.t(), id, attributes, relationships, query) :: response
   @callback import_devices(Config.t(), attributes, relationships) :: response
+  @callback import_keepfocus_devices(Config.t(), attributes, relationships) :: response
   @callback split_device(Config.t(), attributes, relationships) :: response
   @callback get_device_types(Config.t()) :: response
   @callback change_device_type(Config.t(), id, attributes) :: response
