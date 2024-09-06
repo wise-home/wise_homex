@@ -1,5 +1,10 @@
 # Changelog for wise_homex
 
+## 0.6.148 2024-09-06
+
+* refactor(parsing json responses) support nil embeds
+* feat(heat sources) add unknown radiator
+
 ## 0.6.147 2024-08-28
 
 * feat(keepfocus-meter-importer): Add KeepFocus meter importer (#428)
