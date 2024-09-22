@@ -11,7 +11,7 @@ defmodule WiseHomex.Expense do
     field :accounting_date, :date
     field :company_name, :string
     field :fuel_type, :string
-    field :partial, :boolean
+    field :needs_review, :boolean
     field :total_amount, WiseHomex.QuantityType
     field :usage, WiseHomex.QuantityType
     field :vat_amount, WiseHomex.QuantityType
