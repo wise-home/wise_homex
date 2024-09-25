@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.149 2024-09-25
+
+* refactor(expenses) rename partial to needs_review
+
 ## 0.6.148 2024-09-06
 
 * refactor(parsing json responses) support nil embeds
