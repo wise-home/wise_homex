@@ -70,6 +70,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Bmeters Keys
   @callback upload_bmeters_keys(Config.t(), list) :: response
 
+  # Lansen Keys
+  @callback upload_lansen_keys(Config.t(), list) :: response
+
   # Broken Account Payment
   @callback delete_broken_account_payment(Config.t(), id) :: response
   @callback get_broken_account_payment(Config.t(), id, query) :: response
