@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.150 2024-10-23
+
+* feat(foreign-device): add assocs to room, heat source, and device (#432)
+
 ## 0.6.149 2024-09-25
 
 * refactor(expenses) rename partial to needs_review
