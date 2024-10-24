@@ -82,6 +82,22 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/bmeters/keys", payload)
   end
 
+  # Lansen Keys
+  def upload_lansen_keys(config, file_base64: file_base64) do
+    payload =
+      %{
+        data: %{
+          type: "encryption-keys",
+          attributes: %{
+            file_base64: file_base64
+          }
+        }
+      }
+      |> normalize_payload
+
+    Request.post(config, "/lansen/keys", payload)
+  end
+
   # Calculate missing readings
   def calculate_missing_readings(config, statement_id) do
     payload =

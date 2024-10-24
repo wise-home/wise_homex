@@ -38,6 +38,11 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:upload_bmeters_keys, %{opts: opts})
   end
 
+  # Lansen Keys
+  def upload_lansen_keys(_config, opts) do
+    call_and_get_mock_value(:upload_lansen_keys, %{opts: opts})
+  end
+
   # Calculate missing readings
   def calculate_missing_readings(_config, statement_id) do
     call_and_get_mock_value(:calculate_missing_readings, %{statement_id: statement_id})
