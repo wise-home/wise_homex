@@ -128,6 +128,13 @@ defmodule WiseHomex do
   """
   def upload_bmeters_keys(config, opts), do: api_client().upload_bmeters_keys(config, opts)
 
+  # Lansen Keys
+
+  @doc """
+  Upload a Lansen key file
+  """
+  def upload_lansen_keys(config, opts), do: api_client().upload_lansen_keys(config, opts)
+
   # Calculate missing readings
   def calculate_missing_readings(config, statement_id),
     do: api_client().calculate_missing_readings(config, statement_id)
