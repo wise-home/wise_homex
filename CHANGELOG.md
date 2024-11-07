@@ -1,5 +1,9 @@
 # Changelog for wise_homex
 
+## 0.6.151 2024-11-07
+
+* feat(api-client): add upload option for Lansen keys (#433)
+
 ## 0.6.150 2024-10-23
 
 * feat(foreign-device): add assocs to room, heat source, and device (#432)
