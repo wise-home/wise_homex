@@ -195,6 +195,14 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/#{id}/change-type", payload)
   end
 
+  def delete_all_measurements_for_device(config, id) do
+    Request.delete(config, "/devices/#{id}/measurements")
+  end
+
+  def delete_all_utility_readings_for_device(config, id) do
+    Request.delete(config, "/devices/#{id}/utility-readings")
+  end
+
   # Device balancer
 
   def rebalance_devices(config, admin_id) do
