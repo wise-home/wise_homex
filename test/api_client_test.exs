@@ -239,4 +239,29 @@ defmodule WiseHomex.ApiClientTest do
              query: %{"does-not-matter" => "does-not-matter"}
            }
   end
+
+  test "delete_all_measurements_for_device/2 happy path", %{config: config} do
+    MockServer.set(
+      :delete_all_measurements_for_device,
+      %{id: 1},
+      {:ok, :empty}
+    )
+
+    assert {:ok, :empty} =
+             WiseHomex.delete_all_measurements_for_device(config, 1)
+
+    assert MockServer.called?(:delete_all_measurements_for_device) == %{id: 1}
+  end
+
+  test "delete_all_utility_readings_for_device/2 happy path", %{config: config} do
+    MockServer.set(
+      :delete_all_utility_readings_for_device,
+      %{id: 1},
+      {:ok, :empty}
+    )
+
+    assert {:ok, :empty} = WiseHomex.delete_all_utility_readings_for_device(config, 1)
+
+    assert MockServer.called?(:delete_all_utility_readings_for_device) == %{id: 1}
+  end
 end
