@@ -58,6 +58,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback create_admin_integration_unik(Config.t(), attributes, relationships, query) :: response
   @callback update_admin_integration_unik(Config.t(), id, attributes, relationships, query) :: response
 
+  @callback get_admin_messages(Config.t(), query) :: response
+
   # Angel Note
   @callback create_angel_note(Config.t(), attributes, relationships, query) :: response
   @callback delete_angel_note(Config.t(), id) :: response

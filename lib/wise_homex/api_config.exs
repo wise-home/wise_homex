@@ -58,6 +58,14 @@ endpoints = [
     type: "admin-integrations"
   },
   %{
+    endpoints: [:index],
+    model: WiseHomex.AdminMessage,
+    name_plural: "admin_messages",
+    name_singular: "admin_message",
+    path: "/admin-messages",
+    type: "admin-messages"
+  },
+  %{
     endpoints: [:create, :update, :delete],
     model: WiseHomex.AngelNote,
     name_plural: "angel_notes",
