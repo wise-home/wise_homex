@@ -15,6 +15,7 @@ defmodule WiseHomex.FiscalYear do
     has_many :expenses, WiseHomex.FiscalYear
     has_many :fuel_check_points, WiseHomex.FuelCheckPoint
     has_many :vacancy_account_payments, WiseHomex.VacancyAccountPayment
+    has_many :admin_messages, WiseHomex.AdminMessage
 
     field :utility_type, :string
     field :start_date, :date
