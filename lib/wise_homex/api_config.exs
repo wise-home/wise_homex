@@ -464,5 +464,21 @@ endpoints = [
     name_singular: "measurement",
     path: "/measurements",
     type: "measurements"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ReductionFactor,
+    name_plural: "reduction-factors",
+    name_singular: "reduction-factor",
+    path: "/reduction-factors",
+    type: "reduction-factors"
+  },
+  %{
+    endpoints: [:index, :show, :create, :update, :delete],
+    model: WiseHomex.ThermalInfo,
+    name_plural: "thermal-infos",
+    name_singular: "thermal-info",
+    path: "/thermal-infos",
+    type: "thermal-infos"
   }
 ]
