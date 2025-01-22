@@ -18,6 +18,7 @@ defmodule WiseHomex.StatementConfig do
     belongs_to :hot_water_transmission_key, WiseHomex.SettlementKey, type: :binary_id
     belongs_to :water_settlement_key, WiseHomex.SettlementKey, type: :binary_id
 
+    field :use_external_system_numbers, :boolean
     field :company_number_length, :integer
     field :customer_reference, :string
     field :electricity_settlement_key_end_date, :date
