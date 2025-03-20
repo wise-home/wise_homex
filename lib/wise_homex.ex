@@ -168,11 +168,11 @@ defmodule WiseHomex do
   """
   def change_device_type(config, id, attrs), do: api_client().change_device_type(config, id, attrs)
 
-  def delete_all_measurements_for_device(config, device_id),
-    do: api_client().delete_all_measurements_for_device(config, device_id)
+  def delete_measurements_for_device(config, device_id, attrs),
+    do: api_client().delete_measurements_for_device(config, device_id, attrs)
 
-  def delete_all_utility_readings_for_device(config, device_id),
-    do: api_client().delete_all_utility_readings_for_device(config, device_id)
+  def delete_utility_readings_for_device(config, device_id, attrs),
+    do: api_client().delete_utility_readings_for_device(config, device_id, attrs)
 
   # Device Balancer
 

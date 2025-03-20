@@ -79,12 +79,20 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:change_device_type, %{id: id, attrs: attrs})
   end
 
-  def delete_all_measurements_for_device(_config, id) do
-    call_and_get_mock_value(:delete_all_measurements_for_device, %{id: id})
+  def delete_measurements_for_device(_config, id, attrs) do
+    call_and_get_mock_value(:delete_measurements_for_device, %{
+      type: "delete-measurements",
+      id: id,
+      attrs: attrs
+    })
   end
 
-  def delete_all_utility_readings_for_device(_config, id) do
-    call_and_get_mock_value(:delete_all_utility_readings_for_device, %{id: id})
+  def delete_utility_readings_for_device(_config, id, attrs) do
+    call_and_get_mock_value(:delete_utility_readings_for_device, %{
+      type: "delete-utility-readings",
+      id: id,
+      attrs: attrs
+    })
   end
 
   # Device Balancer
