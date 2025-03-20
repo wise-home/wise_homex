@@ -240,28 +240,45 @@ defmodule WiseHomex.ApiClientTest do
            }
   end
 
-  test "delete_all_measurements_for_device/2 happy path", %{config: config} do
+  test "delete_measurements_for_device/2 happy path", %{config: config} do
     MockServer.set(
-      :delete_all_measurements_for_device,
-      %{id: 1},
+      :delete_measurements_for_device,
+      %{
+        type: "delete-measurements",
+        id: "device_id",
+        attrs: %{does_not_matter: :does_not_matter}
+      },
       {:ok, :empty}
     )
 
     assert {:ok, :empty} =
-             WiseHomex.delete_all_measurements_for_device(config, 1)
+             WiseHomex.delete_measurements_for_device(config, "device_id", %{does_not_matter: :does_not_matter})
 
-    assert MockServer.called?(:delete_all_measurements_for_device) == %{id: 1}
+    assert MockServer.called?(:delete_measurements_for_device) == %{
+             id: "device_id",
+             type: "delete-measurements",
+             attrs: %{does_not_matter: :does_not_matter}
+           }
   end
 
-  test "delete_all_utility_readings_for_device/2 happy path", %{config: config} do
+  test "delete_utility_readings_for_device/2 happy path", %{config: config} do
     MockServer.set(
-      :delete_all_utility_readings_for_device,
-      %{id: 1},
+      :delete_utility_readings_for_device,
+      %{
+        type: "delete-utility-readings",
+        id: "device_id",
+        attrs: %{does_not_matter: :does_not_matter}
+      },
       {:ok, :empty}
     )
 
-    assert {:ok, :empty} = WiseHomex.delete_all_utility_readings_for_device(config, 1)
+    assert {:ok, :empty} =
+             WiseHomex.delete_utility_readings_for_device(config, "device_id", %{does_not_matter: :does_not_matter})
 
-    assert MockServer.called?(:delete_all_utility_readings_for_device) == %{id: 1}
+    assert MockServer.called?(:delete_utility_readings_for_device) == %{
+             id: "device_id",
+             type: "delete-utility-readings",
+             attrs: %{does_not_matter: :does_not_matter}
+           }
   end
 end
