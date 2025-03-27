@@ -38,6 +38,8 @@ defmodule WiseHomex.Device do
 
     has_many :last_measurements, WiseHomex.Measurement
 
+    has_many :external_resources, WiseHomex.ExternalResource
+
     has_one :ready_meter, WiseHomex.ReadyMeter
 
     has_one :ds_energy_meter, WiseHomex.DSEnergyMeter
