@@ -18,5 +18,7 @@ defmodule WiseHomex.ForeignDevice do
     field :reading_type, :string
     field :number, :string
     field :hot_water_heat_meter, :boolean
+
+    has_many :external_resources, WiseHomex.ExternalResource
   end
 end
