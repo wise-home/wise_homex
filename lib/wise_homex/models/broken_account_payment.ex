@@ -12,6 +12,7 @@ defmodule WiseHomex.BrokenAccountPayment do
     field :period_from, :date
     field :period_to, :date
     field :utility_type, :string
+    field :unassoc_tenancy_external_id, :string
     field :external_system, :string
     field :external_id, :string
   end
