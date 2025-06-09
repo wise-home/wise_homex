@@ -20,5 +20,6 @@ defmodule WiseHomex.FiscalYear do
     field :locked_at, :date
     field :utility_type, :string
     field :start_date, :date
+    field :end_date, :date
   end
 end
