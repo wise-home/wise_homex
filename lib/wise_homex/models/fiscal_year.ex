@@ -17,7 +17,7 @@ defmodule WiseHomex.FiscalYear do
     has_many :vacancy_account_payments, WiseHomex.VacancyAccountPayment
     has_many :admin_messages, WiseHomex.AdminMessage
 
-    field :locked_at, :date
+    field :locked_at, :utc_datetime
     field :utility_type, :string
     field :start_date, :date
     field :end_date, :date
