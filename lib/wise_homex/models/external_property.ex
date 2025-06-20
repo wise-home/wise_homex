@@ -24,8 +24,7 @@ defmodule WiseHomex.ExternalProperty do
   def valid_sync_methods do
     [
       "none",
-      "api",
-      "lurtz"
+      "api"
     ]
   end
 end
