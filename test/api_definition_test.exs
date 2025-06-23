@@ -8,14 +8,12 @@ defmodule WiseHomex.ApiDefinitionTest do
     test "produces expected output" do
       api_config = [
         %{type: "accounts", model: WiseHomex.Account},
-        %{type: "account-users", model: WiseHomex.AccountUser},
-        %{type: "admin-integrations", model: WiseHomex.AdminIntegration}
+        %{type: "account-users", model: WiseHomex.AccountUser}
       ]
 
       assert WiseHomex.ApiDefinition.Reader.type_to_model_mappings(api_config) == %{
                "accounts" => WiseHomex.Account,
-               "account-users" => WiseHomex.AccountUser,
-               "admin-integrations" => WiseHomex.AdminIntegration
+               "account-users" => WiseHomex.AccountUser
              }
     end
 
