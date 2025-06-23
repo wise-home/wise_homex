@@ -35,6 +35,7 @@ defmodule WiseHomex.StatementConfig do
     field :ignore_foreign_devices_heat_cost, :boolean
     field :ignore_foreign_devices_heat_energy, :boolean
     field :ignore_foreign_devices_electricity_energy, :boolean
+    field :adjust_conversion_factor_for_active_devices, :boolean
     field :message_all, :string
     field :message_owed, :string
     field :message_reimbursement, :string
