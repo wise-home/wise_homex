@@ -42,22 +42,6 @@ endpoints = [
     type: "admin-datas"
   },
   %{
-    endpoints: [:index, :show, :delete],
-    model: WiseHomex.AdminIntegration,
-    name_plural: "admin_integrations",
-    name_singular: "admin_integration",
-    path: "/admin-integrations",
-    type: "admin-integrations"
-  },
-  %{
-    endpoints: [:create, :update],
-    model: WiseHomex.AdminIntegration,
-    name_plural: "admin_integrations_unik",
-    name_singular: "admin_integration_unik",
-    path: "/admin-integrations/unik",
-    type: "admin-integrations"
-  },
-  %{
     endpoints: [:index],
     model: WiseHomex.AdminMessage,
     name_plural: "admin_messages",
