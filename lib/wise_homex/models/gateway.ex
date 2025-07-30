@@ -15,6 +15,7 @@ defmodule WiseHomex.Gateway do
     field :online, :string
     field :unlocked_at, :utc_datetime
     field :unlocked_seconds, :integer
+    field :unmanaged, :boolean, default: false
     field :enabled_modules, {:array, :string}, default: []
     field :skip_offline_report, :boolean
     field :activated, :boolean
