@@ -25,6 +25,7 @@ defmodule WiseHomex.StatementConfig do
     field :hca_ratio, DecimalType
     field :heat_hca_ratio, DecimalType
     field :heat_settlement_key_end_date, :date
+    field :heat_settlement_key_apply_degree_days, :boolean
     field :heat_transmission_ratio, DecimalType
     field :hot_water_heat_ratio, DecimalType
     field :hot_water_settlement_key_end_date, :date
