@@ -12,7 +12,7 @@ defmodule WiseHomex.FiscalYear do
     has_many :account_payments, WiseHomex.AccountPayment
     has_many :direct_expenses, WiseHomex.DirectExpense
     has_many :distributed_expenses, WiseHomex.DistributedExpense
-    has_many :expenses, WiseHomex.FiscalYear
+    has_many :expenses, WiseHomex.Expense
     has_many :fuel_check_points, WiseHomex.FuelCheckPoint
     has_many :vacancy_account_payments, WiseHomex.VacancyAccountPayment
     has_many :admin_messages, WiseHomex.AdminMessage
