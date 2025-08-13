@@ -21,6 +21,9 @@ defmodule WiseHomex.Household do
     belongs_to :shared_settlement_key, WiseHomex.SettlementKey
     has_many :shared_to, WiseHomex.Household
 
+    # household_id added to silence warning, about missing field, because shared_to is a reference to the same model
+    # the field (household_id) is not used in the schema. 
+    field :household_id, :integer
     field :apartment, :string
     field :active_from, :date
     field :active_to, :date

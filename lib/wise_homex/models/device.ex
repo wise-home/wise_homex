@@ -11,6 +11,10 @@ defmodule WiseHomex.Device do
     belongs_to :serial_connected_to, WiseHomex.Device
     has_many :serial_connected_from, WiseHomex.Device
 
+    # device_id added to silence warning, about missing field, because serial_connected_from is a reference to the same model
+    # the field (device_id) is not used in the schema. 
+    field :device_id, :integer
+
     field :active_from, :date
     field :active_to, :date
     field :attached_to_number, :string
