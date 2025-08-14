@@ -13,6 +13,7 @@ defmodule WiseHomex.UtilityReading do
     field :measurement_at, :utc_datetime
     field :meter_type, :string
     field :needs_review, :boolean
+    field :excluded, :boolean
     field :reading_type, :string
     field :target_date, :date
     field :value, WiseHomex.QuantityType
