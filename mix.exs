@@ -25,7 +25,7 @@ defmodule WiseHomex.MixProject do
   defp deps do
     [
       {:ecto, "~> 3.0"},
-      {:quantity, git: "https://github.com/wise-home/quantity.git", tag: "1.0.4"},
+      {:quantity, git: "https://github.com/wise-home/quantity.git", tag: "1.0.6"},
 
       # JSON parsing
       {:jason, "~> 1.1"},
