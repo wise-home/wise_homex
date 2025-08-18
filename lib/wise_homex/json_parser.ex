@@ -37,6 +37,11 @@ defmodule WiseHomex.JSONParser do
            }
            |> Map.merge(WiseHomex.ApiDefinition.type_to_model_mappings())
 
+  # Suppress warnings for the add_relations function
+  # Function call without opaqueness type mismatch, should be fixed from Elixir 1.19 onwards
+  # see https://github.com/elixir-lang/elixir/issues/14576 
+  @dialyzer {:nowarn_function, add_relations: 3}
+
   @spec parse(map | [map]) :: struct | [struct]
   def parse(json) do
     data = json["data"]
