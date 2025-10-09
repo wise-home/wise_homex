@@ -144,7 +144,7 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/devices/import", payload)
   end
 
-  # Keepfocus devices 
+  # Keepfocus devices
   def import_keepfocus_devices(config, attrs, rels) do
     payload = %{
       data: %{
@@ -435,6 +435,18 @@ defmodule WiseHomex.ApiClientImpl do
     }
 
     Request.post(config, "/properties/#{property_id}/reset", payload)
+  end
+
+  def property_unlink_external(config, property_id, attrs) do
+    payload = %{
+      data: %{
+        type: "unlink-external-entities",
+        id: property_id,
+        attributes: attrs
+      }
+    }
+
+    Request.post(config, "/properties/#{property_id}/unlink-external", payload)
   end
 
   # Property Syncs UNIK

@@ -296,6 +296,12 @@ defmodule WiseHomex do
   def property_reset(config, property_id),
     do: api_client().property_reset(config, property_id)
 
+  @doc """
+  Unlink external elements from a property.
+  """
+  def property_unlink_external(config, property_id, attrs),
+    do: api_client().property_unlink_external(config, property_id, attrs)
+
   # Reports
 
   @doc """

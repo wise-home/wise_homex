@@ -210,6 +210,17 @@ defmodule WiseHomex.Test.ApiClientMock do
     )
   end
 
+  def property_unlink_external(_config, property_id, attrs) do
+    call_and_get_mock_value(
+      :property_unlink_external,
+      %{
+        type: "unlink-external",
+        id: property_id,
+        attrs: attrs
+      }
+    )
+  end
+
   # Property Syncs UNIK
   def create_synced_property_unik(_config, property_number, company_number, admin_id) do
     call_and_get_mock_value(:create_synced_property_unik, %{

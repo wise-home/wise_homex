@@ -225,6 +225,31 @@ defmodule WiseHomex.ApiClientTest do
            }
   end
 
+  test "unlink external entities happy path", %{config: config} do
+    MockServer.set(
+      :property_unlink_external,
+      %{
+        type: "unlink-external",
+        id: "property_id",
+        attrs: %{does_not_matter: :does_not_matter}
+      },
+      {:ok, :empty}
+    )
+
+    assert {:ok, :empty} =
+             WiseHomex.property_unlink_external(
+               config,
+               "property_id",
+               %{does_not_matter: :does_not_matter}
+             )
+
+    assert MockServer.called?(:property_unlink_external) == %{
+             type: "unlink-external",
+             id: "property_id",
+             attrs: %{does_not_matter: :does_not_matter}
+           }
+  end
+
   test "get_wmbus_measurement_modifications/2 happy path", %{config: config} do
     MockServer.set(
       :get_wmbus_measurement_modifications,
