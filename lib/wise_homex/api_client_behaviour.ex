@@ -173,6 +173,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_fuel_check_point(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_fuel_check_point(Config.t(), id) :: response
 
+  # Flex statement
+  @callback create_flex_statement(Config.t(), attributes, relationships, query) :: response
+  @callback get_flex_statement(Config.t(), id, query) :: response
+
   # Gateway
   @callback get_gateway(Config.t(), id, query) :: response
   @callback get_gateways(Config.t(), query) :: response
