@@ -202,6 +202,14 @@ endpoints = [
     type: "fuel-check-points"
   },
   %{
+    endpoints: [:show, :create],
+    model: WiseHomex.FlexStatement,
+    name_plural: "flex_statements",
+    name_singular: "flex_statement",
+    path: "/flex-statements",
+    type: "flex-statements"
+  },
+  %{
     endpoints: [:index, :show, :update, :delete],
     model: WiseHomex.Gateway,
     name_plural: "gateways",
