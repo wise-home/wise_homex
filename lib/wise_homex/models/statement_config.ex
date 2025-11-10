@@ -40,8 +40,9 @@ defmodule WiseHomex.StatementConfig do
     field :message_all, :string
     field :message_owed, :string
     field :message_reimbursement, :string
-    field :moving_fee_on_tenancy, :boolean
-    field :moving_fee_price, QuantityType
+    field :apply_moving_fee, :boolean
+    field :tenancy_moving_fee_price, QuantityType
+    field :vacancy_moving_fee_price, QuantityType
     field :pdf_naming_scheme, :string
     field :property_number_length, :integer
     field :settlement_file, :string
