@@ -43,7 +43,6 @@ defmodule WiseHomex.Device do
     # Fields for heat_cost allocators
     field :hca_scale, :string
     field :hca_reduction_embedded, :boolean
-    field :hca_mounting_point, :string
 
     has_many :last_measurements, WiseHomex.Measurement
 
