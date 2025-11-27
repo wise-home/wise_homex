@@ -623,6 +623,50 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/wmbus-measurement-modifications", query)
   end
 
+  # Thermal Infos
+  def create_thermal_info(config, attrs, rels, query \\ %{}) do
+    payload =
+      %{
+        data: %{
+          type: "thermal-infos",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/thermal-infos", payload, query)
+  end
+
+  def update_thermal_info(config, id, attrs, rels, query \\ %{}) do
+    payload =
+      %{
+        data: %{
+          type: "thermal-infos",
+          id: id,
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.patch(config, "/thermal-infos/" <> id, payload, query)
+  end
+
+  def calculate_reduction_thermal_infos(config, attrs, rels, query \\ %{}) do
+    payload =
+      %{
+        data: %{
+          type: "thermal-infos",
+          attributes: attrs,
+          relationships: rels
+        }
+      }
+      |> normalize_payload()
+
+    Request.post(config, "/thermal-infos/calculate-reduction", payload, query)
+  end
+
   # Utility functions
   defp normalize_payload(%Date{} = date) do
     Date.to_string(date)
