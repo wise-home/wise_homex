@@ -296,25 +296,6 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_wmbus_measurement_modifications, %{query: query})
   end
 
-  # Thermal Infos
-  def create_thermal_info(_config, attrs, rels, query) do
-    args =
-      [attrs: attrs, rels: rels, query: query]
-      |> Enum.reject(fn {_k, v} -> v == %{} end)
-      |> Enum.into(%{})
-
-    call_and_get_mock_value(:create_thermal_info, args)
-  end
-
-  def update_thermal_info(_config, id, attrs, rels, query) do
-    args =
-      [id: id, attrs: attrs, rels: rels, query: query]
-      |> Enum.reject(fn {_k, v} -> v == %{} end)
-      |> Enum.into(%{})
-
-    call_and_get_mock_value(:update_thermal_info, args)
-  end
-
   def calculate_reduction_thermal_infos(_config, attrs, rels, query) do
     args =
       [attrs: attrs, rels: rels, query: query]
