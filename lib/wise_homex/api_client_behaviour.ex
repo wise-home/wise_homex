@@ -274,6 +274,12 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback get_rooms(Config.t(), query) :: response
   @callback update_room(Config.t(), id, attributes, relationships, query) :: response
 
+  # Reduction Factor
+  @callback get_reduction_factor(Config.t(), id, query) :: response
+  @callback create_reduction_factor(Config.t(), attributes, relationships, query) :: response
+  @callback update_reduction_factor(Config.t(), id, attributes, relationships, query) :: response
+  @callback delete_reduction_factor(Config.t(), id) :: response
+
   # SettlementKey
   @callback get_settlement_key(Config.t(), id, query) :: response
   @callback get_settlement_keys(Config.t(), query) :: response
@@ -345,6 +351,6 @@ defmodule WiseHomex.ApiClientBehaviour do
   # Zip codes
   @callback get_zip_codes(Config.t(), query) :: response
 
-  # Meaurements
+  # Measurements
   @callback get_measurements(Config.t(), query) :: response
 end

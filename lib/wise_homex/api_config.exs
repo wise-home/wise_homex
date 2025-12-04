@@ -428,7 +428,7 @@ endpoints = [
   %{
     endpoints: [:update],
     model: WiseHomex.VacancyAccountPayment,
-    name_plural: "vacancy-account-payments",
+    name_plural: "vacancy_account_payments",
     name_singular: "vacancy_account_payment",
     path: "/vacancy-account-payments",
     type: "vacancy-account-payments"
@@ -460,16 +460,16 @@ endpoints = [
   %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.ReductionFactor,
-    name_plural: "reduction-factors",
-    name_singular: "reduction-factor",
+    name_plural: "reduction_factors",
+    name_singular: "reduction_factor",
     path: "/reduction-factors",
     type: "reduction-factors"
   },
   %{
     endpoints: [:index, :show, :create, :update, :delete],
     model: WiseHomex.ThermalInfo,
-    name_plural: "thermal-infos",
-    name_singular: "thermal-info",
+    name_plural: "thermal_infos",
+    name_singular: "thermal_info",
     path: "/thermal-infos",
     type: "thermal-infos"
   }

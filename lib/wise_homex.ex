@@ -380,21 +380,6 @@ defmodule WiseHomex do
   def get_wmbus_measurement_modifications(config, query \\ %{}),
     do: api_client().get_wmbus_measurement_modifications(config, query)
 
-  # Thermal Infos
-  @doc """
-  Create thermal info for a room.
-  """
-  def create_thermal_info(config, attrs, rels \\ %{}, query \\ %{}) do
-    api_client().create_thermal_info(config, attrs, rels, query)
-  end
-
-  @doc """
-  Update thermal info for a room.
-  """
-  def update_thermal_info(config, id, attrs, rels \\ %{}, query \\ %{}) do
-    api_client().update_thermal_info(config, id, attrs, rels, query)
-  end
-
   @doc """
   Calculate reduction factor for thermal info attributes.
   """
