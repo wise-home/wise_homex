@@ -12,7 +12,7 @@ defmodule WiseHomex.Device do
     has_many :serial_connected_from, WiseHomex.Device
 
     # device_id added to silence warning, about missing field, because serial_connected_from is a reference to the same model
-    # the field (device_id) is not used in the schema. 
+    # the field (device_id) is not used in the schema.
     field :device_id, :integer
 
     field :active_from, :date
@@ -39,6 +39,10 @@ defmodule WiseHomex.Device do
     field :physical_size, :string
     field :pipe_size, :string
     field :stopcock, :boolean
+
+    # Fields for heat_cost allocators
+    field :hca_scale, :string
+    field :hca_reduction_embedded, :boolean
 
     has_many :last_measurements, WiseHomex.Measurement
 
