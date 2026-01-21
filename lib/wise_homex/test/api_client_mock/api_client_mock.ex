@@ -295,4 +295,13 @@ defmodule WiseHomex.Test.ApiClientMock do
   def get_wmbus_measurement_modifications(_config, query) do
     call_and_get_mock_value(:get_wmbus_measurement_modifications, %{query: query})
   end
+
+  def calculate_reduction_thermal_infos(_config, attrs, rels, query) do
+    args =
+      [attrs: attrs, rels: rels, query: query]
+      |> Enum.reject(fn {_k, v} -> v == %{} end)
+      |> Enum.into(%{})
+
+    call_and_get_mock_value(:calculate_reduction_thermal_infos, args)
+  end
 end
