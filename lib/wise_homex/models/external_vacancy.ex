@@ -12,5 +12,7 @@ defmodule WiseHomex.ExternalVacancy do
     field :number, :integer
     field :synced, :boolean
     field :last_synced_at, :utc_datetime
+    field :payments_synced, :boolean
+    field :payments_last_synced_at, :utc_datetime
   end
 end
