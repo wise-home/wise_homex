@@ -614,9 +614,7 @@ defmodule WiseHomex.ApiClientImpl do
     payload = %{
       data: %{
         type: "split-statement",
-        relationships: %{
-          statement: %{data: %{type: "statements", id: id}}
-        }
+        id: id
       }
     }
 
