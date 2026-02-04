@@ -618,7 +618,7 @@ defmodule WiseHomex.ApiClientImpl do
       }
     }
 
-    Request.post(config, "/statements/split", payload)
+    Request.post(config, "/statements/" <> statement_id <> "/split", payload)
   end
 
   # Wmbus Cache
