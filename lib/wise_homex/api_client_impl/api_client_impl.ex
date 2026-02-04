@@ -610,6 +610,19 @@ defmodule WiseHomex.ApiClientImpl do
     Request.post(config, "/statements/next", payload, query)
   end
 
+  def split_statement(config, id) do
+    payload = %{
+      data: %{
+        type: "statements",
+        relationships: %{
+          statement: %{data: %{type: "statements", id: id}}
+        }
+      }
+    }
+
+    Request.post(config, "/statements/split", payload)
+  end
+
   # Wmbus Cache
   def get_wmbus_cache(config, gateway_id, query \\ %{}) do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)

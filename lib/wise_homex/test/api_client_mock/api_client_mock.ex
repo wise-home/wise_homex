@@ -283,6 +283,10 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:create_next_statement, %{prev_statement_id: prev_statement_id, query: query})
   end
 
+  def split_statement(_config, statement_id) do
+    call_and_get_mock_value(:split_statement, %{statement_id: statement_id})
+  end
+
   # Wmbus Cache
   def get_wmbus_cache(_config, gateway_id, query) do
     call_and_get_mock_value(:get_wmbus_cache, %{gateway_id: gateway_id, query: query})
