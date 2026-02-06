@@ -611,11 +611,7 @@ defmodule WiseHomex.ApiClientImpl do
   end
 
   def split_statement(config, statement_id) do
-    payload = %{
-      data: %{
-        type: "split-statement"
-      }
-    }
+    payload = %{}
 
     Request.post(config, "/statements/" <> statement_id <> "/split", payload)
   end
