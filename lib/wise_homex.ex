@@ -362,6 +362,18 @@ defmodule WiseHomex do
   def create_next_statement(config, prev_statement_id, query \\ %{}),
     do: api_client().create_next_statement(config, prev_statement_id, query)
 
+  @doc """
+  Split a statement by fiscal years / utility types
+  """
+  def split_statement(config, statement_id),
+    do: api_client().split_statement(config, statement_id)
+
+  @doc """
+  Merge statements of different fiscal years / utility types
+  """
+  def merge_statement(config, statement_id, other_statement_ids),
+    do: api_client().merge_statement(config, statement_id, other_statement_ids)
+
   # Wmbus Cache
 
   @doc """

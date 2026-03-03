@@ -311,6 +311,8 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_statement(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_statement(Config.t(), id) :: response
   @callback create_next_statement(Config.t(), id, query) :: response
+  @callback split_statement(Config.t(), id) :: response
+  @callback merge_statement(Config.t(), id, [id]) :: response
 
   # StatementConfig
   @callback get_statement_config(Config.t(), id, query) :: response
