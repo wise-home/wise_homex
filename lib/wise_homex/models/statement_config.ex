@@ -41,6 +41,7 @@ defmodule WiseHomex.StatementConfig do
     field :message_owed, :string
     field :message_reimbursement, :string
     field :apply_moving_fee, :boolean
+    field :moving_fee_end_date, :date
     field :tenancy_moving_fee_price, QuantityType
     field :vacancy_moving_fee_price, QuantityType
     field :pdf_naming_scheme, :string
