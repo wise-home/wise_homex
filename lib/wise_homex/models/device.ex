@@ -23,7 +23,7 @@ defmodule WiseHomex.Device do
     field :exclude_from_statements, :boolean
     field :has_encryption_key, :boolean
     field :hot_water_heat_meter, :boolean
-    field :inserted_at, :utc_datetime
+    field :registered_at, :utc_datetime
     field :last_seen, :utc_datetime
     field :number, :string
     field :online, :string
