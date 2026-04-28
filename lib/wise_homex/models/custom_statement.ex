@@ -4,6 +4,7 @@ defmodule WiseHomex.CustomStatement do
   use WiseHomex.BaseModel
 
   embedded_schema do
+    belongs_to :household, WiseHomex.Household
     belongs_to :tenancy, WiseHomex.Tenancy
     has_one :pdf, WiseHomex.ExternalResource
 
