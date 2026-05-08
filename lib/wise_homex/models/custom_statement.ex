@@ -6,6 +6,7 @@ defmodule WiseHomex.CustomStatement do
   embedded_schema do
     belongs_to :household, WiseHomex.Household
     belongs_to :tenancy, WiseHomex.Tenancy
+    belongs_to :statement, WiseHomex.Statement
     has_one :pdf, WiseHomex.ExternalResource
 
     field :kind, :string
