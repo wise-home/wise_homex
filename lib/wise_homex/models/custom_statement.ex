@@ -7,6 +7,8 @@ defmodule WiseHomex.CustomStatement do
     belongs_to :household, WiseHomex.Household
     belongs_to :tenancy, WiseHomex.Tenancy
     belongs_to :statement, WiseHomex.Statement
+    belongs_to :approved_by, WiseHomex.User
+    belongs_to :declined_by, WiseHomex.User
     has_one :pdf, WiseHomex.ExternalResource
 
     field :kind, :string
