@@ -8,6 +8,5 @@ defmodule WiseHomex.AngelNote do
     field :target_id, :string
     field :content, :string
     field :dismissed_at, :utc_datetime
-    timestamps type: :utc_datetime
   end
 end
