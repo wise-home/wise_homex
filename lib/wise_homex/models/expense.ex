@@ -15,7 +15,5 @@ defmodule WiseHomex.Expense do
     field :total_amount, WiseHomex.QuantityType
     field :usage, WiseHomex.QuantityType
     field :vat_amount, WiseHomex.QuantityType
-
-    timestamps type: :utc_datetime
   end
 end

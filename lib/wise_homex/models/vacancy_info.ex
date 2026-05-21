@@ -12,6 +12,5 @@ defmodule WiseHomex.VacancyInfo do
     has_one :vacancy, WiseHomex.Vacancy
 
     field :number, :integer
-    timestamps type: :utc_datetime
   end
 end
