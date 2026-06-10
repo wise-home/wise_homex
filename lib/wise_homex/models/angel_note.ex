@@ -7,6 +7,6 @@ defmodule WiseHomex.AngelNote do
     field :target_type, :string
     field :target_id, :string
     field :content, :string
-    field :dismissed_at, :utc_datetime
+    field :dismissed, :boolean, default: false
   end
 end
