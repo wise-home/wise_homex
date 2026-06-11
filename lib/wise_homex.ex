@@ -383,8 +383,12 @@ defmodule WiseHomex do
 
   @doc """
   Refresh wmbus cache
+
+  Pass `%{"all-manufacturers" => "true"}` as query to scan for every manufacturer the gateway can
+  currently see, instead of only manufacturers with known device types.
   """
-  def refresh_wmbus_cache(config, gateway_id), do: api_client().refresh_wmbus_cache(config, gateway_id)
+  def refresh_wmbus_cache(config, gateway_id, query \\ %{}),
+    do: api_client().refresh_wmbus_cache(config, gateway_id, query)
 
   @doc """
   Get WMBus measurement modifications
