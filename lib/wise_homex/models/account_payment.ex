@@ -12,7 +12,5 @@ defmodule WiseHomex.AccountPayment do
     field :excluded, :boolean
     field :q_total_amount, WiseHomex.QuantityType
     field :q_vat_amount, WiseHomex.QuantityType
-
-    timestamps type: :utc_datetime
   end
 end

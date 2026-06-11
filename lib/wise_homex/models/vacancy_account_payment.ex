@@ -13,7 +13,5 @@ defmodule WiseHomex.VacancyAccountPayment do
     field :vat_amount, WiseHomex.QuantityType
     field :accounting_date, :date
     field :excluded, :boolean
-
-    timestamps type: :utc_datetime
   end
 end
