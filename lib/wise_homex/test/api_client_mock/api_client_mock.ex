@@ -296,8 +296,16 @@ defmodule WiseHomex.Test.ApiClientMock do
     call_and_get_mock_value(:get_wmbus_cache, %{gateway_id: gateway_id, query: query})
   end
 
-  def refresh_wmbus_cache(_config, gateway_id) do
-    call_and_get_mock_value(:refresh_wmbus_cache, %{gateway_id: gateway_id})
+  # The query is left out of the mock opts when empty, so existing mocks set without a query keep
+  # matching
+  def refresh_wmbus_cache(_config, gateway_id, query) do
+    opts =
+      case query do
+        empty when empty == %{} -> %{gateway_id: gateway_id}
+        query -> %{gateway_id: gateway_id, query: query}
+      end
+
+    call_and_get_mock_value(:refresh_wmbus_cache, opts)
   end
 
   def get_wmbus_measurement_modifications(_config, query) do

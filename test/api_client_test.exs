@@ -265,6 +265,29 @@ defmodule WiseHomex.ApiClientTest do
            }
   end
 
+  test "refresh_wmbus_cache/3 with a query", %{config: config} do
+    MockServer.set(
+      :refresh_wmbus_cache,
+      %{gateway_id: "123", query: %{"all-manufacturers" => "true"}},
+      {:ok, ""}
+    )
+
+    assert {:ok, _} = WiseHomex.refresh_wmbus_cache(config, "123", %{"all-manufacturers" => "true"})
+
+    assert MockServer.called?(:refresh_wmbus_cache) == %{
+             gateway_id: "123",
+             query: %{"all-manufacturers" => "true"}
+           }
+  end
+
+  test "refresh_wmbus_cache/3 without a query keeps matching mocks set without a query", %{config: config} do
+    MockServer.set(:refresh_wmbus_cache, %{gateway_id: "123"}, {:ok, ""})
+
+    assert {:ok, _} = WiseHomex.refresh_wmbus_cache(config, "123")
+
+    assert MockServer.called?(:refresh_wmbus_cache) == %{gateway_id: "123"}
+  end
+
   test "delete_measurements_for_device/2 happy path", %{config: config} do
     MockServer.set(
       :delete_measurements_for_device,

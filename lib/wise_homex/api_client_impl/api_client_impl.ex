@@ -635,8 +635,8 @@ defmodule WiseHomex.ApiClientImpl do
     Request.get(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", query)
   end
 
-  def refresh_wmbus_cache(config, gateway_id) do
-    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache")
+  def refresh_wmbus_cache(config, gateway_id, query \\ %{}) do
+    Request.post(config, "/gateways/" <> gateway_id <> "/wmbus-meters/cache", %{}, query)
   end
 
   def get_wmbus_measurement_modifications(config, query \\ %{}) do
