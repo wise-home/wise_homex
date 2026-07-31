@@ -11,6 +11,11 @@ defmodule WiseHomex.Statement do
     has_many :jobs, WiseHomex.Job
     has_many :statement_files, WiseHomex.StatementFile
     has_one :statement_config, WiseHomex.StatementConfig
+    # many_to_many because there is no foreign key linking the two here. The
+    # join_through name is a placeholder that exists only so Ecto compiles the
+    # association — it is never queried and does not refer to any real table; we
+    # make no assumptions about the external system's schema.
+    many_to_many :custom_statements, WiseHomex.CustomStatement, join_through: "custom_statement_statements"
 
     field :start_date, :date
     field :end_date, :date
