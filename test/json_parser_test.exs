@@ -333,6 +333,11 @@ defmodule WiseHomex.JSONParserTest do
              %WiseHomex.CustomStatement{id: "10", kind: "flex"},
              %WiseHomex.CustomStatement{id: "11", kind: "manual"}
            ] = statement.custom_statements
+
+    # The join_through table name is Ecto compile-time metadata only — it must
+    # never leak into parsed structs.
+    refute inspect({custom_statement, statement}, limit: :infinity) =~
+             "custom_statement_statements_table_name_placeholder"
   end
 
   test "reading relationships from included entities" do

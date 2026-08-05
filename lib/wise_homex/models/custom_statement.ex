@@ -6,11 +6,11 @@ defmodule WiseHomex.CustomStatement do
   embedded_schema do
     belongs_to :household, WiseHomex.Household
     belongs_to :tenancy, WiseHomex.Tenancy
-    # many_to_many because there is no foreign key linking the two here. The
-    # join_through name is a placeholder that exists only so Ecto compiles the
-    # association — it is never queried and does not refer to any real table; we
-    # make no assumptions about the external system's schema.
-    many_to_many :statements, WiseHomex.Statement, join_through: "custom_statement_statements"
+    # `has_many` would need an owning foreign-key field (e.g. `custom_statement_id` on Statement) that these client
+    # structs don't have
+    # `join_through` value only lets Ecto compile the association; relations are populated from the JSON:API `included`
+    # payload
+    many_to_many :statements, WiseHomex.Statement, join_through: "custom_statement_statements_table_name_placeholder"
     belongs_to :approved_by, WiseHomex.User
     belongs_to :declined_by, WiseHomex.User
     has_one :pdf, WiseHomex.ExternalResource
