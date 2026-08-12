@@ -11,6 +11,10 @@ defmodule WiseHomex.Statement do
     has_many :jobs, WiseHomex.Job
     has_many :statement_files, WiseHomex.StatementFile
     has_one :statement_config, WiseHomex.StatementConfig
+    # `join_through` value only lets Ecto compile the association; relations are populated from the JSON:API `included`
+    # payload
+    many_to_many :custom_statements, WiseHomex.CustomStatement,
+      join_through: "custom_statements_statements_table_name_placeholder"
 
     field :start_date, :date
     field :end_date, :date

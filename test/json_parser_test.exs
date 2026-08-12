@@ -217,6 +217,129 @@ defmodule WiseHomex.JSONParserTest do
     assert [%WiseHomex.Measurement{}] = report.measurements
   end
 
+  test "reading the statement <-> custom statement many_to_many from both sides" do
+    # From the custom statement side: a custom statement linked to two statements
+    custom_statement =
+      """
+      {
+        "jsonapi": {
+          "version": "1.0"
+        },
+        "included": [
+          {
+            "type": "statements",
+            "id": "1",
+            "attributes": {
+              "start-date": "2024-01-01",
+              "end-date": "2024-06-30"
+            }
+          },
+          {
+            "type": "statements",
+            "id": "2",
+            "attributes": {
+              "start-date": "2024-01-01",
+              "end-date": "2024-06-30"
+            }
+          }
+        ],
+        "data": {
+          "type": "custom-statements",
+          "id": "10",
+          "attributes": {
+            "kind": "flex"
+          },
+          "relationships": {
+            "statements": {
+              "data": [
+                {
+                  "type": "statements",
+                  "id": "1"
+                },
+                {
+                  "type": "statements",
+                  "id": "2"
+                }
+              ]
+            }
+          }
+        }
+      }
+      """
+      |> Jason.decode!()
+      |> JSONParser.parse()
+
+    assert %WiseHomex.CustomStatement{id: "10", kind: "flex"} = custom_statement
+
+    assert [
+             %WiseHomex.Statement{id: "1", start_date: ~D[2024-01-01], end_date: ~D[2024-06-30]},
+             %WiseHomex.Statement{id: "2", start_date: ~D[2024-01-01], end_date: ~D[2024-06-30]}
+           ] = custom_statement.statements
+
+    # From the statement side: a statement linked to two custom statements
+    statement =
+      """
+      {
+        "jsonapi": {
+          "version": "1.0"
+        },
+        "included": [
+          {
+            "type": "custom-statements",
+            "id": "10",
+            "attributes": {
+              "kind": "flex"
+            }
+          },
+          {
+            "type": "custom-statements",
+            "id": "11",
+            "attributes": {
+              "kind": "manual"
+            }
+          }
+        ],
+        "data": {
+          "type": "statements",
+          "id": "1",
+          "attributes": {
+            "start-date": "2024-01-01",
+            "end-date": "2024-06-30"
+          },
+          "relationships": {
+            "custom-statements": {
+              "data": [
+                {
+                  "type": "custom-statements",
+                  "id": "10"
+                },
+                {
+                  "type": "custom-statements",
+                  "id": "11"
+                }
+              ]
+            }
+          }
+        }
+      }
+      """
+      |> Jason.decode!()
+      |> JSONParser.parse()
+
+    assert %WiseHomex.Statement{id: "1", start_date: ~D[2024-01-01], end_date: ~D[2024-06-30]} =
+             statement
+
+    assert [
+             %WiseHomex.CustomStatement{id: "10", kind: "flex"},
+             %WiseHomex.CustomStatement{id: "11", kind: "manual"}
+           ] = statement.custom_statements
+
+    # The join_through table name is Ecto compile-time metadata only — it must
+    # never leak into parsed structs.
+    refute inspect({custom_statement, statement}, limit: :infinity) =~
+             "custom_statement_statements_table_name_placeholder"
+  end
+
   test "reading relationships from included entities" do
     # A device with a room with a household
     parsed_response =

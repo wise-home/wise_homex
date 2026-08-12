@@ -6,7 +6,9 @@ defmodule WiseHomex.CustomStatement do
   embedded_schema do
     belongs_to :household, WiseHomex.Household
     belongs_to :tenancy, WiseHomex.Tenancy
-    belongs_to :statement, WiseHomex.Statement
+    # `join_through` value only lets Ecto compile the association; relations are populated from the JSON:API `included`
+    # payload
+    many_to_many :statements, WiseHomex.Statement, join_through: "custom_statements_statements_table_name_placeholder"
     belongs_to :approved_by, WiseHomex.User
     belongs_to :declined_by, WiseHomex.User
     has_one :pdf, WiseHomex.ExternalResource
