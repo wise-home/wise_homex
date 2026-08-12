@@ -210,6 +210,14 @@ endpoints = [
     type: "custom-statements"
   },
   %{
+    endpoints: [:index],
+    model: WiseHomex.CustomStatementJob,
+    name_plural: "custom_statement_jobs",
+    name_singular: "custom_statement_job",
+    path: "/custom-statement-jobs",
+    type: "custom-statement-jobs"
+  },
+  %{
     endpoints: [:index, :show, :update, :delete],
     model: WiseHomex.Gateway,
     name_plural: "gateways",
