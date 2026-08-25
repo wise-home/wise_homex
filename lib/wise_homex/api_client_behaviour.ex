@@ -180,6 +180,9 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback update_custom_statement(Config.t(), id, attributes, relationships, query) :: response
   @callback delete_custom_statement(Config.t(), id) :: response
 
+  # Custom statement job
+  @callback get_custom_statement_jobs(Config.t(), query) :: response
+
   # Gateway
   @callback get_gateway(Config.t(), id, query) :: response
   @callback get_gateways(Config.t(), query) :: response
