@@ -4,7 +4,6 @@ defmodule WiseHomex.CustomStatementJob do
   use WiseHomex.BaseModel
 
   embedded_schema do
-    belongs_to :requester, WiseHomex.Account
     belongs_to :tenancy, WiseHomex.Tenancy
     belongs_to :custom_statement, WiseHomex.CustomStatement
     # `join_through` value only lets Ecto compile the association; relations are populated from the JSON:API `included`
