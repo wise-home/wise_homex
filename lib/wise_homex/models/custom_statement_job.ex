@@ -12,7 +12,6 @@ defmodule WiseHomex.CustomStatementJob do
       join_through: "custom_statement_jobs_statements_table_name_placeholder"
 
     field :kind, :string
-    field :billing_date, :date
     field :tenancy_end_date, :date
     field :inserted_at, :utc_datetime
     field :updated_at, :utc_datetime
