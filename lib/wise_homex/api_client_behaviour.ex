@@ -338,6 +338,10 @@ defmodule WiseHomex.ApiClientBehaviour do
   @callback delete_tenancy(Config.t(), id) :: response
   @callback update_tenancy(Config.t(), id, attributes, relationships, query) :: response
 
+  # Vacancy Info
+  @callback get_vacancy_info(Config.t(), id, query) :: response
+  @callback delete_vacancy_info(Config.t(), id) :: response
+
   # User
   @callback get_users(Config.t(), query) :: response
 

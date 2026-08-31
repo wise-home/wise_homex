@@ -442,6 +442,14 @@ endpoints = [
     type: "vacancy-account-payments"
   },
   %{
+    endpoints: [:show, :delete],
+    model: WiseHomex.VacancyInfo,
+    name_plural: "vacancy_infos",
+    name_singular: "vacancy_info",
+    path: "/vacancy-infos",
+    type: "vacancy-infos"
+  },
+  %{
     endpoints: [:create],
     model: WiseHomex.WMBusMessageQuery,
     name_plural: "wmbus_message_queries",
