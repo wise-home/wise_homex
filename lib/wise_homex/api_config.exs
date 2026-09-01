@@ -210,7 +210,7 @@ endpoints = [
     type: "custom-statements"
   },
   %{
-    endpoints: [:index],
+    endpoints: [:index, :show],
     model: WiseHomex.CustomStatementJob,
     name_plural: "custom_statement_jobs",
     name_singular: "custom_statement_job",
