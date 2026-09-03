@@ -442,7 +442,7 @@ endpoints = [
     type: "vacancy-account-payments"
   },
   %{
-    endpoints: [:show, :delete],
+    endpoints: [:delete],
     model: WiseHomex.VacancyInfo,
     name_plural: "vacancy_infos",
     name_singular: "vacancy_info",
