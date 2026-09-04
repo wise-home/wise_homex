@@ -83,6 +83,20 @@ defmodule WiseHomex.ApiClientTest do
     end
   end
 
+  describe "vacancy info" do
+    test "it deletes a vacancy info", %{config: config} do
+      MockServer.set(
+        :delete_vacancy_info,
+        %{id: "0a482be2-25c0-4449-9e1b-80f8256c94f9"},
+        {:ok, %WiseHomex.VacancyInfo{}}
+      )
+
+      {:ok, _vacancy_info} = config |> WiseHomex.delete_vacancy_info("0a482be2-25c0-4449-9e1b-80f8256c94f9")
+
+      assert MockServer.called?(:delete_vacancy_info) == %{id: "0a482be2-25c0-4449-9e1b-80f8256c94f9"}
+    end
+  end
+
   describe "ping" do
     test "it calls ping with the expected includes", %{config: config} do
       MockServer.set(:ping, %{query: %{"include" => "user,account"}}, {:ok, 1234})
