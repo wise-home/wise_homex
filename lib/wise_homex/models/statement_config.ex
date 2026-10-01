@@ -53,7 +53,13 @@ defmodule WiseHomex.StatementConfig do
     field :water_settlement_key_end_date, :date
     field :treat_replaced_hcas_as_foreign, :boolean
     field :inform_admin_about_approval_via_email, :boolean
+    field :language, :string
   end
+
+  @doc """
+  Available values for :language, which overrides the language of every tenancy statement PDF when set
+  """
+  def language_options(), do: ["da", "en"]
 
   @doc """
   Available values for :pdf_naming_scheme
