@@ -32,7 +32,7 @@ defmodule WiseHomex.MixProject do
       {:jason, "~> 1.1"},
 
       # HTTP Client
-      {:httpoison, "~> 2.0"},
+      {:httpoison, "~> 3.0"},
 
       # Static code analysis
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
