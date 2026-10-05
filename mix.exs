@@ -5,7 +5,7 @@ defmodule WiseHomex.MixProject do
     [
       app: :wise_homex,
       version: "0.6.151",
-      elixir: "~> 1.12",
+      elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
@@ -32,7 +32,7 @@ defmodule WiseHomex.MixProject do
       {:jason, "~> 1.1"},
 
       # HTTP Client
-      {:httpoison, "~> 2.0"},
+      {:httpoison, "~> 3.0"},
 
       # Static code analysis
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},

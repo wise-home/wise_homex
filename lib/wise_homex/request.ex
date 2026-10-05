@@ -130,6 +130,8 @@ defmodule WiseHomex.Request do
     case reason do
       :econnrefused -> :econnrefused
       :connect_timeout -> :connect_timeout
+      # hackney 4 reports a connect that never completes as a pool checkout timeout
+      :checkout_timeout -> :connect_timeout
       :timeout -> :timeout
       :closed -> :closed
     end
