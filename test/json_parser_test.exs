@@ -1032,4 +1032,27 @@ defmodule WiseHomex.JSONParserTest do
     assert wmbus_message_query.gateway_id == "7"
     assert wmbus_message_query.wmbus_message_infos |> length() == 0
   end
+
+  test "parse device type supports history readings" do
+    data = %{
+      "data" => %{
+        "attributes" => %{"number" => "00000107"},
+        "id" => "8350",
+        "relationships" => %{"device-type" => %{"data" => %{"id" => "23", "type" => "device-types"}}},
+        "type" => "devices"
+      },
+      "included" => [
+        %{
+          "attributes" => %{"system-name" => "sontex_hca", "supports-history-readings" => false},
+          "id" => "23",
+          "type" => "device-types"
+        }
+      ]
+    }
+
+    %Device{device_type: device_type} = JSONParser.parse(data)
+
+    assert device_type.system_name == "sontex_hca"
+    assert device_type.supports_history_readings == false
+  end
 end
