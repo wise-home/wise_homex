@@ -10,5 +10,6 @@ defmodule WiseHomex.DeviceType do
     field :name, :string
     field :manufacturer, :string
     field :kind, :string
+    field :supports_history_readings, :boolean
   end
 end
